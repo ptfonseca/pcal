@@ -24,13 +24,3 @@ testthat::test_that("bcal 0.001", {
   )
 }
 )
-
-
-
-
-
-
-round(bcal(.2), 3)
-round(bcal(.1), 3)
-
-

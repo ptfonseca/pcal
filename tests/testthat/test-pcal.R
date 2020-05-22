@@ -26,24 +26,26 @@ testthat::test_that("pcal table", {
 )
 
 testthat::test_that("pcal bl1", {
+
+  theta_bl1 <- sapply(1:9, function(x){log10(1+1/(x))})
+
   testthat::expect_equal(
-    round(pcal(sapply(lapply(datalist_bl1, chisq_test_multinomial, categories = 1:9, null_par = theta_benford(1)), FUN = "[[", "p.value")), 3),
+    round(pcal(sapply(lapply(lapply(datalist_bl1, table), chisq.test, p = theta_bl1), FUN = "[[", "p.value")), 3),
     c(0.000, 0.000, 0.000, 0.000, 0.002, 0.002, 0.000, 0.002, 0.000, 0.105, 0.000, 0.002)
   )
 }
 )
 
 testthat::test_that("pcal bl2", {
+
+  theta_bl2 <- sapply(0:9, function(x){sum(log10(1+1/(10*(1:9)+x)))})
+
   testthat::expect_equal(
-    round(pcal(sapply(lapply(datalist_bl2, chisq_test_multinomial, categories = 0:9, null_par = theta_benford(2)), FUN = "[[", "p.value")), 3),
+    round(pcal(sapply(lapply(lapply(datalist_bl2, table), chisq.test, p = theta_bl2), FUN = "[[", "p.value")), 3),
     c(0.357, 0.481, 0.331, 0.069, 0.453, 0.152, 0.500, 0.346, 0.089, 0.313, 0.461, 0.500)
   )
 }
 )
-
-
-
-
 
 
 
