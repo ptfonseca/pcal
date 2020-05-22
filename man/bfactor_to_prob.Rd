@@ -2,45 +2,54 @@
 % Please edit documentation in R/bfactor_to_prob.R
 \name{bfactor_to_prob}
 \alias{bfactor_to_prob}
-\title{Posterior Probabilities of Precise Null Hypotheses in terms of Bayes Factors}
+\title{Posterior Probabilities of Point Null Hypotheses}
 \usage{
-bfactor_to_prob(bf, null_prob = 0.5)
+bfactor_to_prob(bf, prior_prob = 0.5)
 }
 \arguments{
-\item{bf}{A non-negative numeric vector or matrix.}
+\item{bf}{A numeric vector of non-negative values.}
 
-\item{null_prob}{A numeric vector of length 1. Must be between 0 and 1 (inclusive).}
+\item{prior_prob}{A numeric vector of values between 0 and 1 (inclusive). If \code{length(bf)} = 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} must be either 1 or equal to \code{length(bf)}.}
 }
 \value{
-\code{bfactor_to_prob} returns:
-\itemize{
-  \item A numeric vector with the same \code{length} as \code{bf} if \code{bf} is a vector.
-  \item A numeric matrix with the same \code{dim} as \code{bf} if \code{bf} is a matrix.}
+if \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector with the same \code{length} as \code{bf}. Otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
 }
 \description{
-Update the prior probability of a precise null hypothesis to the posterior probability using a Bayes factor.
+Update the prior probability of a point null hypothesis to the posterior probability using a Bayes factor.
 }
 \details{
-\code{bfactor_to_prob} takes as input a Bayes factor in favor of the null hypothesis (\code{bf}) and the prior probability of the null hypothesis (\code{null_prob}). It then computes the posterior probability of the null hypothesis using the following relation from \insertCite{bergerSelke1987;textual}{pcal}: \deqn{(1 + (1 - null_prob) / null_prob * (1 / bf)) ^(-1)} The argument \code{null_prob} is optional and set to 0.5 by default, implying equiprobability of events.
+\code{bfactor_to_prob} updates the prior probabilities of point null hypotheses to posterior probabilities using the following relation from \insertCite{bergerSelke1987;textual}{pcal}: \deqn{Prob(H_0|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{Prob(null | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} are Bayes factors in favor of the null hypothesis and \code{prior_prob} are prior probabilities. \code{prior_prob} can only be of \code{length} 1, in which case it will be recycled (if necessary) and every element of \code{bf} will combined with the same prior probability, or of \code{length} equal to \code{length(bf)}, in which case every prior probability in \code{null.par} will be updated using the corresponding element of \code{bf}. The optional argument \code{prior_prob} is set to 0.5 by default, implying prior equiprobability of hypotheses.
 }
 \examples{
-# With Bayes factors that favor the null hypothesis:
-round(bfactor_to_prob(seq(2, 50, 2.5)), 3)
-
-# When the Bayes factor is indifferent between null and alternative:
+# Posterior probability obtained with a Bayes factor that is indifferent between null and alternative:
 bfactor_to_prob(1)
 
-# With Bayes factors that favor the alternative hypothesis:
+# Same as above but null hypothesis has high prior probability:
+bfactor_to_prob(1, .99)
+
+# Posterior probability of the null hypothesis as a function of different prior probabilities:
+bfactor_to_prob(1, seq(.5, 1, .1))
+
+# Posterior probabilities obtained with Bayes factors that favor the null hypothesis:
+round(bfactor_to_prob(seq(2, 50, 2.5)), 3)
+
+# Same as above but null hypothesis has low prior probability:
+round(bfactor_to_prob(seq(2, 50, 2.5), prior_prob = .01), 3)
+
+# Posterior probabilities obtained with Bayes factors that favor the alternative hypothesis:
 round(bfactor_to_prob(seq(0, 1, .05)), 3)
 
+# Same as above but null hypothesis has high prior probability:
+round(bfactor_to_prob(seq(0, 1, .05), prior_prob = .99), 3)
+
 # Application: chi-squared goodness of fit test
-x <- matrix(c(12, 41, 25, 33), ncol = 2)
-bfactor_to_prob(bcal(chisq.test(x)$p.value))
+x <- matrix(c(12, 41, 25, 33), ncol = 2) # data
+bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9) # lower bound on the posterior probability of the null hypothesis
 
 }
 \references{
 \insertAllCited{}
 }
 \seealso{
-\code{\link{bcal}} for the calculation of Bayes factors.
+\code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 }
