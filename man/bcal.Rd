@@ -2,7 +2,7 @@
 % Please edit documentation in R/bcal.R
 \name{bcal}
 \alias{bcal}
-\title{Calibration of P-Values for Testing Precise Null Hypotheses.}
+\title{Calibration of P-Values for Testing Point Null Hypotheses}
 \usage{
 bcal(p)
 }
@@ -13,7 +13,7 @@ bcal(p)
 Returns a numeric vector with length equal to \code{length(p)}
 }
 \description{
-\code{bcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted as the lower bound on the odds provided by the data (Bayes factor) in favor of a precise null hypothesis.
+\code{bcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted as the lower bound on the odds provided by the data (Bayes factor) in favor of a point null hypothesis.
 }
 \details{
 A useful way to calibrate a p-value under a robust Bayesian perspective is by using the bound that is found as the minimum Bayes factor in favour of the null that is obtained by changing priors over large classes of distributions under \eqn{H_{1}{H1}}. This Bayesian calibration is obtained with \deqn{B(p) = -exp(1) p log (p)} when \eqn{p < 1/exp{1}}  \insertCite{pericchiTorres2011}{pcal}  \insertCite{sellke2001}{pcal}
@@ -29,6 +29,9 @@ table(df$treatment, df$improvement)
 bcal(chisq.test(df$treatment, df$improvement, correct=FALSE)[["p.value"]])
 
 }
+\references{
+\insertAllCited{}
+}
 \seealso{
-\code{\link{pcal}}
+
 }
