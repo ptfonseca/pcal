@@ -7,10 +7,10 @@
 bcal(p)
 }
 \arguments{
-\item{p}{A numeric vector. All elements must be between zero and one (inclusive).}
+\item{p}{A numeric vector of values between 0 and 1 (inclusive).}
 }
 \value{
-Returns a numeric vector with length equal to \code{length(p)}
+Returns a numeric vector with length as \code{p}
 }
 \description{
 \code{bcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted as the lower bound on the odds provided by the data (Bayes factor) in favor of a point null hypothesis.
