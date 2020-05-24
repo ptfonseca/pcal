@@ -70,9 +70,38 @@ testthat::test_that("bfactor_to_prob test 7", {
 }
 )
 
-testthat::test_that("bfactor_to_prob test 8", {
+testthat::test_that("bfactor_to_prob test incorrect len error", {
   expect_error(bfactor_to_prob(c(1, 2), c(.1, .2, .3)))
 })
+
+testthat::test_that("bfactor_to_prob with NA", {
+  testthat::expect_equal(
+    suppressWarnings(round(bfactor_to_prob(c(1, NA, 2)), 2)),
+    c(0.50, NA, 0.67)
+  )
+}
+)
+
+testthat::test_that("bfactor_to_prob with NaN", {
+  testthat::expect_equal(
+    suppressWarnings(round(bfactor_to_prob(c(1, NaN, 2)), 2)),
+    c(0.50, NaN, 0.67)
+  )
+}
+)
+
+testthat::test_that("bfactor_to_prob NA warning", {
+  expect_warning(bfactor_to_prob(c(1, NA, 2)))
+
+})
+
+testthat::test_that("bfactor_to_prob NaN warning", {
+  expect_warning(bfactor_to_prob(c(1, NaN, 2)))
+})
+
+
+
+
 
 
 
