@@ -2,7 +2,7 @@
 % Please edit documentation in R/pcal.R
 \name{pcal}
 \alias{pcal}
-\title{Calibration of P-Values for Testing Precise Null Hypotheses}
+\title{Calibration of P-Values for Testing Point Null Hypotheses}
 \usage{
 pcal(p, pi_null = 0.5)
 }

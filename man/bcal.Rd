@@ -7,31 +7,32 @@
 bcal(p)
 }
 \arguments{
-\item{p}{A numeric vector of values between 0 and 1 (inclusive).}
+\item{p}{A numeric vector with values in the [0,1] interval.}
 }
 \value{
-Returns a numeric vector with length as \code{p}
+Returns a numeric vector with length as \code{p}.
 }
 \description{
-\code{bcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted as the lower bound on the odds provided by the data (Bayes factor) in favor of a point null hypothesis.
+Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.
 }
 \details{
 A useful way to calibrate a p-value under a robust Bayesian perspective is by using the bound that is found as the minimum Bayes factor in favour of the null that is obtained by changing priors over large classes of distributions under \eqn{H_{1}{H1}}. This Bayesian calibration is obtained with \deqn{B(p) = -exp(1) p log (p)} when \eqn{p < 1/exp{1}}  \insertCite{pericchiTorres2011}{pcal}  \insertCite{sellke2001}{pcal}
 }
 \examples{
+# Calibration of typical "threshold" p-values:
+bcal(c(.1, .05, .01, .005, .001))
 
-# Calibration of p-values
-
-round(bcal(c(.1, .05, .01)), 3)
-
-df <- read.csv("https://goo.gl/j6lRXD")
-table(df$treatment, df$improvement)
-bcal(chisq.test(df$treatment, df$improvement, correct=FALSE)[["p.value"]])
+# Application: chi-squared goodness-of-fit test,
+# lower bound on the Bayes factor in favor of the null:
+x <- matrix(c(12, 41, 25, 33), ncol = 2)
+bcal(chisq.test(x)[["p.value"]])
 
 }
 \references{
 \insertAllCited{}
 }
 \seealso{
-
+{\itemize
+\item \code{\link[pcal]{pcal}} For a p-value calibration that returns lower bounds on the posterior probability of the null.
+\item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.}
 }
