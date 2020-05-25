@@ -1,5 +1,5 @@
 
-#' Calibration of P-Values for Testing Precise Null Hypotheses
+#' Calibration of P-Values for Testing Point Null Hypotheses
 #'
 #' \code{pcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted in either a Bayesian or a frequentist way.
 #'
