@@ -1,11 +1,11 @@
 
-#' @title Calibration of P-Values for Testing Point Null Hypotheses
+#' @title Lower bounds on Bayes for Testing Point Null Hypotheses
 #'
 #' @description Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.
 #'
 #' @param p A numeric vector with values in the [0,1] interval.
 #'
-#' @details A useful way to calibrate a p-value under a robust Bayesian perspective is by using the bound that is found as the minimum Bayes factor in favour of the null that is obtained by changing priors over large classes of distributions under \eqn{H_{1}{H1}}. This Bayesian calibration is obtained with \deqn{B(p) = -exp(1) p log (p)} when \eqn{p < 1/exp{1}}  \insertCite{pericchiTorres2011}{pcal}  \insertCite{sellke2001}{pcal}
+#' @details A useful way to obtain measures of the evidence provided by the data in favor of a point the null hypothesis that are robust under a Bayesian perspective is by using the lower bound that is found when changing the prior distribution of the parameters of interest under the alternative hypothesis over wide classes of distributions. \code{bcal} approximates such a lower bound using the p-value calibration developed in \insertCite{sellke2001;textual}{pcal}: \deqn{B(p) = -exp(1) p log (p)} for \eqn{p < 1/exp(1)}, where \code{p} is a  p-value on a classical test statistic. If \eqn{p >= 1/exp(1)} then \code{bcal(p) = 1}. This calibration allows p-values to be interpreted as lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses. \insertCite{sellke2001;textual}{pcal} note a scenari in which they definitely recommend use of this calibration is then investigating fit to the null model, with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn, however, that despite useful the p-values calibrations developed in \insertCite{sellke2001;textual}{pcal} do not depend on sample size and hence the lower bounds obtained with large sample sizes may be conservative
 #'
 #' @return Returns a numeric vector with length as \code{p}.
 #'
@@ -13,7 +13,7 @@
 #' \insertAllCited{}
 #'
 #' @seealso {\itemize
-#' \item \code{\link[pcal]{pcal}} For a p-value calibration that returns lower bounds on the posterior probability of the null.
+#' \item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null.
 #' \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.}
 #'
 #' @examples
@@ -52,7 +52,6 @@ bcal <- function(p) {  bfactor_to_prob
   ifelse(p == 0, 0,
          ifelse(p < (exp(1) ^ (-1)), -exp(1) * log(p) * p,
                 1))
-
 }
 
 
