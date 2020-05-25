@@ -1,14 +1,19 @@
 
-#' Posterior Probabilities of Point Null Hypotheses
+#' @title Posterior Probabilities of Point Null Hypotheses
 #'
-#' Update the prior probabilities of point null hypotheses to posterior probabilities using Bayes factors.
-#'
-#' \code{bfactor_to_prob} computes the posterior probabilities of point null hypotheses using the following relation from \insertCite{bergerSelke1987;textual}{pcal}: \deqn{Prob(H_0|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{Prob(null | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor in favor of a point null hypothesis with prior probability \code{prior_prob}. The alternative hypothesis has prior probability 1-\code{prior_prob}. \code{prior_prob} can only be of \code{length} 1, in which case it will be recycled (if necessary) and hence every element of \code{bf} will combined with the same prior probability, or of \code{length} equal to \code{length(bf)}, in which case each prior probability in \code{null.par} will be updated using the corresponding element of \code{bf}. The optional argument \code{prior_prob} is set to 0.5 by default, implying prior equiprobability of hypotheses.
+#' @description Update the prior probabilities of point null hypotheses to posterior probabilities using Bayes factors.
 #'
 #' @param bf A numeric vector of non-negative values.
-#' @param prior_prob A numeric vector with values in the interval [0,1]. If \code{length(bf)} = 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} must be either 1 or equal to \code{length(bf)}.
+#' @param prior_prob A numeric vector with values in the [0,1] interval. If \code{length(bf)} = 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} must be either 1 or equal to \code{length(bf)}.
 #'
-#' @return if \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector with the same \code{length} as \code{bf}. Otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
+#' @details \code{bfactor_to_prob} computes the posterior probabilities of point null hypotheses using the following relation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{Prob(H_0|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{Prob(null | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor in favor of a point null hypothesis with prior probability \code{prior_prob}. The alternative hypothesis has prior probability 1-\code{prior_prob}. \code{prior_prob} can only be of \code{length} 1, in which case it will be recycled (if necessary) and hence every element of \code{bf} will combined with the same prior probability, or of \code{length} equal to \code{length(bf)}, in which case each prior probability in \code{null.par} will be updated using the corresponding element of \code{bf}. The optional argument \code{prior_prob} is set to 0.5 by default, implying prior equiprobability of hypotheses.
+#'
+#' @return If \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector with the same \code{length} as \code{bf}. Otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
+#'
+#' @references
+#' \insertAllCited{}
+#'
+#' @seealso \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 #'
 #' @examples
 #' # With a Bayes factor that is indifferent between the null and the alternative:
@@ -38,9 +43,6 @@
 #' bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 #'
 #' @importFrom Rdpack reprompt
-#' @seealso \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
-#' @references
-#' \insertAllCited{}
 #' @export
 
 bfactor_to_prob <- function(bf, prior_prob = .5) {
@@ -49,10 +51,7 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
     stop("Invalid argument: 'bf' is NULL.", call. = FALSE)
   }
   if(all(is.na(bf))){
-    stop("Invalid argument: all elements of 'bf' are NA.", call. = FALSE)
-  }
-  if(all(is.nan(bf))){
-    stop("Invalid argument: all elements of 'bf' are NaN.", call. = FALSE)
+    stop("Invalid argument: all elements of 'bf' are NA or NaN.", call. = FALSE)
   }
   if(isFALSE(is.numeric(bf) && is.vector(bf))){
     stop("Invalid argument: 'bf' must be a numeric vector.", call. = FALSE)
@@ -67,7 +66,7 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
     stop("Invalid argument: 'prior_prob' is NULL.", call. = FALSE)
   }
   if(any(is.na(prior_prob))){
-    stop("Invalid argument: all elements of 'prior_prob' must be finite.", call. = FALSE)
+    stop("Invalid argument: NA or NaN values in 'prior_prob'.", call. = FALSE)
   }
   if(isFALSE(is.numeric(prior_prob) && is.vector(prior_prob))){
     stop("Invalid argument: 'prior_prob' must be a numeric vector.", call. = FALSE)
@@ -76,7 +75,7 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
       stop("Invalid argument: if length(bf) > 1 then length(prior_prob) can only be 1 or length(bf)", call. = FALSE)
   }
   if(any(prior_prob < 0, prior_prob > 1)){
-    stop("Invalid argument: 'prior_prob' must be between zero and one (inclusive).", call. = FALSE)
+    stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.", call. = FALSE)
   }
 
   (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)
