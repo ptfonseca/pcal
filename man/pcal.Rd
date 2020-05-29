@@ -2,27 +2,37 @@
 % Please edit documentation in R/pcal.R
 \name{pcal}
 \alias{pcal}
-\title{Calibration of P-Values for Testing Point Null Hypotheses}
+\title{Lower Bounds on the Posterior Probabilities of Point Null Hypotheses}
 \usage{
-pcal(p, pi_null = 0.5)
+pcal(p, prior_prob = 0.5)
 }
 \arguments{
-\item{pi_null}{A numeric of length one value between zero and one.}
+\item{p}{A numeric vector with values in the [0,1] interval.}
+
+\item{prior_prob}{A numeric vector with values in the [0,1] interval.}
+}
+\value{
+Returns a numeric vector with length as \code{p}.
 }
 \description{
-\code{pcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted in either a Bayesian or a frequentist way.
+Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as either lower bounds on the probability of a type I error or lower bounds on the posterior probability of the null hypothesis.
 }
 \details{
-A useful way to calibrate a p-value under a robust Bayesian perspective is by using the bound that is found as the minimum posterior probability of \eqn{H_0} that is obtained by changing priors over large classes of priors under \eqn{H_{1}{H1}}.
+
 }
 \examples{
-round(pcal(c(.1, .05, .01)), 3)
-df <- read.csv("https://goo.gl/j6lRXD")
-table(df$treatment, df$improvement)
+# Calibration of typical "threshold" p-values:
+pcal(c(.1, .05, .01, .005, .001))
 
-pcal(chisq.test(df$treatment, df$improvement, correct=FALSE)[["p.value"]])
+# Application: chi-squared goodness-of-fit test,
+# lower bound on the posterior probability of the null:
+x <- matrix(c(12, 41, 25, 33), ncol = 2)
+pcal(chisq.test(x)[["p.value"]])
 
 }
+\references{
+\insertAllCited{}
+}
 \seealso{
-\code{\link{bcal}}
+{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.
 }

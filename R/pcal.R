@@ -1,24 +1,33 @@
 
-#' Calibration of P-Values for Testing Point Null Hypotheses
+#' @title Lower Bounds on the Posterior Probabilities of Point Null Hypotheses
 #'
-#' \code{pcal} calibrates p-values under a robust Bayesian perspective so that they can be interpreted in either a Bayesian or a frequentist way.
+#' @description Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as either lower bounds on the probability of a type I error or lower bounds on the posterior probability of the null hypothesis.
 #'
-#' A useful way to calibrate a p-value under a robust Bayesian perspective is by using the bound that is found as the minimum posterior probability of \eqn{H_0} that is obtained by changing priors over large classes of priors under \eqn{H_{1}{H1}}.
+#' @param p A numeric vector with values in the [0,1] interval.
+#' @param prior_prob A numeric vector with values in the [0,1] interval.
 #'
-#' @param pi_null A numeric of length one value between zero and one.
+#' @details
+#'
+#' @return Returns a numeric vector with length as \code{p}.
+#'
+#' @references
+#' \insertAllCited{}
+#'
+#' @seealso {\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.
 #'
 #' @examples
-#' round(pcal(c(.1, .05, .01)), 3)
-#' df <- read.csv("https://goo.gl/j6lRXD")
-#' table(df$treatment, df$improvement)
+#' # Calibration of typical "threshold" p-values:
+#' pcal(c(.1, .05, .01, .005, .001))
 #'
-#' pcal(chisq.test(df$treatment, df$improvement, correct=FALSE)[["p.value"]])
+#' # Application: chi-squared goodness-of-fit test,
+#' # lower bound on the posterior probability of the null:
+#' x <- matrix(c(12, 41, 25, 33), ncol = 2)
+#' pcal(chisq.test(x)[["p.value"]])
 #'
-#' @seealso \code{\link{bcal}}
 #' @importFrom Rdpack reprompt
 #' @export
 #'
-pcal <- function(p, pi_null = 0.5){
+pcal <- function(p, prior_prob = 0.5){
 
   if(is.null(p)){
     stop("Invalid argument: 'p' NULL")
@@ -29,14 +38,14 @@ pcal <- function(p, pi_null = 0.5){
   if(!is.numeric(p)){
     stop("Invalid argument: 'p' must be a numeric vector")
   }
-  if(is.na(pi_null)){
-    stop("Invalid argument: 'pi_null' is NA")
+  if(is.na(prior_prob)){
+    stop("Invalid argument: 'prior_prob' is NA")
   }
-  if(is.null(pi_null)){
-    stop("Invalid argument: 'pi_null' NULL")
+  if(is.null(prior_prob)){
+    stop("Invalid argument: 'prior_prob' NULL")
   }
-  if(any(!is.numeric(pi_null), isFALSE(length(pi_null) == 1))){
-    stop("Invalid argument: 'pi_null' must be a numeric vector of length 1")
+  if(any(!is.numeric(prior_prob), isFALSE(length(prior_prob) == 1))){
+    stop("Invalid argument: 'prior_prob' must be a numeric vector of length 1")
   }
 
   ifelse(p == 0, 0, bfactor_to_prob(bcal(p)))
