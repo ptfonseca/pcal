@@ -30,22 +30,37 @@
 pcal <- function(p, prior_prob = 0.5){
 
   if(is.null(p)){
-    stop("Invalid argument: 'p' NULL")
+    stop("Invalid argument: 'p' is NULL")
   }
-  if(all(is.na(p))){
-    stop("Invalid argument: all elements of 'p' are NA")
-  }
-  if(!is.numeric(p)){
+  if(isFALSE(is.numeric(p) && is.vector(p))){
     stop("Invalid argument: 'p' must be a numeric vector")
   }
-  if(is.na(prior_prob)){
-    stop("Invalid argument: 'prior_prob' is NA")
+  if(all(is.na(p))){
+    stop("All elements of 'p' are NA or NaN")
+  }
+  if(any(is.na(p))){
+    warning("Some elements of 'p' are NA or NaN")
+  }
+  if(any(p > 1)){
+    stop("Invalid argument: 'p' > 1")
+  }
+  if(any(p < 0)){
+    stop("Invalid argument: 'p' < 0")
   }
   if(is.null(prior_prob)){
-    stop("Invalid argument: 'prior_prob' NULL")
+    stop("Invalid argument: 'prior_prob' is NULL.", call. = FALSE)
   }
-  if(any(!is.numeric(prior_prob), isFALSE(length(prior_prob) == 1))){
-    stop("Invalid argument: 'prior_prob' must be a numeric vector of length 1")
+  if(any(is.na(prior_prob))){
+    stop("Invalid argument: NA or NaN values in 'prior_prob'.", call. = FALSE)
+  }
+  if(isFALSE(is.numeric(prior_prob) && is.vector(prior_prob))){
+    stop("Invalid argument: 'prior_prob' must be a numeric vector.", call. = FALSE)
+  }
+  if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))){
+    stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or length(p)", call. = FALSE)
+  }
+  if(any(prior_prob < 0, prior_prob > 1)){
+    stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.", call. = FALSE)
   }
 
   ifelse(p == 0, 0, bfactor_to_prob(bcal(p)))
