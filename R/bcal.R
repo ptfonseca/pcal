@@ -33,22 +33,19 @@
 bcal <- function(p) {
 
   if(is.null(p)){
-    stop("Invalid argument: 'p' is NULL")
+    stop("Invalid argument: 'p' is NULL", call. = FALSE)
   }
-  if(isFALSE(is.numeric(p) && is.vector(p))){
-    stop("Invalid argument: 'p' must be a numeric vector")
+  if(length(p) == 0){
+    stop("Invalid argument: 'p' is empty", call. = FALSE)
   }
-  if(all(is.na(p))){
-    stop("All elements of 'p' are NA or NaN")
+  if(any(!is.numeric(p), !is.vector(p),  all(is.na(p)))){
+    stop("Invalid argument: 'p' must be a numeric vector", call. = FALSE)
+  }
+  if(any(p[!is.na(p)] < 0, p[!is.na(p)] > 1)){
+    stop("Invalid argument: all elements of 'p' must be in the [0, 1] interval.", call. = FALSE)
   }
   if(any(is.na(p))){
-    warning("Some elements of 'p' are NA or NaN")
-  }
-  if(any(p > 1)){
-    stop("Invalid argument: 'p' > 1")
-  }
-  if(any(p < 0)){
-    stop("Invalid argument: 'p' < 0")
+    warning("There are NA or NaN values in 'p'", call. = FALSE)
   }
 
   ifelse(p == 0, 0,
