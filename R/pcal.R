@@ -64,7 +64,7 @@ pcal <- function(p, prior_prob = 0.5){
     stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or equal to length(p)", call. = FALSE)
   }
 
-  ifelse(p == 0, 0, bfactor_to_prob(bcal(p)))
+  ifelse(p == 0, 0, suppressWarnings(bfactor_to_prob(bcal(p))))
 
 }
 
