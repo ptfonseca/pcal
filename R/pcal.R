@@ -27,40 +27,41 @@
 #' @importFrom Rdpack reprompt
 #' @export
 #'
+
 pcal <- function(p, prior_prob = 0.5){
 
   if(is.null(p)){
-    stop("Invalid argument: 'p' is NULL")
+    stop("Invalid argument: 'p' is NULL", call. = FALSE)
   }
-  if(isFALSE(is.numeric(p) && is.vector(p))){
-    stop("Invalid argument: 'p' must be a numeric vector")
+  if(length(p) == 0){
+    stop("Invalid argument: 'p' is empty", call. = FALSE)
   }
-  if(all(is.na(p))){
-    stop("All elements of 'p' are NA or NaN")
+  if(any(!is.numeric(p), !is.vector(p),  all(is.na(p)))){
+    stop("Invalid argument: 'p' must be a numeric vector", call. = FALSE)
+  }
+  if(any(p[!is.na(p)] < 0, p[!is.na(p)] > 1)){
+    stop("Invalid argument: all elements of 'p' must be in the [0, 1] interval.", call. = FALSE)
   }
   if(any(is.na(p))){
-    warning("Some elements of 'p' are NA or NaN")
-  }
-  if(any(p > 1)){
-    stop("Invalid argument: 'p' > 1")
-  }
-  if(any(p < 0)){
-    stop("Invalid argument: 'p' < 0")
+    warning("There are NA or NaN values in 'p'", call. = FALSE)
   }
   if(is.null(prior_prob)){
-    stop("Invalid argument: 'prior_prob' is NULL.", call. = FALSE)
+    stop("Invalid argument: 'prior_prob' is NULL", call. = FALSE)
+  }
+  if(length(prior_prob) == 0){
+    stop("Invalid argument: 'prior_prob' is empty", call. = FALSE)
   }
   if(any(is.na(prior_prob))){
-    stop("Invalid argument: NA or NaN values in 'prior_prob'.", call. = FALSE)
+    stop("Invalid argument: There are NA or NaN values in 'prior_prob'", call. = FALSE)
   }
-  if(isFALSE(is.numeric(prior_prob) && is.vector(prior_prob))){
-    stop("Invalid argument: 'prior_prob' must be a numeric vector.", call. = FALSE)
-  }
-  if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))){
-    stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or length(p)", call. = FALSE)
+  if(any(isFALSE(is.numeric(prior_prob) && is.vector(prior_prob)))){
+    stop("Invalid argument: 'prior_prob' must be a numeric vector", call. = FALSE)
   }
   if(any(prior_prob < 0, prior_prob > 1)){
-    stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.", call. = FALSE)
+    stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval", call. = FALSE)
+  }
+  if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))){
+    stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or equal to length(p)", call. = FALSE)
   }
 
   ifelse(p == 0, 0, bfactor_to_prob(bcal(p)))
