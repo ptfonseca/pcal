@@ -63,7 +63,7 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
     stop("Invalid argument: 'bf' must be non-negative.", call. = FALSE)
   }
   if(any(is.na(bf))){
-    warning("There are NA or NaN 'bf' values.", call. = FALSE)
+    warning("There are NA or NaN values in 'bf'.", call. = FALSE)
   }
   if(is.null(prior_prob)){
     stop("Invalid argument: 'prior_prob' is NULL", call. = FALSE)
