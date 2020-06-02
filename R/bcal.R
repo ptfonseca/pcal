@@ -14,9 +14,9 @@
 #' @references
 #' \insertAllCited{}
 #'
-#' @seealso {\itemize
-#' \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-#' \item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null.}
+#' @seealso
+#' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+#' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null.
 #'
 #' @examples
 #' # Calibration of typical "threshold" p-values:
