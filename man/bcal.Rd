@@ -7,7 +7,7 @@
 bcal(p)
 }
 \arguments{
-\item{p}{A numeric vector with values in the [0,1] interval.}
+\item{p}{A numeric vector with values in the \link{0,1} interval.}
 }
 \value{
 Returns a numeric vector with the same length as \code{p}.
@@ -18,7 +18,7 @@ Calibrate p-values under a robust Bayesian perspective so that they can be inter
 \details{
 To obtain a robust measure of the evidence provided by the data in favor of a point the null hypothesis we can derive the lower bound on the odds of the data (or Bayes factor) that is found when changing the prior distribution of the parameters of interest under the alternative hypothesis over a wide class of distributions. \code{bcal} approximates such a lower bound using the p-value calibration developed in \insertCite{sellke2001;textual}{pcal}: \deqn{B(p) = -exp(1) p log (p)} for \eqn{p < 1/exp(1)}, where \code{p} is a  p-value on a classical test statistic, and \code{bcal(p) = 1} otherwise. \insertCite{sellke2001;textual}{pcal} note that a scenario in which they definitely recommend use of this calibration is then investigating fit to the null model, with no explicit alternative in mind.
 
-   \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence for large sample sizes the obtained lower bounds may be conservative. A full correction of p-values requires a Bayes factor, with the corresponding probability of the null.
+\insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence for large sample sizes the obtained lower bounds may be conservative. A full correction of p-values requires a Bayes factor, with the corresponding probability of the null.
 }
 \examples{
 # Calibration of typical "threshold" p-values:
@@ -34,7 +34,8 @@ bcal(chisq.test(x)[["p.value"]])
 \insertAllCited{}
 }
 \seealso{
-{\itemize
+\itemize{
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-\item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null.}
+\item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null.
+}
 }
