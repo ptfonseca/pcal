@@ -7,9 +7,9 @@
 pcal(p, prior_prob = 0.5)
 }
 \arguments{
-\item{p}{A numeric vector with values in the [0,1] interval.}
+\item{p}{A numeric vector with values in the \link{0,1} interval.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval.}
+\item{prior_prob}{A numeric vector with values in the \link{0,1} interval.}
 }
 \value{
 Returns a numeric vector with length as \code{p}.
