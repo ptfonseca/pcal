@@ -3,8 +3,8 @@ Type: Package
 Title: Calibration of P-values for Testing Point Null Hypotheses
 Version: 0.0.0.9000
 Authors@R: c(
-  person("Pedro", "Fonseca", email = "pedro.teles.fonseca@outlook.com", role = c("aut", "cre")),
-  person("Rui", "Paulo", email = " rui@iseg.ulisboa.pt", role = "ctb"))
+  person("Pedro", "Fonseca", email = "pedro.teles.fonseca@outlook.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5708-081X")),
+  person("Rui", "Paulo", email = " rui@iseg.ulisboa.pt", role = "ctb", comment = c(ORCID = "0000-0002-5708-081X")))
 Description: P-values are the most commonly used tool to measure ev- idence against a hypothesis or hypothesized model. Un- fortunately, they are often incorrectly viewed as an error probability for rejection of the hypothesis or, even worse, as the posterior probability that the hypothesis is true. The fact that these interpretations can be completely misleading when testing precise hypotheses is érst reviewed, through consideration of two revealing simulations. Then two cal- ibrations of a p value are developed, the érst being inter- pretable as odds and the second as either a (conditional) frequentist error probability or as the posterior probability of the hypothesis.
 License: GPL-3 | file LICENSE
 URL: https://github.com/pedro-teles-fonseca/pcal
@@ -19,5 +19,6 @@ Suggests:
     knitr,
     rmarkdown
 RdMacros: Rdpack
+Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
 VignetteBuilder: knitr
