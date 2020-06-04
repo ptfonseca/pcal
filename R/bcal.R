@@ -30,7 +30,6 @@
 #' x <- matrix(c(12, 41, 25, 33), ncol = 2)
 #' bcal(chisq.test(x)[["p.value"]])
 #'
-#' @importFrom Rdpack reprompt
 #' @export
 
 bcal <- function(p) {

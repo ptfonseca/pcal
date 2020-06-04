@@ -46,7 +46,6 @@
 #' x <- matrix(c(12, 41, 25, 33), ncol = 2)
 #' bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 #'
-#' @importFrom Rdpack reprompt
 #' @export
 
 bfactor_to_prob <- function(bf, prior_prob = .5) {
@@ -133,7 +132,6 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
 #' x <- matrix(c(12, 15, 14, 15), ncol = 2)
 #' bfactor_interpret(bcal(chisq.test(x)[["p.value"]]))
 #'
-#' @importFrom Rdpack reprompt
 #' @export
 #'
 
@@ -208,7 +206,6 @@ bfactor_interpret <- function(bf) {
 #' # Interpret many Bayes factors, base 10 log
 #' bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 #'
-#' @importFrom Rdpack reprompt
 #' @export
 #'
 
