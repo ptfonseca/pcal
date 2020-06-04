@@ -1,24 +1,27 @@
 
-#' @title Lower Bounds on the Bayes Factors of Point Null Hypotheses
+#' @title Lower Bounds on Bayes Factors for Point Null Hypotheses
 #'
-#' @description Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.
+#' @description Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 #'
-#' @param p A numeric vector with values in the [0,1] interval.
+#' @param p A numeric vector with values in the \[0,1\] interval.
 #'
-#' @details To obtain a robust measure of the evidence provided by the data in favor of a point the null hypothesis we can derive the lower bound on the odds of the data (or Bayes factor) that is found when changing the prior distribution of the parameters of interest under the alternative hypothesis over a wide class of distributions. \code{bcal} approximates such a lower bound using the p-value calibration developed in \insertCite{sellke2001;textual}{pcal}: \deqn{B(p) = -exp(1) p log (p)} for \eqn{p < 1/exp(1)}, where \code{p} is a  p-value on a classical test statistic, and \code{bcal(p) = 1} otherwise. \insertCite{sellke2001;textual}{pcal} note that a scenario in which they definitely recommend use of this calibration is then investigating fit to the null model, with no explicit alternative in mind.
+#' @details \code{bcal} uses the calibration of p-values into lower bounds for Bayes factors developed in \insertCite{sellke2001;textual}{pcal}: \deqn{B(p) = -exp(1) p log (p)} for \code{p} < \code{1/exp(1)} and \deqn{B(p) = 1} otherwise, where \code{p} is a  p-value on a classical test statistic and \eqn{B(p)} approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. \insertCite{sellke2001;textual}{pcal} note that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence for large sample sizes the obtained lower bounds may be conservative.
 #'
-#'    \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence for large sample sizes the obtained lower bounds may be conservative. A full correction of p-values requires a Bayes factor, with the corresponding probability of the null.
-#'
-#' @return Returns a numeric vector with the same length as \code{p}.
+#' @return Returns a numeric vector with the same \code{length} as \code{p}.
 #'
 #' @references
 #' \insertAllCited{}
 #'
 #' @seealso
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-#' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null.
+#' * \code{\link[pcal]{bfactor_interpret}} to interpret of Bayes factors.
+#' * \code{\link[pcal]{bfactor_log_interpret}} to interpret the logarithms of Bayes factors.
+#' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null hypothesis.
 #'
 #' @examples
+#' # Calibration of a typical "threshold" p-value:
+#' bcal(.05)
+#'
 #' # Calibration of typical "threshold" p-values:
 #' bcal(c(.1, .05, .01, .005, .001))
 #'
