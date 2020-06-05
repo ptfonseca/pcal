@@ -21,8 +21,8 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10)
-Imports: Rdpack (>= 0.7)
 Suggests: 
+    Rdpack (>= 0.7),
     testthat,
     knitr,
     rmarkdown
