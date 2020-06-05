@@ -4,6 +4,8 @@
 
   <!-- badges: start -->
 [![Build Status](https://travis-ci.org/pedro-teles-fonseca/pcal.svg?branch=master)](https://travis-ci.org/pedro-teles-fonseca/pcal) [![R build status](https://github.com/pedro-teles-fonseca/pcal/workflows/R-CMD-check/badge.svg)](https://github.com/pedro-teles-fonseca/pcal/actions)
+[![codecov](https://codecov.io/gh/pedro-teles-fonseca/pcal/branch/master/graph/badge.svg)](https://codecov.io/gh/pedro-teles-fonseca/pcal)
+
 
   <!-- badges: end -->
 
