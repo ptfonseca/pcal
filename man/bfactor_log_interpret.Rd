@@ -20,11 +20,11 @@ Quantify the strength of the evidence provided by the data to a model/hypothesis
 \details{
 Bayes factors are a summary of the evidence provided by the data in favor of a model/hypothesis and are often presented in a logarithmic scale. \code{bfactor_log_interpret} takes (base \code{base}) logarithms of Bayes factors (\code{bf}) as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the scale suggested by \insertCite{kass1995;textual}{pcal}. The original scale was augmented with an additional category for the case when the data provides more support to the alternative hypothesis:\tabular{ll}{
    Bayes factor \tab Evidence \cr
-   (-∞, 1[ \tab Negative \cr
+   (-Inf, 1[ \tab Negative \cr
    [1, 3.2[ \tab Weak \cr
    [3.2, 10[ \tab Substantial \cr
    [10, 100[ \tab Strong \cr
-   [100, +∞) \tab Decisive \cr
+   [100, +Inf) \tab Decisive \cr
 }
 
 
