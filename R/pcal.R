@@ -28,7 +28,7 @@
 #' pcal(chisq.test(x)[["p.value"]])
 #'
 #' @export
-#'
+#' @importFrom Rdpack reprompt
 
 pcal <- function(p, prior_prob = 0.5){
 
