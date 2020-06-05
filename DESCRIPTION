@@ -4,16 +4,16 @@ Title: Calibration of P-Values for Testing Point Null Hypotheses
 Version: 0.0.0.9000
 Authors@R: c(
   person("Pedro", "Fonseca", email = "pedro.teles.fonseca@outlook.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5708-081X")),
-  person("Rui", "Paulo", email = " rui@iseg.ulisboa.pt", role = "ctb", comment = c(ORCID = "0000-0002-5708-081X")))
+  person("Rui", "Paulo", role = c("ctb", "ths"), comment = c(ORCID = "0000-0002-5708-081X")))
 Description: Calibrate p-values under a robust Bayesian perspective and obtain measures of 
-    the evidence provided by the data in falor of point null hypotheses that are 
-    straightforward to interpret. The p-values calibrated with pcal() can be directly
-    interpreted as either lower bounds on the posterior probability of the null hypothesis
-    or as lower bounds on the probability of a type I error. P-values calibrated with 
-    bcal() can be interpreted as lower bounds on the odds provided by the data 
-    (Bayes factors) in favor of the null hypothesis. Some utility functions to transform
-    Bayes factors into Posterior probabilities and to help in the interpretation of 
-    Bayes Bayes factors are also included.
+    the evidence provided by the data in favor of point null hypotheses which are 
+    straightforward to use and have both frequentist and Bayesian interpretations.
+    The p-values calibrated with pcal() can be directly interpreted as either lower bounds
+    on the posterior probabilities of point null hypothesis or as lower bounds on the 
+    probability of a type I error. P-values calibrated with bcal() can be interpreted as
+    lower bounds on the odds provided by the data (Bayes factors) in favor of point null
+    hypotheses. Some utility functions to turn Bayes factors into Posterior 
+    probabilities and to help in the interpretation of bayes factors are also included.
 License: GPL-3 | file LICENSE
 URL: https://github.com/pedro-teles-fonseca/pcal
 BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
@@ -23,9 +23,9 @@ Depends:
     R (>= 2.10)
 Suggests: 
     Rdpack (>= 0.7),
-    testthat,
-    knitr,
-    rmarkdown
+    testthat (>= 2.3.2),
+    knitr (>= 1.28),
+    rmarkdown (>= 2.1)
 RdMacros: Rdpack
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
