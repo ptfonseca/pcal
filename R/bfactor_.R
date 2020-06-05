@@ -101,11 +101,11 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
 #'
 #' | Bayes factor      | Evidence                |
 #' | ---               |    ---                  |
-#' | (-∞, 1[           | Negative                |
+#' | (-Inf, 1[         | Negative                |
 #' | [1, 3.2[          | Weak                    |
 #' | [3.2, 10[         | Substantial             |
 #' | [10, 100[         | Strong                  |
-#' | [100, +∞)         | Decisive                |
+#' | [100, +Inf)       | Decisive                |
 #'
 #' To obtain the strength of the evidence against the null hypothesis use 1/\code{bf} instead of \code{bf}, which is equivalent to putting the null hypothesis in the denominator of the Bayes factor. This is useful for comparing results with standard likelihood ratio tests.
 #'
@@ -178,11 +178,11 @@ bfactor_interpret <- function(bf) {
 #'
 #' | Bayes factor      | Evidence                |
 #' | ---               |    ---                  |
-#' | (-∞, 1[           | Negative                |
+#' | (-Inf, 1[         | Negative                |
 #' | [1, 3.2[          | Weak                    |
 #' | [3.2, 10[         | Substantial             |
 #' | [10, 100[         | Strong                  |
-#' | [100, +∞)         | Decisive                |
+#' | [100, +Inf)       | Decisive                |
 #'
 #' To obtain the strength of the evidence against the null hypothesis use 1/\code{bf} instead of \code{bf}, which is equivalent to putting the null hypothesis in the denominator of the Bayes factor. This is useful for comparing results with standard likelihood ratio tests.
 #'
