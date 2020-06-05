@@ -1,5 +1,14 @@
 # pcal: Calibration of P-Values for Testing Point Null Hypotheses
 
+[![Build Status](https://travis-ci.org/pedro-teles-fonseca/pcal.svg?branch=master)](https://travis-ci.org/pedro-teles-fonseca/pcal)
+
+  <!-- badges: start -->
+[![R build status](https://github.com/pedro-teles-fonseca/pcal/workflows/R-CMD-check/badge.svg)](https://github.com/pedro-teles-fonseca/pcal/actions)
+
+[![R build status](https://github.com/pedro-teles-fonseca/pcal/workflows/R-CMD-check/badge.svg)](https://github.com/pedro-teles-fonseca/pcal/actions)
+
+  <!-- badges: end -->
+
 ## Overview
 
 P-values are the most commonly used measure of the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as type I error probabilities or as the probability that the hypotheses are true. The `pcal` package uses the calibrations developed in Sellke et al (2001) to calibrate p-values under a robust Bayesian perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret: 
