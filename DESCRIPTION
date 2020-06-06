@@ -13,7 +13,7 @@ Description: Calibrate p-values under a robust Bayesian perspective and obtain m
     calibrated with bcal() can be interpreted as lower bounds on the odds provided by 
     the data (Bayes factors) in favor of point null hypotheses. Some utility functions
     to turn Bayes factors into Posterior probabilities and to help in the interpretation
-    of bayes factors are also included.
+    of Bayes factors are also included.
 License: GPL-3 | file LICENSE
 URL: https://github.com/pedro-teles-fonseca/pcal
 BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
