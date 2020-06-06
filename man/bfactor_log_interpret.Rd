@@ -31,7 +31,7 @@ Bayes factors are a summary of the evidence provided by the data in favor of a m
 To obtain the strength of the evidence against the null hypothesis use 1/\code{bf} instead of \code{bf}, which is equivalent to putting the null hypothesis in the denominator of the Bayes factor. This is useful for comparing results with standard likelihood ratio tests.
 }
 \examples{
-# Interpret one Bayes factor
+# Interpret one Bayes factor, natural log
 bfactor_log_interpret(1.5)
 
 # Interpret many Bayes factors, natural log
