@@ -73,29 +73,89 @@ testthat::test_that("bfactor_log_interpret test 2", {
   )
 })
 
-testthat::test_that("bfactor_log_interpret terror message 1", {
+testthat::test_that("bfactor_interpret error message 1", {
+  expect_error(
+    bfactor_interpret(NULL)
+    )}
+)
+
+testthat::test_that("bfactor_interpret error message 2 - empty vector", {
+  expect_error(
+    bfactor_interpret(vector())
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 2 - empty list", {
+  expect_error(
+    bfactor_interpret(list())
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 3 - NA", {
+  expect_error(
+    bfactor_interpret(NA)
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 3 - NaN", {
+  expect_error(
+    bfactor_interpret(NaN)
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 4 - factor", {
+  expect_error(
+    bfactor_interpret(factor(10))
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 4 - char", {
+  expect_error(
+    bfactor_interpret("10")
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 4 - list", {
+  expect_error(
+    bfactor_interpret(list(10))
+  )}
+)
+
+testthat::test_that("bfactor_interpret error message 5", {
+  expect_error(
+    bfactor_interpret(-0.6)
+  )}
+)
+
+testthat::test_that("bfactor_interpret NA warning", {
+  expect_warning(
+    bfactor_interpret(c(10, NA))
+  )}
+)
+
+testthat::test_that("bfactor_log_interpret error message 1", {
   expect_error(bfactor_log_interpret(bf = .2, base = NULL))}
   )
 
-testthat::test_that("bfactor_log_interpret terror message 2", {
+testthat::test_that("bfactor_log_interpret error message 2", {
   expect_error(
     bfactor_log_interpret(bf = .2, base = NA)
 )}
 )
 
-testthat::test_that("bfactor_log_interpret terror message 3", {
+testthat::test_that("bfactor_log_interpret error message 3", {
   expect_error(
     bfactor_log_interpret(bf = .2, base = c(10, 10))
   )}
 )
 
-testthat::test_that("bfactor_log_interpret terror message 4", {
+testthat::test_that("bfactor_log_interpret error message 4", {
   expect_error(
     bfactor_log_interpret(bf = .2, base = factor(10))
   )}
 )
 
-testthat::test_that("bfactor_log_interpret terror message 5", {
+testthat::test_that("bfactor_log_interpret error message 5", {
   expect_error(
     bfactor_log_interpret(bf = .2, base = "10")
   )}
