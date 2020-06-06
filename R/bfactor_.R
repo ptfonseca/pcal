@@ -197,7 +197,7 @@ bfactor_interpret <- function(bf) {
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #'
 #' @examples
-#' # Interpret one Bayes factor
+#' # Interpret one Bayes factor, natural log
 #' bfactor_log_interpret(1.5)
 #'
 #' # Interpret many Bayes factors, natural log
