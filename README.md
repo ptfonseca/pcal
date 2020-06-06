@@ -44,7 +44,7 @@ x <- matrix(c(12, 13, 13, 14), ncol = 2)
 pv <- chisq.test(x)[["p.value"]]
 ```
 
-With `bcal` we can turn `pv` into a lower bound for the Bayes factor in favor of the null hypothesis:
+With `bcal()` we can turn `pv` into a lower bound for the Bayes factor in favor of the null hypothesis:
 
 ```r
 bcal(pv)
@@ -60,7 +60,7 @@ pcal(pv)
 This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. `bcal()` works analogously for Bayes factors instead of posterior probabilities.
 
 
- One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors, but to compute posterior probabilities, as with `pcal()`, prior probabilities must by specified. By default `pcal` assumes a prior probability of 0.5 for the null hypothesis. We can specify different prior probabilities, for example:
+ One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities, however, prior probabilities must by specified. By default `pcal()` assumes a prior probability of 0.5 for the null hypothesis. We can specify different prior probabilities, for example:
 
 ```r
 pcal(pv, prior_prob = .95)
@@ -89,7 +89,7 @@ bfactor_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
 [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"  
 ```
  
- To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. This can be archieved by using the inverse of the Bayes factors, which is equivalent to putting the null hypothesis in the denominator of the Bayes factor:
+ To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. This can be archived by using the inverse of the Bayes factors:
  
  ```r
  > bfactor_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
