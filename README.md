@@ -19,7 +19,7 @@ P-values are the most commonly used measure of the evidence provided by the data
 
 Some utility functions are also included:
 
-* `bfactor_to_prob()` turns Bayes factors into Posterior probabilities using a formula from Berger and Delampady (1987)
+* `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)
   
 * `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according the scale suggested by Kass and Raftery (1995)
   
