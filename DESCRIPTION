@@ -4,16 +4,17 @@ Title: Calibration of P-Values for Testing Point Null Hypotheses
 Version: 1.0.0
 Authors@R: c(
   person("Pedro", "Fonseca", email = "pedro.teles.fonseca@outlook.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5708-081X")),
-  person("Rui", "Paulo", role = c("ctb", "ths"), comment = c(ORCID = "0000-0002-5708-081X")))
+  person("Rui", "Paulo", role = c("ctb", "ths"), comment = c(ORCID = "0000-0002-5708-081X")),
+  person(given = "FCT", role = c("fnd")))
 Description: Calibrate p-values under a robust Bayesian perspective and obtain measures of 
     the evidence provided by the data in favor of point null hypotheses which are safer  
     and more straightforward to interpret. The p-values calibrated with pcal() can be 
     directly interpreted as either lower bounds on the posterior probabilities of point 
     null hypotheses or as lower bounds on the probability of a type I error. P-values 
-    calibrated with bcal() can be interpreted as lower bounds on the odds provided by 
-    the data (Bayes factors) in favor of point null hypotheses. Some utility functions
-    to turn Bayes factors into Posterior probabilities and to help in the interpretation
-    of Bayes factors are also included.
+    calibrated with bcal() can be interpreted as lower bounds on Bayes factors in 
+    favor of point null hypotheses. Some utility functions to turn Bayes factors into
+    posterior probabilities and to help in the interpretation of Bayes factors are also
+    included.
 License: GPL-3 | file LICENSE
 URL: https://github.com/pedro-teles-fonseca/pcal
 BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
