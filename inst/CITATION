@@ -9,5 +9,5 @@ citEntry(entry = "Manual",
          textVersion =
            paste("Pedro Fonseca (2020).",
                  "pcal: Calibration of P-values for Testing Point Null Hypotheses.",
-                 "R package version 0.0.0.9000")
+                 "R package version 1.0.0")
          )
