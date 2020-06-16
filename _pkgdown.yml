@@ -1,4 +1,4 @@
 template:
   params:
-    bootswatch: lux
+    bootswatch: flatly
     ganalytics: UA-169641497-1
