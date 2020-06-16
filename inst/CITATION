@@ -7,7 +7,7 @@ citEntry(entry = "Manual",
          as.person("Pedro Fonseca")),
          as.person("Rui Paulo")),
          year = "2020",
-         url = "https://github.com/pedro-teles-fonseca/pcal",
+         url = "https://pedro-teles-fonseca.github.io/pcal/",
          textVersion =
            paste("Pedro Fonseca and Rui Paulo (2020).",
                  "pcal: Calibration of P-values for Testing Point Null Hypotheses.",
