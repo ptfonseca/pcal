@@ -1,4 +1,21 @@
+title: pcal
 template:
   params:
     bootswatch: cosmo
     ganalytics: UA-169641497-1
+
+reference:
+  - title: P-value Calibrations
+    desc: ~
+    contents:
+      - '`bcal`'
+      - '`pcal`'
+  - title: Interpretation of Bayes Factors
+    desc: ~
+    contents:
+      - '`bfactor_interpret`'
+      - '`bfactor_log_interpret`'
+  - title: Miscellaneous
+    desc: ~
+    contents:
+      - '`bfactor_to_prob`'
