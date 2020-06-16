@@ -16,7 +16,8 @@ Description: Calibrate p-values under a robust Bayesian perspective and obtain m
     posterior probabilities and to help in the interpretation of Bayes factors are also
     included.
 License: GPL-3 | file LICENSE
-URL: https://pedro-teles-fonseca.github.io/pcal/
+URL: https://pedro-teles-fonseca.github.io/pcal/,
+     https://github.com/pedro-teles-fonseca/pcal
 BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
 Encoding: UTF-8
 LazyData: true
