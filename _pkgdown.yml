@@ -5,7 +5,7 @@ template:
     ganalytics: UA-169641497-1
 
 reference:
-  - title: P-value Calibrations
+  - title: Calibration of P-values
     desc: ~
     contents:
       - '`bcal`'
