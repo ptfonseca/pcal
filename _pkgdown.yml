@@ -1,3 +1,4 @@
 template:
   params:
+    bootswatch: lux
     ganalytics: UA-169641497-1
