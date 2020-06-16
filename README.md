@@ -1,6 +1,4 @@
-# pcal: Calibration of P-Values for Testing Point Null Hypotheses
-
-
+# pcal: Calibration of P-Values for Point Null Hypothesis Testing
 
 <!-- badges: start -->
 
