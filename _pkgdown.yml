@@ -1,4 +1,3 @@
 template:
   params:
-    bootswatch: flatly
     ganalytics: UA-169641497-1
