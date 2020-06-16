@@ -1,4 +1,4 @@
 template:
   params:
-    bootswatch: materia
+    bootswatch: flatly
     ganalytics: UA-169641497-1
