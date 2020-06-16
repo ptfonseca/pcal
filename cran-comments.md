@@ -1,22 +1,18 @@
 
-### Release Summary
+## Release Summary
 
 This is the first attempted CRAN release of pcal.
 
-## Test environments
-
-### Local OS 
+## Test environments (local)
 
 * macOS Catalina (version 10.15.5), R 4.0.1
-* Ubuntu 20.04 LTS (Focal Fossa), R 3.6.3
+* Ubuntu 20.04 LTS, R 3.6.3
 
-### On Travis CI
+## Test environments (on github actions)
 
-* Windows-latest (R: release)
-* Windows-latest (R: devel)
-* macOS-latest (R: release)
-* macOS-latest (R: devel)
-* Ubuntu 16.04 (R: release)
+* Ubuntu 16.04, R-oldrel, R-release, R 4.0.1
+* Windows-latest, R-oldrel, R-release, R-devel  
+* macOS-latest, R-release, R-devel
 
 ## R CMD check results
 
