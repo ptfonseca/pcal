@@ -2,14 +2,15 @@
 citHeader("To cite pcal in publications use:")
 
 citEntry(entry = "Manual",
-         title = "pcal: Calibration of P-values for Testing Point Null Hypotheses",
+         title = "pcal: Calibration of P-values for Point Null Hypotheses Testing",
          author = personList(c(
          as.person("Pedro Fonseca")),
          as.person("Rui Paulo")),
          year = "2020",
+         note = "R package version 1.0.0",
          url = "https://pedro-teles-fonseca.github.io/pcal/",
          textVersion =
            paste("Pedro Fonseca and Rui Paulo (2020).",
-                 "pcal: Calibration of P-values for Testing Point Null Hypotheses.",
+                 "pcal: Calibration of P-values for Point Null Hypotheses Testing.",
                  "R package version 1.0.0")
          )
