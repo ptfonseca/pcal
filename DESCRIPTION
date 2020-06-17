@@ -18,13 +18,14 @@ Encoding: UTF-8
 LazyData: true
 Depends: 
     R (>= 2.10)
-Imports: Rdpack (>= 0.7)
+Imports: Rdpack (>= 0.7),
+         backports (>= 1.1.8)
+
 Suggests: 
     covr (>= 3.5.0),
     testthat (>= 2.3.2),
     knitr (>= 1.28),
-    rmarkdown (>= 2.1),
-    backports (>= 1.1.8)
+    rmarkdown (>= 2.1)
 RdMacros: Rdpack
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.0
