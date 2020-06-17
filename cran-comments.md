@@ -11,7 +11,7 @@ This is the first attempted CRAN release of pcal.
 ## Test environments (on github actions)
 
 * macOS-latest, R-release, R-devel
-* Ubuntu 16.04, R-oldrel, R-release, R 4.0.1
+* Ubuntu 16.04, R-oldrel, R-release
 * Windows-latest, R-oldrel, R-release, R-devel  
 
 ## R CMD check results
