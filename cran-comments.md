@@ -6,7 +6,7 @@ This is the first attempted CRAN release of pcal.
 ## Test environments (local)
 
 * macOS Catalina (version 10.15.5), R 4.0.1
-* Ubuntu 20.04 LTS, R 3.6.3
+* Ubuntu 20.04 LTS, R 4.0.1
 
 ## Test environments (on github actions)
 
