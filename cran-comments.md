@@ -14,6 +14,15 @@ This is the first attempted CRAN release of pcal.
 * Ubuntu 16.04, R-oldrel, R-release
 * Windows Server 2019, R-release, R-devel  
 
+## Test environments (R-Hhb)
+
+* Ubuntu 16.04 LTS, R-devel, GCC
+* Fedora, R-devel, clang, gfortran
+* Fedora, R-devel, GCC
+* Debian, R-devel, GCC
+* Windows Server 2008 R2 SP1, R-devel, 32/64 bit
+* Oracle Solaris 10, x86, 32 bit, R-release
+
 ## R CMD check results
 
 0 errors | 0 warnings | 0 notes
