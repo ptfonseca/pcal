@@ -85,14 +85,14 @@ To classify the strength of the evidence in favor of the null hypothesis implied
 
 ```r 
 bfactor_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
-[1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"  
+[1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
 ```
  
  To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. This can be archived by using the inverse of the Bayes factors:
  
  ```r
 bfactor_interpret(1/c(0.1, 1.2, 3.5, 13.9, 150))
-[1] "Strong"   "Negative" "Negative" "Negative" "Negative"
+[1] "Strong" "Negative" "Negative" "Negative" "Negative"
 ```
 
  Because it is common that some kind of logarithmic transformation is applied to Bayes factors, there is also a `bfactor_log_interpret` function:
@@ -101,7 +101,7 @@ bfactor_interpret(1/c(0.1, 1.2, 3.5, 13.9, 150))
 bfs <- log10(c(0.1, 1.2, 3.5, 13.9, 150))
 
 bfactor_log_interpret(bfs, base = 10)
- [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"  
+ [1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
 ```
 
 ## References 
