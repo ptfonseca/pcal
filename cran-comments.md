@@ -17,8 +17,8 @@ This is the first attempted CRAN release of pcal.
 ## Test environments (R-Hhb)
 
 * Ubuntu 16.04 LTS, R-devel, GCC
-* Fedora, R-devel, clang, gfortran
 * Fedora, R-devel, GCC
+* Fedora, R-devel, clang, gfortran
 * Debian, R-devel, GCC
 * Windows Server 2008 R2 SP1, R-devel, 32/64 bit
 * Oracle Solaris 10, x86, 32 bit, R-release
