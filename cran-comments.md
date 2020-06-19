@@ -3,18 +3,20 @@
 
 This is the first attempted CRAN release of pcal.
 
-## Test environments (local)
+## Test environments
+
+### Local 
 
 * macOS Catalina 10.15.5, R 4.0.1
 * Ubuntu 20.04 LTS, R 4.0.1
 
-## Test environments (GitHub actions)
+### GitHub actions
 
 * macOS Catalina 10.15, R-oldrel, R-release, R-devel  
 * Ubuntu 16.04, R-oldrel, R-release
 * Windows Server 2019, R-release, R-devel  
 
-## Test environments (R-Hub)
+### R-Hub
 
 * Ubuntu 16.04 LTS, GCC, R-devel
 * Fedora, GCC, R-devel
