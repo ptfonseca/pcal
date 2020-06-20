@@ -1,8 +1,8 @@
 
 
-#' @title Posterior Probabilities of Point Null Hypotheses
+#' @title Turn Bayes Factors Into Posterior of Point Null Hypotheses
 #'
-#' @description Update the prior probabilities of point null hypotheses to posterior probabilities using Bayes factors.
+#' @description Update prior probabilities of point null hypotheses to posterior probabilities using Bayes factors.
 #'
 #' @param bf A numeric vector of non-negative values.
 #' @param prior_prob A numeric vector with values in the \[0,1\] interval. If \code{length(bf)} = 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(bf)}.
