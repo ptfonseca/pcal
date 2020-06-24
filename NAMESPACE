@@ -2,6 +2,7 @@
 
 export(bcal)
 export(bfactor_interpret)
+export(bfactor_interpret_2)
 export(bfactor_log_interpret)
 export(bfactor_to_prob)
 export(pcal)
