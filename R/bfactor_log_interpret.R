@@ -1,3 +1,4 @@
+
 #' @title Interpretation of the logarithms of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale from \insertCite{kass1995;textual}{pcal}.
