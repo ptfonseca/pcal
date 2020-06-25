@@ -30,7 +30,7 @@ Bayes factors are a summary of the evidence provided by the data to a model/hypo
 }
 
 
-Because \insertCite{kass1995;textual}{pcal} noted that it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, there is also \code{bfactor_interpret_kass} which instead uses this scale:\tabular{lll}{
+It can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics \insertCite{kass1995}{pcal}. there is also \code{bfactor_interpret_kass} which instead uses this scale:\tabular{lll}{
    \strong{2*log((bf)} \tab \strong{bf} \tab \strong{Evidence} \cr
    [-Inf, 0[ \tab [0, 1[ \tab Negative \cr
    [0, 2[ \tab [1, 3[ \tab Weak \cr
