@@ -13,20 +13,20 @@ bfactor_interpret(bf)
 Returns a character vector with the same \code{length} as \code{bf}.
 }
 \description{
-Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale from \insertCite{jeffreys1961;textual}{pcal}.
+Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
 }
 \details{
-Bayes factors are a summary of the evidence provided by the data to a model/hypothesis. Following the suggestion by \insertCite{jeffreys1961;textual}{pcal} of interpreting Bayes factors in half-units on the base 10 logarithmic scale, \code{bfactor_interpret} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the following table:\tabular{ll}{
-   \strong{bf} \tab \strong{Evidence} \cr
-   [0, 1[ \tab Negative \cr
-   [1, 3.2[ \tab Weak \cr
-   [3.2, 10[ \tab Substantial \cr
-   [10, 100[ \tab Strong \cr
-   [100, +Inf) \tab Decisive \cr
+Bayes factors are a summary of the evidence provided by the data to a model/hypothesis. Following Jeffreys' (1961) suggestion about the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, \code{bfactor_interpret} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the following table:\tabular{lll}{
+   \strong{log10(bf)} \tab \strong{bf} \tab \strong{Evidence} \cr
+   [-Inf, 0[ \tab [0, 1[ \tab Negative \cr
+   [0, 0.5[ \tab [1, 3.2[ \tab Weak \cr
+   [0.5, 1[ \tab [3.2, 10[ \tab Substantial \cr
+   [1, 2[ \tab [10, 100[ \tab Strong \cr
+   [2, +Inf[ \tab [100, +Inf) \tab Decisive \cr
 }
 
 
-Two of the original categories from \insertCite{jeffreys1961;textual}{pcal} were pooled together for simplification and a new category for the case when the data provides more support to the model/hypothesis in the denominator of the Bayes factor (usually the alternative hypothesis) was added. When comparing results with standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor. To obtain the strength of the evidence against the model/hypothesis  in the numerator use 1/\code{bf} instead of \code{bf}.
+As suggested by \insertCite{kass1995;textual}{pcal}, two of the original categories from \insertCite{jeffreys1961;textual}{pcal} were pooled together for simplification. We also added a new category for the case when the data provides more support to the model/hypothesis in the denominator of the Bayes factor (usually the alternative hypothesis). When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret} returns the strength of the evidence against the null hypothesis. In that case, and if \code{bf} was obtained with the null hypothesis on the numerator, one can use 1/\code{bf} instead.
 }
 \examples{
 # Interpret one Bayes factor
@@ -47,8 +47,8 @@ bfactor_interpret(bcal(chisq.test(x)[["p.value"]]))
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret_2}} for an alternative Bayes factor interpretation scale.
-\item \code{\link[pcal]{bfactor_log_interpret}} to interpret the logarithms of Bayes factors.
+\item \code{\link[pcal]{bfactor_interpret_2}} for an alternative interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
+\item \code{\link[pcal]{bfactor_log_interpret}} for the interpretation of the logarithms of Bayes factors.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 \item \code{\link[pcal]{bcal}} for the calculation of lower bounds on Bayes factors.
 }
