@@ -15,7 +15,7 @@
 #'
 #' @seealso
 #' * \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
-#' * \code{\link[pcal]{bfactor_interpret}} to interpret of Bayes factors.
+#' * \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal]{bfactor_interpret_kass}} for the interpretation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_log_interpret}} to interpret the logarithms of Bayes factors.
 #'
 #' @examples

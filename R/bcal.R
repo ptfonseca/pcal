@@ -14,7 +14,7 @@
 #'
 #' @seealso
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-#' * \code{\link[pcal]{bfactor_interpret}} to interpret of Bayes factors.
+#' * \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal]{bfactor_interpret_kass}} for the interpretation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_log_interpret}} to interpret the logarithms of Bayes factors.
 #' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probability of the null hypothesis.
 #'

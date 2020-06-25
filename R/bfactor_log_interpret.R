@@ -24,7 +24,7 @@
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} to interpret of Bayes factors in levels.
+#' * \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal]{bfactor_interpret_kass}} for the interpretation of Bayes factors in levels.
 #' * \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #'
@@ -103,7 +103,7 @@ bfactor_log_interpret <- function(bf, base = exp(1)) {
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} to interpret of Bayes factors in levels.
+#' * \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal]{bfactor_interpret_kass}} for the interpretation of Bayes factors in levels.
 #' * \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #'
