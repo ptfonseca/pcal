@@ -16,7 +16,7 @@
 #' | [1.5, 2[     | [10, 100[    | Very Strong  |
 #' | [2, +Inf[    | [100, +Inf[  | Decisive     |
 #'
-#' Because \insertCite{kass1995;textual}{pcal} noted that it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, there is also \code{bfactor_interpret_kass} which instead uses this scale:
+#'  It can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics \insertCite{kass1995}{pcal}. there is also \code{bfactor_interpret_kass} which instead uses this scale:
 #'
 #' | **2*log((bf)** | **bf**      | **Evidence** |
 #' | ---            | ---         | ---          |
