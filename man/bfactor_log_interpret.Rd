@@ -75,7 +75,7 @@ bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal]{bfactor_interpret_kass}} for the interpretation of Bayes factors in levels.
+\item \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal:bfactor_interpret_jeffreys]{bfactor_interpret_kass}} for the interpretation of Bayes factors in levels.
 \item \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 }

@@ -54,7 +54,7 @@ bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 \seealso{
 \itemize{
 \item \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
-\item \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal]{bfactor_interpret_kass}} for the interpretation of Bayes factors.
+\item \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal:bfactor_interpret_jeffreys]{bfactor_interpret_kass}} for the interpretation of Bayes factors.
 \item \code{\link[pcal]{bfactor_log_interpret}} to interpret the logarithms of Bayes factors.
 }
 }
