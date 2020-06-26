@@ -9,7 +9,7 @@ bfactor_to_prob(bf, prior_prob = 0.5)
 \arguments{
 \item{bf}{A numeric vector of non-negative values.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(bf)} = 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(bf)}.}
+\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(bf)} == 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(bf)}.}
 }
 \value{
 If \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector with the same \code{length} as \code{bf}, otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
@@ -54,7 +54,7 @@ bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 \seealso{
 \itemize{
 \item \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
-\item \code{\link[pcal]{bfactor_interpret_jeffreys}} and \code{\link[pcal:bfactor_interpret_jeffreys]{bfactor_interpret_kass}} for the interpretation of Bayes factors.
+\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
 \item \code{\link[pcal]{bfactor_log_interpret}} to interpret the logarithms of Bayes factors.
 }
 }

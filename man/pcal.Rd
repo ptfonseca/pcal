@@ -9,16 +9,20 @@ pcal(p, prior_prob = 0.5)
 \arguments{
 \item{p}{A numeric vector with values in the [0,1] interval.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p)} = 1 then \code{prior_prob} can be of any positive length, but if \code{length(p)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(p)}.}
+\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p)} == 1 then \code{prior_prob} can be of any positive length, but if \code{length(p)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(p)}.}
 }
 \value{
 If \code{length(p)} > 1 then \code{pcal} returns a numeric vector with the same \code{length} as \code{p}, otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
 }
 \description{
-Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as either lower bounds on the probability of a type I error or lower bounds on the posterior probabilities of point null hypotheses.
+Calibrate p-values under a robust perspective so that they can be interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on the probabilities of type I errors.
 }
 \details{
-\code{pcal} generalizes the calibration of p-values into posterior probabilities developed in \insertCite{sellke2001;textual}{pcal} for prior probabilities other than 0.5. \code{pcal} starts by transforming \code{p} into lower bounds on Bayes factors using \code{bcal} and then uses \code{bfactor_to_prob} together with prior probabilities \code{prior_prob} to turn those Bayes factors into posterior probabilities. The result is an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. The output of \code{pcal} can also be interpreted as the lower bound of the probability of a type I error. \insertCite{sellke2001;textual}{pcal} note that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence for large sample sizes the obtained lower bounds may be conservative.
+\code{pcal} generalizes the calibration of p-values into lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors developed in \insertCite{sellke2001;textual}{pcal} for prior probabilities other than 0.5.
+
+\code{pcal} starts by transforming the values in \code{p} into lower bounds on Bayes factors using \code{bcal} and then uses \code{bfactor_to_prob} together with prior probabilities \code{prior_prob} to turn those Bayes factors into posterior probabilities. For each element of \code{p}, \code{pcal} returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
+
+The output of \code{pcal} can also be interpreted as lower bounds on the probabilities of type I errors. Note that the output of this calibration has both Bayesian and Frequentist interpretations. \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
 }
 \examples{
 # Calibration of a typical "threshold" p-value:
@@ -28,7 +32,8 @@ pcal(.05)
 pcal(c(.1, .05, .01, .005, .001))
 
 # Application: chi-squared goodness-of-fit test,
-# lower bound on the posterior probability of the null:
+# lower bound on the posterior probability of the null
+# hypothesis:
 x <- matrix(c(12, 41, 25, 33), ncol = 2)
 pcal(chisq.test(x)[["p.value"]])
 
