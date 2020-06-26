@@ -27,9 +27,9 @@
 #'
 #' @seealso
 #' * \code{\link[pcal]{bfactor_interpret_kr}} for an alternative interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
-#' * \code{\link[pcal]{bfactor_log_interpret}} for the interpretation of the logarithms of Bayes factors.
+#' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-#' * \code{\link[pcal]{bcal}} for the calculation of lower bounds on Bayes factors.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #'
@@ -41,8 +41,7 @@
 #'
 #' # Application: chi-squared goodness-of-fit test.
 #' # Strength of the evidence provided by the lower
-#' # bound on the Bayes factor in favor of the null
-#' # hypothesis:
+#' # bound on the Bayes factor in favor of the null hypothesis:
 #' x <- matrix(c(12, 15, 14, 15), ncol = 2)
 #' bfactor_interpret(bcal(chisq.test(x)[["p.value"]]))
 #'
@@ -108,10 +107,10 @@ bfactor_interpret <- function(bf) {
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} for the interpretation scale suggested by \insertCite{jeffreys1961}{pcal}.
-#' * \code{\link[pcal]{bfactor_log_interpret}} for the interpretation of the logarithms of Bayes factors.
+#' * \code{\link[pcal]{bfactor_interpret}} for a Bayes factor interpretation scale suggested by \insertCite{jeffreys1961}{pcal}.
+#' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-#' * \code{\link[pcal]{bcal}} for the calculation of lower bounds on Bayes factors.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #'
@@ -123,8 +122,7 @@ bfactor_interpret <- function(bf) {
 #'
 #' # Application: chi-squared goodness-of-fit test.
 #' # Strength of the evidence provided by the lower
-#' # bound on the Bayes factor in favor of the null
-#' # hypothesis:
+#' # bound on the Bayes factor in favor of the null hypothesis:
 #' x <- matrix(c(12, 15, 14, 15), ncol = 2)
 #' bfactor_interpret_kr(bcal(chisq.test(x)[["p.value"]]))
 #'
@@ -161,5 +159,3 @@ bfactor_interpret_kr <- function(bf) {
   )
 
 }
-
-
