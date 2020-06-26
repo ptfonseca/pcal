@@ -1,4 +1,6 @@
 
+context("bfactor_interpret")
+
 testthat::test_that("bfactor_interpret test 1", {
 expect_equal(
  bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62)),

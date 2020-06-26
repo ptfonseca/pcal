@@ -1,4 +1,6 @@
 
+context("correspondence")
+
 testthat::test_that("", {
   expect_equal(
     pcal(.1),
