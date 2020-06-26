@@ -67,7 +67,7 @@ testthat::test_that("bfactor_log_interpret test 2", {
       "Strong",
       "Negative",
       "Negative",
-      "Strong",
+      "Very Strong",
       "Negative",
       "Strong",
       "Strong"
