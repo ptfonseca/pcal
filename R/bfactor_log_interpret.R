@@ -43,7 +43,6 @@
 #' bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 #'
 #' @export
-#'
 
 bfactor_log_interpret <- function(bf, base = exp(1)) {
 
@@ -124,7 +123,6 @@ bfactor_log_interpret <- function(bf, base = exp(1)) {
 #' bfactor_log_interpret_kr(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 #'
 #' @export
-#'
 
 bfactor_log_interpret_kr <- function(bf, base = exp(1)) {
 
