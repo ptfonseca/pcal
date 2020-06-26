@@ -15,10 +15,10 @@ bfactor_to_prob(bf, prior_prob = 0.5)
 If \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector with the same \code{length} as \code{bf}, otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
 }
 \description{
-Update prior probabilities of null hypotheses to posterior probabilities using Bayes factors.
+Update the prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
 }
 \details{
-\code{bfactor_to_prob} computes posterior probabilities of null hypotheses using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor and \code{prior_prob} is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - \code{prior_prob}.
+\code{bfactor_to_prob} computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor and \code{prior_prob} is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - \code{prior_prob} and posterior probability 1-\code{bfactor_to_prob(bf, prior_prob)}.
 
 The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{length} equal to \code{length(bf)}, in which case each prior probability in \code{prior_prob} will be updated using the corresponding element of \code{bf}, or of \code{length} 1, in which case it will be recycled (if \code{length(bf)} > 1) and each element of \code{bf} will update the same \code{prior_prob} value.
 }
@@ -45,7 +45,7 @@ round(bfactor_to_prob(seq(0, 1, .05)), 3)
 round(bfactor_to_prob(seq(0, 1, .05), prior_prob = .99), 3)
 
 # Application: chi-squared goodness-of-fit test,
-# lower bound on the posterior probability of the null:
+# lower bound on the posterior probability of the null hypothesis:
 x <- matrix(c(12, 41, 25, 33), ncol = 2)
 bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 
@@ -55,9 +55,9 @@ bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bcal}} for the calculation of lower bounds on Bayes factors.
+\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
 \item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
-\item \code{\link[pcal]{bfactor_log_interpret}} for the interpretation of the logarithms of Bayes factors.
-\item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+\item \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 }
 }
