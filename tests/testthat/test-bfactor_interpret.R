@@ -1,7 +1,7 @@
 
-testthat::test_that("bfactor_interpret_jeffreys test 1", {
+testthat::test_that("bfactor_interpret test 1", {
 expect_equal(
- bfactor_interpret_jeffreys(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62)),
+ bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62)),
     c(
       "Negative",
       "Negative",
@@ -19,9 +19,9 @@ expect_equal(
   )
 })
 
-testthat::test_that("bfactor_interpret_jeffreys test 2", {
+testthat::test_that("bfactor_interpret test 2", {
   expect_equal(
-    bfactor_interpret_jeffreys(10 ^ c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48)),
+    bfactor_interpret(10 ^ c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48)),
     c(
       "Weak",
       "Strong",
@@ -73,63 +73,63 @@ testthat::test_that("bfactor_log_interpret test 2", {
   )
 })
 
-testthat::test_that("bfactor_interpret_jeffreys error message 1", {
+testthat::test_that("bfactor_interpret error message 1", {
   expect_error(
-    bfactor_interpret_jeffreys(NULL)
+    bfactor_interpret(NULL)
     )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 2 - empty vector", {
+testthat::test_that("bfactor_interpret error message 2 - empty vector", {
   expect_error(
-    bfactor_interpret_jeffreys(vector())
+    bfactor_interpret(vector())
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 2 - empty list", {
+testthat::test_that("bfactor_interpret error message 2 - empty list", {
   expect_error(
-    bfactor_interpret_jeffreys(list())
+    bfactor_interpret(list())
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 3 - NA", {
+testthat::test_that("bfactor_interpret error message 3 - NA", {
   expect_error(
-    bfactor_interpret_jeffreys(NA)
+    bfactor_interpret(NA)
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 3 - NaN", {
+testthat::test_that("bfactor_interpret error message 3 - NaN", {
   expect_error(
-    bfactor_interpret_jeffreys(NaN)
+    bfactor_interpret(NaN)
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 4 - factor", {
+testthat::test_that("bfactor_interpret error message 4 - factor", {
   expect_error(
-    bfactor_interpret_jeffreys(factor(10))
+    bfactor_interpret(factor(10))
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 4 - char", {
+testthat::test_that("bfactor_interpret error message 4 - char", {
   expect_error(
-    bfactor_interpret_jeffreys("10")
+    bfactor_interpret("10")
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 4 - list", {
+testthat::test_that("bfactor_interpret error message 4 - list", {
   expect_error(
-    bfactor_interpret_jeffreys(list(10))
+    bfactor_interpret(list(10))
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys error message 5", {
+testthat::test_that("bfactor_interpret error message 5", {
   expect_error(
-    bfactor_interpret_jeffreys(-0.6)
+    bfactor_interpret(-0.6)
   )}
 )
 
-testthat::test_that("bfactor_interpret_jeffreys NA warning", {
+testthat::test_that("bfactor_interpret NA warning", {
   expect_warning(
-    bfactor_interpret_jeffreys(c(10, NA))
+    bfactor_interpret(c(10, NA))
   )}
 )
 
