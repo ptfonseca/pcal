@@ -27,8 +27,7 @@
 #' pcal(c(.1, .05, .01, .005, .001))
 #'
 #' # Application: chi-squared goodness-of-fit test,
-#' # lower bound on the posterior probability of the null
-#' # hypothesis:
+#' # lower bound on the posterior probability of the null hypothesis:
 #' x <- matrix(c(12, 41, 25, 33), ncol = 2)
 #' pcal(chisq.test(x)[["p.value"]])
 #'
