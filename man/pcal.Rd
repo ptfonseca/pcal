@@ -18,7 +18,7 @@ If \code{length(p)} > 1 then \code{pcal} returns a numeric vector with the same 
 Calibrate p-values under a robust perspective so that they can be interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on the probabilities of type I errors.
 }
 \details{
-\code{pcal} generalizes the calibration of p-values into lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors developed in \insertCite{sellke2001;textual}{pcal} for prior probabilities other than 0.5.
+\code{pcal} generalizes the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors developed in \insertCite{sellke2001;textual}{pcal} for prior probabilities other than 0.5.
 
 \code{pcal} starts by transforming the values in \code{p} into lower bounds on Bayes factors using \code{bcal} and then uses \code{bfactor_to_prob} together with prior probabilities \code{prior_prob} to turn those Bayes factors into posterior probabilities. For each element of \code{p}, \code{pcal} returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
 
