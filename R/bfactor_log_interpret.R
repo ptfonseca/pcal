@@ -6,7 +6,7 @@
 #' @param bf A numeric vector.
 #' @param base A numeric vector of \code{length} one. Must be a positive number.
 #'
-#' @details Bayes factors are a summary of the evidence provided by the data in favor of a model/hypothesis, and are often presented in a logarithmic scale. \insertCite{jeffreys1961;textual}{pcal} suggested the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, as indicated in the following table:
+#' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis, and are often reported on a logarithmic scale. \insertCite{jeffreys1961;textual}{pcal} suggested the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, as indicated in the following table:
 #'
 #' **log10(Bayes factor)**  | **Bayes factor** | **Evidence** |
 #' | ---                    | ---              | ---          |
@@ -27,9 +27,10 @@
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal:bfactor_interpret]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
-#' * \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
+#' * \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
+#' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Interpret one Bayes factor, natural log
@@ -87,7 +88,7 @@ bfactor_log_interpret <- function(bf, base = exp(1)) {
 #' @param bf A numeric vector.
 #' @param base A numeric vector of \code{length} one. Must be a positive number.
 #'
-#' @details Bayes factors are a summary of the evidence provided by the data in favor of a model/hypothesis, and are often presented in a logarithmic scale. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995}{pcal} suggested the following Bayes factor interpretation scale:
+#' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis, and are often reported on a logarithmic scale. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995;textual}{pcal} suggested the following Bayes factor interpretation scale:
 #'
 #' | **2*log(Bayes factor)** | **Bayes factor**      | **Evidence** |
 #' | ---                     | ---                   | ---          |
@@ -107,9 +108,10 @@ bfactor_log_interpret <- function(bf, base = exp(1)) {
 #' \insertAllCited{}
 #'
 #' @seealso
+#' * \code{\link[pcal]{bfactor_log_interpret}} for the interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
 #' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
-#' * \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Interpret one Bayes factor, natural log
