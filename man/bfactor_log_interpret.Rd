@@ -18,7 +18,7 @@ Returns a character vector with the same \code{length} as \code{bf}.
 Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
 }
 \details{
-Bayes factors are a summary of the evidence provided by the data in favor of a model/hypothesis, and are often presented in a logarithmic scale. \insertCite{jeffreys1961;textual}{pcal} suggested the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, as indicated in the following table:\tabular{lll}{
+Bayes factors are a summary of the evidence provided by the data to a model/hypothesis, and are often reported on a logarithmic scale. \insertCite{jeffreys1961;textual}{pcal} suggested the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, as indicated in the following table:\tabular{lll}{
    \strong{log10(Bayes factor)} \tab \strong{Bayes factor} \tab \strong{Evidence} \cr
    [-Inf, 0[ \tab [0, 1[ \tab Negative \cr
    [0, 0.5[ \tab [1, 3.2[ \tab Weak \cr
@@ -49,8 +49,9 @@ bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal:bfactor_interpret]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
-\item \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
+\item \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
+\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 }
 }
