@@ -116,4 +116,4 @@ Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for testing p
 ## Getting Help
 
 If you find a bug, please file an issue with a minimal reproducible example on
-[GitHub](https://github.com/pedro-teles-fonseca/pcal/issues). Feature requests are also welcome. You can contact me at pedro.teles.fonseca@outlook.com..
+[GitHub](https://github.com/pedro-teles-fonseca/pcal/issues). Feature requests are also welcome. You can contact me at pedro.teles.fonseca@outlook.com.
