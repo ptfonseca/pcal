@@ -5,8 +5,6 @@
 \title{Interpretation of the logarithms of Bayes factors \insertCite{jeffreys1961}{pcal}}
 \usage{
 bfactor_log_interpret(bf, base = exp(1))
-
-bfactor_log_interpret(bf, base = exp(1))
 }
 \arguments{
 \item{bf}{A numeric vector.}
@@ -15,13 +13,9 @@ bfactor_log_interpret(bf, base = exp(1))
 }
 \value{
 Returns a character vector with the same \code{length} as \code{bf}.
-
-Returns a character vector with the same \code{length} as \code{bf}.
 }
 \description{
 Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
-
-Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale from \insertCite{kass1995;textual}{pcal}.
 }
 \details{
 Bayes factors are a summary of the evidence provided by the data in favor of a model/hypothesis, and are often presented in a logarithmic scale. \insertCite{jeffreys1961;textual}{pcal} suggested the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, as indicated in the following table:\tabular{lll}{
@@ -38,29 +32,8 @@ Bayes factors are a summary of the evidence provided by the data in favor of a m
 \code{bfactor_log_interpret} takes (base \code{base}) logarithms of Bayes factors (\code{bf}) as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the according to the aforementioned table.
 
 When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_log_interpret} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_log_interpret}(1/bf) to obtain the strength of the evidence against the null hypothesis.
-
-Bayes factors are a summary of the evidence provided by the data in favor of a model/hypothesis, as opposed to another, and are often presented in a logarithmic scale. \code{bfactor_log_interpret} takes (base \code{base}) logarithms of Bayes factors (\code{bf}) as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the scale suggested by \insertCite{kass1995;textual}{pcal}. The original scale was augmented with an additional category for the case when the data provides more support to the alternative hypothesis:\tabular{ll}{
-   Bayes factor \tab Evidence \cr
-   (-Inf, 1[ \tab Negative \cr
-   [1, 3.2[ \tab Weak \cr
-   [3.2, 10[ \tab Substantial \cr
-   [10, 100[ \tab Strong \cr
-   [100, +Inf) \tab Decisive \cr
-}
-
-
-To obtain the strength of the evidence against the null hypothesis use 1/\code{bf} instead of \code{bf}, which is equivalent to putting the null hypothesis in the denominator of the Bayes factor. This is useful for comparing results with standard likelihood ratio tests.
 }
 \examples{
-# Interpret one Bayes factor, natural log
-bfactor_log_interpret(1.5)
-
-# Interpret many Bayes factors, natural log
-bfactor_log_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
-
-# Interpret many Bayes factors, base 10 log
-bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
-
 # Interpret one Bayes factor, natural log
 bfactor_log_interpret(1.5)
 
@@ -73,18 +46,10 @@ bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 }
 \references{
 \insertAllCited{}
-
-\insertAllCited{}
 }
 \seealso{
 \itemize{
 \item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal:bfactor_interpret]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
-\item \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
-\item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-}
-
-\itemize{
-\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 \item \code{\link[pcal]{bcal}} for the calculation of Bayes factors.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 }
