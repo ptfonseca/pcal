@@ -154,7 +154,7 @@ bfactor_interpret_kr <- function(bf) {
   ifelse(bf < 1, "Negative",
          ifelse(bf < 3, "Weak",
                 ifelse(bf < 20, "Positive",
-                       ifelse(bf < 100, "Strong",
+                       ifelse(bf < 150, "Strong",
                               "Very Strong")
                 )
          )
