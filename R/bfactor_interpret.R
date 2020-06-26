@@ -18,7 +18,7 @@
 #'
 #' \code{bfactor_interpret} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 #'
-#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret} returns the strength of the evidence against the null hypothesis. In that case, and if \code{bf} was obtained with the null hypothesis on the numerator, one can use 1/\code{bf} instead.
+#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_interpret}(1/bf) to obtain the strength of the evidence against the null hypothesis.
 #'
 #' @return Returns a character vector with the same \code{length} as \code{bf}.
 #'
@@ -88,7 +88,7 @@ bfactor_interpret <- function(bf) {
 #'
 #' @param bf A numeric vector of non-negative values.
 #'
-#' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995}{pcal} suggested the following interpretation scale:
+#' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995}{pcal} suggested the following Bayes factor interpretation scale:
 #'
 #' | **2*log(Bayes factor)** | **Bayes factor**      | **Evidence** |
 #' | ---                     | ---                   | ---          |
@@ -100,7 +100,7 @@ bfactor_interpret <- function(bf) {
 #'
 #' \code{bfactor_interpret_kr} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 #'
-#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret} returns the strength of the evidence against the null hypothesis. In that case, and if \code{bf} was obtained with the null hypothesis on the numerator, one can use 1/\code{bf} instead.
+#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret_kr} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_interpret_kr}(1/bf) to obtain the strength of the evidence against the null hypothesis.
 #'
 #' @return Returns a character vector with the same \code{length} as \code{bf}.
 #'
