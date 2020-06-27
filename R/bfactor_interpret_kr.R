@@ -1,11 +1,11 @@
 
-#' @title Interpretation of Bayes factors \insertCite{kass1995}{pcal}
+#' @title Interpretation of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
 #'
 #' @param bf A numeric vector of non-negative values.
 #'
-#' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995}{pcal} suggested the following Bayes factor interpretation scale:
+#' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995;textual}{pcal} suggested the following Bayes factor interpretation scale:
 #'
 #' | **2*log(Bayes factor)** | **Bayes factor**      | **Evidence** |
 #' | ---                     | ---                   | ---          |
@@ -25,13 +25,12 @@
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} for a Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
+#' * \code{\link[pcal]{bfactor_interpret}} for the original interpretation scale.
 #' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
-#'
 #' # Interpretation of one Bayes factor
 #' bfactor_interpret_kr(1.5)
 #'

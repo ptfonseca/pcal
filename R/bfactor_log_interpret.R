@@ -1,5 +1,5 @@
 
-#' @title Interpretation of the logarithms of Bayes factors \insertCite{jeffreys1961}{pcal}
+#' @title Interpretation of the logarithms of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
 #'
@@ -14,7 +14,7 @@
 #' | [0, 0.5[               | [1, 3.2[         | Weak         |
 #' | [0.5, 1[               | [3.2, 10[        | Substantial  |
 #' | [1, 1.5[               | [10, 32[         | Strong       |
-#' | [1.5, 2[               | [10, 100[        | Very Strong  |
+#' | [1.5, 2[               | [32, 100[        | Very Strong  |
 #' | [2, +Inf[              | [100, +Inf[      | Decisive     |
 #'
 #' \code{bfactor_log_interpret} takes (base \code{base}) logarithms of Bayes factors (\code{bf}) as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the according to the aforementioned table.
@@ -27,19 +27,19 @@
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
+#' * \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale.
 #' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
-#' # Interpret one Bayes factor, natural log
-#' bfactor_log_interpret(1.5)
+#' # Interpretation of one Bayes factor (on the natural log scale)
+#' bfactor_log_interpret(log(1.5))
 #'
-#' # Interpret many Bayes factors, natural log
-#' bfactor_log_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
+#' # Interpretation of many Bayes factors (on the natural log scale)
+#' bfactor_log_interpret(log(c(0.1, 1.2, 3.5, 13.9, 150)))
 #'
-#' # Interpret many Bayes factors, base 10 log
+#' # Interpretation of many Bayes factors (on the log10 scale)
 #' bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 #'
 #' @export

@@ -1,5 +1,5 @@
 
-#' @title Interpretation of the logarithms of Bayes factors \insertCite{kass1995}{pcal}
+#' @title Interpretation of the logarithms of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
 #'
@@ -26,19 +26,19 @@
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_log_interpret}} for the interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
+#' * \code{\link[pcal]{bfactor_log_interpret}} for the original interpretation scale.
 #' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
-#' # Interpret one Bayes factor, natural log
+#' # Interpretation of one Bayes factor, natural log
 #' bfactor_log_interpret_kr(1.5)
 #'
-#' # Interpret many Bayes factors, natural log
+#' # Interpretation of many Bayes factors, natural log
 #' bfactor_log_interpret_kr(c(0.1, 1.2, 3.5, 13.9, 150))
 #'
-#' # Interpret many Bayes factors, base 10 log
+#' # Interpretation of many Bayes factors, base 10 log
 #' bfactor_log_interpret_kr(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 #'
 #' @export
