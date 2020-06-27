@@ -117,9 +117,8 @@ bfactor_log_interpret(bfs, base = 10)
  [1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
 
 bfactor_log_interpret_kr(bfs, base = 10)
-[1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"
+[1] "Negative" "Weak" "Positive" "Positive" "Very Strong"
 ```
-
 ## References 
 
 Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.
