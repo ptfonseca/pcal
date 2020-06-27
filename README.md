@@ -21,9 +21,13 @@ Some utility functions are also included:
 
 * `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)
   
-* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according the scale suggested by Kass and Raftery (1995)
+* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the scale suggested by Jeffreys (1961). 
   
-* `bfactor_log_interpret()` is similar to `bfactor_interpret()` but takes the logarithms of Bayes factors as input
+* `bfactor_interpret_kr()` classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)
+  
+* `bfactor_log_interpret()` is similar to `bfactor_interpret()` but takes logarithms of Bayes factors as input
+
+* `bfactor_log_interpret_kr()` is similar to `bfactor_interpret_kr()` but takes logarithms of Bayes factors as input
      
 
 ## Installation
@@ -89,6 +93,14 @@ bfactor_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
 [1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
 ```
  
+ Alternatively, we can use `bfactor_interpret()_kr`:
+
+ ```r
+bfactor_interpret_kr(c(0.1, 1.2, 3.5, 13.9, 150))
+[1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"
+
+ ```
+
  To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. This can be archived by using the inverse of the Bayes factors:
  
  ```r
@@ -96,18 +108,23 @@ bfactor_interpret(1/c(0.1, 1.2, 3.5, 13.9, 150))
 [1] "Strong" "Negative" "Negative" "Negative" "Negative"
 ```
 
- Because it is common that some kind of logarithmic transformation is applied to Bayes factors, there is also a `bfactor_log_interpret` function:
+ Because it is common that some kind of logarithmic transformation is applied to Bayes factors, there are also `bfactor_log_interpret` and `bfactor_log_interpret_kr` functions:
 
 ```r
 bfs <- log10(c(0.1, 1.2, 3.5, 13.9, 150))
 
 bfactor_log_interpret(bfs, base = 10)
  [1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
+
+bfactor_log_interpret_kr(bfs, base = 10)
+[1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"
 ```
 
 ## References 
 
 Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.
+
+Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Phisical Sciences, 3 edition. Oxford University Press.
 
 Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.
 
