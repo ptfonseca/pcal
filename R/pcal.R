@@ -6,7 +6,7 @@
 #' @param p A numeric vector with values in the \[0,1\] interval.
 #' @param prior_prob A numeric vector with values in the \[0,1\] interval. If \code{length(p)} == 1 then \code{prior_prob} can be of any positive length, but if \code{length(p)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(p)}.
 #'
-#' @details \code{pcal} generalizes the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors developed in \insertCite{sellke2001;textual}{pcal} for prior probabilities other than 0.5.
+#' @details \insertCite{sellke2001;textual}{pcal} developed a calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors for the case when both the null and the alternative hypotheses have 0.5 prior probability. \code{pcal} generalizes the aforementioned calibration for prior probabilities other than 0.5.
 #'
 #' \code{pcal} starts by transforming the values in \code{p} into lower bounds on Bayes factors using \code{bcal} and then uses \code{bfactor_to_prob} together with prior probabilities \code{prior_prob} to turn those Bayes factors into posterior probabilities. For each element of \code{p}, \code{pcal} returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
 #'
