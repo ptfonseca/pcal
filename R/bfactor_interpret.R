@@ -107,7 +107,7 @@ bfactor_interpret <- function(bf) {
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} for a Bayes factor interpretation scale suggested by \insertCite{jeffreys1961}{pcal}.
+#' * \code{\link[pcal]{bfactor_interpret}} for a Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
 #' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 #' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 #' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
