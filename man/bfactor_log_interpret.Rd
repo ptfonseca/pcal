@@ -2,7 +2,7 @@
 % Please edit documentation in R/bfactor_log_interpret.R
 \name{bfactor_log_interpret}
 \alias{bfactor_log_interpret}
-\title{Interpretation of the logarithms of Bayes factors \insertCite{jeffreys1961}{pcal}}
+\title{Interpretation of the logarithms of Bayes factors}
 \usage{
 bfactor_log_interpret(bf, base = exp(1))
 }
@@ -24,7 +24,7 @@ Bayes factors are a summary of the evidence provided by the data to a model/hypo
    [0, 0.5[ \tab [1, 3.2[ \tab Weak \cr
    [0.5, 1[ \tab [3.2, 10[ \tab Substantial \cr
    [1, 1.5[ \tab [10, 32[ \tab Strong \cr
-   [1.5, 2[ \tab [10, 100[ \tab Very Strong \cr
+   [1.5, 2[ \tab [32, 100[ \tab Very Strong \cr
    [2, +Inf[ \tab [100, +Inf[ \tab Decisive \cr
 }
 
@@ -34,13 +34,13 @@ Bayes factors are a summary of the evidence provided by the data to a model/hypo
 When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_log_interpret} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_log_interpret}(1/bf) to obtain the strength of the evidence against the null hypothesis.
 }
 \examples{
-# Interpret one Bayes factor, natural log
-bfactor_log_interpret(1.5)
+# Interpretation of one Bayes factor (on the natural log scale)
+bfactor_log_interpret(log(1.5))
 
-# Interpret many Bayes factors, natural log
-bfactor_log_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
+# Interpretation of many Bayes factors (on the natural log scale)
+bfactor_log_interpret(log(c(0.1, 1.2, 3.5, 13.9, 150)))
 
-# Interpret many Bayes factors, base 10 log
+# Interpretation of many Bayes factors (on the log10 scale)
 bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 
 }
@@ -49,7 +49,7 @@ bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
+\item \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale.
 \item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 \item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
