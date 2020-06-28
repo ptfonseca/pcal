@@ -292,7 +292,7 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 *Notes.bib
 
-# OS generated files
+# macOS files
 .DS_Store
 .DS_Store?
 ._*
@@ -301,7 +301,7 @@ TSWLatexianTemp*
 ehthumbs.db
 Thumbs.db
 
-# pkgdown website files
+# pkgdown files
 inst/doc
 docs
 
