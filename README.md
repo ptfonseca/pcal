@@ -78,7 +78,7 @@ bfactor_to_prob(bcal(pv)) # same as pcal(pv)
 # [1] 0.009549041
 ```
 
-Like `pcal()`, `bfactor_to_prob` also assumes a prior probability of 0.5 to the null hypothesis. We can change this default:
+Like `pcal()`, `bfactor_to_prob` assumes a prior probability of 0.5 to the null hypothesis. We can change this default:
 
 ```r
 bfactor_to_prob(bcal(pv), prior_prob = .95)
