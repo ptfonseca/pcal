@@ -301,7 +301,7 @@ TSWLatexianTemp*
 ehthumbs.db
 Thumbs.db
 
-# pkgdown
+# pkgdown website files
 inst/doc
 docs
 
