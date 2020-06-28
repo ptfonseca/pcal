@@ -101,13 +101,13 @@ To classify the strength of the evidence in favor of the null hypothesis implied
 Because Bayes factors are often reported on a logarithmic scale, there are also `bfactor_log_interpret` and `bfactor_log_interpret_kr` functions that interpret the logarithms of Bayes factors:
 
 ```r
-bfs <- log10(c(0.1, 1.2, 3.5, 13.9, 150))
+bfs <- log10(c(0.5, 2, 5, 20, 50, 150))
 
 bfactor_log_interpret(bfs, base = 10)
-[1] "Negative" "Weak" "Substantial" "Strong" "Decisive"   
+[1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive"  
 
 bfactor_log_interpret_kr(bfs, base = 10)
-[1] "Negative" "Weak" "Positive" "Positive" "Very Strong"
+[1] "Negative" "Weak" "Positive" "Strong" "Strong" "Very Strong"
 ```
 
 To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If `bf` is a Bayes factor in favor  of the null hypothesis, one can use `1/bf` as input to obtain the strength of the evidence against the null hypothesis.
