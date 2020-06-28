@@ -73,11 +73,3 @@ pcal <- function(p, prior_prob = 0.5){
   suppressWarnings(bfactor_to_prob(bcal(p), prior_prob))
 
 }
-
-
-
-
-
-
-
-

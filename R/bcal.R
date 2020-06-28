@@ -56,8 +56,3 @@ bcal <- function(p) {
          ifelse(p < (exp(1) ^ (-1)), -exp(1) * log(p) * p,
                 1))
 }
-
-
-
-
-
