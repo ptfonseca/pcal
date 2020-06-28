@@ -156,12 +156,12 @@
 <span id="cb10-7"><a href="#cb10-7"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Positive"</span> <span class="st">"Strong"</span> <span class="st">"Strong"</span> <span class="st">"Very Strong"</span></span></code></pre></div>
 <p>To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If <code>bf</code> is a Bayes factor in favor of the null hypothesis, one can use <code>1/bf</code> as input to obtain the strength of the evidence against the null hypothesis.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Evidence in favor of the null hypothesis</span></span>
-<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">bfactor_interpret</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Decisive"</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">bfactor_interpret</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
+<span id="cb11-3"><a href="#cb11-3"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Very Strong"</span> <span class="st">"Decisive"</span>   </span>
 <span id="cb11-4"><a href="#cb11-4"></a></span>
 <span id="cb11-5"><a href="#cb11-5"></a><span class="co"># Evidence against the null hypothesis</span></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">bfactor_interpret</span>(<span class="dv">1</span><span class="op">/</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
-<span id="cb11-7"><a href="#cb11-7"></a>[<span class="dv">1</span>] <span class="st">"Strong"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span></span></code></pre></div>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">bfactor_interpret</span>(<span class="dv">1</span><span class="op">/</span><span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
+<span id="cb11-7"><a href="#cb11-7"></a>[<span class="dv">1</span>] <span class="st">"Weak"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span></span></code></pre></div>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
