@@ -1,7 +1,6 @@
+## Release summary
 
-## Release Summary
-
-This is the first attempted CRAN release of pcal.
+This is the first submission of pcal.
 
 ## Test environments
 
