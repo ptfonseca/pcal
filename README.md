@@ -63,7 +63,7 @@ pcal(pv)
 ```
 This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. The output of `bcal()` has an analogous interpretation for Bayes factors (instead of posterior probabilities).
 
-One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default `pcal()` assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:
+One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default, `pcal()` assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:
 
 ```r
 pcal(pv, prior_prob = .95)
