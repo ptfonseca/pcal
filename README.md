@@ -15,7 +15,7 @@ P-values are the most commonly used tool to measure the evidence provided by the
 
   * `pcal()` calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.
    
-  *   `bcal()` calibrates p-values so that they can be interpreted as lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.
+  *   `bcal()` calibrates p-values so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 
 Some utility functions are also included:
 
@@ -61,10 +61,9 @@ We can also turn `pv` into a lower bound for the posterior probability of the nu
 pcal(pv)
 # [1] 0.009549041
 ```
-This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. `bcal()` works analogously for Bayes factors instead of posterior probabilities.
+This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. The output of `bcal()` has an analogous interpretation for Bayes factors (instead of posterior probabilities).
 
-
- One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default `pcal()` assumes a prior probability of 0.5 for the null hypothesis. We can specify different prior probabilities, for example:
+One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default `pcal()` assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:
 
 ```r
 pcal(pv, prior_prob = .95)
@@ -89,45 +88,49 @@ bfactor_to_prob(bcal(pv), prior_prob = .95)
 To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use `bfactor_interpret()` :
 
 ```r 
-bfactor_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
-[1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
+> bfactor_interpret(c(0.5, 2, 5, 20, 50, 150))
+[1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive" 
 ```
  
  Alternatively, we can use `bfactor_interpret()_kr`:
 
  ```r
-bfactor_interpret_kr(c(0.1, 1.2, 3.5, 13.9, 150))
-[1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"
-
+> bfactor_interpret_kr(c(0.5, 2, 5, 20, 50, 150))
+[1] "Negative" "Weak" "Positive" "Strong" "Strong" "Very Strong"
  ```
-
- To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. This can be archived by using the inverse of the Bayes factors:
- 
- ```r
-bfactor_interpret(1/c(0.1, 1.2, 3.5, 13.9, 150))
-[1] "Strong" "Negative" "Negative" "Negative" "Negative"
-```
-
- Because it is common that some kind of logarithmic transformation is applied to Bayes factors, there are also `bfactor_log_interpret` and `bfactor_log_interpret_kr` functions:
+Because Bayes factors are often reported on a logarithmic scale, there are also `bfactor_log_interpret` and `bfactor_log_interpret_kr` functions that interpret the logarithms of Bayes factors:
 
 ```r
 bfs <- log10(c(0.1, 1.2, 3.5, 13.9, 150))
 
 bfactor_log_interpret(bfs, base = 10)
- [1] "Negative" "Weak" "Substantial" "Strong" "Decisive"  
+[1] "Negative" "Weak" "Substantial" "Strong" "Decisive"   
 
 bfactor_log_interpret_kr(bfs, base = 10)
 [1] "Negative" "Weak" "Positive" "Positive" "Very Strong"
 ```
+
+To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If `bf` is a Bayes factor in favor  of the null hypothesis, one can use `1/bf` as input to obtain the strength of the evidence against the null hypothesis.
+ 
+ ```r
+ # Evidence in favor of the null hypothesis
+bfactor_interpret(c(0.1, 1.2, 3.5, 13.9, 150))
+"Negative" "Weak" "Substantial" "Strong" "Decisive" 
+
+# Evidence against the null hypothesis
+bfactor_interpret(1/c(0.1, 1.2, 3.5, 13.9, 150))
+[1] "Strong" "Negative" "Negative" "Negative" "Negative"
+```
+
 ## References 
 
-Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.
+* Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.
 
-Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Phisical Sciences, 3 edition. Oxford University Press.
+* Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Phisical Sciences, 3 edition. Oxford University Press.
 
-Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.
+* Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.
 
-Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for testing precise null hypotheses.” The American Statistician, 55(1), 62–71.
+* Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for testing precise null hypotheses.” The American Statistician, 55(1), 62–71.
 
 ## Getting Help
 
