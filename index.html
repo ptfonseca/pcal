@@ -90,7 +90,7 @@
 <p>P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The <code>pcal</code> package uses the calibrations developed in Sellke et al (2001) to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret:</p>
 <ul>
 <li><p><code><a href="reference/pcal.html">pcal()</a></code> calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.</p></li>
-<li><p><code><a href="reference/bcal.html">bcal()</a></code> calibrates p-values so that they can be interpreted as lower bounds on the odds provided by the data (Bayes factors) in favor of point null hypotheses.</p></li>
+<li><p><code><a href="reference/bcal.html">bcal()</a></code> calibrates p-values so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.</p></li>
 </ul>
 <p>Some utility functions are also included:</p>
 <ul>
@@ -128,8 +128,8 @@
 <span class="fu"><a href="reference/pcal.html">pcal</a></span>(<span class="kw">pv</span>)
 <span class="co"># [1] 0.009549041</span>
 </pre></div>
-<p>This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. <code><a href="reference/bcal.html">bcal()</a></code> works analogously for Bayes factors instead of posterior probabilities.</p>
-<p>One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default <code><a href="reference/pcal.html">pcal()</a></code> assumes a prior probability of 0.5 for the null hypothesis. We can specify different prior probabilities, for example:</p>
+<p>This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. The output of <code><a href="reference/bcal.html">bcal()</a></code> has an analogous interpretation for Bayes factors (instead of posterior probabilities).</p>
+<p>One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default <code><a href="reference/pcal.html">pcal()</a></code> assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">pcal</span>(pv, <span class="dt">prior_prob =</span> <span class="fl">.95</span>)</span>
 <span id="cb5-2"><a href="#cb5-2"></a>[<span class="dv">1</span>] <span class="fl">0.1548208</span></span></code></pre></div>
 <p>In this case we obtain a higher lower bound because the null hypothesis has a higher prior probability.</p>
@@ -142,30 +142,37 @@
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">bfactor_to_prob</span>(<span class="kw">bcal</span>(pv), <span class="dt">prior_prob =</span> <span class="fl">.95</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>[<span class="dv">1</span>] <span class="fl">0.1548208</span></span></code></pre></div>
 <p>To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> :</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">bfactor_interpret</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
-<span id="cb8-2"><a href="#cb8-2"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Decisive"</span>  </span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">bfactor_interpret</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
+<span id="cb8-2"><a href="#cb8-2"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Very Strong"</span> <span class="st">"Decisive"</span> </span></code></pre></div>
 <p>Alternatively, we can use <code>bfactor_interpret()_kr</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">bfactor_interpret_kr</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
-<span id="cb9-2"><a href="#cb9-2"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span>    <span class="st">"Weak"</span>        <span class="st">"Positive"</span>    <span class="st">"Positive"</span>    <span class="st">"Very Strong"</span></span></code></pre></div>
-<p>To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. This can be archived by using the inverse of the Bayes factors:</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="kw">bfactor_interpret</span>(<span class="dv">1</span><span class="op">/</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
-<span id="cb10-2"><a href="#cb10-2"></a>[<span class="dv">1</span>] <span class="st">"Strong"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span></span></code></pre></div>
-<p>Because it is common that some kind of logarithmic transformation is applied to Bayes factors, there are also <code>bfactor_log_interpret</code> and <code>bfactor_log_interpret_kr</code> functions:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>bfs &lt;-<span class="st"> </span><span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
-<span id="cb11-2"><a href="#cb11-2"></a></span>
-<span id="cb11-3"><a href="#cb11-3"></a><span class="kw">bfactor_log_interpret</span>(bfs, <span class="dt">base =</span> <span class="dv">10</span>)</span>
-<span id="cb11-4"><a href="#cb11-4"></a> [<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Decisive"</span>  </span>
-<span id="cb11-5"><a href="#cb11-5"></a></span>
-<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">bfactor_log_interpret_kr</span>(bfs, <span class="dt">base =</span> <span class="dv">10</span>)</span>
-<span id="cb11-7"><a href="#cb11-7"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Positive"</span> <span class="st">"Positive"</span> <span class="st">"Very Strong"</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="op">&gt;</span><span class="st"> </span><span class="kw">bfactor_interpret_kr</span>(<span class="kw">c</span>(<span class="fl">0.5</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
+<span id="cb9-2"><a href="#cb9-2"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Positive"</span> <span class="st">"Strong"</span> <span class="st">"Strong"</span> <span class="st">"Very Strong"</span></span></code></pre></div>
+<p>Because Bayes factors are often reported on a logarithmic scale, there are also <code>bfactor_log_interpret</code> and <code>bfactor_log_interpret_kr</code> functions that interpret the logarithms of Bayes factors:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>bfs &lt;-<span class="st"> </span><span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
+<span id="cb10-2"><a href="#cb10-2"></a></span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="kw">bfactor_log_interpret</span>(bfs, <span class="dt">base =</span> <span class="dv">10</span>)</span>
+<span id="cb10-4"><a href="#cb10-4"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Decisive"</span>   </span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a><span class="kw">bfactor_log_interpret_kr</span>(bfs, <span class="dt">base =</span> <span class="dv">10</span>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Positive"</span> <span class="st">"Positive"</span> <span class="st">"Very Strong"</span></span></code></pre></div>
+<p>To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If <code>bf</code> is a Bayes factor in favor of the null hypothesis, one can use <code>1/bf</code> as input to obtain the strength of the evidence against the null hypothesis.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># Evidence in favor of the null hypothesis</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a><span class="kw">bfactor_interpret</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Decisive"</span> </span>
+<span id="cb11-4"><a href="#cb11-4"></a></span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># Evidence against the null hypothesis</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">bfactor_interpret</span>(<span class="dv">1</span><span class="op">/</span><span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">1.2</span>, <span class="fl">3.5</span>, <span class="fl">13.9</span>, <span class="dv">150</span>))</span>
+<span id="cb11-7"><a href="#cb11-7"></a>[<span class="dv">1</span>] <span class="st">"Strong"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span> <span class="st">"Negative"</span></span></code></pre></div>
 </div>
 <div id="references" class="section level2">
 <h2 class="hasAnchor">
 <a href="#references" class="anchor"></a>References</h2>
-<p>Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.</p>
-<p>Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Phisical Sciences, 3 edition. Oxford University Press.</p>
-<p>Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.</p>
-<p>Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for testing precise null hypotheses.” The American Statistician, 55(1), 62–71.</p>
+<ul>
+<li><p>Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.</p></li>
+<li><p>Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Phisical Sciences, 3 edition. Oxford University Press.</p></li>
+<li><p>Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.</p></li>
+<li><p>Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for testing precise null hypotheses.” The American Statistician, 55(1), 62–71.</p></li>
+</ul>
 </div>
 <div id="getting-help" class="section level2">
 <h2 class="hasAnchor">
