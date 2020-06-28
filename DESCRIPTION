@@ -8,8 +8,7 @@ Authors@R: c(
   person(given = "FCT", role = "fnd"))
 Description: Calibrate p-values under a robust perspective and obtain measures of 
     the evidence provided by the data in favor of point null hypotheses which are safer  
-    and more straightforward to interpret, having both Bayesian and Frequentist
-    interpretations.
+    and more straightforward to interpret.
 License: GPL-3 | file LICENSE
 URL: https://pedro-teles-fonseca.github.io/pcal/,
      https://github.com/pedro-teles-fonseca/pcal
