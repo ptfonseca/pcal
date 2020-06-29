@@ -94,7 +94,7 @@
 <p>Some utility functions are also included:</p>
 <ul>
 <li><p><code><a href="reference/bfactor_to_prob.html">bfactor_to_prob()</a></code> turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)</p></li>
-<li><p><code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> classifies the strength of the evidence implied by a Bayes factor according to the scale suggested by Jeffreys (1961).</p></li>
+<li><p><code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale from Jeffreys (1961).</p></li>
 <li><p><code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code> classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)</p></li>
 <li><p><code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> is similar to <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> but takes logarithms of Bayes factors as input</p></li>
 <li><p><code><a href="reference/bfactor_log_interpret_kr.html">bfactor_log_interpret_kr()</a></code> is similar to <code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code> but takes logarithms of Bayes factors as input</p></li>
@@ -137,16 +137,16 @@
 <span class="fu"><a href="reference/bfactor_to_prob.html">bfactor_to_prob</a></span>(<span class="fu"><a href="reference/bcal.html">bcal</a></span>(<span class="kw">pv</span>)) <span class="co"># same as pcal(pv)</span>
 <span class="co"># [1] 0.009549041</span>
 </pre></div>
-<p>Like <code><a href="reference/pcal.html">pcal()</a></code>, <code>bfactor_to_prob</code> assumes a prior probability of 0.5 to the null hypothesis. We can change this default:</p>
+<p>Like <code><a href="reference/pcal.html">pcal()</a></code>, <code><a href="reference/bfactor_to_prob.html">bfactor_to_prob()</a></code> assumes a prior probability of 0.5 to the null hypothesis. We can change this default:</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="kw">bfactor_to_prob</span>(<span class="kw">bcal</span>(pv), <span class="dt">prior_prob =</span> <span class="fl">.95</span>)</span>
 <span id="cb7-2"><a href="#cb7-2"></a>[<span class="dv">1</span>] <span class="fl">0.1548208</span></span></code></pre></div>
-<p>To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> :</p>
+<p>To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code>:</p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="kw">bfactor_interpret</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
 <span id="cb8-2"><a href="#cb8-2"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Substantial"</span> <span class="st">"Strong"</span> <span class="st">"Very Strong"</span> <span class="st">"Decisive"</span> </span></code></pre></div>
-<p>Alternatively, we can use <code>bfactor_interpret()_kr</code>:</p>
+<p>Alternatively, we can use <code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code>:</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="kw">bfactor_interpret_kr</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
 <span id="cb9-2"><a href="#cb9-2"></a>[<span class="dv">1</span>] <span class="st">"Negative"</span> <span class="st">"Weak"</span> <span class="st">"Positive"</span> <span class="st">"Strong"</span> <span class="st">"Strong"</span> <span class="st">"Very Strong"</span></span></code></pre></div>
-<p>Because Bayes factors are often reported on a logarithmic scale, there are also <code>bfactor_log_interpret</code> and <code>bfactor_log_interpret_kr</code> functions that interpret the logarithms of Bayes factors:</p>
+<p>Because Bayes factors are often reported on a logarithmic scale, there are also <code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> and <code><a href="reference/bfactor_log_interpret_kr.html">bfactor_log_interpret_kr()</a></code> functions that interpret the logarithms of Bayes factors:</p>
 <div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>bfs &lt;-<span class="st"> </span><span class="kw">log10</span>(<span class="kw">c</span>(<span class="fl">0.1</span>, <span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">150</span>))</span>
 <span id="cb10-2"><a href="#cb10-2"></a> </span>
 <span id="cb10-3"><a href="#cb10-3"></a><span class="kw">bfactor_log_interpret</span>(bfs, <span class="dt">base =</span> <span class="dv">10</span>)</span>
