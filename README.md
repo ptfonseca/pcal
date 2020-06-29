@@ -21,7 +21,7 @@ Some utility functions are also included:
 
 * `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)
   
-* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the scale suggested by Jeffreys (1961). 
+* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale from Jeffreys (1961). 
   
 * `bfactor_interpret_kr()` classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)
   
@@ -78,27 +78,27 @@ bfactor_to_prob(bcal(pv)) # same as pcal(pv)
 # [1] 0.009549041
 ```
 
-Like `pcal()`, `bfactor_to_prob` assumes a prior probability of 0.5 to the null hypothesis. We can change this default:
+Like `pcal()`, `bfactor_to_prob()` assumes a prior probability of 0.5 to the null hypothesis. We can change this default:
 
 ```r
 bfactor_to_prob(bcal(pv), prior_prob = .95)
 [1] 0.1548208
 ```
 
-To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use `bfactor_interpret()` :
+To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use `bfactor_interpret()`:
 
 ```r 
 bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
 [1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive" 
 ```
  
- Alternatively, we can use `bfactor_interpret()_kr`:
+ Alternatively, we can use `bfactor_interpret_kr()`:
 
  ```r
 bfactor_interpret_kr(c(0.1, 2, 5, 20, 50, 150))
 [1] "Negative" "Weak" "Positive" "Strong" "Strong" "Very Strong"
  ```
-Because Bayes factors are often reported on a logarithmic scale, there are also `bfactor_log_interpret` and `bfactor_log_interpret_kr` functions that interpret the logarithms of Bayes factors:
+Because Bayes factors are often reported on a logarithmic scale, there are also `bfactor_log_interpret()` and `bfactor_log_interpret_kr()` functions that interpret the logarithms of Bayes factors:
 
 ```r
 bfs <- log10(c(0.1, 2, 5, 20, 50, 150))
