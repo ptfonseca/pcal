@@ -16,7 +16,7 @@ bcal(p)
 Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 }
 \details{
-\code{bcal()} uses the calibration of p-values into lower bounds for Bayes factors developed in \insertCite{sellke2001;textual}{pcal}: \deqn{B(p) = -e \, p \,  \operatorname{log} (p)}{B(p) = -e p log (p)} for \code{p} < (1/e) and \deqn{B(p) = 1} otherwise, where \code{p} is a  p-value on a classical test statistic and \eqn{B(p)} approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
+\code{bcal()} uses the calibration of p-values into lower bounds for Bayes factors developed in \insertCite{sellke2001;textual}{pcal}: \deqn{B(p) = -e \, p \, log (p)}{B(p) = -e p log (p)} for \code{p} < (1/e) and \deqn{B(p) = 1} otherwise, where \code{p} is a  p-value on a classical test statistic and \eqn{B(p)} approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
 
 \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model/hypothesis with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size and hence the lower bounds obtained with large samples may be conservative.
 }
