@@ -161,8 +161,8 @@
 
 
 
-<p><code>bfactor_interpret</code> takes Bayes factors (<code>bf</code>) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.</p>
-<p>When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that <code>bfactor_interpret</code> returns the strength of the evidence against the null hypothesis. If <code>bf</code> was obtained with the null hypothesis on the numerator, one can use <code>bfactor_interpret</code>(1/bf) to obtain the strength of the evidence against the null hypothesis.</p>
+<p><code>bfactor_interpret()</code> takes Bayes factors (<code>bf</code>) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.</p>
+<p>When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that <code>bfactor_interpret()</code> returns the strength of the evidence against the null hypothesis. If <code>bf</code> was obtained with the null hypothesis on the numerator, one can use <code>bfactor_interpret(1/bf)</code> to obtain the strength of the evidence against the null hypothesis.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Jeffreys H (1961).
