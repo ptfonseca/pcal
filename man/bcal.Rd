@@ -10,7 +10,7 @@ bcal(p)
 \item{p}{A numeric vector with values in the [0,1] interval.}
 }
 \value{
-Returns a numeric vector with the same \code{length()} as \code{p}.
+\code{bcal()} returns a numeric vector with the same \code{length()} as \code{p}.
 }
 \description{
 Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
