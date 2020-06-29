@@ -15,11 +15,11 @@
 #' | [6, 10[                 | [20, 150[             | Strong       |
 #' | [10, +Inf[              | [150, +Inf[           | Very strong  |
 #'
-#' \code{bfactor_interpret_kr} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
+#' `bfactor_interpret_kr()` takes Bayes factors (`bf`) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 #'
-#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret_kr} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_interpret_kr}(1/bf) to obtain the strength of the evidence against the null hypothesis.
+#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_interpret_kr()` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_interpret_kr(1/bf)` to obtain the strength of the evidence against the null hypothesis.
 #'
-#' @return Returns a character vector with the same \code{length} as \code{bf}.
+#' @return Returns a character vector with the same `length()` as `bf`.
 #'
 #' @references
 #' \insertAllCited{}

@@ -9,10 +9,10 @@ pcal(p, prior_prob = 0.5)
 \arguments{
 \item{p}{A numeric vector with values in the [0,1] interval.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p)} == 1 then \code{prior_prob} can be of any positive length, but if \code{length(p)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(p)}.}
+\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p) == 1} then \code{prior_prob} can be of any positive length, but if \code{length(p) > 1} then \code{length(prior_prob)} can only be \code{1} or equal to \code{length(p)}.}
 }
 \value{
-If \code{length(p)} > 1 then \code{pcal()} returns a numeric vector with the same \code{length()} as \code{p}, otherwise it returns a numeric vector with the same \code{length()} as \code{prior_prob}.
+If \code{length(p) > 1} then \code{pcal()} returns a numeric vector with the same \code{length()} as \code{p}, otherwise it returns a numeric vector with the same \code{length()} as \code{prior_prob}.
 }
 \description{
 Calibrate p-values under a robust perspective so that they can be interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on the probabilities of type I errors.

@@ -9,10 +9,10 @@ bfactor_log_interpret(bf, base = exp(1))
 \arguments{
 \item{bf}{A numeric vector.}
 
-\item{base}{A numeric vector of \code{length} one. Must be a positive number.}
+\item{base}{A numeric vector of \code{length()} one. Must be a positive number.}
 }
 \value{
-Returns a character vector with the same \code{length} as \code{bf}.
+Returns a character vector with the same \code{length()} as \code{bf}.
 }
 \description{
 Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
@@ -29,9 +29,9 @@ Bayes factors are a summary of the evidence provided by the data to a model/hypo
 }
 
 
-\code{bfactor_log_interpret} takes (base \code{base}) logarithms of Bayes factors (\code{bf}) as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the according to the aforementioned table.
+\code{bfactor_log_interpret()} takes (base \code{base}) logarithms of Bayes factors (\code{bf}) as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the according to the aforementioned table.
 
-When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_log_interpret} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_log_interpret}(1/bf) to obtain the strength of the evidence against the null hypothesis.
+When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_log_interpret()} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_log_interpret(1/bf)} to obtain the strength of the evidence against the null hypothesis.
 }
 \examples{
 # Interpretation of one Bayes factor (on the natural log scale)
