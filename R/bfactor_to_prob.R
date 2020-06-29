@@ -10,7 +10,7 @@
 #'
 #'  The `prior_prob` argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. `prior_prob` can only be of `length` equal to `length(bf)`, in which case each prior probability in `prior_prob` will be updated using the corresponding element of `bf`, or of `length` 1, in which case it will be recycled (if `length(bf) > 1`) and each element of `bf` will update the same `prior_prob` value.
 #'
-#' @return If `length(bf)` > 1 then `bfactor_to_prob` returns a numeric vector with the same `length` as `bf`, otherwise it returns a numeric vector with the same `length` as `prior_prob`.
+#' @return If `length(bf) > 1` then `bfactor_to_prob` returns a numeric vector with the same `length` as `bf`, otherwise it returns a numeric vector with the same `length` as `prior_prob`.
 #'
 #' @references
 #' \insertAllCited{}
