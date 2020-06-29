@@ -4,7 +4,7 @@
 #' @description Calibrate p-values under a robust perspective so that they can be interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on the probabilities of type I errors.
 #'
 #' @param p A numeric vector with values in the \[0,1\] interval.
-#' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(p) == 1` then `prior_prob` can be of any positive length, but if `length(p) > 1`then the `length` of `prior_prob` can only be `1` or equal to the `length` of `bf`.
+#' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(p) == 1` then `prior_prob` can be of any positive length, but if `length(p) > 1` then the `length` of `prior_prob` can only be `1` or equal to the `length` of `bf`.
 #'
 #' @details \insertCite{sellke2001;textual}{pcal} developed a calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors for the case when both the null and the alternative hypotheses have 0.5 prior probability. `pcal` generalizes the aforementioned calibration for prior probabilities other than 0.5.
 #'
