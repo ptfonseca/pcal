@@ -88,24 +88,24 @@ bfactor_to_prob(bcal(pv), prior_prob = .95)
 To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor we can use `bfactor_interpret()` :
 
 ```r 
-> bfactor_interpret(c(0.5, 2, 5, 20, 50, 150))
+bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
 [1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive" 
 ```
  
  Alternatively, we can use `bfactor_interpret()_kr`:
 
  ```r
-> bfactor_interpret_kr(c(0.5, 2, 5, 20, 50, 150))
+bfactor_interpret_kr(c(0.1, 2, 5, 20, 50, 150))
 [1] "Negative" "Weak" "Positive" "Strong" "Strong" "Very Strong"
  ```
 Because Bayes factors are often reported on a logarithmic scale, there are also `bfactor_log_interpret` and `bfactor_log_interpret_kr` functions that interpret the logarithms of Bayes factors:
 
 ```r
-bfs <- log10(c(0.5, 2, 5, 20, 50, 150))
-
+bfs <- log10(c(0.1, 2, 5, 20, 50, 150))
+ 
 bfactor_log_interpret(bfs, base = 10)
-[1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive"  
-
+[1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive"   
+ 
 bfactor_log_interpret_kr(bfs, base = 10)
 [1] "Negative" "Weak" "Positive" "Strong" "Strong" "Very Strong"
 ```
@@ -114,12 +114,12 @@ To compare the results with those from standard likelihood ratio tests it can be
  
  ```r
 # Evidence in favor of the null hypothesis
-bfactor_interpret(c(0.5, 2, 5, 20, 50, 150))
+bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
 [1] "Negative" "Weak" "Substantial" "Strong" "Very Strong" "Decisive"   
-
+ 
 # Evidence against the null hypothesis
-bfactor_interpret(1/c(0.5, 2, 5, 20, 50, 150))
-[1] "Weak" "Negative" "Negative" "Negative" "Negative" "Negative"
+bfactor_interpret(1/c(0.1, 2, 5, 20, 50, 150))
+[1] "Strong" "Negative" "Negative" "Negative" "Negative" "Negative"
 ```
 
 ## References 
