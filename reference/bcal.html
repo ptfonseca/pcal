@@ -147,10 +147,9 @@
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
     <p><code>bcal()</code> uses the calibration of p-values into lower bounds for Bayes factors developed in Sellke et al. (2001)
-: $$B(p) = -e \, p \,  \operatorname{log} (p)$$ for <code>p</code> &lt; <code>1/exp(1)</code> and $$B(p) = 1$$ otherwise, where <code>p</code> is a  p-value on a classical test statistic and \(B(p)\) approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.</p>
+: $$B(p) = -e \, p \,  \operatorname{log} (p)$$ for <code>p</code> &lt; (1/e) and $$B(p) = 1$$ otherwise, where <code>p</code> is a  p-value on a classical test statistic and \(B(p)\) approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.</p>
 <p>Sellke et al. (2001)
- noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model/hypothesis
-with no explicit alternative in mind. Pericchi and Torres (2011)
+ noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model/hypothesis with no explicit alternative in mind. Pericchi and Torres (2011)
  warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size and hence the lower bounds obtained with large samples may be conservative.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
@@ -163,10 +162,10 @@ with no explicit alternative in mind. Pericchi and Torres (2011)
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/pcal.html'>pcal</a></code>( ) for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_interpret.html'>bfactor_interpret</a></code>( ) and <code><a href='https://rdrr.io/pkg/pcal/man/bfactor_interpret_kr.html'>bfactor_interpret_kr</a></code>( ) for the interpretation of Bayes factors.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_log_interpret.html'>bfactor_log_interpret</a></code>( ) and <code><a href='https://rdrr.io/pkg/pcal/man/bfactor_log_interpret_kr.html'>bfactor_log_interpret_kr</a></code>( ) for the interpretation of the logarithms of Bayes factors.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_to_prob.html'>bfactor_to_prob</a></code>( ) to turn Bayes factors into posterior probabilities.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/pcal/man/pcal.html'>pcal</a></code> ( ) for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_interpret.html'>bfactor_interpret</a></code> ( ) and <code><a href='https://rdrr.io/pkg/pcal/man/bfactor_interpret_kr.html'>bfactor_interpret_kr</a></code> ( ) for the interpretation of Bayes factors.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_log_interpret.html'>bfactor_log_interpret</a></code> ( ) and <code><a href='https://rdrr.io/pkg/pcal/man/bfactor_log_interpret_kr.html'>bfactor_log_interpret_kr</a></code> ( ) for the interpretation of the logarithms of Bayes factors.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_to_prob.html'>bfactor_to_prob</a></code> ( ) to turn Bayes factors into posterior probabilities.</p></li>
 </ul>
 </div>
 
