@@ -10,7 +10,7 @@
 #' \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model/hypothesis
 #'  with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size and hence the lower bounds obtained with large samples may be conservative.
 #'
-#' @return Returns a numeric vector with the same \code{length()} as \code{p}.
+#' @return `bcal()` returns a numeric vector with the same \code{length()} as \code{p}.
 #'
 #' @references
 #' \insertAllCited{}
