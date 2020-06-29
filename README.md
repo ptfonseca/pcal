@@ -110,7 +110,7 @@ bfactor_log_interpret_kr(bfs, base = 10)
 [1] "Negative" "Weak" "Positive" "Strong" "Strong" "Very Strong"
 ```
 
-To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If `bf` is a Bayes factor in favor  of the null hypothesis, one can use `1/bf` as input to obtain the strength of the evidence against the null hypothesis.
+To compare the results with those from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If `bf` is a Bayes factor in favor  of the null hypothesis, one can use `1/bf` as input to obtain the strength of the evidence against the null hypothesis:
  
  ```r
 # Evidence in favor of the null hypothesis
