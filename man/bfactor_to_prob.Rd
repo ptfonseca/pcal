@@ -18,9 +18,7 @@ If \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector wi
 Update the prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
 }
 \details{
-\code{bfactor_to_prob} computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null \, hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor if favor of the null hypothesis and \code{prior_prob} is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - \code{prior_prob} and posterior probability 1-\code{bfactor_to_prob(bf, prior_prob)}.
 
-The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{length} equal to \code{length(bf)}, in which case each prior probability in \code{prior_prob} will be updated using the corresponding element of \code{bf}, or of \code{length} 1, in which case it will be recycled (if \code{length(bf)} > 1) and each element of \code{bf} will update the same \code{prior_prob} value.
 }
 \examples{
 # With a Bayes factor that is indifferent between the null and the alternative hypotheses:
