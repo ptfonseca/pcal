@@ -10,7 +10,7 @@ bcal(p)
 \item{p}{A numeric vector with values in the [0,1] interval.}
 }
 \value{
-\code{bcal()} returns a numeric vector with the same \code{length()} as \code{p}.
+\code{bcal} returns a numeric vector with the same \code{length} as \code{p}.
 }
 \description{
 Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
@@ -39,9 +39,9 @@ bcal(chisq.test(x)[["p.value"]])
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{pcal()}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
-\item \code{\link[pcal]{bfactor_interpret()}} and \code{\link[pcal]{bfactor_interpret_kr()}} for the interpretation of Bayes factors.
-\item \code{\link[pcal]{bfactor_log_interpret()}} and \code{\link[pcal]{bfactor_log_interpret_kr()}} for the interpretation of the logarithms of Bayes factors.
-\item \code{\link[pcal]{bfactor_to_prob()}} to turn Bayes factors into posterior probabilities.
+\item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
+\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
+\item \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
+\item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 }
 }
