@@ -12,15 +12,15 @@ bfactor_to_prob(bf, prior_prob = 0.5)
 \item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(bf)} == 1 then \code{prior_prob} can be of any positive length, but if \code{length(bf)} > 1 then \code{length(prior_prob)} can only be 1 or equal to \code{length(bf)}.}
 }
 \value{
-If \code{length(bf)} > 1 then \code{bfactor_to_prob} returns a numeric vector with the same \code{length} as \code{bf}, otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
+If \code{length(bf)} > 1 then \code{bfactor_to_prob()} returns a numeric vector with the same \code{length()} as \code{bf}, otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
 }
 \description{
 Update the prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
 }
 \details{
-\code{bfactor_to_prob} computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null \, hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor if favor of the null hypothesis and \code{prior_prob} is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - \code{prior_prob} and posterior probability 1-\code{bfactor_to_prob(bf, prior_prob)}.
+\code{bfactor_to_prob()} computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null \, hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where \code{bf} is a Bayes factor if favor of the null hypothesis and \code{prior_prob} is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - \code{prior_prob} and posterior probability 1-\code{bfactor_to_prob(bf, prior_prob)}.
 
-The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{length} equal to \code{length(bf)}, in which case each prior probability in \code{prior_prob} will be updated using the corresponding element of \code{bf}, or of \code{length} 1, in which case it will be recycled (if \code{length(bf)} > 1) and each element of \code{bf} will update the same \code{prior_prob} value.
+The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{length()} equal to \code{length(bf)}, in which case each prior probability in \code{prior_prob} will be updated using the corresponding element of \code{bf}, or of \code{length()} 1, in which case it will be recycled (if \code{length(bf)} > 1) and each element of \code{bf} will update the same \code{prior_prob} value.
 }
 \examples{
 # With a Bayes factor that is indifferent between the null and the alternative hypotheses:
@@ -55,9 +55,9 @@ bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
-\item \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
-\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
-\item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
+\item \code{\link[pcal]{bfactor_interpret}}() and \code{\link[pcal]{bfactor_interpret_kr}}() for the interpretation of Bayes factors.
+\item \code{\link[pcal]{bfactor_log_interpret}}() and \code{\link[pcal]{bfactor_log_interpret_kr}}() for the interpretation of the logarithms of Bayes factors.
+\item \code{\link[pcal]{bcal}}() for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{pcal}}() for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
 }
 }
