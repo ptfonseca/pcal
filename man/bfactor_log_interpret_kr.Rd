@@ -48,9 +48,9 @@ bfactor_log_interpret_kr(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_log_interpret}} for the original interpretation scale.
-\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
-\item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{bfactor_log_interpret}}( ) for the original interpretation scale.
+\item \code{\link[pcal]{bfactor_interpret}}( ) and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
+\item \code{\link[pcal]{bfactor_to_prob}}( ) to turn Bayes factors into posterior probabilities.
+\item \code{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 }
 }

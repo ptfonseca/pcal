@@ -17,7 +17,7 @@
 #' @references
 #' \insertAllCited{}
 #'
-#' @seealso {\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' @seealso {\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Calibration of a typical "threshold" p-value:

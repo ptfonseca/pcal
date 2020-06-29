@@ -55,9 +55,9 @@ bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
-\item \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
-\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
-\item \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
+\item \code{\link[pcal]{bfactor_interpret}}( ) and \code{\link[pcal]{bfactor_interpret_kr}}( ) for the interpretation of Bayes factors.
+\item \code{\link[pcal]{bfactor_log_interpret}}( ) and \code{\link[pcal]{bfactor_log_interpret_kr}}( ) for the interpretation of the logarithms of Bayes factors.
+\item \code{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{pcal}}( ) for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
 }
 }

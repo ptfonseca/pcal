@@ -25,10 +25,10 @@
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}} for the original interpretation scale.
-#' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
-#' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
-#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' * \code{\link[pcal]{bfactor_interpret}}( ) for the original interpretation scale.
+#' * \code{\link[pcal]{bfactor_log_interpret}}( ) and \code{\link[pcal]{bfactor_log_interpret_kr}}( ) for the interpretation of the logarithms of Bayes factors.
+#' * \code{\link[pcal]{bfactor_to_prob}}( ) to turn Bayes factors into posterior probabilities.
+#' * \code{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Interpretation of one Bayes factor

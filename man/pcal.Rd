@@ -41,5 +41,5 @@ pcal(chisq.test(x)[["p.value"]])
 \insertAllCited{}
 }
 \seealso{
-{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 }
