@@ -6,20 +6,20 @@
 #' @param bf A numeric vector of non-negative values.
 #' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(bf) == 1` then `prior_prob` can be of any positive length, but if `length(bf) > 1` then `length(prior_prob)` can only be `1` or equal to `length(bf)`.
 #'
-#' @details `bfactor_to_prob()` computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null \, hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where `bf` is a Bayes factor if favor of the null hypothesis and `prior_prob` is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - `prior_prob` and posterior probability 1-`bfactor_to_prob(bf, prior_prob)`.
+#' @details `bfactor_to_prob` computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(null \, hypothesis|data) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where `bf` is a Bayes factor if favor of the null hypothesis and `prior_prob` is the prior probability of the null hypothesis. The alternative hypothesis has prior probability 1 - `prior_prob` and posterior probability 1-`bfactor_to_prob(bf, prior_prob)`.
 #'
-#'  The `prior_prob` argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. `prior_prob` can only be of `length()` equal to `length(bf)`, in which case each prior probability in `prior_prob` will be updated using the corresponding element of `bf`, or of `length()` 1, in which case it will be recycled (if `length(bf) > 1`) and each element of `bf` will update the same `prior_prob` value.
+#'  The `prior_prob` argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. `prior_prob` can only be of `length` equal to `length(bf)`, in which case each prior probability in `prior_prob` will be updated using the corresponding element of `bf`, or of `length` 1, in which case it will be recycled (if `length(bf) > 1`) and each element of `bf` will update the same `prior_prob` value.
 #'
-#' @return If `length(bf)` > 1 then `bfactor_to_prob()` returns a numeric vector with the same `length()` as `bf`, otherwise it returns a numeric vector with the same `length()` as `prior_prob`.
+#' @return If `length(bf)` > 1 then `bfactor_to_prob` returns a numeric vector with the same `length` as `bf`, otherwise it returns a numeric vector with the same `length` as `prior_prob`.
 #'
 #' @references
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret}}( ) and \code{\link[pcal]{bfactor_interpret_kr}}( ) for the interpretation of Bayes factors.
-#' * \code{\link[pcal]{bfactor_log_interpret}}( ) and \code{\link[pcal]{bfactor_log_interpret_kr}}( ) for the interpretation of the logarithms of Bayes factors.
-#' * \code{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
-#' * \code{\link[pcal]{pcal}}( ) for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
+#' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
+#' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
 #'
 #' @examples
 #' # With a Bayes factor that is indifferent between the null and the alternative hypotheses:

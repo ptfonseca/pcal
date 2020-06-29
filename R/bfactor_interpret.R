@@ -16,20 +16,20 @@
 #' | [1.5, 2[               | [32, 100[        | Very Strong  |
 #' | [2, +Inf[              | [100, +Inf[      | Decisive     |
 #'
-#' `bfactor_interpret()` takes Bayes factors (`bf`) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
+#' `bfactor_interpret` takes Bayes factors (`bf`) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 #'
-#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_interpret()` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_interpret(1/bf)` to obtain the strength of the evidence against the null hypothesis.
+#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_interpret` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_interpret(1/bf)` to obtain the strength of the evidence against the null hypothesis.
 #'
-#' @return Returns a character vector with the same `length()` as `bf`.
+#' @return Returns a character vector with the same `length` as `bf`.
 #'
 #' @references
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bfactor_interpret_kr}}( ) for an alternative interpretation scale.
-#' * \code{\link[pcal]{bfactor_log_interpret}}( ) and \code{\link[pcal]{bfactor_log_interpret_kr}}( ) for the interpretation of the logarithms of Bayes factors.
-#' * \code{\link[pcal]{bfactor_to_prob}}( ) to turn Bayes factors into posterior probabilities.
-#' * \code{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' * \code{\link[pcal]{bfactor_interpret_kr}} for an alternative interpretation scale.
+#' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
+#' * \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Interpretation of one Bayes factor

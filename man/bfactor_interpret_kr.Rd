@@ -10,7 +10,7 @@ bfactor_interpret_kr(bf)
 \item{bf}{A numeric vector of non-negative values.}
 }
 \value{
-Returns a character vector with the same \code{length()} as \code{bf}.
+Returns a character vector with the same \code{length} as \code{bf}.
 }
 \description{
 Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
@@ -26,9 +26,9 @@ Bayes factors are a summary of the evidence provided by the data to a model/hypo
 }
 
 
-\code{bfactor_interpret_kr()} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
+\code{bfactor_interpret_kr} takes Bayes factors (\code{bf}) as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 
-When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret_kr()} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_interpret_kr(1/bf)} to obtain the strength of the evidence against the null hypothesis.
+When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that \code{bfactor_interpret_kr} returns the strength of the evidence against the null hypothesis. If \code{bf} was obtained with the null hypothesis on the numerator, one can use \code{bfactor_interpret_kr(1/bf)} to obtain the strength of the evidence against the null hypothesis.
 }
 \examples{
 # Interpretation of one Bayes factor
@@ -49,9 +49,9 @@ bfactor_interpret_kr(bcal(chisq.test(x)[["p.value"]]))
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret}}( ) for the original interpretation scale.
-\item \code{\link[pcal]{bfactor_log_interpret}}( ) and \code{\link[pcal]{bfactor_log_interpret_kr}}( ) for the interpretation of the logarithms of Bayes factors.
-\item \code{\link[pcal]{bfactor_to_prob}}( ) to turn Bayes factors into posterior probabilities.
-\item \code{\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{bfactor_interpret}} for the original interpretation scale.
+\item \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
+\item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
+\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 }
 }

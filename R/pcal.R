@@ -6,18 +6,18 @@
 #' @param p A numeric vector with values in the \[0,1\] interval.
 #' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(p) == 1` then `prior_prob` can be of any positive length, but if `length(p) > 1` then `length(prior_prob)` can only be `1` or equal to `length(p)`.
 #'
-#' @details \insertCite{sellke2001;textual}{pcal} developed a calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors for the case when both the null and the alternative hypotheses have 0.5 prior probability. `pcal()` generalizes the aforementioned calibration for prior probabilities other than 0.5.
+#' @details \insertCite{sellke2001;textual}{pcal} developed a calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors for the case when both the null and the alternative hypotheses have 0.5 prior probability. `pcal` generalizes the aforementioned calibration for prior probabilities other than 0.5.
 #'
-#' `pcal()` starts by transforming the values in `p` into lower bounds on Bayes factors using `bcal()` and then uses `bfactor_to_prob()` together with prior probabilities `prior_prob` to turn those Bayes factors into posterior probabilities. For each element of `p`, `pcal()` returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
+#' `pcal` starts by transforming the values in `p` into lower bounds on Bayes factors using `bcal` and then uses `bfactor_to_prob` together with prior probabilities `prior_prob` to turn those Bayes factors into posterior probabilities. For each element of `p`, `pcal` returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
 #'
-#' The output of `pcal()` can also be interpreted as lower bounds on the probabilities of type I errors. Note that the output of this calibration has both Bayesian and Frequentist interpretations. \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
+#' The output of `pcal` can also be interpreted as lower bounds on the probabilities of type I errors. Note that the output of this calibration has both Bayesian and Frequentist interpretations. \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
 #'
-#' @return If `length(p) > 1` then `pcal()` returns a numeric vector with the same `length()` as `p`, otherwise it returns a numeric vector with the same `length()` as `prior_prob`.
+#' @return If `length(p) > 1` then `pcal` returns a numeric vector with the same `length` as `p`, otherwise it returns a numeric vector with the same `length` as `prior_prob`.
 #'
 #' @references
 #' \insertAllCited{}
 #'
-#' @seealso {\link[pcal]{bcal}}( ) for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' @seealso {\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Calibration of a typical "threshold" p-value:
