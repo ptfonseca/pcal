@@ -13,15 +13,15 @@
 
 P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The `pcal` package uses the calibrations developed in Sellke et al (2001) to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret: 
 
-  * `pcal()` calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.
+* `pcal()` calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.
    
-  *   `bcal()` calibrates p-values so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
+* `bcal()` calibrates p-values so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 
 Some utility functions are also included:
 
 * `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)
   
-* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale from Jeffreys (1961). 
+* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale suggested by Jeffreys (1961)
   
 * `bfactor_interpret_kr()` classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)
   
@@ -29,7 +29,6 @@ Some utility functions are also included:
 
 * `bfactor_log_interpret_kr()` is similar to `bfactor_interpret_kr()` but takes logarithms of Bayes factors as input
      
-
 ## Installation
 
 ``` pcal``` is not yet on CRAN but it can be installed from GitHub using the ```devtools``` package:
