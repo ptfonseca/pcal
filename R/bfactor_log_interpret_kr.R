@@ -16,7 +16,7 @@
 #' | [6, 10[                 | [20, 150[             | Strong       |
 #' | [10, +Inf[              | [150, +Inf[           | Very strong  |
 #'
-#' `bfactor_log_interpret_kr` takes (base `base`) logarithms of Bayes factors as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the scale suggested by \insertCite{kass1995;textual}{pcal}.
+#' `bfactor_log_interpret_kr` takes (base `base`) logarithms of Bayes factors as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 #'
 #' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_log_interpret_kr` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_log_interpret_kr(1/bf)` to obtain the strength of the evidence against the null hypothesis.
 #'

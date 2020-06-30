@@ -9,7 +9,7 @@ pcal(p, prior_prob = 0.5)
 \arguments{
 \item{p}{A numeric vector with values in the [0,1] interval.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p) == 1} then \code{prior_prob} can be of any positive length, but if \code{length(p) > 1} then \code{length(prior_prob)} can only be \code{1} or equal to \code{length(p)}.}
+\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p) == 1} then \code{prior_prob} can be of any positive length, but if \code{length(p) > 1} then the \code{length} of \code{prior_prob} can only be \code{1} or equal to the \code{length} of \code{bf}.}
 }
 \value{
 If \code{length(p) > 1} then \code{pcal} returns a numeric vector with the same \code{length} as \code{p}, otherwise it returns a numeric vector with the same \code{length} as \code{prior_prob}.
