@@ -9,10 +9,10 @@ bfactor_log_interpret_kr(bf, base = exp(1))
 \arguments{
 \item{bf}{A numeric vector.}
 
-\item{base}{A numeric vector of \code{length} one. Must be a positive number.}
+\item{base}{A numeric vector of \code{\link[base]{length}} one. Must be a positive number.}
 }
 \value{
-Returns a character vector with the same \code{length} as \code{bf}.
+Returns a character vector with the same {\link[base]{length}} as \code{bf}.
 }
 \description{
 Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.

@@ -19,7 +19,7 @@
 #'
 #' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_interpret_kr` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_interpret_kr(1/bf)` to obtain the strength of the evidence against the null hypothesis.
 #'
-#' @return Returns a character vector with the same `length` as `bf`.
+#' @return Returns a character vector with the same \code{\link[base]{length}} as `bf`.
 #'
 #' @references
 #' \insertAllCited{}

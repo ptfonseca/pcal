@@ -10,7 +10,7 @@ bfactor_interpret_kr(bf)
 \item{bf}{A numeric vector of non-negative values.}
 }
 \value{
-Returns a character vector with the same \code{length} as \code{bf}.
+Returns a character vector with the same \code{\link[base]{length}} as \code{bf}.
 }
 \description{
 Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.

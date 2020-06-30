@@ -4,7 +4,7 @@
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by \insertCite{jeffreys1961;textual}{pcal}.
 #'
 #' @param bf A numeric vector.
-#' @param base A numeric vector of `length` one. Must be a positive number.
+#' @param base A numeric vector of \code{\link[base]{length}} one. Must be a positive number.
 #'
 #' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis, and are often reported on a logarithmic scale. \insertCite{jeffreys1961;textual}{pcal} suggested the interpretation of Bayes factors in half-units on the base 10 logarithmic scale, as indicated in the following table:
 #'
@@ -21,7 +21,7 @@
 #'
 #' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_log_interpret` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_log_interpret(1/bf)` to obtain the strength of the evidence against the null hypothesis.
 #'
-#' @return Returns a character vector with the same `length` as `bf`.
+#' @return Returns a character vector with the same  \code{\link[base]{length}} as `bf`.
 #'
 #' @references
 #' \insertAllCited{}
