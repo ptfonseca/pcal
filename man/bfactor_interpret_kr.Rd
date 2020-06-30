@@ -49,7 +49,7 @@ bfactor_interpret_kr(bcal(chisq.test(x)[["p.value"]]))
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret}} for the original interpretation scale.
+\item \code{\link[pcal]{bfactor_interpret}} for the original interpretation scale suggested by Harold Jeffreys.
 \item \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.
 \item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
