@@ -31,7 +31,7 @@ This is the first submission of pcal.
 
 Note:
 
-````
+```
 Maintainer: 'Pedro Fonseca <pedro.teles.fonseca@outlook.com>'
 New submission
 ```
