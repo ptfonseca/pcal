@@ -1,7 +1,7 @@
 
 ## Release summary
 
-This is the first submission of pcal.
+* This is the first submission of pcal.
 
 ## Test environments
 
@@ -25,7 +25,11 @@ This is the first submission of pcal.
 * Windows Server 2008 R2 SP1, 32/64 bit, R-devel
 * Oracle Solaris 10, x86, 32 bit, R-release
 
-## R CMD check results
+## R CMD check
+
+0 errors | 0 warnings | 0 notes
+
+## R CMD check --as-cran
 
 0 errors | 0 warnings | 1 note
 
