@@ -125,7 +125,7 @@ bfactor_interpret(1/c(0.1, 2, 5, 20, 50, 150))
 
 * Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.
 
-* Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Phisical Sciences, 3 edition. Oxford University Press.
+* Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Physical Sciences, 3 edition. Oxford University Press.
 
 * Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.
 
