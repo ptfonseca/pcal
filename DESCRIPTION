@@ -4,7 +4,7 @@ Title: Calibration of P-Values for Point Null Hypothesis Testing
 Version: 1.0.0
 Authors@R: c(
   person("Pedro", "Fonseca", email = "pedro.teles.fonseca@outlook.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5708-081X")),
-  person("Rui", "Paulo", role = c("ctb", "ths"), comment = c(ORCID = "0000-0002-5708-081X")),
+  person("Rui", "Paulo", role = c("ctb", "ths"), comment = c(ORCID = "0000-0002-4802-527X")),
   person(given = "FCT", role = "fnd"))
 Description: Calibrate p-values under a robust perspective and obtain measures of 
     the evidence provided by the data in favor of point null hypotheses which are safer  
