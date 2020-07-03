@@ -6,7 +6,7 @@ This is a **resubmission**. In this version I have:
 * Added a reference in the Description field of the DESCRIPTION file. This reference provides theoretical background
 for the statistical methods implemented by the package. 
 
-* Included a README file.md file with an overview of the package and some examples.
+* Included a README.md file with an overview of the package and some examples.
 
 ## Test environments
 
