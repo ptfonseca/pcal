@@ -122,6 +122,7 @@
 <span class="kw">pv</span>
 <span class="co">#&gt; [1] 0.04377308</span>
 </pre></div>
+<p>In classical hypothesis testing, if the typical 0.05 significance is used then this p-value slightly below 0.05 would result in the rejection of the null hypothesis.</p>
 <p>With <code><a href="reference/bcal.html">bcal()</a></code> we can turn <code>pv</code> into a lower bound for the Bayes factor in favor of the null hypothesis:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="fu"><a href="reference/bcal.html">bcal</a></span>(<span class="kw">pv</span>)
@@ -133,12 +134,14 @@
 <span class="co">#&gt; [1] 0.2712861</span>
 </pre></div>
 <p>This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. The output of <code><a href="reference/bcal.html">bcal()</a></code> has an analogous interpretation for Bayes factors (instead of posterior probabilities).</p>
-<p>One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default, <code><a href="reference/pcal.html">pcal()</a></code> assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:</p>
+<p>Note that according to <code><a href="reference/pcal.html">pcal()</a></code> the posterior probability that the null hypothesis is true is at least 0.27 (approximately), which implies that a p-value below 0.05 is not necessarily indicative of strong evidence against the null hypothesis.</p>
+<p>One can avoid the specification of prior probabilities for the hypotheses by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default, <code><a href="reference/pcal.html">pcal()</a></code> assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit">
 <span class="fu"><a href="reference/pcal.html">pcal</a></span>(<span class="kw">pv</span>, prior_prob = <span class="fl">.95</span>)
 <span class="co">#&gt; [1] 0.8761354</span>
 </pre></div>
 <p>In this case we obtain a higher lower bound because the null hypothesis has a higher prior probability.</p>
+<p>Sellke, Bayarri, and Berger (2001) noted that a scenario in which they definitely recommend the aforementioned calibrations is when investigating fit to the null model with no explicit alternative in mind. Pericchi and Torres (2011) warned that despite the usefulness and appropriateness of these p-value calibrations they do not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.</p>
 <p>Since the output of <code><a href="reference/bcal.html">bcal(pv)</a></code> is a Bayes factor, we can use <code><a href="reference/bfactor_to_prob.html">bfactor_to_prob()</a></code> to turn it into a posterior probability:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="fu"><a href="reference/bfactor_to_prob.html">bfactor_to_prob</a></span>(<span class="fu"><a href="reference/bcal.html">bcal</a></span>(<span class="kw">pv</span>)) <span class="co"># same as pcal(pv)</span>
@@ -202,6 +205,9 @@
 </div>
 <div id="ref-kass1995">
 <p>Kass, Robert E., and Adrian E. Raftery. 1995. “Bayes Factors.” <em>Journal of the American Statistical Association</em> 90 (430): 773–95.</p>
+</div>
+<div id="ref-pericchiTorres2011">
+<p>Pericchi, Luis, and David Torres. 2011. “Quick Anomaly Detection by the Newcomb—Benford Law, with Applications to Electoral Processes Data from the USA, Puerto Rico and Venezuela.” <em>Statistical Science</em> 26 (4): 502–16.</p>
 </div>
 <div id="ref-sellke2001">
 <p>Sellke, Thomas, M. J. Bayarri, and James O. Berger. 2001. “Calibration of P Values for Testing Precise Null Hypotheses.” <em>The American Statistician</em> 55 (1): 62–71.</p>
