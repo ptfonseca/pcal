@@ -81,9 +81,9 @@ pv
 #> [1] 0.04377308
 ```
 
-In classical hypothesis testing, if the typical 0.05 significance is
-used then this p-value slightly below 0.05 would result in the rejection
-of the null hypothesis.
+In classical hypothesis testing, if the typical 0.05 significance
+threshold is used then this p-value slightly below 0.05 would result in
+the rejection of the null hypothesis.
 
 With `bcal()` we can turn `pv` into a lower bound for the Bayes factor
 in favor of the null hypothesis:
