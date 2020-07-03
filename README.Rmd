@@ -66,6 +66,8 @@ pv <- chisq.test(x)[["p.value"]]
 pv
 ```
 
+In classical hypothesis testing, if the typical 0.05 significance is used then this p-value slightly below 0.05 would result in the rejection of the null hypothesis.
+
 With `bcal()` we can turn `pv` into a lower bound for the Bayes factor in favor of the null hypothesis:
 
 ```{r}
@@ -80,13 +82,17 @@ pcal(pv)
 
 This is an approximation to the minimum posterior probability of the null hypothesis that we would find by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions. The output of `bcal()` has an analogous interpretation for Bayes factors (instead of posterior probabilities).
 
-One can avoid the specification of prior probabilities for the hypothesis by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default, `pcal()` assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:
+Note that according to `pcal()` the posterior probability that the null hypothesis is true is at least 0.27 (approximately), which implies that a p-value below 0.05 is not necessarily indicative of strong evidence against the null hypothesis.  
+
+One can avoid the specification of prior probabilities for the hypotheses by focusing solely on Bayes factors. To compute posterior probabilities for the hypotheses, however, prior probabilities must by specified. By default, `pcal()` assigns a prior probability of 0.5 to the null hypothesis. We can specify different prior probabilities, for example:
 
 ```{r}
 pcal(pv, prior_prob = .95)
 ```
 
 In this case we obtain a higher lower bound because the null hypothesis has a higher prior probability.
+
+@sellke2001 noted that a scenario in which they definitely recommend the aforementioned calibrations is when investigating fit to the null model with no explicit alternative in mind. @pericchiTorres2011 warned that despite the usefulness and appropriateness of these p-value calibrations they do not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
 
 Since the output of `bcal(pv)` is a Bayes factor, we can use `bfactor_to_prob()` to turn it into a posterior probability:
 

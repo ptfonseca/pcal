@@ -81,6 +81,10 @@ pv
 #> [1] 0.04377308
 ```
 
+In classical hypothesis testing, if the typical 0.05 significance is
+used then this p-value slightly below 0.05 would result in the rejection
+of the null hypothesis.
+
 With `bcal()` we can turn `pv` into a lower bound for the Bayes factor
 in favor of the null hypothesis:
 
@@ -103,8 +107,13 @@ the parameter of interest (under the alternative hypothesis) over wide
 classes of distributions. The output of `bcal()` has an analogous
 interpretation for Bayes factors (instead of posterior probabilities).
 
+Note that according to `pcal()` the posterior probability that the null
+hypothesis is true is at least 0.27 (approximately), which implies that
+a p-value below 0.05 is not necessarily indicative of strong evidence
+against the null hypothesis.
+
 One can avoid the specification of prior probabilities for the
-hypothesis by focusing solely on Bayes factors. To compute posterior
+hypotheses by focusing solely on Bayes factors. To compute posterior
 probabilities for the hypotheses, however, prior probabilities must by
 specified. By default, `pcal()` assigns a prior probability of 0.5 to
 the null hypothesis. We can specify different prior probabilities, for
@@ -117,6 +126,14 @@ pcal(pv, prior_prob = .95)
 
 In this case we obtain a higher lower bound because the null hypothesis
 has a higher prior probability.
+
+Sellke, Bayarri, and Berger (2001) noted that a scenario in which they
+definitely recommend the aforementioned calibrations is when
+investigating fit to the null model with no explicit alternative in
+mind. Pericchi and Torres (2011) warned that despite the usefulness and
+appropriateness of these p-value calibrations they do not depend on
+sample size, and hence the lower bounds obtained with large samples may
+be conservative.
 
 Since the output of `bcal(pv)` is a Bayes factor, we can use
 `bfactor_to_prob()` to turn it into a posterior probability:
@@ -213,6 +230,15 @@ Texts in the Physical Sciences. Oxford University Press.
 
 Kass, Robert E., and Adrian E. Raftery. 1995. “Bayes Factors.” *Journal
 of the American Statistical Association* 90 (430): 773–95.
+
+</div>
+
+<div id="ref-pericchiTorres2011">
+
+Pericchi, Luis, and David Torres. 2011. “Quick Anomaly Detection by the
+Newcomb—Benford Law, with Applications to Electoral Processes Data from
+the USA, Puerto Rico and Venezuela.” *Statistical Science* 26 (4):
+502–16.
 
 </div>
 
