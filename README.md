@@ -22,10 +22,10 @@ P-values are the most commonly used tool to measure the evidence
 provided by the data against a model or hypothesis. Unfortunately,
 p-values are often incorrectly interpreted as the probability that the
 null hypothesis is true or as type I error probabilities. The `pcal`
-package uses the calibrations developed in Sellke et al (2001) to
-calibrate p-values under a robust perspective and obtain measures of the
-evidence provided by the data in favor of point null hypotheses which
-are safer and more straightforward interpret:
+package uses the calibrations developed in Sellke, Bayarri, and Berger
+(2001) to calibrate p-values under a robust perspective and obtain
+measures of the evidence provided by the data in favor of point null
+hypotheses which are safer and more straightforward interpret:
 
   - `pcal()` calibrates p-values so that they can be directly
     interpreted as either lower bounds on the posterior probabilities of
@@ -60,7 +60,7 @@ Some utility functions are also included:
 
 ## Installation
 
-`pcal` is not yet on CRAN but it can be installed from GitHub using the
+The development version of `pcal` can be installed from GitHub using the
 `devtools` package:
 
 ``` r
@@ -76,6 +76,7 @@ hypothesis, for example:
 ``` r
 x <- matrix(c(22, 13, 13, 23), ncol = 2)
 pv <- chisq.test(x)[["p.value"]]
+
 pv
 #> [1] 0.04377308
 ```
@@ -183,24 +184,44 @@ bfactor_interpret(1/c(0.1, 2, 5, 20, 50, 150))
 #> [1] "Strong"   "Negative" "Negative" "Negative" "Negative" "Negative"
 ```
 
-## References
-
-  - Berger JO, Delampady M (1987). “Testing precise hypotheses.”
-    Statistical Science, 2(3), 317–335.
-
-  - Jeffreys H (1961). Theory of probability, Oxford Classic Texts In
-    The Physical Sciences, 3 edition. Oxford University Press.
-
-  - Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American
-    Statistical Association, 90(430), 773–795.
-
-  - Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for
-    testing precise null hypotheses.” The American Statistician, 55(1),
-    62–71.
-
 ## Getting Help
 
 If you find a bug, please file an issue with a minimal reproducible
 example on [GitHub](https://github.com/pedro-teles-fonseca/pcal/issues).
 Feature requests are also welcome. You can contact me at
 <pedro.teles.fonseca@outlook.com>.
+
+## References
+
+<div id="refs" class="references hanging-indent">
+
+<div id="ref-bergerDelampady1987">
+
+Berger, James O., and Mohan Delampady. 1987. “Testing Precise
+Hypotheses.” *Statistical Science* 2 (3): 317–35.
+
+</div>
+
+<div id="ref-jeffreys1961">
+
+Jeffreys, Harold. 1961. *Theory of Probability*. 3rd ed. Oxford Classic
+Texts in the Physical Sciences. Oxford University Press.
+
+</div>
+
+<div id="ref-kass1995">
+
+Kass, Robert E., and Adrian E. Raftery. 1995. “Bayes Factors.” *Journal
+of the American Statistical Association* 90 (430): 773–95.
+
+</div>
+
+<div id="ref-sellke2001">
+
+Sellke, Thomas, M. J. Bayarri, and James O. Berger. 2001. “Calibration
+of P Values for Testing Precise Null Hypotheses.” *The American
+Statistician* 55 (1): 62–71.
+
+</div>
+
+</div>

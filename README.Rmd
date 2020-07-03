@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: inst/REFERENCES.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -27,7 +28,7 @@ library(pcal)
 
 ## Overview
 
-P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The `pcal` package uses the calibrations developed in Sellke et al (2001) to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret: 
+P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The `pcal` package uses the calibrations developed in @sellke2001 to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret: 
 
 * `pcal()` calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.
    
@@ -35,11 +36,11 @@ P-values are the most commonly used tool to measure the evidence provided by the
 
 Some utility functions are also included:
 
-* `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)
+* `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from @bergerDelampady1987
   
-* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale suggested by Jeffreys (1961)
+* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale suggested by @jeffreys1961
   
-* `bfactor_interpret_kr()` classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)
+* `bfactor_interpret_kr()` classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by @kass1995
   
 * `bfactor_log_interpret()` is similar to `bfactor_interpret()` but takes logarithms of Bayes factors as input
 
@@ -47,7 +48,7 @@ Some utility functions are also included:
      
 ## Installation
 
-`pcal` is not yet on CRAN but it can be installed from GitHub using the `devtools` package:
+The development version of `pcal` can be installed from GitHub using the `devtools` package:
 
 ```{r,  eval = FALSE}
 # install.packages("devtools")
@@ -61,6 +62,7 @@ First we need a p-value from any statistical test of a point null hypothesis, fo
 ```{r}
 x <- matrix(c(22, 13, 13, 23), ncol = 2)
 pv <- chisq.test(x)[["p.value"]]
+
 pv
 ```
 
@@ -131,21 +133,12 @@ bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
 bfactor_interpret(1/c(0.1, 2, 5, 20, 50, 150))
 ```
 
-## References 
-
-* Berger JO, Delampady M (1987). “Testing precise hypotheses.” Statistical Science, 2(3), 317–335.
-
-* Jeffreys H (1961). Theory of probability, Oxford Classic Texts In The Physical Sciences, 3 edition. Oxford University Press.
-
-* Kass RE, Raftery AE (1995). “Bayes factors.” Journal of the American Statistical Association, 90(430), 773–795.
-
-* Sellke T, Bayarri MJ, Berger JO (2001). “Calibration of p values for testing precise null hypotheses.” The American Statistician, 55(1), 62–71.
-
 ## Getting Help
 
 If you find a bug, please file an issue with a minimal reproducible example on
 [GitHub](https://github.com/pedro-teles-fonseca/pcal/issues). Feature requests are also welcome. You can contact me at pedro.teles.fonseca@outlook.com.
 
+## References 
 
 
 
