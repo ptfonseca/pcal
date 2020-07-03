@@ -1,7 +1,7 @@
 
 ## Submission summary
 
-This is a **resubmission**. In this version I have:
+This is a **resubmission**. In this version we have:
 
 * Added a reference in the Description field of the DESCRIPTION file. This reference provides theoretical background
 for the statistical methods implemented by the package. 
