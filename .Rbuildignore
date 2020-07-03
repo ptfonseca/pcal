@@ -3,7 +3,6 @@
 ^\.Rproj\.user$
 ^data-raw$
 ^\.travis\.yml$
-^README\.md$
 ^\.github$
 ^codecov\.yml$
 ^cran-comments.md$
@@ -12,3 +11,4 @@
 ^docs$
 ^pkgdown$
 ^CRAN-RELEASE$
+^README\.Rmd$
