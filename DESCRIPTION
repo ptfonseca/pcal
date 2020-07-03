@@ -6,9 +6,10 @@ Authors@R: c(
   person("Pedro", "Fonseca", email = "pedro.teles.fonseca@outlook.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-5708-081X")),
   person("Rui", "Paulo", role = c("ctb", "ths"), comment = c(ORCID = "0000-0002-4802-527X")),
   person(given = "FCT", role = "fnd"))
-Description: Calibrate p-values under a robust perspective and obtain measures of 
-    the evidence provided by the data in favor of point null hypotheses which are safer  
-    and more straightforward to interpret. Sellke, Bayarri, and Berger (2001) <doi:https://doi.org/10.1198/000313001300339950>.
+Description: Calibrate p-values under a robust perspective using the methods developed
+    by Sellke, Bayarri, and Berger (2001) <doi:10.1198/000313001300339950> and obtain 
+    measures of the evidence provided by the data in favor of point null hypotheses 
+    which are safer and more straightforward to interpret.
 License: GPL-3 | file LICENSE
 URL: https://pedro-teles-fonseca.github.io/pcal/,
      https://github.com/pedro-teles-fonseca/pcal
