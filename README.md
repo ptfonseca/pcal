@@ -5,6 +5,8 @@
 
 <!-- badges: start -->
 
+[![CRAN
+status](https://www.r-pkg.org/badges/version/pcal)](https://CRAN.R-project.org/package=pcal)
 [![Build
 Status](https://travis-ci.org/pedro-teles-fonseca/pcal.svg?branch=master)](https://travis-ci.org/pedro-teles-fonseca/pcal)
 [![R build
@@ -13,7 +15,6 @@ status](https://github.com/pedro-teles-fonseca/pcal/workflows/R-CMD-check/badge.
 [![codecov](https://codecov.io/gh/pedro-teles-fonseca/pcal/branch/master/graph/badge.svg)](https://codecov.io/gh/pedro-teles-fonseca/pcal)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-
 <!-- badges: end -->
 
 ## Overview
