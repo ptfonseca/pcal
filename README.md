@@ -61,6 +61,12 @@ Some utility functions are also included:
 
 ## Installation
 
+`pcal` can be installed from CRAN:
+
+``` r
+install.packages("pcal")
+```
+
 The development version of `pcal` can be installed from GitHub using the
 `devtools` package:
 
