@@ -7,7 +7,6 @@
 
 [![CRAN
 status](https://www.r-pkg.org/badges/version/pcal)](https://CRAN.R-project.org/package=pcal)
-![Downloads](https://cranlogs.r-pkg.org/badges/grand-total/pcal)
 [![Build
 Status](https://travis-ci.org/pedro-teles-fonseca/pcal.svg?branch=master)](https://travis-ci.org/pedro-teles-fonseca/pcal)
 [![R build
