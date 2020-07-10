@@ -61,14 +61,15 @@ Some utility functions are also included:
 
 ## Installation
 
-The released version of `pcal` can be installed from [CRAN](https://CRAN.R-project.org) with:
+The released version of `pcal` can be installed from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("pcal")
 ```
 
-The development version of `pcal` can be installed from [GitHub](https://github.com/) using the
-`devtools` package:
+The development version of `pcal` can be installed from
+[GitHub](https://github.com/) using the `devtools` package:
 
 ``` r
 # install.packages("devtools")
