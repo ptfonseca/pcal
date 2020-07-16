@@ -1,5 +1,5 @@
 
-title: pcal
+url: https://pedro-teles-fonseca.github.io/pcal/
 
 template:
   params:
@@ -23,5 +23,3 @@ reference:
     desc: ~
     contents:
       - '`bfactor_to_prob`'
-
-url: https://pedro-teles-fonseca.github.io/pcal/
