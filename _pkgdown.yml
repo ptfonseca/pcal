@@ -1,5 +1,8 @@
 
-title: pcal
+home:
+  title: pcal
+  description: Calibration of P-Values for Point Null Hypothesis Testing.
+
 template:
   params:
     bootswatch: cosmo
