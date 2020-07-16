@@ -7,6 +7,11 @@ template:
   params:
     bootswatch: cosmo
     ganalytics: UA-169641497-1
+  opengraph:
+    image:
+      src: man/figures/card.png
+     twitter:
+      creator: "@pedro_tfonseca"
 
 reference:
   - title: Calibration of P-values
