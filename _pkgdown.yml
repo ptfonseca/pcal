@@ -1,16 +1,9 @@
 
-home:
-  title: pcal
-  description: Calibration of P-Values for Point Null Hypothesis Testing.
-
+title: pcal
 template:
   params:
     bootswatch: cosmo
     ganalytics: UA-169641497-1
-  opengraph:
-    image:
-      src: man/figures/card.png
-
 
 reference:
   - title: Calibration of P-values
