@@ -45,24 +45,9 @@
 
 bfactor_log_interpret_kr <- function(bf, base = exp(1)) {
 
-  if(is.null(bf)){
-    stop("Invalid argument: 'bf' is NULL.")
-  }
-  if(length(bf) == 0){
-    stop("Invalid argument: 'bf' is empty")
-  }
-  if(all(is.na(bf))){
-    stop("Invalid argument: all elements of 'bf' are NA or NaN.")
-  }
-  if(any(!is.numeric(bf), !is.vector(bf),  all(is.na(bf)))){
-    stop("Invalid argument: 'bf' must be a numeric vector")
-  }
-  if(any(is.na(bf))){
-    warning("There are NA or NaN values in 'bf'.")
-  }
-  if(any(is.null(base), is.na(base), isFALSE(is.numeric(base)), isFALSE(is.vector(base)), isFALSE(length(base) == 1))){
-    stop("Invalid argument: 'base' must be a numeric vector of length 1")
-  }
+  check_log_bf(bf)
+
+  check_log_base(base)
 
   bf <-  base ^ bf
 
