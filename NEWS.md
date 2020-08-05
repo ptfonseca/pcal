@@ -1,5 +1,5 @@
 
-# pcal 1.0.1
+# pcal 1.1.0
 
 * Code readability improved.
 
