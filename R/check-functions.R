@@ -1,4 +1,47 @@
 
+#' @title falta isto
+#'
+#' @description Check if an object is a numeric vector of valid probability values.
+#'
+#' @param p An arbitrary object.
+#'
+#' @details `check_prob` conducts a series of tests, namely:
+#'
+#' @return `check_prob` does not return any output. There are three possible scenarios:
+#' * The call is silent if the `p` is a numeric vector of valid probability values without non missing values.
+#' * and throws a warning in case it is a numeric vector of valid probability values with missing values
+#' *It throws an informative error error otherwise.
+#'
+#' @seealso
+#' * \code{\link[pcal]{check_bf}} FALTA ISTO.
+#' * \code{\link[pcal]{check_log_bf}} FALTA ISTO.
+#'
+#' @examples
+#' # Calls that pass silently:
+#' check_prob(0)
+#' check_prob(0.5)
+#' check_prob(1)
+#' check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
+#'
+#' # Call that throws an informative warning:
+#' \dontrun{check_prob(c(0.1, 0.2, NA, 0.4, 0.5))}
+#'
+#' # Calls that throw informative errors:
+#' \dontrun{check_prob(NULL)}
+#' \dontrun{check_prob()}
+#' \dontrun{check_prob(TRUE)}
+#' \dontrun{check_prob("0.5")}
+#' \dontrun{check_prob(factor(0.5))}
+#' \dontrun{check_prob(matrix(0.5))}
+#' \dontrun{check_prob(list(0.5))}
+#' \dontrun{check_prob(NA)}
+#' \dontrun{check_prob(NaN)}
+#' \dontrun{check_prob(1.1)}
+#' \dontrun{check_prob(-0.5)}
+#' \dontrun{check_prob(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))}
+#'
+#' @export
+
 check_prob <- function(p){
 
   if(is.null(p)){
@@ -15,25 +58,6 @@ check_prob <- function(p){
   }
   if(any(is.na(p))){
     warning("There are NA or NaN values in 'p'")
-  }
-}
-
-check_prior_prob <- function(prior_prob){
-
-  if(is.null(prior_prob)){
-    stop("Invalid argument: 'prior_prob' is NULL")
-  }
-  if(length(prior_prob) == 0){
-    stop("Invalid argument: 'prior_prob' is empty")
-  }
-  if(any(is.na(prior_prob))){
-    stop("Invalid argument: There are NA or NaN values in 'prior_prob'")
-  }
-  if(any(!is.numeric(prior_prob), !is.vector(prior_prob),  all(is.na(prior_prob)))){
-    stop("Invalid argument: 'prior_prob' must be a numeric vector")
-  }
-  if(any(prior_prob[!is.na(prior_prob)] < 0, prior_prob[!is.na(prior_prob)] > 1)){
-    stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.")
   }
 }
 
@@ -77,20 +101,4 @@ check_log_bf <- function(bf){
     warning("There are NA or NaN values in 'bf'.")
   }
 }
-
-check_log_base <- function(base){
-
-  if(any(
-    is.null(base),
-    is.na(base),
-    isFALSE(is.numeric(base)),
-    isFALSE(is.vector(base)),
-    isFALSE(length(base) == 1))
-    ){
-    stop("Invalid argument: 'base' must be a numeric vector of length 1")
-  }
-}
-
-
-
 
