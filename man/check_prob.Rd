@@ -14,11 +14,11 @@ check_prob(p)
 \itemize{
 \item The call is silent if \code{p} is a numeric vector of valid probability values and there are no \code{NA} or \code{NaN} values.
 \item An informative warning message is given if \code{p} is a numeric vector of valid probability values and there are \code{NA} or \code{NaN} values.
-\item An informative error message is thrown if \code{p} is not a numeric vector of valid probability values.
+\item An informative error message is thrown if \code{p} is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using \code{check_prob} to validate the inputs of user defined functions).
 }
 }
 \description{
-\code{check_prob} checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs and intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+\code{check_prob} checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
 }
 \details{
 \code{check_prob} conducts a series of tests to check if \code{p} is a numeric vector of valid probability values. Namely, \code{check_prob} checks if:

@@ -9,6 +9,53 @@ check_bf(bf)
 \arguments{
 \item{bf}{An arbitrary object.}
 }
+\value{
+\code{check_bf} does not return any output. There are three possible scenarios:
+\itemize{
+\item The call is silent if \code{bf} is a numeric vector of valid Bayes factor values and there are no \code{NA} or \code{NaN} values.
+\item An informative warning message is given if \code{p} is a numeric vector of valid Bayes factor values and there are \code{NA} or \code{NaN} values.
+\item An informative error message is thrown if \code{p} is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution (for example, when using \code{check_bf} to validate the inputs of user defined functions).
+}
+}
 \description{
-\code{check_bf} checks if an object is a numeric vector of valid Bayes factor values. This can be useful to validate inputs and intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+\code{check_bf} checks if an object is a numeric vector of valid Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+}
+\details{
+\code{check_bf} conducts a series of tests to check if \code{bf} is a numeric vector of valid Bayes factor values. Namely, \code{check_bf} checks if:
+\itemize{
+\item \code{bf} is \code{NULL} or empty.
+\item \code{bf} is a numeric (atomic) vector.
+\item \code{bf} has \code{NA} or \code{NaN} values.
+\item The values of \code{bf} are non-negative.
+}
+}
+\examples{
+# Calls that pass silently:
+check_bf(0)
+check_bf(0.5)
+check_bf(100)
+check_bf(c(0, 0.5, 1, 10, 50, 100))
+
+# Call that throws an informative warning message:
+\dontrun{check_bf(c(0.1, 0.2, NA, 0.4, 0.5))}
+
+# Calls that throw informative error messages:
+\dontrun{check_bf(NULL)}
+\dontrun{check_bf()}
+\dontrun{check_bf(TRUE)}
+\dontrun{check_bf("0.5")}
+\dontrun{check_bf(factor(0.5))}
+\dontrun{check_bf(matrix(0.5))}
+\dontrun{check_bf(list(0.5))}
+\dontrun{check_bf(NA)}
+\dontrun{check_bf(NaN)}
+\dontrun{check_bf(-0.5)}
+\dontrun{check_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))}
+\dontrun{check_bf(-5)}
+}
+\seealso{
+\itemize{
+\item \code{\link[pcal]{check_log_bf}} To check if an object is a numeric vector of valid logarithmic Bayes factor values.
+\item \code{\link[pcal]{check_prob}} To check if an object is a numeric vector of valid probability values.
+}
 }
