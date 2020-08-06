@@ -60,7 +60,6 @@ bfactor_interpret_kr <- function(bf) {
 
 }
 
-
 #' @title Interpretation of the logarithms of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
