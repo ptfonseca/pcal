@@ -64,7 +64,7 @@ bfactor_interpret_kr <- function(bf) {
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
 #'
-#' @param bf A numeric vector.
+#' @param lbf A numeric vector.
 #' @param base A numeric vector of \code{\link[base]{length}} one. Must be a positive number.
 #'
 #' @details Bayes factors are a summary of the evidence provided by the data to a model/hypothesis, and are often reported on a logarithmic scale. Because it can be useful to consider twice the natural logarithm of the Bayes factor, which is in the same scale as the familiar deviance and likelihood ratio test statistics, \insertCite{kass1995;textual}{pcal} suggested the following Bayes factor interpretation scale:
@@ -79,9 +79,9 @@ bfactor_interpret_kr <- function(bf) {
 #'
 #' `bfactor_log_interpret_kr` takes (base `base`) logarithms of Bayes factors as input and returns the strength of the evidence provided by the data in favor of the  model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.
 #'
-#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_log_interpret_kr` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_log_interpret_kr(1/bf)` to obtain the strength of the evidence against the null hypothesis.
+#' When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_log_interpret_kr` returns the strength of the evidence against the null hypothesis. If `lbf` was obtained with the null hypothesis on the numerator, one can use `bfactor_log_interpret_kr(1/lbf)` to obtain the strength of the evidence against the null hypothesis.
 #'
-#' @return Returns a character vector with the same {\link[base]{length}} as `bf`.
+#' @return Returns a character vector with the same {\link[base]{length}} as `lbf`.
 #'
 #' @references
 #' \insertAllCited{}
@@ -104,13 +104,13 @@ bfactor_interpret_kr <- function(bf) {
 #'
 #' @export
 
-bfactor_log_interpret_kr <- function(bf, base = exp(1)) {
+bfactor_log_interpret_kr <- function(lbf, base = exp(1)) {
 
-  check_log_bf(bf)
+  check_log_bf(lbf)
 
   check_log_base(base)
 
-  bf <-  base ^ bf
+  bf <-  base ^ lbf
 
   ifelse(bf < 1, "Negative",
          ifelse(bf < 3, "Weak",

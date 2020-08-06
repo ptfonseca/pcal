@@ -164,7 +164,7 @@ check_bf <- function(bf){
 #' check_log_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))
 #'
 #' # Call that throws an informative warning message:
-#' \dontrun{check_log_bf(c(0.1, 0.2, NA, 0.4, 0.5))}
+#' \dontrun{check_log_bf(c(0.1, 2, NA, 40, 0.5))}
 #'
 #' # Calls that throw informative error messages:
 #' \dontrun{check_log_bf(NULL)}
