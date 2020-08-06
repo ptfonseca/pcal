@@ -22,3 +22,6 @@ reference:
     desc: ~
     contents:
       - '`bfactor_to_prob`'
+      - '`check_bf`'
+      - '`check_log_bf`'
+      - '`check_prob`'
