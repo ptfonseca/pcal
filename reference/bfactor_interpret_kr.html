@@ -83,7 +83,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">pcal</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.0.9000</span>
       </span>
     </div>
 
@@ -123,7 +123,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Interpretation of Bayes factors</h1>
-    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/bfactor_interpret_kr.R'><code>R/bfactor_interpret_kr.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/bf-interpretation-kass-raftery.R'><code>R/bf-interpretation-kass-raftery.R</code></a></small>
     <div class="hidden name"><code>bfactor_interpret_kr.Rd</code></div>
     </div>
 
@@ -171,10 +171,10 @@
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_interpret.html'>bfactor_interpret</a></code> for the original interpretation scale suggested by Harold Jeffreys.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_log_interpret.html'>bfactor_log_interpret</a></code> and <code><a href='https://rdrr.io/pkg/pcal/man/bfactor_log_interpret_kr.html'>bfactor_log_interpret_kr</a></code> for the interpretation of the logarithms of Bayes factors.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bfactor_to_prob.html'>bfactor_to_prob</a></code> to turn Bayes factors into posterior probabilities.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/pcal/man/bcal.html'>bcal</a></code> for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.</p></li>
+<li><p><code><a href='bfactor_interpret.html'>bfactor_interpret</a></code> for the original interpretation scale suggested by Harold Jeffreys.</p></li>
+<li><p><code><a href='bfactor_log_interpret.html'>bfactor_log_interpret</a></code> and <code><a href='bfactor_log_interpret_kr.html'>bfactor_log_interpret_kr</a></code> for the interpretation of the logarithms of Bayes factors.</p></li>
+<li><p><code><a href='bfactor_to_prob.html'>bfactor_to_prob</a></code> to turn Bayes factors into posterior probabilities.</p></li>
+<li><p><code><a href='bcal.html'>bcal</a></code> for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.</p></li>
 </ul>
 </div>
 
@@ -187,7 +187,7 @@
 <span class='co'># Strength of the evidence provided by the lower</span>
 <span class='co'># bound on the Bayes factor in favor of the null hypothesis:</span>
 <span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12</span>, <span class='fl'>15</span>, <span class='fl'>14</span>, <span class='fl'>15</span>), ncol = <span class='fl'>2</span>)
-<span class='fu'>bfactor_interpret_kr</span>(<span class='fu'>bcal</span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>x</span>)[[<span class='st'>"p.value"</span>]]))</div><div class='output co'>#&gt; [1] "Weak"</div><div class='input'></div></pre>
+<span class='fu'>bfactor_interpret_kr</span>(<span class='fu'><a href='bcal.html'>bcal</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>x</span>)[[<span class='st'>"p.value"</span>]]))</div><div class='output co'>#&gt; [1] "Weak"</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
