@@ -49,6 +49,7 @@ bfactor_log_interpret(log10(c(0.1, 1.2, 3.5, 13.9, 150)), base = 10)
 }
 \seealso{
 \itemize{
+\item \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
 \item \code{\link[pcal]{bfactor_log_interpret_kr}} for an alternative interpretation scale.
 \item \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors in levels.
 \item \code{\link[pcal]{bfactor_to_prob}} to turn Bayes factors into posterior probabilities.

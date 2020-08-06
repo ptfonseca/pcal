@@ -15,6 +15,7 @@
 #' \insertAllCited{}
 #'
 #' @seealso
+#' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability (or p-value) values.
 #' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
 #' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
@@ -63,7 +64,9 @@ bcal <- function(p) {
 #' @references
 #' \insertAllCited{}
 #'
-#' @seealso * {\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' @seealso
+#' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability (or p-value) values.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Calibration of a typical "threshold" p-value:

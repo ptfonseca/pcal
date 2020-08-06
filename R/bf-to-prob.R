@@ -16,6 +16,8 @@
 #' \insertAllCited{}
 #'
 #' @seealso
+#' * \code{\link[pcal]{check_bf}} To check if an object is a numeric vector of valid Bayes factor values.
+#' * \code{\link[pcal]{check_prob}} To check if an object is a numeric vector of valid probability values.
 #' * \code{\link[pcal]{bfactor_interpret}} and \code{\link[pcal]{bfactor_interpret_kr}} for the interpretation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_log_interpret}} and \code{\link[pcal]{bfactor_log_interpret_kr}} for the interpretation of the logarithms of Bayes factors.
 #' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.

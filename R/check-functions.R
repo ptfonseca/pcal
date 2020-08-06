@@ -17,8 +17,8 @@
 #' * An informative error message is thrown if `p` is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using `check_prob` to validate the inputs of user defined functions).
 #'
 #' @seealso
-#' * \code{\link[pcal]{check_bf}} To check if an object is a numeric vector of valid Bayes factor values.
-#' * \code{\link[pcal]{check_log_bf}} To check if an object is a numeric vector of valid logarithmic Bayes factor values.
+#' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
+#' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -83,8 +83,8 @@ check_prob <- function(p){
 #' * An informative error message is thrown if `p` is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution (for example, when using `check_bf` to validate the inputs of user defined functions).
 #'
 #' @seealso
-#' * \code{\link[pcal]{check_log_bf}} To check if an object is a numeric vector of valid logarithmic Bayes factor values.
-#' * \code{\link[pcal]{check_prob}} To check if an object is a numeric vector of valid probability values.
+#' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
+#' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -150,8 +150,8 @@ check_bf <- function(bf){
 #' * An informative error message is thrown if `p` is not a numeric vector of valid logarithmic Bayes factor values.
 #'
 #' @seealso
-#' * \code{\link[pcal]{check_bf}} To check if an object is a numeric vector of valid Bayes factor values.
-#' * \code{\link[pcal]{check_prob}} To check if an object is a numeric vector of valid probability values.
+#' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
+#' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
 #'
 #' @examples
 #' # Calls that pass silently:

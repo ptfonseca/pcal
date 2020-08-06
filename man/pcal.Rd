@@ -44,6 +44,7 @@ pcal(chisq.test(x)[["p.value"]])
 }
 \seealso{
 \itemize{
-\item {\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability (or p-value) values.
+\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
 }
 }
