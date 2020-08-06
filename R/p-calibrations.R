@@ -43,7 +43,6 @@ bcal <- function(p) {
                 1))
 }
 
-
 #' @title Lower Bounds on the Posterior Probabilities of Point Null Hypotheses
 #'
 #' @description Calibrate p-values under a robust perspective so that they can be interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on the probabilities of type I errors.
