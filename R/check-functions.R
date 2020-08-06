@@ -65,6 +65,12 @@ check_prob <- function(p){
   }
 }
 
+#' @title Check if an object is a numeric vector of valid Bayes factor values
+#'
+#' @description `check_bf` checks if an object is a numeric vector of valid Bayes factor values. This can be useful to validate inputs and intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+#'
+#' @param bf An arbitrary object.
+#'
 #' @export
 
 check_bf <- function(bf){
@@ -89,6 +95,11 @@ check_bf <- function(bf){
   }
 }
 
+#' @title Check if an object is a numeric vector of valid logarithmic Bayes factor values
+#'
+#' @description `check_log_bf` checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs and intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+#'
+#' @param bf An arbitrary object.
 #' @export
 
 check_log_bf <- function(bf){
