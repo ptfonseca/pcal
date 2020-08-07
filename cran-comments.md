@@ -1,12 +1,8 @@
 
-## Submission summary
+## Release summary
 
-This is a **resubmission**. In this version we have:
-
-* Added a reference in the Description field of the DESCRIPTION file. This reference provides theoretical background
-for the statistical methods implemented by the package. 
-
-* Included a README.md file with an overview of the package and some examples.
+* This is the second release of ´pcal´. 
+* This release includes three new functions.
 
 ## Test environments
 
@@ -36,12 +32,11 @@ for the statistical methods implemented by the package.
 
 ## R CMD check --as-cran
 
-0 errors | 0 warnings | 1 note
+0 errors | 0 warnings | 0 notes
 
-Note:
+## Downstream dependencies
 
-```
-Maintainer: 'Pedro Fonseca <pedro.teles.fonseca@outlook.com>'
-New submission
-```
+There are currently no downstream dependencies for this package
+
+
 
