@@ -138,17 +138,17 @@ check_bf <- function(bf){
 #'
 #' @description `check_log_bf` checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
 #'
-#' @param lbf An arbitrary object.
+#' @param bf An arbitrary object.
 #'
-#' @details `check_log_bf` conducts a series of tests to check if `lbf` is a numeric vector of valid logarithmic Bayes factor values. Namely, `check_bf` checks if:
-#' * `lbf` is `NULL` or empty.
-#' * `lbf` is a numeric (atomic) vector.
-#' * `lbf` has `NA` or `NaN` values.
+#' @details `check_log_bf` conducts a series of tests to check if `bf` is a numeric vector of valid logarithmic Bayes factor values. Namely, `check_bf` checks if:
+#' * `bf` is `NULL` or empty.
+#' * `bf` is a numeric (atomic) vector.
+#' * `bf` has `NA` or `NaN` values.
 #'
 #' @return `check_log_bf` does not return any output. There are three possible scenarios:
-#' * The call is silent if `lbf` is a numeric vector of valid logarithmic Bayes factor values and there are no `NA` or `NaN` values.
-#' * An informative warning message is given if `lbf` is a numeric vector of valid logarithmic Bayes factor values and there are `NA` or `NaN` values.
-#' * An informative error message is thrown if `lbf` is not a numeric vector of valid logarithmic Bayes factor values.
+#' * The call is silent if `bf` is a numeric vector of valid logarithmic Bayes factor values and there are no `NA` or `NaN` values.
+#' * An informative warning message is given if `bf` is a numeric vector of valid logarithmic Bayes factor values and there are `NA` or `NaN` values.
+#' * An informative error message is thrown if `bf` is not a numeric vector of valid logarithmic Bayes factor values.
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
@@ -180,22 +180,22 @@ check_bf <- function(bf){
 #'
 #' @export
 
-check_log_bf <- function(lbf){
+check_log_bf <- function(bf){
 
-  if(is.null(lbf)){
-    stop("Invalid argument: 'lbf' is NULL.")
+  if(is.null(bf)){
+    stop("Invalid argument: 'bf' is NULL.")
   }
-  if(length(lbf) == 0){
-    stop("Invalid argument: 'lbf' is empty")
+  if(length(bf) == 0){
+    stop("Invalid argument: 'bf' is empty")
   }
-  if(all(is.na(lbf))){
-    stop("Invalid argument: all elements of 'lbf' are NA or NaN.")
+  if(all(is.na(bf))){
+    stop("Invalid argument: all elements of 'bf' are NA or NaN.")
   }
-  if(any(!is.numeric(lbf), !is.vector(lbf),  all(is.na(lbf)))){
-    stop("Invalid argument: 'lbf' must be a numeric vector")
+  if(any(!is.numeric(bf), !is.vector(bf),  all(is.na(bf)))){
+    stop("Invalid argument: 'bf' must be a numeric vector")
   }
-  if(any(is.na(lbf))){
-    warning("There are NA or NaN values in 'lbf'.")
+  if(any(is.na(bf))){
+    warning("There are NA or NaN values in 'bf'.")
   }
 }
 
