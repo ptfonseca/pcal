@@ -147,8 +147,8 @@ check_bf <- function(bf){
 #'
 #' @return `check_log_bf` does not return any output. There are three possible scenarios:
 #' * The call is silent if `lbf` is a numeric vector of valid logarithmic Bayes factor values and there are no `NA` or `NaN` values.
-#' * An informative warning message is given if `p` is a numeric vector of valid logarithmic Bayes factor values and there are `NA` or `NaN` values.
-#' * An informative error message is thrown if `p` is not a numeric vector of valid logarithmic Bayes factor values.
+#' * An informative warning message is given if `lbf` is a numeric vector of valid logarithmic Bayes factor values and there are `NA` or `NaN` values.
+#' * An informative error message is thrown if `lbf` is not a numeric vector of valid logarithmic Bayes factor values.
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.

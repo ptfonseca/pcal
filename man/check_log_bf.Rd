@@ -13,8 +13,8 @@ check_log_bf(lbf)
 \code{check_log_bf} does not return any output. There are three possible scenarios:
 \itemize{
 \item The call is silent if \code{lbf} is a numeric vector of valid logarithmic Bayes factor values and there are no \code{NA} or \code{NaN} values.
-\item An informative warning message is given if \code{p} is a numeric vector of valid logarithmic Bayes factor values and there are \code{NA} or \code{NaN} values.
-\item An informative error message is thrown if \code{p} is not a numeric vector of valid logarithmic Bayes factor values.
+\item An informative warning message is given if \code{lbf} is a numeric vector of valid logarithmic Bayes factor values and there are \code{NA} or \code{NaN} values.
+\item An informative error message is thrown if \code{lbf} is not a numeric vector of valid logarithmic Bayes factor values.
 }
 }
 \description{
