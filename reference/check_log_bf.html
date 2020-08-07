@@ -130,13 +130,13 @@
     <p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check_log_bf</span>(<span class='kw'>lbf</span>)</pre>
+    <pre class="usage"><span class='fu'>check_log_bf</span>(<span class='kw'>bf</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>lbf</th>
+      <th>bf</th>
       <td><p>An arbitrary object.</p></td>
     </tr>
     </table>
@@ -144,17 +144,17 @@
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>check_log_bf</code> does not return any output. There are three possible scenarios:</p><ul>
-<li><p>The call is silent if <code>lbf</code> is a numeric vector of valid logarithmic Bayes factor values and there are no <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>An informative warning message is given if <code>lbf</code> is a numeric vector of valid logarithmic Bayes factor values and there are <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>An informative error message is thrown if <code>lbf</code> is not a numeric vector of valid logarithmic Bayes factor values.</p></li>
+<li><p>The call is silent if <code>bf</code> is a numeric vector of valid logarithmic Bayes factor values and there are no <code>NA</code> or <code>NaN</code> values.</p></li>
+<li><p>An informative warning message is given if <code>bf</code> is a numeric vector of valid logarithmic Bayes factor values and there are <code>NA</code> or <code>NaN</code> values.</p></li>
+<li><p>An informative error message is thrown if <code>bf</code> is not a numeric vector of valid logarithmic Bayes factor values.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>check_log_bf</code> conducts a series of tests to check if <code>lbf</code> is a numeric vector of valid logarithmic Bayes factor values. Namely, <code>check_bf</code> checks if:</p><ul>
-<li><p><code>lbf</code> is <code>NULL</code> or empty.</p></li>
-<li><p><code>lbf</code> is a numeric (atomic) vector.</p></li>
-<li><p><code>lbf</code> has <code>NA</code> or <code>NaN</code> values.</p></li>
+    <p><code>check_log_bf</code> conducts a series of tests to check if <code>bf</code> is a numeric vector of valid logarithmic Bayes factor values. Namely, <code>check_bf</code> checks if:</p><ul>
+<li><p><code>bf</code> is <code>NULL</code> or empty.</p></li>
+<li><p><code>bf</code> is a numeric (atomic) vector.</p></li>
+<li><p><code>bf</code> has <code>NA</code> or <code>NaN</code> values.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
