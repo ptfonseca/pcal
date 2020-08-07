@@ -100,6 +100,12 @@
 <li><p><code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> is similar to <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> but takes logarithms of Bayes factors as input</p></li>
 <li><p><code><a href="reference/bfactor_log_interpret_kr.html">bfactor_log_interpret_kr()</a></code> is similar to <code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code> but takes logarithms of Bayes factors as input</p></li>
 </ul>
+<p><code>pcal</code> includes three functions that can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions:</p>
+<ul>
+<li><p><code>check_prob</code> checks if an object is a numeric vector of valid probability values.</p></li>
+<li><p><code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</p></li>
+<li><p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_log_bf</code> but does not require values to be non-negative.</p></li>
+</ul>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
