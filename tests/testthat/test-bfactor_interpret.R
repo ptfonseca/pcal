@@ -213,7 +213,7 @@ test_that("bfactor_log_interpret base arg error message 4", {
   )}
 )
 
-testthat::test_that("bfactor_log_interpret base arg error message 5", {
+test_that("bfactor_log_interpret base arg error message 5", {
   expect_error(
     bfactor_log_interpret(lbf = .2, base = "10")
   )}
