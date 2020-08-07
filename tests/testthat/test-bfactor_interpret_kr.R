@@ -132,29 +132,29 @@ testthat::test_that("bfactor_log_interpret_kr base arg NA warning", {
 )
 
 testthat::test_that("bfactor_log_interpret_kr base arg error message 1", {
-  expect_error(bfactor_log_interpret_kr(bf = .2, base = NULL))}
+  expect_error(bfactor_log_interpret_kr(lbf = .2, base = NULL))}
 )
 
 testthat::test_that("bfactor_log_interpret_kr base arg error message 2", {
   expect_error(
-    bfactor_log_interpret_kr(bf = .2, base = NA)
+    bfactor_log_interpret_kr(lbf = .2, base = NA)
   )}
 )
 
 testthat::test_that("bfactor_log_interpret_kr base arg error message 3", {
   expect_error(
-    bfactor_log_interpret_kr(bf = .2, base = c(10, 10))
+    bfactor_log_interpret_kr(lbf = .2, base = c(10, 10))
   )}
 )
 
 testthat::test_that("bfactor_log_interpret_kr base arg error message 4", {
   expect_error(
-    bfactor_log_interpret_kr(bf = .2, base = factor(10))
+    bfactor_log_interpret_kr(lbf = .2, base = factor(10))
   )}
 )
 
 testthat::test_that("bfactor_log_interpret_kr base arg error message 5", {
   expect_error(
-    bfactor_log_interpret_kr(bf = .2, base = "10")
+    bfactor_log_interpret_kr(lbf = .2, base = "10")
   )}
 )
