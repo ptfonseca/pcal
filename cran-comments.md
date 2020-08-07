@@ -1,7 +1,7 @@
 
 ## Release summary
 
-* This is the second release of ´pcal´. 
+* This is the second release of `pcal`. 
 * This release includes three new functions.
 
 ## Test environments
