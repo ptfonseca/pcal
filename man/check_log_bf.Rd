@@ -4,28 +4,28 @@
 \alias{check_log_bf}
 \title{Check if an object is a numeric vector of valid logarithmic Bayes factor values}
 \usage{
-check_log_bf(lbf)
+check_log_bf(bf)
 }
 \arguments{
-\item{lbf}{An arbitrary object.}
+\item{bf}{An arbitrary object.}
 }
 \value{
 \code{check_log_bf} does not return any output. There are three possible scenarios:
 \itemize{
-\item The call is silent if \code{lbf} is a numeric vector of valid logarithmic Bayes factor values and there are no \code{NA} or \code{NaN} values.
-\item An informative warning message is given if \code{lbf} is a numeric vector of valid logarithmic Bayes factor values and there are \code{NA} or \code{NaN} values.
-\item An informative error message is thrown if \code{lbf} is not a numeric vector of valid logarithmic Bayes factor values.
+\item The call is silent if \code{bf} is a numeric vector of valid logarithmic Bayes factor values and there are no \code{NA} or \code{NaN} values.
+\item An informative warning message is given if \code{bf} is a numeric vector of valid logarithmic Bayes factor values and there are \code{NA} or \code{NaN} values.
+\item An informative error message is thrown if \code{bf} is not a numeric vector of valid logarithmic Bayes factor values.
 }
 }
 \description{
 \code{check_log_bf} checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
 }
 \details{
-\code{check_log_bf} conducts a series of tests to check if \code{lbf} is a numeric vector of valid logarithmic Bayes factor values. Namely, \code{check_bf} checks if:
+\code{check_log_bf} conducts a series of tests to check if \code{bf} is a numeric vector of valid logarithmic Bayes factor values. Namely, \code{check_bf} checks if:
 \itemize{
-\item \code{lbf} is \code{NULL} or empty.
-\item \code{lbf} is a numeric (atomic) vector.
-\item \code{lbf} has \code{NA} or \code{NaN} values.
+\item \code{bf} is \code{NULL} or empty.
+\item \code{bf} is a numeric (atomic) vector.
+\item \code{bf} has \code{NA} or \code{NaN} values.
 }
 }
 \examples{
