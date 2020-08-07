@@ -1,6 +1,7 @@
 
 # pcal 1.1.0
 
+* New functions
 * Code readability improved.
 * Documentation improved.
 * More unit tests.
