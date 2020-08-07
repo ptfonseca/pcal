@@ -52,6 +52,7 @@ check_bf(c(0, 0.5, 1, 10, 50, 100))
 \dontrun{check_bf(-0.5)}
 \dontrun{check_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))}
 \dontrun{check_bf(-5)}
+
 }
 \seealso{
 \itemize{
