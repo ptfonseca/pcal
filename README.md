@@ -59,12 +59,8 @@ Some utility functions are also included:
   - `bfactor_log_interpret_kr()` is similar to `bfactor_interpret_kr()`
     but takes logarithms of Bayes factors as input
 
-`pcal` includes three functions that can be useful to validate inputs or
-intermediate calculations in user-defined functions or to validate the
-output of calculations/functions:
-
   - `check_prob` checks if an object is a numeric vector of valid
-    probability values.
+    probability (or p-value) values.
 
   - `check_bf` checks if an object is a numeric vector of valid Bayes
     factor values.
