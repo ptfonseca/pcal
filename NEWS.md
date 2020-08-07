@@ -1,7 +1,7 @@
 
 # pcal 1.1.0
 
-This is the second CRAN release of `pcal`. This release includes three utility new functions that can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+This is the second CRAN release of `pcal`. This release includes three new utility functions that can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
 
 ## New functions
 
