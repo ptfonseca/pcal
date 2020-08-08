@@ -1,4 +1,6 @@
 
+# nocov start
+
 release_questions <- function() {
 
   c(
@@ -6,3 +8,5 @@ release_questions <- function() {
     "Have you run all the tests listed on the cran-comments.md?"
   )
 }
+
+# nocov end
