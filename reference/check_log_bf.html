@@ -122,7 +122,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Check if an object is a numeric vector of valid logarithmic Bayes factor values</h1>
-    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/check-functions.R'><code>R/check-functions.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/internal-functions.R'><code>R/internal-functions.R</code></a></small>
     <div class="hidden name"><code>check_log_bf.Rd</code></div>
     </div>
 
@@ -168,14 +168,7 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Calls that pass silently:</span>
-<span class='fu'>check_log_bf</span>(<span class='fl'>0</span>)
-<span class='fu'>check_log_bf</span>(<span class='fl'>0.5</span>)
-<span class='fu'>check_log_bf</span>(<span class='fl'>100</span>)
-<span class='fu'>check_log_bf</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>))
-<span class='fu'>check_log_bf</span>(<span class='op'>-</span><span class='fl'>0.5</span>)
-<span class='fu'>check_log_bf</span>(<span class='op'>-</span><span class='fl'>5</span>)
-<span class='fu'>check_log_bf</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>0.9</span>, <span class='fl'>0</span>, <span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
-
+<span class='fu'>check_log_bf</span>(<span class='fl'>0</span>)</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(0): could not find function "check_log_bf"</span></div><div class='input'><span class='fu'>check_log_bf</span>(<span class='fl'>0.5</span>)</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(0.5): could not find function "check_log_bf"</span></div><div class='input'><span class='fu'>check_log_bf</span>(<span class='fl'>100</span>)</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(100): could not find function "check_log_bf"</span></div><div class='input'><span class='fu'>check_log_bf</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0</span>, <span class='fl'>0.5</span>, <span class='fl'>1</span>, <span class='fl'>10</span>, <span class='fl'>50</span>, <span class='fl'>100</span>))</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(c(0, 0.5, 1, 10, 50, 100)): could not find function "check_log_bf"</span></div><div class='input'><span class='fu'>check_log_bf</span>(<span class='op'>-</span><span class='fl'>0.5</span>)</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(-0.5): could not find function "check_log_bf"</span></div><div class='input'><span class='fu'>check_log_bf</span>(<span class='op'>-</span><span class='fl'>5</span>)</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(-5): could not find function "check_log_bf"</span></div><div class='input'><span class='fu'>check_log_bf</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>0.9</span>, <span class='fl'>0</span>, <span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))</div><div class='output co'>#&gt; <span class='error'>Error in check_log_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5)): could not find function "check_log_bf"</span></div><div class='input'>
 <span class='co'># Call that throws an informative warning message:</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_bf</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>2</span>, <span class='fl'>NA</span>, <span class='fl'>40</span>, <span class='fl'>0.5</span>))
 
