@@ -7,10 +7,10 @@ citEntry(entry = "Manual",
          as.person("Pedro Fonseca")),
          as.person("Rui Paulo")),
          year = "2020",
-         note = "R package version 1.0.0",
+         note = "R package version 1.0.1",
          url = "https://pedro-teles-fonseca.github.io/pcal/",
          textVersion =
            paste("Pedro Fonseca and Rui Paulo (2020).",
                  "pcal: Calibration of P-values for Point Null Hypothesis Testing.",
-                 "R package version 1.0.0")
+                 "R package version 1.0.1")
          )
