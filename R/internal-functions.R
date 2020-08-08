@@ -33,4 +33,3 @@ check_log_base <- function(base){
 
 
 
-
