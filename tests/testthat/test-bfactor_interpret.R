@@ -192,30 +192,30 @@ test_that("bfactor_log_interpret base arg NA warning", {
 )
 
 test_that("bfactor_log_interpret base arg error message 1", {
-  expect_error(bfactor_log_interpret(lbf = .2, base = NULL))}
+  expect_error(bfactor_log_interpret(bf = .2, base = NULL))}
 )
 
 test_that("bfactor_log_interpret base arg error message 2", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = NA)
+    bfactor_log_interpret(bf = .2, base = NA)
   )}
 )
 
 test_that("bfactor_log_interpret base arg error message 3", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = c(10, 10))
+    bfactor_log_interpret(bf = .2, base = c(10, 10))
   )}
 )
 
 test_that("bfactor_log_interpret base arg error message 4", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = factor(10))
+    bfactor_log_interpret(bf = .2, base = factor(10))
   )}
 )
 
 test_that("bfactor_log_interpret base arg error message 5", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = "10")
+    bfactor_log_interpret(bf = .2, base = "10")
   )}
 )
 
