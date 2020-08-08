@@ -44,7 +44,7 @@
 #' \dontrun{check_prob(-0.5)}
 #' \dontrun{check_prob(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))}
 #'
-#' @keyword Internal
+#' @keywords internal
 
 check_prob <- function(p){
 
@@ -110,7 +110,7 @@ check_prob <- function(p){
 #' \dontrun{check_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))}
 #' \dontrun{check_bf(-5)}
 #'
-#' @keyword Internal
+#' @keywords internal
 
 check_bf <- function(bf){
 
@@ -178,7 +178,7 @@ check_bf <- function(bf){
 #' \dontrun{check_log_bf(NA)}
 #' \dontrun{check_log_bf(NaN)}
 #'
-#' @keyword Internal
+#' @keywords internal
 
 check_log_bf <- function(bf){
 
