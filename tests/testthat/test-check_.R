@@ -43,6 +43,7 @@ test_that("check error message 7", {expect_error(check_bf(NA))})
 test_that("check error message 8", {expect_error(check_bf(NaN))})
 test_that("check error message 12", {expect_error(check_bf())})
 
+context("check_bf")
 
 
 
