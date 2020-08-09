@@ -124,11 +124,23 @@
       <small>Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="pcal-101" class="section level1">
-<h1 class="page-header" data-toc-text="1.0.1">
-<a href="#pcal-101" class="anchor"></a>pcal 1.0.1<small> Unreleased </small>
+    <div id="pcal-110" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.0">
+<a href="#pcal-110" class="anchor"></a>pcal 1.1.0<small> Unreleased </small>
 </h1>
-<p>This is the second CRAN release of <code>pcal</code>.</p>
+<p>This is the second CRAN release of <code>pcal</code>. This release includes three new utility functions that can be useful to validate inputs or intermediate calculations inside user-defined functions or to validate the output of calculations/functions.</p>
+<div id="new-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-functions" class="anchor"></a>New functions</h2>
+<ul>
+<li>
+<code>check_prob</code> checks if an object is a numeric vector of valid probability values.</li>
+<li>
+<code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</li>
+<li>
+<code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_log_bf</code> but does not require values to be non-negative.</li>
+</ul>
+</div>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h2>
