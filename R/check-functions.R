@@ -112,7 +112,6 @@ check_prob <- function(p){
 #'
 #' @export
 
-
 check_bf <- function(bf){
 
   if(is.null(bf)){
@@ -180,3 +179,22 @@ check_bf <- function(bf){
 #' \dontrun{check_log_bf(NaN)}
 #'
 #' @export
+
+check_log_bf <- function(bf){
+
+  if(is.null(bf)){
+    stop("Invalid argument: 'bf' is NULL.")
+  }
+  if(length(bf) == 0){
+    stop("Invalid argument: 'bf' is empty")
+  }
+  if(all(is.na(bf))){
+    stop("Invalid argument: all elements of 'bf' are NA or NaN.")
+  }
+  if(any(!is.numeric(bf), !is.vector(bf),  all(is.na(bf)))){
+    stop("Invalid argument: 'bf' must be a numeric vector")
+  }
+  if(any(is.na(bf))){
+    warning("There are NA or NaN values in 'bf'.")
+  }
+}

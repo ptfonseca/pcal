@@ -1,23 +1,4 @@
 
-check_log_bf <- function(bf){
-
-  if(is.null(bf)){
-    stop("Invalid argument: 'bf' is NULL.")
-  }
-  if(length(bf) == 0){
-    stop("Invalid argument: 'bf' is empty")
-  }
-  if(all(is.na(bf))){
-    stop("Invalid argument: all elements of 'bf' are NA or NaN.")
-  }
-  if(any(!is.numeric(bf), !is.vector(bf),  all(is.na(bf)))){
-    stop("Invalid argument: 'bf' must be a numeric vector")
-  }
-  if(any(is.na(bf))){
-    warning("There are NA or NaN values in 'bf'.")
-  }
-}
-
 check_prior_prob <- function(prior_prob){
 
   if(is.null(prior_prob)){
@@ -49,6 +30,8 @@ check_log_base <- function(base){
     stop("Invalid argument: 'base' must be a numeric vector of length 1")
   }
 }
+
+
 
 
 
