@@ -172,7 +172,7 @@ bfactor_interpret(c(0.1, 2, 5, 20, 50, 150), scale = "kass-raftery")
 ```
 
 Because Bayes factors are often reported on a logarithmic scale, there
-is also a `bfactor_log_interpret()` functions that interprets the
+is also a `bfactor_log_interpret()` function that interprets the
 logarithms of Bayes factors:
 
 ``` r
