@@ -95,7 +95,7 @@
 <p>Some utility functions are also included:</p>
 <ul>
 <li><p><code><a href="reference/bfactor_to_prob.html">bfactor_to_prob()</a></code> turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)</p></li>
-<li><p><code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> classifies the strength of the evidence implied by a Bayes factor according to interpretation scales suggested by Jeffreys (1961) or Kass and Raftery (1995).</p></li>
+<li><p><code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> classifies the strength of the evidence implied by a Bayes factor according to the scales suggested by Jeffreys (1961) and Kass and Raftery (1995).</p></li>
 <li><p><code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> is similar to <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> but takes logarithms of Bayes factors as input</p></li>
 </ul>
 </div>
@@ -166,7 +166,7 @@
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     </span>
 <span class="co">#&gt; [6] "Very Strong"</span>
 </pre></div>
-<p>Because Bayes factors are often reported on a logarithmic scale, there is also a <code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> functions that interprets the logarithms of Bayes factors:</p>
+<p>Because Bayes factors are often reported on a logarithmic scale, there is also a <code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> function that interprets the logarithms of Bayes factors:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit">
 <span class="kw">bfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>))
  
