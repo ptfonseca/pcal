@@ -72,7 +72,7 @@ devtools::install_github("pedro-teles-fonseca/pcal")
 ## Usage
 
 First we need a p-value from any statistical test of a point null
-hypothesis, for example:
+hypothesis:
 
 ``` r
 x <- matrix(c(22, 13, 13, 23), ncol = 2)
