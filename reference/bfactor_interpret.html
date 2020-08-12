@@ -40,7 +40,8 @@
 
 
 <meta property="og:title" content="Interpretation of Bayes factors — bfactor_interpret" />
-<meta property="og:description" content="Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by Jeffreys (1961)
+<meta property="og:description" content="Quantify the strength of the evidence provided by the data to a model/hypothesis according to Bayes factor interpretation scales suggested by Jeffreys (1961)
+ and Kass and Raftery (1995)
 ." />
 
 
@@ -123,16 +124,17 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Interpretation of Bayes factors</h1>
-    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/bf-interpretation.R'><code>R/bf-interpretation.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/bfactor_interpret.R'><code>R/bfactor_interpret.R</code></a></small>
     <div class="hidden name"><code>bfactor_interpret.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Quantify the strength of the evidence provided by the data to a model/hypothesis according to the Bayes factor interpretation scale suggested by Jeffreys (1961)
+    <p>Quantify the strength of the evidence provided by the data to a model/hypothesis according to Bayes factor interpretation scales suggested by Jeffreys (1961)
+ and Kass and Raftery (1995)
 .</p>
     </div>
 
-    <pre class="usage"><span class='fu'>bfactor_interpret</span>(<span class='kw'>bf</span>)</pre>
+    <pre class="usage"><span class='fu'>bfactor_interpret</span>(<span class='kw'>bf</span>, scale = <span class='st'>"jeffreys"</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -140,6 +142,10 @@
     <tr>
       <th>bf</th>
       <td><p>A numeric vector of non-negative values.</p></td>
+    </tr>
+    <tr>
+      <th>scale</th>
+      <td><p>A string of characters specifying either "jeffreys" or "kass-raftery". Not case sensitive.</p></td>
     </tr>
     </table>
 
@@ -161,20 +167,33 @@
 
 
 
-<p><code>bfactor_interpret</code> takes Bayes factors as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.</p>
-<p>When comparing results with those from standard likelihood ratio tests, it is convenient to put the null hypothesis in the denominator of the Bayes factor so that <code>bfactor_interpret</code> returns the strength of the evidence against the null hypothesis. If <code>bf</code> was obtained with the null hypothesis on the numerator, one can use <code>bfactor_interpret(1/bf)</code> to obtain the strength of the evidence against the null hypothesis.</p>
+<p>By default, <code>bfactor_interpret</code> takes Bayes factors as input and returns the strength of the evidence in favor of the model/hypothesis in the numerator of the Bayes factors (usually the null hypothesis) according to the aforementioned table.</p>
+<p>Alternatively, and because it can be useful to consider twice the natural logarithm of the Bayes factor (which is in the same scale as the familiar deviance and likelihood ratio test statistics), Kass and Raftery (1995)
+ suggested the following scale:</p><table class='table'>
+<tr><td><strong>2*log(Bayes factor)</strong></td><td><strong>Bayes factor</strong></td><td><strong>Evidence</strong></td></tr>
+<tr><td>[-Inf, 0[</td><td>[0, 1[</td><td>Negative</td></tr>
+<tr><td>[0, 2[</td><td>[1, 3[</td><td>Weak</td></tr>
+<tr><td>[2, 6[</td><td>[3, 20[</td><td>Positive</td></tr>
+<tr><td>[6, 10[</td><td>[20, 150[</td><td>Strong</td></tr>
+<tr><td>[10, +Inf[</td><td>[150, +Inf[</td><td>Very Strong</td></tr>
+</table>
+
+
+
+<p>To interpret Bayes factors according to the latter table use <code>scale = "kass-raftery"</code>.</p>
+<p>When comparing Bayes factors with results of standard likelihood ratio tests it is convenient to put the null hypothesis in the denominator of the Bayes factor so that <code>bfactor_interpret</code> returns the strength of the evidence against the null hypothesis. If <code>bf</code> was obtained with the null hypothesis on the numerator, one can use <code>bfactor_interpret(1/bf)</code> or <code>bfactor_interpret(1/bf, scale = "kass-raftery")</code> to obtain the strength of the evidence against the null hypothesis.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Jeffreys H (1961).
 <em>Theory of probability</em>,  Oxford Classic Texts In The Physical Sciences, 3 edition.
-Oxford University Press.</p>
+Oxford University Press.<br /><br /> Kass RE, Raftery AE (1995).
+&#8220;Bayes factors.&#8221;
+<em>Journal of the American Statistical Association</em>, <b>90</b>(430), 773--795.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='check_bf.html'>check_bf</a></code> to check if an object is a numeric vector of valid Bayes factor values.</p></li>
-<li><p><code><a href='bfactor_interpret_kr.html'>bfactor_interpret_kr</a></code> for an alternative interpretation scale.</p></li>
-<li><p><code><a href='bfactor_log_interpret.html'>bfactor_log_interpret</a></code> and <code><a href='bfactor_log_interpret_kr.html'>bfactor_log_interpret_kr</a></code> for the interpretation of the logarithms of Bayes factors.</p></li>
+<li><p><code><a href='bfactor_log_interpret.html'>bfactor_log_interpret</a></code> for the interpretation of the logarithms of Bayes factors.</p></li>
 <li><p><code><a href='bfactor_to_prob.html'>bfactor_to_prob</a></code> to turn Bayes factors into posterior probabilities.</p></li>
 <li><p><code><a href='bcal.html'>bcal</a></code> for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.</p></li>
 </ul>
@@ -182,14 +201,14 @@ Oxford University Press.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Interpretation of one Bayes factor</span>
-<span class='fu'>bfactor_interpret</span>(<span class='fl'>1.5</span>)</div><div class='output co'>#&gt; [1] "Weak"</div><div class='input'>
-<span class='co'># Interpretation of many Bayes factors</span>
-<span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>))</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'>
+<span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>)</div><div class='output co'>#&gt; [1] "Substantial"</div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>, scale = <span class='st'>"jeffreys"</span>)</div><div class='output co'>#&gt; [1] "Substantial"</div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>, scale = <span class='st'>"kass-raftery"</span>)</div><div class='output co'>#&gt; [1] "Positive"</div><div class='input'>
+<span class='co'># Interpretation of more than one Bayes factors</span>
+<span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>))</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>), scale = <span class='st'>"jeffreys"</span>)</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>), scale = <span class='st'>"kass-raftery"</span>)</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"</div><div class='input'>
 <span class='co'># Application: chi-squared goodness-of-fit test.</span>
 <span class='co'># Strength of the evidence provided by the lower</span>
-<span class='co'># bound on the Bayes factor in favor of the null hypothesis:</span>
-<span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12</span>, <span class='fl'>15</span>, <span class='fl'>14</span>, <span class='fl'>15</span>), ncol = <span class='fl'>2</span>)
-<span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='bcal.html'>bcal</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>x</span>)[[<span class='st'>"p.value"</span>]]))</div><div class='output co'>#&gt; [1] "Weak"</div><div class='input'></div></pre>
+<span class='co'># bound of the Bayes factor in favor of the null hypothesis:</span>
+<span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>18</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>23</span>), ncol = <span class='fl'>2</span>)
+<span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='bcal.html'>bcal</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>data</span>)[[<span class='st'>"p.value"</span>]]))</div><div class='output co'>#&gt; [1] "Negative"</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

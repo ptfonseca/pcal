@@ -122,7 +122,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Lower Bounds on the Posterior Probabilities of Point Null Hypotheses</h1>
-    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/p-calibrations.R'><code>R/p-calibrations.R</code></a></small>
+    <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/pcal.R'><code>R/pcal.R</code></a></small>
     <div class="hidden name"><code>pcal.Rd</code></div>
     </div>
 
@@ -168,7 +168,6 @@
 
     <div class='dont-index'>
 <ul>
-<li><p><code><a href='check_prob.html'>check_prob</a></code> to check if an object is a numeric vector of valid probability (or p-value) values.</p></li>
 <li><p><code><a href='bcal.html'>bcal</a></code> for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.</p></li>
 </ul>
 </div>
@@ -180,8 +179,8 @@
 <span class='fu'>pcal</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.05</span>, <span class='fl'>.01</span>, <span class='fl'>.005</span>, <span class='fl'>.001</span>))</div><div class='output co'>#&gt; [1] 0.38495887 0.28934989 0.11125450 0.06717427 0.01843114</div><div class='input'>
 <span class='co'># Application: chi-squared goodness-of-fit test,</span>
 <span class='co'># lower bound on the posterior probability of the null hypothesis:</span>
-<span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12</span>, <span class='fl'>41</span>, <span class='fl'>25</span>, <span class='fl'>33</span>), ncol = <span class='fl'>2</span>)
-<span class='fu'>pcal</span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>x</span>)[[<span class='st'>"p.value"</span>]])</div><div class='output co'>#&gt; [1] 0.2499935</div><div class='input'></div></pre>
+<span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>18</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>23</span>), ncol = <span class='fl'>2</span>)
+<span class='fu'>pcal</span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>data</span>)[[<span class='st'>"p.value"</span>]])</div><div class='output co'>#&gt; [1] 0.273104</div><div class='input'></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

@@ -96,9 +96,9 @@
 <ul>
 <li><p><code><a href="reference/bfactor_to_prob.html">bfactor_to_prob()</a></code> turns Bayes factors into posterior probabilities using a formula from Berger and Delampady (1987)</p></li>
 <li><p><code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> classifies the strength of the evidence implied by a Bayes factor according to the interpretation scale suggested by Jeffreys (1961)</p></li>
-<li><p><code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code> classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)</p></li>
+<li><p><code>bfactor_interpret_kr()</code> classifies the strength of the evidence implied by a Bayes factor according to an alternative scale suggested by Kass and Raftery (1995)</p></li>
 <li><p><code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> is similar to <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code> but takes logarithms of Bayes factors as input</p></li>
-<li><p><code><a href="reference/bfactor_log_interpret_kr.html">bfactor_log_interpret_kr()</a></code> is similar to <code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code> but takes logarithms of Bayes factors as input</p></li>
+<li><p><code>bfactor_log_interpret_kr()</code> is similar to <code>bfactor_interpret_kr()</code> but takes logarithms of Bayes factors as input</p></li>
 <li><p><code>check_prob</code> checks if an object is a numeric vector of valid probability (or p-value) values.</p></li>
 <li><p><code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</p></li>
 <li><p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_log_bf</code> but does not require values to be non-negative.</p></li>
@@ -164,13 +164,13 @@
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"</span>
 <span class="co">#&gt; [6] "Decisive"</span>
 </pre></div>
-<p>Alternatively, we can use <code><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr()</a></code>:</p>
+<p>Alternatively, we can use <code>bfactor_interpret_kr()</code>:</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu"><a href="reference/bfactor_interpret_kr.html">bfactor_interpret_kr</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>))
+<span class="fu">bfactor_interpret_kr</span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>))
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     </span>
 <span class="co">#&gt; [6] "Very Strong"</span>
 </pre></div>
-<p>Because Bayes factors are often reported on a logarithmic scale, there are also <code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> and <code><a href="reference/bfactor_log_interpret_kr.html">bfactor_log_interpret_kr()</a></code> functions that interpret the logarithms of Bayes factors:</p>
+<p>Because Bayes factors are often reported on a logarithmic scale, there are also <code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> and <code>bfactor_log_interpret_kr()</code> functions that interpret the logarithms of Bayes factors:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit">
 <span class="kw">bfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>))
  
@@ -178,7 +178,7 @@
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"</span>
 <span class="co">#&gt; [6] "Decisive"</span>
 
-<span class="fu"><a href="reference/bfactor_log_interpret_kr.html">bfactor_log_interpret_kr</a></span>(<span class="kw">bfs</span>, base = <span class="fl">10</span>)
+<span class="fu">bfactor_log_interpret_kr</span>(<span class="kw">bfs</span>, base = <span class="fl">10</span>)
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     </span>
 <span class="co">#&gt; [6] "Very Strong"</span>
 </pre></div>
