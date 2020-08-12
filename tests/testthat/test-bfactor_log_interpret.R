@@ -252,7 +252,138 @@ test_that("test scale 4", {
   )}
 )
 
+test_that("test scale 5", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = NULL)
+  )}
+)
+
+test_that("test scale 6", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = NA)
+  )}
+)
+
+test_that("test scale 7", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = NaN)
+  )}
+)
+
+test_that("test scale 8", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = 1)
+  )}
+)
 
 
+test_that("test scale 9", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = "scale")
+  )}
+)
+
+test_that("test scale 10", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = character())
+  )}
+)
+
+
+test_that("test scale 11", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = "")
+  )}
+)
+
+test_that("test scale 12", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = c("jeffreys", "kass-raftery"))
+  )}
+)
+
+
+test_that("test scale 13", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = "")
+  )}
+)
+
+test_that("test scale 14", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = list())
+  )}
+)
+
+test_that("test scale 15", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = list("jeffreys"))
+  )}
+)
+
+test_that("test scale 16", {
+  expect_error(
+    bfactor_log_interpret(1.23, scale = factor("jeffreys"))
+  )}
+)
+
+test_that("test scale 17", {
+  expect_error(
+    bfactor_log_interpret(1.23, base = 10, scale = 1)
+  )}
+)
+
+
+test_that("test scale 18", {
+  expect_error(
+    bfactor_log_interpret(1.23, base = 10, scale = "scale")
+  )}
+)
+
+
+test_that("test scale 19", {
+  expect_error(
+    bfactor_interpret(1.23, scale = NULL)
+  )}
+)
+
+test_that("test scale 20", {
+  expect_error(
+    bfactor_interpret(1.23, scale = NA)
+  )}
+)
+
+
+test_that("test scale 21", {
+  expect_error(
+    bfactor_interpret(1.23, scale = 1)
+  )}
+)
+
+
+test_that("test scale 22", {
+  expect_error(
+    bfactor_interpret(1.23, scale = "scale")
+  )}
+)
+
+test_that("test scale 23", {
+  expect_error(
+    bfactor_interpret(1.23, scale = character())
+  )}
+)
+
+
+test_that("test scale 24", {
+  expect_error(
+    bfactor_interpret(1.23, scale = "")
+  )}
+)
+
+test_that("test scale 25", {
+  expect_error(
+    bfactor_interpret(1.23, scale = c("jeffreys", "kass-raftery"))
+  )}
+)
 
 
