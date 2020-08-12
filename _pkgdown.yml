@@ -15,9 +15,7 @@ reference:
     desc: ~
     contents:
       - '`bfactor_interpret`'
-      - '`bfactor_interpret_kr`'
       - '`bfactor_log_interpret`'
-      - '`bfactor_log_interpret_kr`'
   - title: Miscellaneous
     desc: ~
     contents:
