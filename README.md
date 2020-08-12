@@ -46,28 +46,11 @@ Some utility functions are also included:
     using a formula from Berger and Delampady (1987)
 
   - `bfactor_interpret()` classifies the strength of the evidence
-    implied by a Bayes factor according to the interpretation scale
-    suggested by Jeffreys (1961)
-
-  - `bfactor_interpret_kr()` classifies the strength of the evidence
-    implied by a Bayes factor according to an alternative scale
-    suggested by Kass and Raftery (1995)
+    implied by a Bayes factor according to interpretation scales
+    suggested by Jeffreys (1961) or Kass and Raftery (1995).
 
   - `bfactor_log_interpret()` is similar to `bfactor_interpret()` but
     takes logarithms of Bayes factors as input
-
-  - `bfactor_log_interpret_kr()` is similar to `bfactor_interpret_kr()`
-    but takes logarithms of Bayes factors as input
-
-  - `check_prob` checks if an object is a numeric vector of valid
-    probability (or p-value) values.
-
-  - `check_bf` checks if an object is a numeric vector of valid Bayes
-    factor values.
-
-  - `check_log_bf` checks if an object is a numeric vector of valid
-    logarithmic Bayes factor values. It is similar to `check_log_bf` but
-    does not require values to be non-negative.
 
 ## Installation
 
@@ -78,7 +61,7 @@ The released version of `pcal` can be installed from
 install.packages("pcal")
 ```
 
-The development version of `pcal` can be installed from
+The development version can be installed from
 [GitHub](https://github.com/) using the `devtools` package:
 
 ``` r
@@ -170,7 +153,8 @@ bfactor_to_prob(bcal(pv), prior_prob = .95)
 ```
 
 To classify the strength of the evidence in favor of the null hypothesis
-implied by a Bayes factor we can use `bfactor_interpret()`:
+implied by a Bayes factor according to the scale suggested by Jeffreys
+(1961) we can use `bfactor_interpret()`:
 
 ``` r
 bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
@@ -178,17 +162,18 @@ bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
 #> [6] "Decisive"
 ```
 
-Alternatively, we can use `bfactor_interpret_kr()`:
+Alternatively, we can use the interpretation scale suggested by Kass and
+Raftery (1995):
 
 ``` r
-bfactor_interpret_kr(c(0.1, 2, 5, 20, 50, 150))
+bfactor_interpret(c(0.1, 2, 5, 20, 50, 150), scale = "kass-raftery")
 #> [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     
 #> [6] "Very Strong"
 ```
 
 Because Bayes factors are often reported on a logarithmic scale, there
-are also `bfactor_log_interpret()` and `bfactor_log_interpret_kr()`
-functions that interpret the logarithms of Bayes factors:
+is also a `bfactor_log_interpret()` functions that interprets the
+logarithms of Bayes factors:
 
 ``` r
 bfs <- log10(c(0.1, 2, 5, 20, 50, 150))
@@ -197,16 +182,16 @@ bfactor_log_interpret(bfs, base = 10)
 #> [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"
 #> [6] "Decisive"
 
-bfactor_log_interpret_kr(bfs, base = 10)
+bfactor_log_interpret(bfs, scale = "kass-raftery", base = 10)
 #> [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     
 #> [6] "Very Strong"
 ```
 
-To compare the results with those from standard likelihood ratio tests
-it can be useful to obtain the strength of the evidence against the null
-hypothesis. If `bf` is a Bayes factor in favor of the null hypothesis,
-one can use `1/bf` as input to obtain the strength of the evidence
-against the null hypothesis:
+To compare Bayes factors with results from standard likelihood ratio
+tests it can be useful to obtain the strength of the evidence against
+the null hypothesis. If `bf` is a Bayes factor in favor of the null
+hypothesis, one can use `1/bf` as input to obtain the strength of the
+evidence against the null hypothesis:
 
 ``` r
 # Evidence in favor of the null hypothesis
