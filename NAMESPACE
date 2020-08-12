@@ -2,9 +2,7 @@
 
 export(bcal)
 export(bfactor_interpret)
-export(bfactor_interpret_kr)
 export(bfactor_log_interpret)
-export(bfactor_log_interpret_kr)
 export(bfactor_to_prob)
 export(check_bf)
 export(check_log_bf)
