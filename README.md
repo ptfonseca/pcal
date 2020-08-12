@@ -46,8 +46,8 @@ Some utility functions are also included:
     using a formula from Berger and Delampady (1987)
 
   - `bfactor_interpret()` classifies the strength of the evidence
-    implied by a Bayes factor according to interpretation scales
-    suggested by Jeffreys (1961) or Kass and Raftery (1995).
+    implied by a Bayes factor according to the scales suggested by
+    Jeffreys (1961) and Kass and Raftery (1995).
 
   - `bfactor_log_interpret()` is similar to `bfactor_interpret()` but
     takes logarithms of Bayes factors as input

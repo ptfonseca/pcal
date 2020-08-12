@@ -37,7 +37,7 @@ Some utility functions are also included:
 
 * `bfactor_to_prob()` turns Bayes factors into posterior probabilities using a formula from @bergerDelampady1987
   
-* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to interpretation scales suggested by @jeffreys1961 or @kass1995.
+* `bfactor_interpret()` classifies the strength of the evidence implied by a Bayes factor according to the scales suggested by @jeffreys1961 and @kass1995.
   
 * `bfactor_log_interpret()` is similar to `bfactor_interpret()` but takes logarithms of Bayes factors as input
 
