@@ -8,7 +8,7 @@
 #'
 #' @details \insertCite{sellke2001;textual}{pcal} developed a calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses or lower bounds for the probabilities of type I errors for the case when both the null and the alternative hypotheses have 0.5 prior probability. `pcal` generalizes the aforementioned calibration for prior probabilities other than 0.5.
 #'
-#' `pcal` starts by transforming the values in `p` into lower bounds on Bayes factors using {\link[pcal]{bcal}} and then uses {\link[pcal]{bfactor_to_prob}} together with prior probabilities `prior_prob` to turn those Bayes factors into posterior probabilities. For each element of `p`, `pcal` returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
+#' `pcal` starts by transforming the values in `p` into lower bounds for Bayes factors and then uses those Bayes factors to update the prior probabilities  in `prior_prob` to posterior probabilities (equivalent to \code{\link[pcal]{bfactor_to_prob}(\link[pcal]{bcal}(p), prior_prob)}). For each element of `p`, `pcal` returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
 #'
 #' The `prior_prob` argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. `prior_prob` can only be of \code{\link[base]{length}} equal to  the `length` of `p`, in which case each prior probability in `prior_prob` is used in the calibration of the corresponding element of `p`, or of \code{\link[base]{length}} `1`, in which case it will be recycled (if `length(p) > 1`) and the same `prior_prob` value is used in the calibration of all the elements of `p`.
 #'
@@ -40,13 +40,22 @@
 pcal <- function(p, prior_prob = 0.5){
 
   check_prob(p)
-
   check_prior_prob(prior_prob)
 
   if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))){
     stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or equal to length(p)")
   }
 
-  suppressWarnings(bfactor_to_prob(bcal(p), prior_prob))
+  lb_bf <-  ifelse(p == 0, 0,
+               ifelse(p < (exp(1) ^ (-1)),-exp(1) * log(p) * p,
+                      1))
+
+  (1 + (1 - prior_prob) / prior_prob * (1 / lb_bf)) ^(-1)
 
 }
+
+
+
+
+
+
