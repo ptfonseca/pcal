@@ -34,6 +34,13 @@ test_that("bcal w/ NULL", {
 }
 )
 
+test_that("bcal w/ NA", {
+  expect_error(
+    bcal(NA)
+  )
+}
+)
+
 test_that("bcal w/ empty vector", {
   expect_error(
     bcal(vector())
@@ -110,8 +117,6 @@ test_that("p NaN warning", {
   )
 }
 )
-
-
 
 
 

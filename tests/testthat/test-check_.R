@@ -20,7 +20,6 @@ test_that("check error message 10", {expect_error(check_prob(-0.5))})
 test_that("check error message 11", {expect_error(check_prob(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5)))})
 test_that("check error message 12", {expect_error(check_prob())})
 
-
 context("check_bf")
 
 test_that("check silent 1", {expect_silent(check_bf(0))})

@@ -52,6 +52,34 @@ test_that("p NULL", {
 }
 )
 
+test_that("NaN p", {
+  expect_error(
+    pcal(NA)
+  )
+}
+)
+
+test_that("NaN p", {
+  expect_error(
+    pcal(NaN)
+  )
+}
+)
+
+test_that("NaN & NA p", {
+  expect_error(
+    pcal(c(NA, NaN))
+  )
+}
+)
+
+test_that("NA_integer p", {
+  expect_error(
+    pcal(NA_integer_)
+  )
+}
+)
+
 test_that("p empty vector", {
   expect_error(
     pcal(vector())
