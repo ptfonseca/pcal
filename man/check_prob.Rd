@@ -58,6 +58,7 @@ check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 \itemize{
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
+\item \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
 }
 }
 \keyword{internal}

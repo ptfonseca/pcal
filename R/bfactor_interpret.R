@@ -64,8 +64,8 @@
 
 bfactor_interpret <- function(bf, scale = "jeffreys") {
 
-  check_scale(scale)
   check_bf(bf)
+  check_scale(scale)
 
   switch(
     tolower(scale),

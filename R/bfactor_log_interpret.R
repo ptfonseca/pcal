@@ -64,9 +64,9 @@
 
 bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
 
+  check_log_bf(bf)
   check_scale(scale)
   check_log_base(base)
-  check_log_bf(bf)
 
   bf <-  base ^ bf
 

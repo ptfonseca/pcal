@@ -19,7 +19,6 @@
 #' * \code{\link[pcal]{bfactor_interpret}} for the interpretation of Bayes factors.
 #' * \code{\link[pcal]{bfactor_log_interpret}} for the interpretation of the logarithms of Bayes factors.
 #' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
-#' * \code{\link[pcal]{pcal}} for a p-value calibration that returns lower bounds on the posterior probabilities of point null hypotheses.
 #'
 #' @examples
 #' # With a Bayes factor that is indifferent between the null and the alternative hypotheses:
@@ -53,7 +52,6 @@
 bfactor_to_prob <- function(bf, prior_prob = .5) {
 
   check_bf(bf)
-
   check_prior_prob(prior_prob)
 
   if(isTRUE(length(bf) > 1) && isFALSE(length(prior_prob) %in% c(1, length(bf)))){
