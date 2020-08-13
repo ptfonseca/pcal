@@ -61,7 +61,7 @@ check_prob <- function(p){
     stop("Invalid argument: 'p' must be a numeric vector")
   }
   if(all(is.na(p))){
-    stop("Invalid argument: all 'p' are NA or NaN")
+    stop("Invalid argument: all 'p' are NA are NaN")
   }
   if(any(p_filtered < 0, p_filtered > 1)){
     stop("Invalid argument: all elements of 'p' must be in the [0, 1] interval.")
@@ -219,6 +219,9 @@ check_prior_prob <- function(prior_prob){
   }
   if(any(!is.numeric(prior_prob), !is.vector(prior_prob))){
     stop("Invalid argument: 'prior_prob' must be a numeric vector")
+  }
+  if(all(is.na(prior_prob))){
+    stop("Invalid argument: all 'prior_prob' are NA are NaN")
   }
   if(any(is.na(prior_prob))){
     stop("Invalid argument: There are NA or NaN values in 'prior_prob'")
