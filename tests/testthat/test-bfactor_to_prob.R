@@ -1,5 +1,5 @@
 
-context("bfactor_to_prob")
+context("bfactor_to_prob - function")
 
 test_that("bfactor_to_prob test 1", {
   expect_equal(
@@ -70,10 +70,6 @@ test_that("bfactor_to_prob test 7", {
 }
 )
 
-test_that("bfactor_to_prob test incorrect length error", {
-  expect_error(bfactor_to_prob(c(1, 2), c(.1, .2, .3)))
-})
-
 test_that("bfactor_to_prob with NA", {
   expect_equal(
     suppressWarnings(round(bfactor_to_prob(c(1, NA, 2)), 2)),
@@ -89,6 +85,8 @@ test_that("bfactor_to_prob with NaN", {
   )
 }
 )
+
+context("bfactor_to_prob - bf error and warning messages")
 
 test_that("bfactor_to_prob NA warning", {
   expect_warning(bfactor_to_prob(c(1, NA, 2)))
@@ -111,19 +109,27 @@ test_that("bfactor_to_prob empty bf - list", {
   expect_error(bfactor_to_prob(list()))
 })
 
-test_that("bfactor_to_prob NA bf t1", {
+test_that("bfactor_to_prob empty bf - factor", {
+  expect_error(bfactor_to_prob(factor()))
+})
+
+test_that("bfactor_to_prob empty bf - character", {
+  expect_error(bfactor_to_prob(character()))
+})
+
+test_that("bfactor_to_prob NA bf 1", {
   expect_error(bfactor_to_prob(c(NA, NA)))
 })
 
-test_that("bfactor_to_prob NA bf t2", {
+test_that("bfactor_to_prob NA bf 2", {
   expect_error(bfactor_to_prob(NA))
 })
 
-test_that("bfactor_to_prob NaN bf t1", {
+test_that("bfactor_to_prob NaN bf 1", {
   expect_error(bfactor_to_prob(c(NaN, NaN)))
 })
 
-test_that("bfactor_to_prob NaN bf t2", {
+test_that("bfactor_to_prob NaN bf 2", {
   expect_error(bfactor_to_prob(NaN))
 })
 
@@ -131,21 +137,23 @@ test_that("bfactor_to_prob factor bf", {
   expect_error(bfactor_to_prob(factor(1)))
 })
 
-test_that("bfactor_to_prob factor bf", {
+test_that("bfactor_to_prob character bf", {
   expect_error(bfactor_to_prob("1"))
 })
 
-test_that("bfactor_to_prob bf<0 t1", {
+test_that("bfactor_to_prob bf < 0 1", {
   expect_error(bfactor_to_prob(-1))
 })
 
-test_that("bfactor_to_prob bf<0 t2", {
+test_that("bfactor_to_prob bf < 0 2", {
   expect_error(bfactor_to_prob(-0.001))
 })
 
 test_that("bfactor_to_prob bf - NA warning", {
   expect_warning(bfactor_to_prob(c(.1, NA)))
 })
+
+context("bfactor_to_prob - prior_prob error messages")
 
 test_that("bfactor_to_prob NULL prior_prob", {
   expect_error(bfactor_to_prob(.1, NULL))
@@ -159,15 +167,19 @@ test_that("bfactor_to_prob empty prior_prob - list", {
   expect_error(bfactor_to_prob(.1, list()))
 })
 
+test_that("bfactor_to_prob empty prior_prob - factor", {
+  expect_error(bfactor_to_prob(.1, factor()))
+})
+
 test_that("bfactor_to_prob NA prior_prob", {
   expect_error(bfactor_to_prob(c(.1, .2), c(.1, NA)))
 })
 
-test_that("bfactor_to_prob NA prior_prob", {
+test_that("bfactor_to_prob NaN prior_prob", {
   expect_error(bfactor_to_prob(c(.1, .2), c(.1, NaN)))
 })
 
-test_that("bfactor_to_prob char prior_prob", {
+test_that("bfactor_to_prob character prior_prob", {
   expect_error(bfactor_to_prob(c(.1, .2), c(".1")))
 })
 
@@ -183,16 +195,19 @@ test_that("bfactor_to_prob prior_prob > 1", {
   expect_error(bfactor_to_prob(c(.1, .2), 1.1))
 })
 
-test_that("bfactor_to_prob prior_prob > 1", {
+context("bfactor_to_prob - miscellaneous")
+
+test_that("bfactor_to_prob length(bf) vs length(prior_prob) 1", {
   expect_error(bfactor_to_prob(c(.1, .2, .3), c(.1, .1)))
 })
 
-test_that("bfactor_to_prob prior_prob > 1", {
+test_that("bfactor_to_prob length(bf) vs length(prior_prob) 2", {
   expect_error(bfactor_to_prob(c(.1, .2), c(.1, .2, .3)))
 })
 
-
-
+test_that("length(bf) vs length(prior_prob) 3", {
+  expect_error(bfactor_to_prob(c(1, 2), c(.1, .2, .3)))
+})
 
 
 

@@ -1,5 +1,5 @@
 
-context("bcal")
+context("bcal - function")
 
 test_that("bcal table", {
   expect_equal(
@@ -25,6 +25,8 @@ test_that("bcal 0.001", {
 }
 )
 
+context("bcal - error and warning messages")
+
 test_that("bcal w/ NULL", {
   expect_error(
     bcal(NULL)
@@ -32,7 +34,7 @@ test_that("bcal w/ NULL", {
 }
 )
 
-test_that("bcal empty vector", {
+test_that("bcal w/ empty vector", {
   expect_error(
     bcal(vector())
   )
@@ -46,6 +48,20 @@ test_that("bcal w/ empty list", {
 }
 )
 
+test_that("bcal w/ empty factor", {
+  expect_error(
+    bcal(factor())
+  )
+}
+)
+
+test_that("bcal w/ empty character", {
+  expect_error(
+    bcal(character())
+  )
+}
+)
+
 test_that("bcal w/ list", {
   expect_error(
     bcal(list(1))
@@ -55,7 +71,7 @@ test_that("bcal w/ list", {
 
 test_that("bcal w/ char", {
   expect_error(
-    bcal("test")
+    bcal("1")
   )
 }
 )
@@ -81,14 +97,14 @@ test_that("bcal w/ p>1", {
 }
 )
 
-test_that("bcal NA warning", {
+test_that("p NA warning", {
   expect_warning(
     bcal(c(.1, NA))
   )
 }
 )
 
-test_that("bcal NaN warning", {
+test_that("p NaN warning", {
   expect_warning(
     bcal(c(.1, NaN))
   )
