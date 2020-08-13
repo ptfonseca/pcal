@@ -1,5 +1,4 @@
 
-
 #' @title Check if an object is a vector of valid probability values
 #'
 #' @description `check_prob` checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
@@ -50,19 +49,24 @@
 
 check_prob <- function(p){
 
+  p_filtered <- p[!is.na(p)]
+
   if(is.null(p)){
     stop("Invalid argument: 'p' is NULL")
   }
   if(length(p) == 0){
     stop("Invalid argument: 'p' is empty")
   }
-  if(any(!is.numeric(p), !is.vector(p),  all(is.na(p), all(is.nan(p))))){
+  if(any(!is.numeric(p), !is.vector(p))){
     stop("Invalid argument: 'p' must be a numeric vector")
   }
-  if(any(p[!is.na(p)] < 0, p[!is.na(p)] > 1)){
+  if(all(is.na(p))){
+    stop("Invalid argument: all 'p' are NA or NaN")
+  }
+  if(any(p_filtered < 0, p_filtered > 1)){
     stop("Invalid argument: all elements of 'p' must be in the [0, 1] interval.")
   }
-  if(any(is.na(p), is.nan(p))){
+  if(any(is.na(p))){
     warning("There are NA or NaN values in 'p'")
   }
 }
@@ -123,11 +127,11 @@ check_bf <- function(bf){
   if(length(bf) == 0){
     stop("Invalid argument: 'bf' is empty")
   }
+  if(any(!is.numeric(bf), !is.vector(bf))){
+    stop("Invalid argument: 'bf' must be a numeric vector")
+  }
   if(all(is.na(bf))){
     stop("Invalid argument: all elements of 'bf' are NA or NaN.")
-  }
-  if(any(!is.numeric(bf), !is.vector(bf),  all(is.na(bf)))){
-    stop("Invalid argument: 'bf' must be a numeric vector")
   }
   if(any(bf[!is.na(bf)] < 0)){
     stop("Invalid argument: 'bf' must be non-negative.")
@@ -192,11 +196,11 @@ check_log_bf <- function(bf){
   if(length(bf) == 0){
     stop("Invalid argument: 'bf' is empty")
   }
+  if(any(!is.numeric(bf), !is.vector(bf))){
+    stop("Invalid argument: 'bf' must be a numeric vector")
+  }
   if(all(is.na(bf))){
     stop("Invalid argument: all elements of 'bf' are NA or NaN.")
-  }
-  if(any(!is.numeric(bf), !is.vector(bf),  all(is.na(bf)))){
-    stop("Invalid argument: 'bf' must be a numeric vector")
   }
   if(any(is.na(bf))){
     warning("There are NA or NaN values in 'bf'.")
@@ -205,19 +209,21 @@ check_log_bf <- function(bf){
 
 check_prior_prob <- function(prior_prob){
 
+  pp_filtered <- prior_prob[!is.na(prior_prob)]
+
   if(is.null(prior_prob)){
     stop("Invalid argument: 'prior_prob' is NULL")
   }
   if(length(prior_prob) == 0){
     stop("Invalid argument: 'prior_prob' is empty")
   }
+  if(any(!is.numeric(prior_prob), !is.vector(prior_prob))){
+    stop("Invalid argument: 'prior_prob' must be a numeric vector")
+  }
   if(any(is.na(prior_prob))){
     stop("Invalid argument: There are NA or NaN values in 'prior_prob'")
   }
-  if(any(!is.numeric(prior_prob), !is.vector(prior_prob),  all(is.na(prior_prob)))){
-    stop("Invalid argument: 'prior_prob' must be a numeric vector")
-  }
-  if(any(prior_prob[!is.na(prior_prob)] < 0, prior_prob[!is.na(prior_prob)] > 1)){
+  if(any(pp_filtered < 0, pp_filtered > 1)){
     stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.")
   }
 }
@@ -226,12 +232,16 @@ check_log_base <- function(base){
 
   if(any(
     is.null(base),
-    is.na(base),
-    isFALSE(is.numeric(base)),
     isFALSE(is.vector(base)),
-    isFALSE(length(base) == 1))
+    isFALSE(is.atomic(base)),
+    isFALSE(is.numeric(base)),
+    isFALSE(length(base) == 1),
+    is.na(base))
     ){
     stop("Invalid argument: 'base' must be a numeric vector of length 1")
+  }
+  if(isTRUE(base <= 0)){
+    stop("Invalid argument: 'base' must be positive")
   }
 }
 
@@ -240,11 +250,14 @@ check_scale <- function(scale){
   if(is.null(scale)){
     stop("Invalid argument: 'scale' is NULL")
   }
-  if(any(is.na(scale), is.nan(scale))){
+  if(any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
+    stop("Invalid argument: 'scale' must be an atomic vector of length 1.")
+  }
+  if(is.na(scale)){
     stop("Invalid argument: 'scale' is NA or NaN")
   }
-  if(any(!is.vector(scale), !is.atomic("scale"), !is.character(scale), isFALSE(length(scale == 1)))){
-    stop("Invalid argument: 'scale' must be an atomic vector of length 1 and type character.")
+  if(!is.character(scale)){
+    stop("Invalid argument: 'scale' of type character.")
   }
   if(isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
     stop("Invalid argument: 'scale' must be either  'jeffreys' or 'kass-raftery'")
