@@ -110,7 +110,8 @@ test_that("bfactor_log_interpret base arg NA warning", {
 
 test_that("bfactor_log_interpret base arg error message 1", {
   expect_error(
-    bfactor_log_interpret(bf = .2, base = NULL))
+    bfactor_log_interpret(bf = .2, base = NULL)
+    )
   }
 )
 
@@ -138,7 +139,7 @@ test_that("bfactor_log_interpret base arg error message 5", {
   )}
 )
 
-context("bfactor_log_interpret, k-r")
+context("bfactor_log_interpret K-R")
 
 test_that("bfactor_log_interpret error message 1", {
   expect_error(
@@ -195,30 +196,32 @@ test_that("bfactor_log_interpret base arg NA warning", {
 )
 
 test_that("bfactor_log_interpret base arg error message 1", {
-  expect_error(bfactor_log_interpret(lbf = .2, base = NULL, scale = "kass-raftery"))}
+  expect_error(
+    bfactor_log_interpret(bf = .2, base = NULL, scale = "kass-raftery")
+    )}
 )
 
 test_that("bfactor_log_interpret base arg error message 2", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = NA, scale = "kass-raftery")
+    bfactor_log_interpret(bf = .2, base = NA, scale = "kass-raftery")
   )}
 )
 
 test_that("bfactor_log_interpret base arg error message 3", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = c(10, 10), scale = "kass-raftery")
+    bfactor_log_interpret(bf = .2, base = c(10, 10), scale = "kass-raftery")
   )}
 )
 
 test_that("bfactor_log_interpret base arg error message 4", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = factor(10), scale = "kass-raftery")
+    bfactor_log_interpret(bf = .2, base = factor(10), scale = "kass-raftery")
   )}
 )
 
 test_that("bfactor_log_interpret base arg error message 5", {
   expect_error(
-    bfactor_log_interpret(lbf = .2, base = "10", scale = "kass-raftery")
+    bfactor_log_interpret(bf = .2, base = "10", scale = "kass-raftery")
   )}
 )
 
@@ -340,7 +343,6 @@ test_that("test scale 18", {
   )}
 )
 
-
 test_that("test scale 19", {
   expect_error(
     bfactor_interpret(1.23, scale = NULL)
@@ -352,7 +354,6 @@ test_that("test scale 20", {
     bfactor_interpret(1.23, scale = NA)
   )}
 )
-
 
 test_that("test scale 21", {
   expect_error(
