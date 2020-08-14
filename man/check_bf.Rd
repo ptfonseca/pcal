@@ -14,7 +14,7 @@ check_bf(bf)
 \itemize{
 \item The call is silent if \code{bf} is a numeric vector of valid Bayes factor values and there are no \code{NA} or \code{NaN} values.
 \item An informative warning message is given if \code{p} is a numeric vector of valid Bayes factor values and there are \code{NA} or \code{NaN} values.
-\item An informative error message is thrown if \code{p} is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution (for example, when using \code{check_bf} to validate inputs of user defined functions).
+\item An informative error message is thrown if \code{p} is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution.
 }
 }
 \description{

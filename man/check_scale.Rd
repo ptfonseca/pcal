@@ -12,7 +12,7 @@ check_scale(scale)
 \value{
 \code{check_scale} does not return any output. There are two possible scenarios:
 \itemize{
-\item The call is silent if \code{base} is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package.
+\item The call is silent if \code{scale} is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package.
 \item An informative error message is thrown otherwise.
 }
 }
