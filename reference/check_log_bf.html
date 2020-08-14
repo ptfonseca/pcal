@@ -40,7 +40,7 @@
 
 
 <meta property="og:title" content="Check if an object is a numeric vector of valid logarithmic Bayes factor values — check_log_bf" />
-<meta property="og:description" content="check_log_bf checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions." />
+<meta property="og:description" content="check_log_bf checks if an object is a numeric vector of valid logarithmic Bayes factor values.  This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions." />
 
 
 
@@ -127,7 +127,7 @@
     </div>
 
     <div class="ref-description">
-    <p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.</p>
+    <p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values.  This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions.</p>
     </div>
 
     <pre class="usage"><span class='fu'>check_log_bf</span>(<span class='kw'>bf</span>)</pre>
@@ -151,7 +151,7 @@
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>check_log_bf</code> conducts a series of tests to check if <code>bf</code> is a numeric vector of valid logarithmic Bayes factor values. Namely, <code>check_bf</code> checks if:</p><ul>
+    <p><code>check_log_bf</code> conducts a series of tests to check if <code>bf</code> is a numeric vector of valid logarithmic Bayes factor values. Namely, <code>check_log_bf</code> checks if:</p><ul>
 <li><p><code>bf</code> is <code>NULL</code> or empty.</p></li>
 <li><p><code>bf</code> is a numeric (atomic) vector.</p></li>
 <li><p><code>bf</code> has <code>NA</code> or <code>NaN</code> values.</p></li>
@@ -163,7 +163,7 @@
 <ul>
 <li><p><code><a href='check_bf.html'>check_bf</a></code> to check if an object is a numeric vector of valid Bayes factor values.</p></li>
 <li><p><code><a href='check_prob.html'>check_prob</a></code> to check if an object is a numeric vector of valid probability values.</p></li>
-<li><p><code><a href='check_log_base.html'>check_log_base</a></code> to check if an object is a valid logarithmic base.</p></li>
+<li><p><code><a href='check_log_base.html'>check_log_base</a></code> to check if an object is a vector of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> 1 representing a valid logarithmic base.</p></li>
 </ul>
 </div>
 
@@ -182,7 +182,6 @@
 
 <span class='co'># Calls that throw informative error messages:</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_bf</span>(<span class='kw'>NULL</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_bf</span>()
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_bf</span>(<span class='fl'>TRUE</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_bf</span>(<span class='st'>"0.5"</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_bf</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fl'>0.5</span>))
