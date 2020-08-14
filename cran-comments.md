@@ -2,7 +2,6 @@
 ## Release summary
 
 * This is the second release of `pcal`. 
-
 * This release includes new internal functions (documented and exported), improved documentation, improved code readability, improved code efficieny, more unit testing, and new arguments some functions. 
 
 ## Test environments
