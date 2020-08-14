@@ -48,35 +48,33 @@
 #' @keywords internal
 #' @export
 
-check_prob <- function(p){
+check_prob <- function(p, allow_nas = TRUE){
 
-  input_name <- deparse(substitute(p))
-
-  if(exists(input_name)){
-    output_name <- paste0("'", input_name, "'")
-  } else {
-    output_name <- paste0("'", "p", "'")
-  }
+  output_name <- paste0("'", deparse(substitute(p)), "'")
 
   p_filtered <- p[!is.na(p)]
 
   if(is.null(p)){
     stop(paste("Invalid argument:", output_name, "is NULL."))
   }
-  if(length(p) == 0){
-    stop(paste("Invalid argument:", output_name, "is empty."))
-  }
   if(any(!is.numeric(p), !is.vector(p))){
     stop(paste("Invalid argument:", output_name, "must be a numeric vector."))
+  }
+  if(length(p) == 0){
+    stop(paste("Invalid argument:", output_name, "is empty."))
   }
   if(all(is.na(p))){
     stop(paste("Invalid argument: all elements of", output_name,  "are NA are NaN."))
   }
+  if(any(is.na(p))){
+    if(isTRUE(allow_nas)){
+      warning(paste("There are NA or NaN values in", paste0(output_name, ".")))
+    } else {
+      stop(paste("Invalid argument: There are NA or NaN values in ", paste0(output_name, ".")))
+    }
+  }
   if(any(p_filtered < 0, p_filtered > 1)){
     stop(paste("Invalid argument: all elements of",  output_name, "must be in the [0, 1] interval."))
-  }
-  if(any(is.na(p))){
-    warning(paste("There are NA or NaN values in", paste0(output_name, ".")))
   }
 }
 
@@ -131,22 +129,16 @@ check_prob <- function(p){
 
 check_bf <- function(bf){
 
-  input_name <- deparse(substitute(bf))
-
-  if(exists(input_name)){
-    output_name <- paste0("'", input_name, "'")
-  } else {
-    output_name <- paste0("'", "bf", "'")
-  }
+  output_name <- paste0("'", deparse(substitute(bf)), "'")
 
   if(is.null(bf)){
     stop(paste("Invalid argument:", output_name, "is NULL."))
   }
-  if(length(bf) == 0){
-    stop(paste("Invalid argument:", output_name, "is empty."))
-  }
   if(any(!is.numeric(bf), !is.vector(bf))){
     stop(paste("Invalid argument:", output_name, "must be a numeric vector."))
+  }
+  if(length(bf) == 0){
+    stop(paste("Invalid argument:", output_name, "is empty."))
   }
   if(all(is.na(bf))){
     stop(paste("Invalid argument: all elements of", output_name, "are NA or NaN."))
@@ -155,7 +147,7 @@ check_bf <- function(bf){
     stop(paste("Invalid argument: all elements of", output_name, "must be non-negative."))
   }
   if(any(is.na(bf))){
-    warning("There are NA or NaN values in", paste0(output_name, "."))
+    warning(paste("There are NA or NaN values in", paste0(output_name, ".")))
   }
 }
 
@@ -209,22 +201,16 @@ check_bf <- function(bf){
 
 check_log_bf <- function(bf){
 
-  input_name <- deparse(substitute(bf))
-
-  if(exists(input_name)){
-    output_name <- paste0("'", input_name, "'")
-  } else {
-    output_name <- paste0("'", "bf", "'")
-  }
+  output_name <- paste0("'", deparse(substitute(bf)), "'")
 
   if(is.null(bf)){
     stop(paste("Invalid argument:", output_name, "is NULL."))
   }
-  if(length(bf) == 0){
-    stop(paste("Invalid argument:", output_name, "is empty."))
-  }
   if(any(!is.numeric(bf), !is.vector(bf))){
     stop(paste("Invalid argument:", output_name, "must be a numeric vector."))
+  }
+  if(length(bf) == 0){
+    stop(paste("Invalid argument:", output_name, "is empty."))
   }
   if(all(is.na(bf))){
     stop(paste("Invalid argument: all elements of ", output_name, "are NA or NaN."))
@@ -280,13 +266,7 @@ check_log_bf <- function(bf){
 
 check_log_base <- function(base){
 
-  input_name <- deparse(substitute(base))
-
-  if(exists(input_name)){
-    output_name <- paste0("'", input_name, "'")
-  } else {
-    output_name <- paste0("'", "base", "'")
-  }
+  output_name <- paste0("'", deparse(substitute(base)), "'")
 
   if(any(
     is.null(base),
@@ -344,54 +324,26 @@ check_log_base <- function(base){
 
 check_scale <- function(scale){
 
-  input_name <- deparse(substitute(scale))
-
-  if(exists(input_name)){
-    output_name <- paste0("'", input_name, "'")
-  } else {
-    output_name <- paste0("'", "scale", "'")
-  }
+  output_name <- paste0("'", deparse(substitute(scale)), "'")
 
   if(is.null(scale)){
-    stop("Invalid argument:", output_name, "is NULL.")
+    stop(paste("Invalid argument:", output_name, "is NULL."))
   }
   if(any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
-    stop("Invalid argument:", output_name, "must be an atomic vector of length 1.")
+    stop(paste("Invalid argument:", output_name, "must be an atomic vector of length 1."))
   }
   if(is.na(scale)){
-    stop("Invalid argument:", output_name, "is NA or NaN.")
+    stop(paste("Invalid argument:", output_name, "is NA or NaN."))
   }
   if(!is.character(scale)){
-    stop("Invalid argument: the type of", output_name, "must be character.")
+    stop(paste("Invalid argument: the type of", output_name, "must be character."))
   }
   if(isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
-    stop("Invalid argument:", output_name, "must be either 'jeffreys' or 'kass-raftery'.")
+    stop(paste("Invalid argument:", output_name, "must be either 'jeffreys' or 'kass-raftery'."))
   }
 }
 
-check_prior_prob <- function(prior_prob){
 
-  pp_filtered <- prior_prob[!is.na(prior_prob)]
-
-  if(is.null(prior_prob)){
-    stop("Invalid argument: 'prior_prob' is NULL.")
-  }
-  if(length(prior_prob) == 0){
-    stop("Invalid argument: 'prior_prob' is empty.")
-  }
-  if(any(!is.numeric(prior_prob), !is.vector(prior_prob))){
-    stop("Invalid argument: 'prior_prob' must be a numeric vector.")
-  }
-  if(all(is.na(prior_prob))){
-    stop("Invalid argument: all 'prior_prob' are NA are NaN.")
-  }
-  if(any(is.na(prior_prob))){
-    stop("Invalid argument: There are NA or NaN values in 'prior_prob'.")
-  }
-  if(any(pp_filtered < 0, pp_filtered > 1)){
-    stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.")
-  }
-}
 
 
 
