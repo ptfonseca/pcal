@@ -12,15 +12,15 @@ check_scale(scale)
 \value{
 \code{check_scale} does not return any output. There are two possible scenarios:
 \itemize{
-\item The call is silent if \code{base} is a string of characters representing an eligible Bayes factor interpretation scale
+\item The call is silent if \code{base} is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package.
 \item An informative error message is thrown otherwise.
 }
 }
 \description{
-\code{check_scale} checks if an object is a string of characters representing an eligible Bayes factor interpretation scale This can be useful to validate inputs in user-defined functions.
+\code{check_scale} checks if an object is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package. This can be useful to validate inputs in user-defined functions.
 }
 \details{
-\code{check_scale} conducts a series of tests to check if \code{scale} is a string of characters representing an eligible Bayes factor interpretation scale. Namely, it checks if:
+\code{check_scale} conducts a series of tests to check if \code{scale} is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package. Namely, \code{check_scale} checks if:
 \itemize{
 \item \code{scale} is \code{NULL} or empty.
 \item \code{scale} is a character (atomic) vector of \code{\link[base]{length}} 1 specifying either "Jeffreys" or "Kass-Raftery" (not case sensitive).
@@ -48,7 +48,7 @@ check_scale("Kass-Raftery")
 \item \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
-\item \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+\item \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
 }
 }
 \keyword{internal}

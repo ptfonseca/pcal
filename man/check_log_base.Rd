@@ -12,19 +12,19 @@ check_log_base(base)
 \value{
 \code{check_log_base} does not return any output. There are two possible scenarios:
 \itemize{
-\item The call is silent if \code{base} is a numeric vector of \code{\link[base]{length}} 1 that is an eligible logarithmic base.
+\item The call is silent if \code{base} is a numeric vector of \code{\link[base]{length}} 1 that is a valid logarithmic base.
 \item An informative error message is thrown otherwise.
 }
 }
 \description{
-\code{check_log_base} checks if an object is a numeric vector of \code{\link[base]{length}} one that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions.
+\code{check_log_base} checks if an object is a numeric vector of \code{\link[base]{length}} 1 that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions.
 }
 \details{
-\code{check_log_base} conducts a series of tests to check if \code{base} is an eligible logarithmic base. Namely, it checks if:
+\code{check_log_base} conducts a series of tests to check if \code{base} is a valid logarithmic base. Namely, \code{check_log_base} checks if:
 \itemize{
 \item \code{base} is \code{NULL} or empty.
 \item \code{base} is a numeric (atomic) vector of \code{\link[base]{length}} 1.
-\item \code{base} is \code{NA} or \code{NaN} values.
+\item \code{base} is \code{NA} or \code{NaN}.
 }
 }
 \examples{
@@ -36,7 +36,6 @@ check_log_base(0.5)
 
 # Calls that throw informative error messages:
 \dontrun{check_log_base(NULL)}
-\dontrun{check_log_base()}
 \dontrun{check_log_base(numeric(0))}
 \dontrun{check_log_base(-1)}
 \dontrun{check_log_base(0)}

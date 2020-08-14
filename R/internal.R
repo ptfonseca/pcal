@@ -1,7 +1,7 @@
 
 #' @title Check if an object is a vector of valid probability values
 #'
-#' @description `check_prob` checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+#' @description `check_prob` checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions.
 #'
 #' @param p An arbitrary object.
 #'
@@ -14,12 +14,13 @@
 #' @return `check_prob` does not return any output. There are three possible scenarios:
 #' * The call is silent if `p` is a numeric vector of valid probability values and there are no `NA` or `NaN` values.
 #' * An informative warning message is given if `p` is a numeric vector of valid probability values and there are `NA` or `NaN` values.
-#' * An informative error message is thrown if `p` is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using `check_prob` to validate the inputs of user defined functions).
+#' * An informative error message is thrown if `p` is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using `check_prob` to validate inputs in user defined functions).
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 #' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
-#' * \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+#' * \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
+#' * \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -33,7 +34,6 @@
 #'
 #' # Calls that throw informative error messages:
 #' \dontrun{check_prob(NULL)}
-#' \dontrun{check_prob()}
 #' \dontrun{check_prob(TRUE)}
 #' \dontrun{check_prob("0.5")}
 #' \dontrun{check_prob(factor(0.5))}
@@ -50,33 +50,39 @@
 
 check_prob <- function(p){
 
-  vname <- deparse(substitute(p))
+  input_name <- deparse(substitute(p))
+
+  if(exists(input_name)){
+    output_name <- paste0("'", input_name, "'")
+  } else {
+    output_name <- paste0("'", "p", "'")
+  }
 
   p_filtered <- p[!is.na(p)]
 
   if(is.null(p)){
-    stop(paste("Invalid argument:", vname, "is NULL"))
+    stop(paste("Invalid argument:", output_name, "is NULL."))
   }
   if(length(p) == 0){
-    stop(paste("Invalid argument:", vname, "is empty"))
+    stop(paste("Invalid argument:", output_name, "is empty."))
   }
   if(any(!is.numeric(p), !is.vector(p))){
-    stop(paste("Invalid argument:", vname, "must be a numeric vector"))
+    stop(paste("Invalid argument:", output_name, "must be a numeric vector."))
   }
   if(all(is.na(p))){
-    stop(paste("Invalid argument: all", vname,  "are NA are NaN"))
+    stop(paste("Invalid argument: all elements of", output_name,  "are NA are NaN."))
   }
   if(any(p_filtered < 0, p_filtered > 1)){
-    stop(paste("Invalid argument: all elements of",  vname, "must be in the [0, 1] interval."))
+    stop(paste("Invalid argument: all elements of",  output_name, "must be in the [0, 1] interval."))
   }
   if(any(is.na(p))){
-    warning(paste("There are NA or NaN values in", vname))
+    warning(paste("There are NA or NaN values in", paste0(output_name, ".")))
   }
 }
 
 #' @title Check if an object is a numeric vector of valid Bayes factor values
 #'
-#' @description `check_bf` checks if an object is a numeric vector of valid Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+#' @description `check_bf` checks if an object is a numeric vector of valid Bayes factor values. This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions.
 #'
 #' @param bf An arbitrary object.
 #'
@@ -89,12 +95,13 @@ check_prob <- function(p){
 #' @return `check_bf` does not return any output. There are three possible scenarios:
 #' * The call is silent if `bf` is a numeric vector of valid Bayes factor values and there are no `NA` or `NaN` values.
 #' * An informative warning message is given if `p` is a numeric vector of valid Bayes factor values and there are `NA` or `NaN` values.
-#' * An informative error message is thrown if `p` is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution (for example, when using `check_bf` to validate the inputs of user defined functions).
+#' * An informative error message is thrown if `p` is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution (for example, when using `check_bf` to validate inputs of user defined functions).
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
 #' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
-#' * \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+#' * \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
+#' * \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -108,7 +115,6 @@ check_prob <- function(p){
 #'
 #' # Calls that throw informative error messages:
 #' \dontrun{check_bf(NULL)}
-#' \dontrun{check_bf()}
 #' \dontrun{check_bf(TRUE)}
 #' \dontrun{check_bf("0.5")}
 #' \dontrun{check_bf(factor(0.5))}
@@ -125,35 +131,41 @@ check_prob <- function(p){
 
 check_bf <- function(bf){
 
-  vname <- deparse(substitute(bf))
+  input_name <- deparse(substitute(bf))
+
+  if(exists(input_name)){
+    output_name <- paste0("'", input_name, "'")
+  } else {
+    output_name <- paste0("'", "bf", "'")
+  }
 
   if(is.null(bf)){
-    stop(paste("Invalid argument:", vname, "is NULL."))
+    stop(paste("Invalid argument:", output_name, "is NULL."))
   }
   if(length(bf) == 0){
-    stop(paste("Invalid argument:", vname, "is empty"))
+    stop(paste("Invalid argument:", output_name, "is empty."))
   }
   if(any(!is.numeric(bf), !is.vector(bf))){
-    stop(paste("Invalid argument:", vname, "must be a numeric vector"))
+    stop(paste("Invalid argument:", output_name, "must be a numeric vector."))
   }
   if(all(is.na(bf))){
-    stop(paste("Invalid argument:", vname, "all elements of 'bf' are NA or NaN."))
+    stop(paste("Invalid argument: all elements of", output_name, "are NA or NaN."))
   }
   if(any(bf[!is.na(bf)] < 0)){
-    stop(paste("Invalid argument:", vname, "must be non-negative."))
+    stop(paste("Invalid argument: all elements of", output_name, "must be non-negative."))
   }
   if(any(is.na(bf))){
-    warning("There are NA or NaN values in 'bf'.")
+    warning("There are NA or NaN values in", paste0(output_name, "."))
   }
 }
 
 #' @title Check if an object is a numeric vector of valid logarithmic Bayes factor values
 #'
-#' @description `check_log_bf` checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+#' @description `check_log_bf` checks if an object is a numeric vector of valid logarithmic Bayes factor values.  This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions.
 #'
 #' @param bf An arbitrary object.
 #'
-#' @details `check_log_bf` conducts a series of tests to check if `bf` is a numeric vector of valid logarithmic Bayes factor values. Namely, `check_bf` checks if:
+#' @details `check_log_bf` conducts a series of tests to check if `bf` is a numeric vector of valid logarithmic Bayes factor values. Namely, `check_log_bf` checks if:
 #' * `bf` is `NULL` or empty.
 #' * `bf` is a numeric (atomic) vector.
 #' * `bf` has `NA` or `NaN` values.
@@ -166,7 +178,8 @@ check_bf <- function(bf){
 #' @seealso
 #' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 #' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
-#' * \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+#' * \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
+#' * \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -183,7 +196,6 @@ check_bf <- function(bf){
 #'
 #' # Calls that throw informative error messages:
 #' \dontrun{check_log_bf(NULL)}
-#' \dontrun{check_log_bf()}
 #' \dontrun{check_log_bf(TRUE)}
 #' \dontrun{check_log_bf("0.5")}
 #' \dontrun{check_log_bf(factor(0.5))}
@@ -197,44 +209,51 @@ check_bf <- function(bf){
 
 check_log_bf <- function(bf){
 
-  vname <- deparse(substitute(bf))
+  input_name <- deparse(substitute(bf))
+
+  if(exists(input_name)){
+    output_name <- paste0("'", input_name, "'")
+  } else {
+    output_name <- paste0("'", "bf", "'")
+  }
 
   if(is.null(bf)){
-    stop(paste("Invalid argument:", vname, "is NULL."))
+    stop(paste("Invalid argument:", output_name, "is NULL."))
   }
   if(length(bf) == 0){
-    stop(paste("Invalid argument:", vname, "is empty"))
+    stop(paste("Invalid argument:", output_name, "is empty."))
   }
   if(any(!is.numeric(bf), !is.vector(bf))){
-    stop(paste("Invalid argument:", vname, "must be a numeric vector"))
+    stop(paste("Invalid argument:", output_name, "must be a numeric vector."))
   }
   if(all(is.na(bf))){
-    stop(paste("Invalid argument: all elements of ", vname, "are NA or NaN."))
+    stop(paste("Invalid argument: all elements of ", output_name, "are NA or NaN."))
   }
   if(any(is.na(bf))){
-    warning("There are NA or NaN values in 'bf'.")
+    warning(paste("There are NA or NaN values in", paste0(output_name, ".")))
   }
 }
 
 #' @title Check if an object is a valid logarithmic base
 #'
-#' @description `check_log_base` checks if an object is a numeric vector of \code{\link[base]{length}} one that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions.
+#' @description `check_log_base` checks if an object is a numeric vector of \code{\link[base]{length}} 1 that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions.
 #'
 #' @param bf An arbitrary object.
 #'
-#' @details `check_log_base` conducts a series of tests to check if `base` is an eligible logarithmic base. Namely, it checks if:
+#' @details `check_log_base` conducts a series of tests to check if `base` is a valid logarithmic base. Namely, `check_log_base` checks if:
 #' * `base` is `NULL` or empty.
 #' * `base` is a numeric (atomic) vector of \code{\link[base]{length}} 1.
-#' * `base` is `NA` or `NaN` values.
+#' * `base` is `NA` or `NaN`.
 #'
 #' @return `check_log_base` does not return any output. There are two possible scenarios:
-#' * The call is silent if `base` is a numeric vector of \code{\link[base]{length}} 1 that is an eligible logarithmic base.
+#' * The call is silent if `base` is a numeric vector of \code{\link[base]{length}} 1 that is a valid logarithmic base.
 #' * An informative error message is thrown otherwise.
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
 #' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 #' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
+#' * \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -245,7 +264,6 @@ check_log_bf <- function(bf){
 #'
 #' # Calls that throw informative error messages:
 #' \dontrun{check_log_base(NULL)}
-#' \dontrun{check_log_base()}
 #' \dontrun{check_log_base(numeric(0))}
 #' \dontrun{check_log_base(-1)}
 #' \dontrun{check_log_base(0)}
@@ -262,7 +280,13 @@ check_log_bf <- function(bf){
 
 check_log_base <- function(base){
 
-  vname <- deparse(substitute(base))
+  input_name <- deparse(substitute(base))
+
+  if(exists(input_name)){
+    output_name <- paste0("'", input_name, "'")
+  } else {
+    output_name <- paste0("'", "base", "'")
+  }
 
   if(any(
     is.null(base),
@@ -272,33 +296,33 @@ check_log_base <- function(base){
     isFALSE(length(base) == 1),
     is.na(base))
     ){
-    stop(paste("Invalid argument:", vname, "must be a numeric vector of length 1"))
+    stop(paste("Invalid argument:", output_name, "must be a numeric vector of length 1."))
   }
   if(isTRUE(base <= 0)){
-    stop(paste("Invalid argument:", vname, "must be positive"))
+    stop(paste("Invalid argument:", output_name, "must be positive."))
   }
 }
 
 #' @title Check if an object is a string of characters representing an eligible Bayes factor interpretation scale
 #'
-#' @description `check_scale` checks if an object is a string of characters representing an eligible Bayes factor interpretation scale This can be useful to validate inputs in user-defined functions.
+#' @description `check_scale` checks if an object is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package. This can be useful to validate inputs in user-defined functions.
 #'
 #' @param scale An arbitrary object.
 #'
-#' @details `check_scale` conducts a series of tests to check if `scale` is a string of characters representing an eligible Bayes factor interpretation scale. Namely, it checks if:
+#' @details `check_scale` conducts a series of tests to check if `scale` is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package. Namely, `check_scale` checks if:
 #' * `scale` is `NULL` or empty.
 #' * `scale` is a character (atomic) vector of \code{\link[base]{length}} 1 specifying either "Jeffreys" or "Kass-Raftery" (not case sensitive).
 #' * `scale` is `NA` or `NaN`.
 #'
 #' @return `check_scale` does not return any output. There are two possible scenarios:
-#' * The call is silent if `base` is a string of characters representing an eligible Bayes factor interpretation scale
+#' * The call is silent if `base` is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package.
 #' * An informative error message is thrown otherwise.
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
 #' * \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 #' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
-#' * \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+#' * \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
 #'
 #' @examples
 #' # Calls that pass silently:
@@ -317,23 +341,31 @@ check_log_base <- function(base){
 #'
 #' @keywords internal
 #' @export
-#'
+
 check_scale <- function(scale){
 
+  input_name <- deparse(substitute(scale))
+
+  if(exists(input_name)){
+    output_name <- paste0("'", input_name, "'")
+  } else {
+    output_name <- paste0("'", "scale", "'")
+  }
+
   if(is.null(scale)){
-    stop("Invalid argument: 'scale' is NULL")
+    stop("Invalid argument:", output_name, "is NULL.")
   }
   if(any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
-    stop("Invalid argument: 'scale' must be an atomic vector of length 1.")
+    stop("Invalid argument:", output_name, "must be an atomic vector of length 1.")
   }
   if(is.na(scale)){
-    stop("Invalid argument: 'scale' is NA or NaN")
+    stop("Invalid argument:", output_name, "is NA or NaN.")
   }
   if(!is.character(scale)){
-    stop("Invalid argument: 'scale' of type character.")
+    stop("Invalid argument: the type of", output_name, "must be character.")
   }
   if(isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
-    stop("Invalid argument: 'scale' must be either  'jeffreys' or 'kass-raftery'")
+    stop("Invalid argument:", output_name, "must be either 'jeffreys' or 'kass-raftery'.")
   }
 }
 
@@ -342,19 +374,19 @@ check_prior_prob <- function(prior_prob){
   pp_filtered <- prior_prob[!is.na(prior_prob)]
 
   if(is.null(prior_prob)){
-    stop("Invalid argument: 'prior_prob' is NULL")
+    stop("Invalid argument: 'prior_prob' is NULL.")
   }
   if(length(prior_prob) == 0){
-    stop("Invalid argument: 'prior_prob' is empty")
+    stop("Invalid argument: 'prior_prob' is empty.")
   }
   if(any(!is.numeric(prior_prob), !is.vector(prior_prob))){
-    stop("Invalid argument: 'prior_prob' must be a numeric vector")
+    stop("Invalid argument: 'prior_prob' must be a numeric vector.")
   }
   if(all(is.na(prior_prob))){
-    stop("Invalid argument: all 'prior_prob' are NA are NaN")
+    stop("Invalid argument: all 'prior_prob' are NA are NaN.")
   }
   if(any(is.na(prior_prob))){
-    stop("Invalid argument: There are NA or NaN values in 'prior_prob'")
+    stop("Invalid argument: There are NA or NaN values in 'prior_prob'.")
   }
   if(any(pp_filtered < 0, pp_filtered > 1)){
     stop("Invalid argument: all elements of 'prior_prob' must be in the [0, 1] interval.")

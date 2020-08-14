@@ -14,11 +14,11 @@ check_prob(p)
 \itemize{
 \item The call is silent if \code{p} is a numeric vector of valid probability values and there are no \code{NA} or \code{NaN} values.
 \item An informative warning message is given if \code{p} is a numeric vector of valid probability values and there are \code{NA} or \code{NaN} values.
-\item An informative error message is thrown if \code{p} is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using \code{check_prob} to validate the inputs of user defined functions).
+\item An informative error message is thrown if \code{p} is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using \code{check_prob} to validate inputs in user defined functions).
 }
 }
 \description{
-\code{check_prob} checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+\code{check_prob} checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions.
 }
 \details{
 \code{check_prob} conducts a series of tests to check if \code{p} is a numeric vector of valid probability values. Namely, \code{check_prob} checks if:
@@ -41,7 +41,6 @@ check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 
 # Calls that throw informative error messages:
 \dontrun{check_prob(NULL)}
-\dontrun{check_prob()}
 \dontrun{check_prob(TRUE)}
 \dontrun{check_prob("0.5")}
 \dontrun{check_prob(factor(0.5))}
@@ -58,7 +57,7 @@ check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 \itemize{
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
-\item \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+\item \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
 }
 }
 \keyword{internal}

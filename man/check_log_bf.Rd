@@ -18,10 +18,10 @@ check_log_bf(bf)
 }
 }
 \description{
-\code{check_log_bf} checks if an object is a numeric vector of valid logarithmic Bayes factor values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.
+\code{check_log_bf} checks if an object is a numeric vector of valid logarithmic Bayes factor values.  This can be useful to validate inputs, intermediate calculations or outputs in user-defined functions.
 }
 \details{
-\code{check_log_bf} conducts a series of tests to check if \code{bf} is a numeric vector of valid logarithmic Bayes factor values. Namely, \code{check_bf} checks if:
+\code{check_log_bf} conducts a series of tests to check if \code{bf} is a numeric vector of valid logarithmic Bayes factor values. Namely, \code{check_log_bf} checks if:
 \itemize{
 \item \code{bf} is \code{NULL} or empty.
 \item \code{bf} is a numeric (atomic) vector.
@@ -43,7 +43,6 @@ check_log_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))
 
 # Calls that throw informative error messages:
 \dontrun{check_log_bf(NULL)}
-\dontrun{check_log_bf()}
 \dontrun{check_log_bf(TRUE)}
 \dontrun{check_log_bf("0.5")}
 \dontrun{check_log_bf(factor(0.5))}
@@ -57,7 +56,7 @@ check_log_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))
 \itemize{
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
-\item \code{\link[pcal]{check_log_base}} to check if an object is a valid logarithmic base.
+\item \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
 }
 }
 \keyword{internal}
