@@ -158,6 +158,7 @@ implied by a Bayes factor according to the scale suggested by Jeffreys
 
 ``` r
 bfs <- c(0.1, 2, 5, 20, 50, 150)
+
 bfactor_interpret(bfs)
 #> [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"
 #> [6] "Decisive"
