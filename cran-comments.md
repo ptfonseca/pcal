@@ -13,7 +13,7 @@
 
 ### GitHub actions
 
-* macOS Catalina 10.15, R-oldrel, R-release  
+* macOS Catalina 10.15, R-oldrel, R-release, R-devel  
 * Ubuntu 16.04, R-oldrel, R-release
 * Windows Server 2019, R-oldrel, R-release, R-devel  
 
