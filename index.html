@@ -156,25 +156,26 @@
 <p>To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor according to the scale suggested by Jeffreys</p>
 <p>(1961) we can use <code><a href="reference/bfactor_interpret.html">bfactor_interpret()</a></code>:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit">
-<span class="fu"><a href="reference/bfactor_interpret.html">bfactor_interpret</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>))
+<span class="kw">bfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>)
+<span class="fu"><a href="reference/bfactor_interpret.html">bfactor_interpret</a></span>(<span class="kw">bfs</span>)
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"</span>
 <span class="co">#&gt; [6] "Decisive"</span>
 </pre></div>
 <p>Alternatively, we can use the interpretation scale suggested by Kass and Raftery (1995):</p>
 <div class="sourceCode" id="cb10"><pre class="downlit">
-<span class="fu"><a href="reference/bfactor_interpret.html">bfactor_interpret</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>), scale = <span class="st">"kass-raftery"</span>)
+<span class="fu"><a href="reference/bfactor_interpret.html">bfactor_interpret</a></span>(<span class="kw">bfs</span>, scale = <span class="st">"kass-raftery"</span>)
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     </span>
 <span class="co">#&gt; [6] "Very Strong"</span>
 </pre></div>
 <p>Because Bayes factors are often reported on a logarithmic scale, there is also a <code><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> function that interprets the logarithms of Bayes factors:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit">
-<span class="kw">bfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="fl">0.1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">20</span>, <span class="fl">50</span>, <span class="fl">150</span>))
+<span class="kw">log_bfs</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Log.html">log10</a></span>(<span class="kw">bfs</span>)
  
-<span class="fu"><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret</a></span>(<span class="kw">bfs</span>, base = <span class="fl">10</span>)
+<span class="fu"><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret</a></span>(<span class="kw">log_bfs</span>, base = <span class="fl">10</span>)
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"</span>
 <span class="co">#&gt; [6] "Decisive"</span>
 
-<span class="fu"><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret</a></span>(<span class="kw">bfs</span>, scale = <span class="st">"kass-raftery"</span>, base = <span class="fl">10</span>)
+<span class="fu"><a href="reference/bfactor_log_interpret.html">bfactor_log_interpret</a></span>(<span class="kw">log_bfs</span>, scale = <span class="st">"kass-raftery"</span>, base = <span class="fl">10</span>)
 <span class="co">#&gt; [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     </span>
 <span class="co">#&gt; [6] "Very Strong"</span>
 </pre></div>

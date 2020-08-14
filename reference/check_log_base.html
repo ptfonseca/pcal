@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Check if an object is a vector of valid probability values — check_prob • pcal</title>
+<title>Check if an object is a valid logarithmic base — check_log_base • pcal</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,8 @@
 
 
 
-<meta property="og:title" content="Check if an object is a vector of valid probability values — check_prob" />
-<meta property="og:description" content="check_prob checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions." />
+<meta property="og:title" content="Check if an object is a valid logarithmic base — check_log_base" />
+<meta property="og:description" content="check_log_base checks if an object is a numeric vector of length one that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions." />
 
 
 
@@ -121,76 +121,71 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Check if an object is a vector of valid probability values</h1>
+    <h1>Check if an object is a valid logarithmic base</h1>
     <small class="dont-index">Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/R/internal.R'><code>R/internal.R</code></a></small>
-    <div class="hidden name"><code>check_prob.Rd</code></div>
+    <div class="hidden name"><code>check_log_base.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>check_prob</code> checks if an object is a numeric vector of valid probability values. This can be useful to validate inputs or intermediate calculations in user-defined functions or to validate the output of calculations/functions.</p>
+    <p><code>check_log_base</code> checks if an object is a numeric vector of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> one that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>check_prob</span>(<span class='kw'>p</span>)</pre>
+    <pre class="usage"><span class='fu'>check_log_base</span>(<span class='kw'>base</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
-      <th>p</th>
+      <th>bf</th>
       <td><p>An arbitrary object.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p><code>check_prob</code> does not return any output. There are three possible scenarios:</p><ul>
-<li><p>The call is silent if <code>p</code> is a numeric vector of valid probability values and there are no <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>An informative warning message is given if <code>p</code> is a numeric vector of valid probability values and there are <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>An informative error message is thrown if <code>p</code> is not a numeric vector of valid probability values. This will <code><a href='https://rdrr.io/r/base/stop.html'>stop</a></code> the execution (for example, when using <code>check_prob</code> to validate the inputs of user defined functions).</p></li>
+    <p><code>check_log_base</code> does not return any output. There are two possible scenarios:</p><ul>
+<li><p>The call is silent if <code>base</code> is a numeric vector of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> 1 that is an eligible logarithmic base.</p></li>
+<li><p>An informative error message is thrown otherwise.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>check_prob</code> conducts a series of tests to check if <code>p</code> is a numeric vector of valid probability values. Namely, <code>check_prob</code> checks if:</p><ul>
-<li><p><code>p</code> is <code>NULL</code> or empty.</p></li>
-<li><p><code>p</code> is a numeric (atomic) vector.</p></li>
-<li><p><code>p</code> has <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>The values of <code>p</code> are in the [0, 1] interval.</p></li>
+    <p><code>check_log_base</code> conducts a series of tests to check if <code>base</code> is an eligible logarithmic base. Namely, it checks if:</p><ul>
+<li><p><code>base</code> is <code>NULL</code> or empty.</p></li>
+<li><p><code>base</code> is a numeric (atomic) vector of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> 1.</p></li>
+<li><p><code>base</code> is <code>NA</code> or <code>NaN</code> values.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'>
 <ul>
+<li><p><code><a href='check_prob.html'>check_prob</a></code> to check if an object is a numeric vector of valid probability values.</p></li>
 <li><p><code><a href='check_bf.html'>check_bf</a></code> to check if an object is a numeric vector of valid Bayes factor values.</p></li>
 <li><p><code><a href='check_log_bf.html'>check_log_bf</a></code> to check if an object is a numeric vector of valid logarithmic Bayes factor values.</p></li>
-<li><p><code><a href='check_log_base.html'>check_log_base</a></code> to check if an object is a valid logarithmic base.</p></li>
 </ul>
 </div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Calls that pass silently:</span>
-<span class='fu'>check_prob</span>(<span class='fl'>0</span>)
-<span class='fu'>check_prob</span>(<span class='fl'>0.5</span>)
-<span class='fu'>check_prob</span>(<span class='fl'>1</span>)
-<span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
-
-<span class='co'># Call that throws an informative warning message:</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
+<span class='fu'>check_log_base</span>(<span class='fl'>10</span>)
+<span class='fu'>check_log_base</span>(<span class='fl'>2</span>)
+<span class='fu'>check_log_base</span>(<span class='fu'><a href='https://rdrr.io/r/base/Log.html'>exp</a></span>(<span class='fl'>1</span>))
+<span class='fu'>check_log_base</span>(<span class='fl'>0.5</span>)
 
 <span class='co'># Calls that throw informative error messages:</span>
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='kw'>NULL</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>()
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fl'>TRUE</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='st'>"0.5"</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fl'>0.5</span>))
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>0.5</span>))
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>0.5</span>))
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fl'>NA</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fl'>NaN</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fl'>1.1</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='op'>-</span><span class='fl'>0.5</span>)
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>0.9</span>, <span class='fl'>0</span>, <span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='kw'>NULL</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>()
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fu'><a href='https://rdrr.io/r/base/numeric.html'>numeric</a></span>(<span class='fl'>0</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='op'>-</span><span class='fl'>1</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fl'>0</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fl'>TRUE</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='st'>"10"</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fu'><a href='https://rdrr.io/r/base/factor.html'>factor</a></span>(<span class='fl'>10</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fl'>10</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fu'><a href='https://rdrr.io/r/base/list.html'>list</a></span>(<span class='fl'>10</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fl'>NA</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_log_base</span>(<span class='fl'>NaN</span>)
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
