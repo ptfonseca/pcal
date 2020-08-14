@@ -112,23 +112,24 @@ bfactor_to_prob(bcal(pv), prior_prob = .95)
 To classify the strength of the evidence in favor of the null hypothesis implied by a Bayes factor according to the scale suggested by @jeffreys1961 we can use `bfactor_interpret()`:
 
 ```{r}
-bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
+bfs <- c(0.1, 2, 5, 20, 50, 150)
+bfactor_interpret(bfs)
 ```
 
 Alternatively, we can use the interpretation scale suggested by @kass1995:
 
 ```{r}
-bfactor_interpret(c(0.1, 2, 5, 20, 50, 150), scale = "kass-raftery")
+bfactor_interpret(bfs, scale = "kass-raftery")
 ```
 
 Because Bayes factors are often reported on a logarithmic scale, there is also a `bfactor_log_interpret()` function that interprets the logarithms of Bayes factors:
 
 ```{r}
-bfs <- log10(c(0.1, 2, 5, 20, 50, 150))
+log_bfs <- log10(bfs)
  
-bfactor_log_interpret(bfs, base = 10)
+bfactor_log_interpret(log_bfs, base = 10)
 
-bfactor_log_interpret(bfs, scale = "kass-raftery", base = 10)
+bfactor_log_interpret(log_bfs, scale = "kass-raftery", base = 10)
 ```
 
 To compare Bayes factors with results from standard likelihood ratio tests it can be useful to obtain the strength of the evidence against the null hypothesis. If `bf` is a Bayes factor in favor  of the null hypothesis, one can use `1/bf` as input to obtain the strength of the evidence against the null hypothesis:

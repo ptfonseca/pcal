@@ -157,7 +157,8 @@ implied by a Bayes factor according to the scale suggested by Jeffreys
 (1961) we can use `bfactor_interpret()`:
 
 ``` r
-bfactor_interpret(c(0.1, 2, 5, 20, 50, 150))
+bfs <- c(0.1, 2, 5, 20, 50, 150)
+bfactor_interpret(bfs)
 #> [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"
 #> [6] "Decisive"
 ```
@@ -166,7 +167,7 @@ Alternatively, we can use the interpretation scale suggested by Kass and
 Raftery (1995):
 
 ``` r
-bfactor_interpret(c(0.1, 2, 5, 20, 50, 150), scale = "kass-raftery")
+bfactor_interpret(bfs, scale = "kass-raftery")
 #> [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     
 #> [6] "Very Strong"
 ```
@@ -176,13 +177,13 @@ is also a `bfactor_log_interpret()` function that interprets the
 logarithms of Bayes factors:
 
 ``` r
-bfs <- log10(c(0.1, 2, 5, 20, 50, 150))
+log_bfs <- log10(bfs)
  
-bfactor_log_interpret(bfs, base = 10)
+bfactor_log_interpret(log_bfs, base = 10)
 #> [1] "Negative"    "Weak"        "Substantial" "Strong"      "Very Strong"
 #> [6] "Decisive"
 
-bfactor_log_interpret(bfs, scale = "kass-raftery", base = 10)
+bfactor_log_interpret(log_bfs, scale = "kass-raftery", base = 10)
 #> [1] "Negative"    "Weak"        "Positive"    "Strong"      "Strong"     
 #> [6] "Very Strong"
 ```
