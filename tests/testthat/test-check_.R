@@ -42,10 +42,12 @@ test_that("check error message 7", {expect_error(check_bf(NA))})
 test_that("check error message 8", {expect_error(check_bf(NaN))})
 test_that("check error message 12", {expect_error(check_bf())})
 
-test_that("check error message 12", {expect_error(check_prob(numeric(0)))})
-test_that("check error message 12", {expect_error(check_bf(numeric(0)))})
-test_that("check error message 12", {expect_error(check_log_bf(numeric(0)))})
-test_that("check error message 12", {expect_error(check_log_base(-1))})
+context("miscellaneous")
+
+test_that("miscellaneous 1", {expect_error(check_prob(numeric(0)))})
+test_that("miscellaneous 2", {expect_error(check_bf(numeric(0)))})
+test_that("miscellaneous 3", {expect_error(check_log_bf(numeric(0)))})
+test_that("miscellaneous 4", {expect_error(check_log_base(-1))})
 
 
 
