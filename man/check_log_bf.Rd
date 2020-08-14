@@ -56,7 +56,7 @@ check_log_bf(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))
 \itemize{
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_prob}} to check if an object is a numeric vector of valid probability values.
-\item \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
+\item \code{\link[pcal]{check_log_base}} to check if an object is a numeric vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
 \item \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package.
 }
 }

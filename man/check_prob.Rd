@@ -8,13 +8,19 @@ check_prob(p, allow_nas = TRUE)
 }
 \arguments{
 \item{p}{An arbitrary object.}
+
+\item{allow_nas}{Logical value indicating either \code{TRUE} or \code{FALSE}. If \code{FALSE} the execution is stopped (via \code{\link[base]{stop}}) in case there are \code{NA} or \code{NaN} values in \code{p}.}
 }
 \value{
 \code{check_prob} does not return any output. There are three possible scenarios:
 \itemize{
-\item The call is silent if \code{p} is a numeric vector of valid probability values and there are no \code{NA} or \code{NaN} values.
-\item An informative warning message is given if \code{p} is a numeric vector of valid probability values and there are \code{NA} or \code{NaN} values.
-\item An informative error message is thrown if \code{p} is not a numeric vector of valid probability values. This will \code{\link[base]{stop}} the execution (for example, when using \code{check_prob} to validate inputs in user defined functions).
+\item The call is silent if \code{p} is a numeric vector of valid probability values without \code{NA} or \code{NaN} values.
+\item An informative warning message is given if \code{p} is a numeric vector of valid probability values with some \code{NA} or \code{NaN} values and \code{allow_nas} is set to \code{TRUE}.
+\item An informative error message is thrown and the execution is stopped if:
+\itemize{
+\item \code{p} is not a numeric vector of valid probability values.
+\item \code{p} is a numeric vector of valid probability values with some \code{NA} or \code{NaN} values and \code{allow_nas} is set to \code{FALSE}.
+}
 }
 }
 \description{
@@ -38,6 +44,7 @@ check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 
 # Call that throws an informative warning message:
 \dontrun{check_prob(c(0.1, 0.2, NA, 0.4, 0.5))}
+\dontrun{check_prob(c(0.1, 0.2, NA, 0.4, 0.5), allow_nas = TRUE)}
 
 # Calls that throw informative error messages:
 \dontrun{check_prob(NULL)}
@@ -51,13 +58,14 @@ check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 \dontrun{check_prob(1.1)}
 \dontrun{check_prob(-0.5)}
 \dontrun{check_prob(c(-0.9, 0, 0.1, 0.2, 0.3, 0.4, 0.5))}
+\dontrun{check_prob(c(0.1, 0.2, NA, 0.4, 0.5), allow_nas = FALSE)}
 
 }
 \seealso{
 \itemize{
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
-\item \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
+\item \code{\link[pcal]{check_log_base}} to check if an object is a numeric vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
 \item \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package.
 }
 }
