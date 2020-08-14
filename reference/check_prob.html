@@ -139,14 +139,21 @@
       <th>p</th>
       <td><p>An arbitrary object.</p></td>
     </tr>
+    <tr>
+      <th>allow_nas</th>
+      <td><p>Logical value indicating either <code>TRUE</code> or <code>FALSE</code>. If <code>FALSE</code> the execution is stopped (via <code><a href='https://rdrr.io/r/base/stop.html'>stop</a></code>) in case there are <code>NA</code> or <code>NaN</code> values in <code>p</code>.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p><code>check_prob</code> does not return any output. There are three possible scenarios:</p><ul>
-<li><p>The call is silent if <code>p</code> is a numeric vector of valid probability values and there are no <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>An informative warning message is given if <code>p</code> is a numeric vector of valid probability values and there are <code>NA</code> or <code>NaN</code> values.</p></li>
-<li><p>An informative error message is thrown if <code>p</code> is not a numeric vector of valid probability values. This will <code><a href='https://rdrr.io/r/base/stop.html'>stop</a></code> the execution (for example, when using <code>check_prob</code> to validate inputs in user defined functions).</p></li>
+<li><p>The call is silent if <code>p</code> is a numeric vector of valid probability values without <code>NA</code> or <code>NaN</code> values.</p></li>
+<li><p>An informative warning message is given if <code>p</code> is a numeric vector of valid probability values with some <code>NA</code> or <code>NaN</code> values and <code>allow_nas</code> is set to <code>TRUE</code>.</p></li>
+<li><p>An informative error message is thrown and the execution is stopped if:</p><ul>
+<li><p><code>p</code> is not a numeric vector of valid probability values.</p></li>
+<li><p><code>p</code> is a numeric vector of valid probability values with some <code>NA</code> or <code>NaN</code> values and <code>allow_nas</code> is set to <code>FALSE</code>.</p></li>
+</ul></li>
 </ul>
 
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -164,7 +171,7 @@
 <ul>
 <li><p><code><a href='check_bf.html'>check_bf</a></code> to check if an object is a numeric vector of valid Bayes factor values.</p></li>
 <li><p><code><a href='check_log_bf.html'>check_log_bf</a></code> to check if an object is a numeric vector of valid logarithmic Bayes factor values.</p></li>
-<li><p><code><a href='check_log_base.html'>check_log_base</a></code> to check if an object is a vector of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> 1 representing a valid logarithmic base.</p></li>
+<li><p><code><a href='check_log_base.html'>check_log_base</a></code> to check if an object is a numeric vector of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> 1 representing a valid logarithmic base.</p></li>
 <li><p><code><a href='check_scale.html'>check_scale</a></code> to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the <code>pcal</code> package.</p></li>
 </ul>
 </div>
@@ -178,6 +185,7 @@
 
 <span class='co'># Call that throws an informative warning message:</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>), allow_nas = <span class='fl'>TRUE</span>)
 
 <span class='co'># Calls that throw informative error messages:</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='kw'>NULL</span>)
@@ -191,6 +199,7 @@
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fl'>1.1</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='op'>-</span><span class='fl'>0.5</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>0.9</span>, <span class='fl'>0</span>, <span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>), allow_nas = <span class='fl'>FALSE</span>)
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
