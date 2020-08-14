@@ -1,7 +1,7 @@
 
 # pcal 1.1.0
 
-This is the second CRAN release of `pcal`. This realease includes new documented and exported internal functions, improved documentation, code readability and code efficieny, more unit testing, new arguments to `bfactor_interpret()` and `bfactor_log_interpret()` and the deprecation of `bfactor_interpret_kr` and `bfactor_log_interpret_kr`. 
+This is the second CRAN release of `pcal`. 
 
 ## Major changes 
 
