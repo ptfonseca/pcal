@@ -128,27 +128,38 @@
 <h1 class="page-header" data-toc-text="1.1.0">
 <a href="#pcal-110" class="anchor"></a>pcal 1.1.0<small> Unreleased </small>
 </h1>
-<p>This is the second CRAN release of <code>pcal</code>. This release includes three new utility functions that can be useful to validate inputs or intermediate calculations inside user-defined functions or to validate the output of calculations/functions.</p>
-<div id="new-functions" class="section level2">
+<p>This is the second CRAN release of <code>pcal</code>. This realease includes new documented and exported internal functions, improved documentation, code readability and code efficieny, more unit testing, new arguments to <code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> and the deprecation of <code>bfactor_interpret_kr</code> and <code>bfactor_log_interpret_kr</code>.</p>
+<div id="major-changes" class="section level2">
 <h2 class="hasAnchor">
-<a href="#new-functions" class="anchor"></a>New functions</h2>
+<a href="#major-changes" class="anchor"></a>Major changes</h2>
 <ul>
-<li>
-<code>check_prob</code> checks if an object is a numeric vector of valid probability values.</li>
-<li>
-<code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</li>
-<li>
-<code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_log_bf</code> but does not require values to be non-negative.</li>
+<li><p><code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> now have a <code>scale</code> argument to choose the Bayes factor interpretation scale to be used. The default <code>scale</code> is <code>"Jeffreys"</code>, which means that <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf)</a></code> gives the same output as <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "Jeffreys")</a></code>. Therefore, by default, <code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> give the same output as they did in <code>pcal</code> 1.0.0.</p></li>
+<li><p><code>bfactor_interpret_kr</code> and <code>bfactor_log_interpret_kr</code> have been deprecated. <code>bfactor_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "kass-raftery")</a></code> and <code>bfactor_log_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret(bf, scale = "kass-raftery")</a></code>.</p></li>
 </ul>
 </div>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h2>
 <ul>
-<li>Improved documentation.</li>
-<li>Improved code readability.</li>
-<li>More unit tests.</li>
+<li><p>Improved README.</p></li>
+<li><p>Improved documentation.</p></li>
+<li><p>Improved code readability.</p></li>
+<li><p>Improved code efficiency.</p></li>
+<li><p>More unit tests.</p></li>
 </ul>
+</div>
+<div id="new-internal-functions" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-internal-functions" class="anchor"></a>New internal functions</h2>
+<p>The following internal functions are now documented and exported:</p>
+<ul>
+<li><p><code>check_prob</code> checks if an object is a numeric vector of valid probability values.</p></li>
+<li><p><code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</p></li>
+<li><p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_bf</code> but does not require values to be non-negative.</p></li>
+<li><p><code>check_log_base</code> checks if an object is a vector of <code>length</code> 1 representing a valid logarithmic base.</p></li>
+<li><p><code>check_scale</code> checks if an object is a string of characters representing one of the Bayes factor interpretation scales available in the <code>pcal</code> package.</p></li>
+</ul>
+<p>These are helper functions that are useful to validate inputs, intermediate calculations and outputs in user-defined functions.</p>
 </div>
 </div>
     <div id="pcal-100" class="section level1">
