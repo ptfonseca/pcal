@@ -31,7 +31,7 @@ The following internal functions are now documented and exported:
  
  * `check_log_bf` checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to `check_bf` but does not require values to be non-negative. 
  
- * `check_log_base` checks if an object is a vector of `length` 1 representing a valid logarithmic base.
+ * `check_log_base` checks if an object is a numeric vector of `length` 1 representing a valid logarithmic base.
  
  * `check_scale` checks if an object is a string of characters representing one of the Bayes factor interpretation scales available in the `pcal` package.
  
