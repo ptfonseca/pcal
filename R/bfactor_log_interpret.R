@@ -34,7 +34,7 @@
 #'
 #' To interpret base `base` logarithms of Bayes factors according to the latter table use `scale = "kass-raftery"`.
 #'
-#' When comparing Bayes factors with results of standard likelihood ratio tests it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_log_interpret` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_log_interpret(1/bf)` or `bfactor_log_interpret(1/bf, scale = "kass-raftery")` to obtain the strength of the evidence against the null hypothesis.
+#' When comparing Bayes factors with results from standard likelihood ratio tests it is convenient to put the null hypothesis in the denominator of the Bayes factor so that `bfactor_log_interpret` returns the strength of the evidence against the null hypothesis. If `bf` was obtained with the null hypothesis on the numerator, one can use `bfactor_log_interpret(1/bf)` or `bfactor_log_interpret(1/bf, scale = "kass-raftery")` to obtain the strength of the evidence against the null hypothesis.
 #'
 #' @return Returns a character vector with the same  \code{\link[base]{length}} as `bf`.
 #'
