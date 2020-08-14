@@ -52,7 +52,7 @@
 bfactor_to_prob <- function(bf, prior_prob = .5) {
 
   check_bf(bf)
-  check_prior_prob(prior_prob)
+  check_prob(prior_prob, allow_nas = FALSE)
 
   if(isTRUE(length(bf) > 1) && isFALSE(length(prior_prob) %in% c(1, length(bf)))){
     stop("Invalid argument: if length(bf) > 1 then length(prior_prob) can only be 1 or equal to length(bf)")

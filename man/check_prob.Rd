@@ -4,7 +4,7 @@
 \alias{check_prob}
 \title{Check if an object is a vector of valid probability values}
 \usage{
-check_prob(p)
+check_prob(p, allow_nas = TRUE)
 }
 \arguments{
 \item{p}{An arbitrary object.}
@@ -58,6 +58,7 @@ check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 \item \code{\link[pcal]{check_bf}} to check if an object is a numeric vector of valid Bayes factor values.
 \item \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
 \item \code{\link[pcal]{check_log_base}} to check if an object is a vector of \code{\link[base]{length}} 1 representing a valid logarithmic base.
+\item \code{\link[pcal]{check_scale}} to check if an object is a string of characters representing one of the Bayes factor interpretation scales available in the \code{pcal} package.
 }
 }
 \keyword{internal}
