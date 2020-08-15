@@ -32,7 +32,7 @@
 #' check_prob(1)
 #' check_prob(c(0.1, 0.2, 0.3, 0.4, 0.5))
 #'
-#' # Call that throws an informative warning message:
+#' # Calls that throw an informative warning message:
 #' \dontrun{check_prob(c(0.1, 0.2, NA, 0.4, 0.5))}
 #' \dontrun{check_prob(c(0.1, 0.2, NA, 0.4, 0.5), allow_nas = TRUE)}
 #'
