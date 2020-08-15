@@ -97,8 +97,8 @@ check_prob <- function(p, allow_nas = TRUE){
 #'
 #' @return `check_bf` does not return any output. There are three possible scenarios:
 #' * The call is silent if `bf` is a numeric vector of valid Bayes factor values and there are no `NA` or `NaN` values.
-#' * An informative warning message is given if `p` is a numeric vector of valid Bayes factor values and there are `NA` or `NaN` values.
-#' * An informative error message is thrown if `p` is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution.
+#' * An informative warning message is given if `bf` is a numeric vector of valid Bayes factor values and there are `NA` or `NaN` values.
+#' * An informative error message is thrown if `bf` is not a numeric vector of valid Bayes factor values. This will \code{\link[base]{stop}} the execution.
 #'
 #' @seealso
 #' * \code{\link[pcal]{check_log_bf}} to check if an object is a numeric vector of valid logarithmic Bayes factor values.
