@@ -229,7 +229,7 @@ check_log_bf <- function(bf){
 #'
 #' @description `check_log_base` checks if an object is a numeric vector of \code{\link[base]{length}} 1 that is eligible to be used as a logarithmic base. This can be useful to validate inputs in user-defined functions.
 #'
-#' @param bf An arbitrary object.
+#' @param base An arbitrary object.
 #'
 #' @details `check_log_base` conducts a series of tests to check if `base` is a valid logarithmic base. Namely, `check_log_base` checks if:
 #' * `base` is `NULL` or empty.
