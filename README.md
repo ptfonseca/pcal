@@ -12,7 +12,7 @@ Status](https://travis-ci.org/pedro-teles-fonseca/pcal.svg?branch=master)](https
 [![R build
 status](https://github.com/pedro-teles-fonseca/pcal/workflows/R-CMD-check/badge.svg)](https://github.com/pedro-teles-fonseca/pcal/actions)
 ![pkgdown](https://github.com/pedro-teles-fonseca/pcal/workflows/pkgdown/badge.svg)
-[![codecov](https://codecov.io/gh/pedro-teles-fonseca/pcal/branch/master/graph/badge.svg?)](https://codecov.io/gh/pedro-teles-fonseca/pcal)
+[![codecov](https://codecov.io/gh/pedro-teles-fonseca/pcal/branch/master/graph/badge.svg)](https://codecov.io/gh/pedro-teles-fonseca/pcal)
 [![License: GPL
 v3](https://img.shields.io/badge/License-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end -->
