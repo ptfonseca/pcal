@@ -86,7 +86,7 @@
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
-<p>P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The <code>pcal</code> package uses the calibrations developed in Sellke, Bayarri, and Berger</p>
+<p>P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The <code>pcal</code> package uses the calibrations developed by Sellke, Bayarri, and Berger</p>
 <p>(2001) to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret:</p>
 <ul>
 <li><p><code><a href="reference/pcal.html">pcal()</a></code> calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.</p></li>
