@@ -23,7 +23,7 @@ P-values are the most commonly used tool to measure the evidence
 provided by the data against a model or hypothesis. Unfortunately,
 p-values are often incorrectly interpreted as the probability that the
 null hypothesis is true or as type I error probabilities. The `pcal`
-package uses the calibrations developed in Sellke, Bayarri, and Berger
+package uses the calibrations developed by Sellke, Bayarri, and Berger
 (2001) to calibrate p-values under a robust perspective and obtain
 measures of the evidence provided by the data in favor of point null
 hypotheses which are safer and more straightforward interpret:

@@ -27,7 +27,7 @@ library(pcal)
 
 ## Overview
 
-P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The `pcal` package uses the calibrations developed in @sellke2001 to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret: 
+P-values are the most commonly used tool to measure the evidence provided by the data against a model or hypothesis. Unfortunately, p-values are often incorrectly interpreted as the probability that the null hypothesis is true or as type I error probabilities. The `pcal` package uses the calibrations developed by @sellke2001 to calibrate p-values under a robust perspective and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward interpret: 
 
 * `pcal()` calibrates p-values so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or as lower bounds on type I error probabilities. With this calibration one need not fear the misinterpretation of a type I error probability as the probability that the null hypothesis is true because they coincide. Note that the output of this calibration has both Bayesian and Frequentist interpretations.
    
