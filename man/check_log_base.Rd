@@ -7,7 +7,7 @@
 check_log_base(base)
 }
 \arguments{
-\item{bf}{An arbitrary object.}
+\item{base}{An arbitrary object.}
 }
 \value{
 \code{check_log_base} does not return any output. There are two possible scenarios:
