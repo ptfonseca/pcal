@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
 library(pcal)
 ```
 
-# pcal: Calibration of P-Values for Point Null Hypothesis Testing
+# pcal: Calibration of P-Values for Point Null Hypotheses
 
 <!-- badges: start -->
 [![CRAN status](https://www.r-pkg.org/badges/version/pcal)](https://CRAN.R-project.org/package=pcal)

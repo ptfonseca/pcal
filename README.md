@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# pcal: Calibration of P-Values for Point Null Hypothesis Testing
+# pcal: Calibration of P-Values for Point Null Hypotheses
 
 <!-- badges: start -->
 
@@ -14,7 +14,7 @@ status](https://github.com/pedro-teles-fonseca/pcal/workflows/R-CMD-check/badge.
 ![pkgdown](https://github.com/pedro-teles-fonseca/pcal/workflows/pkgdown/badge.svg)
 [![codecov](https://codecov.io/gh/pedro-teles-fonseca/pcal/branch/master/graph/badge.svg)](https://codecov.io/gh/pedro-teles-fonseca/pcal)
 [![License: GPL
-v3](https://img.shields.io/badge/License-GPLv3-brightgreen.svg)](https://www.gnu.org/licenses/gpl-3.0)
+v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 <!-- badges: end -->
 
 ## Overview
