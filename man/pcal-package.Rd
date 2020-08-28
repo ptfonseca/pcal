@@ -8,7 +8,7 @@
 \description{
 Calibrate p-values under a robust perspective using the methods developed by \insertCite{sellke2001;textual}{pcal} and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward to interpret.
 
-For a complete list of functions see \code{library(help = "pcal")}. For tutorials and examples see the \href{https://github.com/pedro-teles-fonseca/pcal/blob/master/README.md}{README}.
+For a complete list of functions see \code{library(help = "pcal")}. For tutorials and examples see the "Usage" section of the \href{https://github.com/pedro-teles-fonseca/pcal/blob/master/README.md}{README}.
 }
 \references{
 \insertAllCited{}
