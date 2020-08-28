@@ -2,15 +2,13 @@
 % Please edit documentation in R/pcal.R
 \docType{package}
 \name{pcal-package}
-\alias{pcal}
 \alias{pcal-package}
-\title{The \{pcal\} Package}
+\alias{_PACKAGE}
+\title{pcal: Calibration of P-Values for Point Null Hypothesis Testing}
 \description{
-Calibration of P-Values for Point Null Hypothesis Testing
+Calibrate p-values under a robust perspective using the methods developed by \insertCite{sellke2001;textual}{pcal} and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward to interpret.
 }
 \details{
-Calibrate p-values under a robust perspective using the methods developed by \insertCite{sellke2001;textual}{pcal} and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward to interpret.
-
 For a complete list of functions see \code{library(help = "pcal")}. For instructions and examples see the "Usage" section of the \href{https://github.com/pedro-teles-fonseca/pcal/blob/master/README.md}{README}.
 }
 \seealso{
