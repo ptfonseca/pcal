@@ -183,11 +183,11 @@
 <span class='fu'>check_prob</span>(<span class='fl'>1</span>)
 <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
 
-<span class='co'># Call that throws an informative warning message:</span>
+<span class='co'># Calls that throw an informative warning message:</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>), allow_nas = <span class='fl'>TRUE</span>)
 
-<span class='co'># Calls that throw informative error messages:</span>
+<span class='co'># Calls that throw an informative error message:</span>
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='kw'>NULL</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fl'>TRUE</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='st'>"0.5"</span>)
@@ -200,6 +200,7 @@
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='op'>-</span><span class='fl'>0.5</span>)
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='op'>-</span><span class='fl'>0.9</span>, <span class='fl'>0</span>, <span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>0.3</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>))
 <span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='fu'>check_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>0.2</span>, <span class='fl'>NA</span>, <span class='fl'>0.4</span>, <span class='fl'>0.5</span>), allow_nas = <span class='fl'>FALSE</span>)
+
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

@@ -170,27 +170,36 @@
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># With a Bayes factor that is indifferent between the null and the alternative hypotheses:</span>
-<span class='fu'>bfactor_to_prob</span>(<span class='fl'>1</span>)</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
+<span class='fu'>bfactor_to_prob</span>(<span class='fl'>1</span>)
+</div><div class='output co'>#&gt; [1] 0.5</div><div class='input'>
 <span class='co'># Same as above but the null hypothesis has high prior probability:</span>
-<span class='fu'>bfactor_to_prob</span>(<span class='fl'>1</span>, <span class='fl'>.99</span>)</div><div class='output co'>#&gt; [1] 0.99</div><div class='input'>
+<span class='fu'>bfactor_to_prob</span>(<span class='fl'>1</span>, <span class='fl'>.99</span>)
+</div><div class='output co'>#&gt; [1] 0.99</div><div class='input'>
 <span class='co'># Posterior probability of the null as a function of different prior probabilities:</span>
-<span class='fu'>bfactor_to_prob</span>(<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>.5</span>, <span class='fl'>1</span>, <span class='fl'>.1</span>))</div><div class='output co'>#&gt; [1] 0.5 0.6 0.7 0.8 0.9 1.0</div><div class='input'>
+<span class='fu'>bfactor_to_prob</span>(<span class='fl'>1</span>, <span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>.5</span>, <span class='fl'>1</span>, <span class='fl'>.1</span>))
+</div><div class='output co'>#&gt; [1] 0.5 0.6 0.7 0.8 0.9 1.0</div><div class='input'>
 <span class='co'># With Bayes factors that favor the null hypothesis:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>2</span>, <span class='fl'>50</span>, <span class='fl'>2.5</span>)), <span class='fl'>3</span>)</div><div class='output co'>#&gt;  [1] 0.667 0.818 0.875 0.905 0.923 0.935 0.944 0.951 0.957 0.961 0.964 0.967
+<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>2</span>, <span class='fl'>50</span>, <span class='fl'>2.5</span>)), <span class='fl'>3</span>)
+</div><div class='output co'>#&gt;  [1] 0.667 0.818 0.875 0.905 0.923 0.935 0.944 0.951 0.957 0.961 0.964 0.967
 #&gt; [13] 0.970 0.972 0.974 0.975 0.977 0.978 0.979 0.980</div><div class='input'>
 <span class='co'># Same as above but the null hypothesis has low prior probability:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>2</span>, <span class='fl'>50</span>, <span class='fl'>2.5</span>), prior_prob = <span class='fl'>.01</span>), <span class='fl'>3</span>)</div><div class='output co'>#&gt;  [1] 0.020 0.043 0.066 0.088 0.108 0.128 0.147 0.165 0.182 0.198 0.214 0.230
+<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>2</span>, <span class='fl'>50</span>, <span class='fl'>2.5</span>), prior_prob = <span class='fl'>.01</span>), <span class='fl'>3</span>)
+</div><div class='output co'>#&gt;  [1] 0.020 0.043 0.066 0.088 0.108 0.128 0.147 0.165 0.182 0.198 0.214 0.230
 #&gt; [13] 0.244 0.258 0.272 0.285 0.298 0.310 0.322 0.333</div><div class='input'>
 <span class='co'># Posterior probabilities obtained with Bayes factors that favor the alternative hypothesis:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.05</span>)), <span class='fl'>3</span>)</div><div class='output co'>#&gt;  [1] 0.000 0.048 0.091 0.130 0.167 0.200 0.231 0.259 0.286 0.310 0.333 0.355
+<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.05</span>)), <span class='fl'>3</span>)
+</div><div class='output co'>#&gt;  [1] 0.000 0.048 0.091 0.130 0.167 0.200 0.231 0.259 0.286 0.310 0.333 0.355
 #&gt; [13] 0.375 0.394 0.412 0.429 0.444 0.459 0.474 0.487 0.500</div><div class='input'>
 <span class='co'># Same as above but the null hypothesis has high prior probability:</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.05</span>), prior_prob = <span class='fl'>.99</span>), <span class='fl'>3</span>)</div><div class='output co'>#&gt;  [1] 0.000 0.832 0.908 0.937 0.952 0.961 0.967 0.972 0.975 0.978 0.980 0.982
+<span class='fu'><a href='https://rdrr.io/r/base/Round.html'>round</a></span>(<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='https://rdrr.io/r/base/seq.html'>seq</a></span>(<span class='fl'>0</span>, <span class='fl'>1</span>, <span class='fl'>.05</span>), prior_prob = <span class='fl'>.99</span>), <span class='fl'>3</span>)
+</div><div class='output co'>#&gt;  [1] 0.000 0.832 0.908 0.937 0.952 0.961 0.967 0.972 0.975 0.978 0.980 0.982
 #&gt; [13] 0.983 0.985 0.986 0.987 0.988 0.988 0.989 0.989 0.990</div><div class='input'>
 <span class='co'># Application: chi-squared goodness-of-fit test,</span>
 <span class='co'># lower bound on the posterior probability of the null hypothesis:</span>
 <span class='kw'>x</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>12</span>, <span class='fl'>41</span>, <span class='fl'>25</span>, <span class='fl'>33</span>), ncol = <span class='fl'>2</span>)
-<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='bcal.html'>bcal</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>x</span>)[[<span class='st'>"p.value"</span>]]), prior_prob = <span class='fl'>.9</span>)</div><div class='output co'>#&gt; [1] 0.7499935</div><div class='input'></div></pre>
+<span class='fu'>bfactor_to_prob</span>(<span class='fu'><a href='bcal.html'>bcal</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>x</span>)[[<span class='st'>"p.value"</span>]]), prior_prob = <span class='fl'>.9</span>)
+</div><div class='output co'>#&gt; [1] 0.7499935</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
