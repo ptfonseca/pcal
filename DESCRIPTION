@@ -16,8 +16,7 @@ URL: https://pedro-teles-fonseca.github.io/pcal/,
 BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
 Encoding: UTF-8
 LazyData: true
-Depends: 
-    R (>= 2.10)
+Depends: R (>= 2.10)
 Imports: Rdpack (>= 0.7)
 Suggests: 
     covr (>= 3.5.0),
