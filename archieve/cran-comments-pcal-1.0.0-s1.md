@@ -34,7 +34,7 @@
 
 Note:
 
-```
+```{r}
 Maintainer: 'Pedro Fonseca <pedro.teles.fonseca@outlook.com>'
 New submission
 ```
