@@ -12,7 +12,3 @@
 #' @keywords internal
 
 "_PACKAGE"
-
-
-
-
