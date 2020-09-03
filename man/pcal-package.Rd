@@ -4,7 +4,7 @@
 \name{pcal-package}
 \alias{pcal-package}
 \alias{_PACKAGE}
-\title{Package 'pcal'}
+\title{pcal: Calibration of P-values for Point Null Hypotheses}
 \description{
 Calibrate p-values under a robust perspective using the methods developed by \insertCite{sellke2001;textual}{pcal} and obtain measures of the evidence provided by the data in favor of point null hypotheses which are safer and more straightforward to interpret.
 }
