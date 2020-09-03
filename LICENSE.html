@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Changelog • pcal</title>
+<title>MIT License • pcal</title>
 
 
 <!-- jquery -->
@@ -18,8 +18,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
 
 <!-- bootstrap-toc -->
-<link rel="stylesheet" href="../bootstrap-toc.css">
-<script src="../bootstrap-toc.js"></script>
+<link rel="stylesheet" href="bootstrap-toc.css">
+<script src="bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
@@ -33,13 +33,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script>
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
 
 
 
 
-<meta property="og:title" content="Changelog" />
+<meta property="og:title" content="MIT License" />
 
 
 
@@ -68,7 +68,7 @@
   </head>
 
   <body data-spy="scroll" data-target="#toc">
-    <div class="container template-news">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -80,7 +80,7 @@
         <span class="icon-bar"></span>
       </button>
       <span class="navbar-brand">
-        <a class="navbar-link" href="../index.html">pcal</a>
+        <a class="navbar-link" href="index.html">pcal</a>
         <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0</span>
       </span>
     </div>
@@ -88,16 +88,16 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="../index.html">
+  <a href="index.html">
     <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">Changelog</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -118,57 +118,19 @@
       </header>
 
 <div class="row">
-  <div class="col-md-9 contents">
+  <div class="contents col-md-9">
     <div class="page-header">
-      <h1 data-toc-skip>Changelog <small></small></h1>
-      <small>Source: <a href='https://github.com/pedro-teles-fonseca/pcal/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
+      <h1>MIT License</h1>
     </div>
 
-    <div id="pcal-110" class="section level1">
-<h1 class="page-header" data-toc-text="1.1.0">
-<a href="#pcal-110" class="anchor"></a>pcal 1.1.0<small> Unreleased </small>
-</h1>
-<p>This is the second CRAN release of <code>pcal</code>.</p>
-<div id="major-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#major-changes" class="anchor"></a>Major changes</h2>
-<ul>
-<li><p><code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> now have a <code>scale</code> argument to choose the Bayes factor interpretation scale to be used. The default <code>scale</code> is <code>"Jeffreys"</code>, which means that <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf)</a></code> gives the same output as <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "Jeffreys")</a></code>. Therefore, by default, <code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> give the same output as they did in <code>pcal</code> 1.0.0.</p></li>
-<li><p><code>bfactor_interpret_kr</code> and <code>bfactor_log_interpret_kr</code> have been deprecated. <code>bfactor_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "kass-raftery")</a></code> and <code>bfactor_log_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret(bf, scale = "kass-raftery")</a></code>.</p></li>
-<li><p>Licence changed from GPL 3.0 to MIT.</p></li>
-</ul>
+<div id="mit-license" class="section level1">
+
+<p>Copyright (c) 2020 Pedro Fonseca</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 </div>
-<div id="minor-changes" class="section level2">
-<h2 class="hasAnchor">
-<a href="#minor-changes" class="anchor"></a>Minor changes</h2>
-<ul>
-<li><p>Improved README.</p></li>
-<li><p>Improved documentation.</p></li>
-<li><p>Improved code readability.</p></li>
-<li><p>Improved code efficiency.</p></li>
-<li><p>More unit tests.</p></li>
-</ul>
-</div>
-<div id="new-internal-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-internal-functions" class="anchor"></a>New internal functions</h2>
-<p>The following internal functions are now documented and exported:</p>
-<ul>
-<li><p><code>check_prob</code> checks if an object is a numeric vector of valid probability values.</p></li>
-<li><p><code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</p></li>
-<li><p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_bf</code> but does not require values to be non-negative.</p></li>
-<li><p><code>check_log_base</code> checks if an object is a numeric vector of <code>length</code> 1 representing a valid logarithmic base.</p></li>
-<li><p><code>check_scale</code> checks if an object is a string of characters representing one of the Bayes factor interpretation scales available in the <code>pcal</code> package.</p></li>
-</ul>
-<p>These are helper functions that are useful to validate inputs, intermediate calculations and outputs in user-defined functions.</p>
-</div>
-</div>
-    <div id="pcal-100" class="section level1">
-<h1 class="page-header" data-toc-text="1.0.0">
-<a href="#pcal-100" class="anchor"></a>pcal 1.0.0<small> 2020-07-06 </small>
-</h1>
-<p>This is the first CRAN release of <code>pcal</code>.</p>
-</div>
+
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
@@ -178,6 +140,7 @@
   </div>
 
 </div>
+
 
 
       <footer>
