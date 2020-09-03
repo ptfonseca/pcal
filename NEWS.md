@@ -9,6 +9,8 @@ This is the second CRAN release of `pcal`.
 
 * `bfactor_interpret_kr` and `bfactor_log_interpret_kr` have been deprecated. `bfactor_interpret_kr(bf)` is now `bfactor_interpret(bf, scale = "kass-raftery")` and `bfactor_log_interpret_kr(bf)` is now `bfactor_log_interpret(bf, scale = "kass-raftery")`.
 
+* Licence changed from GPL 3.0 to MIT.
+
 ## Minor changes
 
 * Improved README.
