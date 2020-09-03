@@ -10,7 +10,7 @@ Description: Calibrate p-values under a robust perspective using the methods dev
     by Sellke, Bayarri, and Berger (2001) <doi:10.1198/000313001300339950> and obtain 
     measures of the evidence provided by the data in favor of point null hypotheses 
     which are safer and more straightforward to interpret.
-License: GPL-3 | file LICENSE
+License: MIT + file LICENSE
 URL: https://pedro-teles-fonseca.github.io/pcal/,
      https://github.com/pedro-teles-fonseca/pcal
 BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
