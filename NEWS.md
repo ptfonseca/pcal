@@ -5,6 +5,10 @@ This is the second CRAN release of `pcal`.
 
 ## Major changes 
 
+* More inforamative error/warning messages.
+
+* Improved unit tests, code redability and efficiency of functions.
+
 * `bfactor_interpret()` and `bfactor_log_interpret()` now have a `scale` argument to choose the Bayes factor interpretation scale to be used. The default `scale` is `"Jeffreys"`, which means that `bfactor_interpret(bf)` gives the same output as `bfactor_interpret(bf, scale = "Jeffreys")`. Therefore, by default, `bfactor_interpret()` and `bfactor_log_interpret()`  give the same output as they did in `pcal` 1.0.0.
 
 * `bfactor_interpret_kr` and `bfactor_log_interpret_kr` have been deprecated. `bfactor_interpret_kr(bf)` is now `bfactor_interpret(bf, scale = "kass-raftery")` and `bfactor_log_interpret_kr(bf)` is now `bfactor_log_interpret(bf, scale = "kass-raftery")`.
