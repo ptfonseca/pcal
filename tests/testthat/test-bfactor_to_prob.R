@@ -211,13 +211,13 @@ test_that("bfactor_to_prob empty prior_prob - factor", {
 })
 
 test_that("bfactor_to_prob NA prior_prob", {
-  expect_error(
+  expect_warning(
     bfactor_to_prob(c(.1, .2), c(.1, NA))
     )
 })
 
 test_that("bfactor_to_prob NaN prior_prob", {
-  expect_error(
+  expect_warning(
     bfactor_to_prob(c(.1, .2), c(.1, NaN))
     )
 })
