@@ -36,7 +36,29 @@
 
 bcal <- function(p) {
 
-  check_prob(p)
+  p_filtered <- p[!is.na(p)]
+
+  if(is.null(p)) {
+    stop("Invalid argument: p is NULL.")
+  }
+  if(any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
+    stop("Invalid argument: p must be an atomic vector.")
+  }
+  if(length(p) == 0) {
+    stop("Invalid argument: p is empty.")
+  }
+  if(all(is.na(p))) {
+    stop("Invalid argument: all elements of p are NA or NaN.")
+  }
+  if(isFALSE(is.numeric(p))) {
+    stop("Invalid argument: p must be numeric.")
+  }
+  if(any(p_filtered < 0, p_filtered > 1)) {
+    stop("Invalid argument: all elements of p must be in the [0, 1] interval.")
+  }
+  if(any(is.na(p))) {
+    warning("There are NA or NaN values in p.")
+  }
 
   ifelse(p == 0, 0,
          ifelse(p < (exp(1) ^ (-1)), -exp(1) * log(p) * p,
@@ -80,20 +102,65 @@ bcal <- function(p) {
 #'
 #' @export
 
-pcal <- function(p, prior_prob = 0.5){
+pcal <- function(p, prior_prob = 0.5) {
 
-  check_prob(p)
-  check_prob(prior_prob, allow_nas = FALSE)
+  p_filtered <- p[!is.na(p)]
 
-  if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))){
-    stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or equal to length(p)")
+  if(is.null(p)) {
+    stop("Invalid argument: p is NULL.")
+  }
+  if(any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
+    stop("Invalid argument: p must be an atomic vector.")
+  }
+  if(length(p) == 0) {
+    stop("Invalid argument: p is empty.")
+  }
+  if(all(is.na(p))) {
+    stop("Invalid argument: all elements of p are NA or NaN.")
+  }
+  if(isFALSE(is.numeric(p))) {
+    stop("Invalid argument: p must be numeric.")
+  }
+  if(any(p_filtered < 0, p_filtered > 1)) {
+    stop("Invalid argument: all elements of p must be in the [0, 1] interval.")
+  }
+  if(any(is.na(p))) {
+    warning("There are NA or NaN values in p.")
+  }
+
+  pp_filtered <- prior_prob[!is.na(prior_prob)]
+
+  if(is.null(prior_prob)) {
+    stop("Invalid argument: prior_prob is NULL.")
+  }
+  if(any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
+    stop("Invalid argument: prior_prob must be an atomic vector.")
+  }
+  if(length(prior_prob) == 0) {
+    stop("Invalid argument: prior_prob is empty.")
+  }
+  if(all(is.na(prior_prob))) {
+    stop("Invalid argument: All elements of prior_prob are NA or NaN.")
+  }
+  if(isFALSE(is.numeric(prior_prob))) {
+    stop("Invalid argument: prior_prob must be numeric.")
+  }
+  if(any(pp_filtered < 0, pp_filtered > 1)) {
+    stop("Invalid argument: all elements of prior_prob must be in the [0, 1] interval.")
+  }
+  if(any(is.na(prior_prob))) {
+    warning("There are NA or NaN values in prior_prob.")
+  }
+
+  if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))) {
+    stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or equal to length(p).")
   }
 
   lb_bf <-  ifelse(p == 0, 0,
-                   ifelse(p < (exp(1) ^ (-1)),-exp(1) * log(p) * p,
+                   ifelse(p < (exp(1) ^ (-1)), -exp(1) * log(p) * p,
                           1))
 
-  (1 + (1 - prior_prob) / prior_prob * (1 / lb_bf)) ^(-1)
+  (1 + (1 - prior_prob) / prior_prob * (1 / lb_bf)) ^ (-1)
 
 }
 
