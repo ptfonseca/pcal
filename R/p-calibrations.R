@@ -1,7 +1,7 @@
 
 #' @title Lower Bounds on Bayes Factors for Point Null Hypotheses
 #'
-#' @description \loadmathjax Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
+#' @description \loadmathjax Calibrate p-values under a robust Bayesian perspective so that they can be directly interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @param p A numeric vector with values in the \[0,1\] interval.
 #'

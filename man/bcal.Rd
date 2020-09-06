@@ -13,7 +13,7 @@ bcal(p)
 \code{bcal} returns a numeric vector with the same \code{\link[base]{length}} as \code{p} and throws a warning message if there are \code{NA} or \code{NaN} values in \code{p}.
 }
 \description{
-\loadmathjax Calibrate p-values under a robust Bayesian perspective so that they can be interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
+\loadmathjax Calibrate p-values under a robust Bayesian perspective so that they can be directly interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 }
 \details{
 \code{bcal} uses the calibration of p-values into lower bounds of Bayes factors developed in \insertCite{sellke2001;textual}{pcal}: \mjdeqn{\operatorname{B}(p) = -\operatorname{e} \, p \, \operatorname{log} (p)}{B(p) = -e p log (p)} for \mjeqn{p < (1/\operatorname{e})}{p < (1/e)} and \mjdeqn{\operatorname{B}(p) = 1}{B(p) = 1} otherwise, where \mjeqn{p}{p} is a  p-value on a classical test statistic and \mjeqn{\operatorname{B}(p)}{B(p)} approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
