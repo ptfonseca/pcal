@@ -133,6 +133,8 @@
 <h2 class="hasAnchor">
 <a href="#major-changes" class="anchor"></a>Major changes</h2>
 <ul>
+<li><p>More inforamative error/warning messages.</p></li>
+<li><p>Improved unit tests, code redability and efficiency of functions.</p></li>
 <li><p><code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> now have a <code>scale</code> argument to choose the Bayes factor interpretation scale to be used. The default <code>scale</code> is <code>"Jeffreys"</code>, which means that <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf)</a></code> gives the same output as <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "Jeffreys")</a></code>. Therefore, by default, <code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> give the same output as they did in <code>pcal</code> 1.0.0.</p></li>
 <li><p><code>bfactor_interpret_kr</code> and <code>bfactor_log_interpret_kr</code> have been deprecated. <code>bfactor_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "kass-raftery")</a></code> and <code>bfactor_log_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret(bf, scale = "kass-raftery")</a></code>.</p></li>
 <li><p>Licence changed from GPL 3.0 to MIT.</p></li>
