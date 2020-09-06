@@ -1,5 +1,6 @@
 
 #' @docType package
+#' @importFrom Rdpack reprompt
 #'
 #' @title pcal: Calibration of P-values for Point Null Hypotheses
 #'
@@ -7,8 +8,9 @@
 #'
 #' @details For a complete list of functions see `library(help = "pcal")`. For instructions and examples see the "Usage" section of the [README](https://github.com/pedro-teles-fonseca/pcal/blob/master/README.md).
 #'
-#' @importFrom Rdpack reprompt
 #' @aliases pcal-package
 #' @keywords internal
 
 "_PACKAGE"
+
+
