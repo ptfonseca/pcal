@@ -66,7 +66,7 @@ bcal <- function(p) {
 
 #' @title Lower Bounds on Posterior Probabilities for Point Null Hypotheses
 #'
-#' @description \loadmathjax Calibrate p-values under a robust perspective so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors.
+#' @description Calibrate p-values under a robust perspective so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors.
 #'
 #' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(p) == 1` then `prior_prob` can be of any positive \code{\link[base]{length}}, but if `length(p) > 1` then the \code{\link[base]{length}} of `prior_prob` can only be `1` or equal to the \code{\link[base]{length}} of `p`.
 #' @inheritParams bcal
