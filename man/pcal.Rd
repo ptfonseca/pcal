@@ -12,7 +12,7 @@ pcal(p, prior_prob = 0.5)
 \item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p) == 1} then \code{prior_prob} can be of any positive \code{\link[base]{length}}, but if \code{length(p) > 1} then the \code{\link[base]{length}} of \code{prior_prob} can only be \code{1} or equal to the \code{\link[base]{length}} of \code{p}.}
 }
 \value{
-If \code{length(p) > 1} then \code{pcal} returns a numeric vector with the same \code{\link[base]{length}} as \code{p}, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as \code{prior_prob}. Warning messages are thrown if there are \code{NA} or \code{NaN} values in \code{p} or \code{prior_prob}.
+If \code{length(p) > 1} then \code{pcal} returns a numeric vector with the same \code{\link[base]{length}} as \code{p}, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as \code{prior_prob}. Warning messages are thrown if there are \code{NA} or \code{NaN} values in \code{p} or in \code{prior_prob}.
 }
 \description{
 \loadmathjax Calibrate p-values under a robust perspective so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors.

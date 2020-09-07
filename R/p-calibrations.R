@@ -79,7 +79,7 @@ bcal <- function(p) {
 #'
 #' \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
 #'
-#' @return If `length(p) > 1` then `pcal` returns a numeric vector with the same \code{\link[base]{length}} as `p`, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as `prior_prob`. Warning messages are thrown if there are `NA` or `NaN` values in `p` or `prior_prob`.
+#' @return If `length(p) > 1` then `pcal` returns a numeric vector with the same \code{\link[base]{length}} as `p`, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as `prior_prob`. Warning messages are thrown if there are `NA` or `NaN` values in `p` or in `prior_prob`.
 #'
 #' @references
 #' \insertAllCited{}

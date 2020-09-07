@@ -1,16 +1,20 @@
 
 #' @title Turn Bayes Factors Into Posterior Probabilities
 #'
-#' @description Update the prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
+#' @description \loadmathjax Update prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
 #'
 #' @param bf A numeric vector of non-negative values.
 #' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(bf) == 1` then `prior_prob` can be of any positive \code{\link[base]{length}}, but if `length(bf) > 1` then the \code{\link[base]{length}} of `prior_prob` can only be `1` or equal to the \code{\link[base]{length}} of `bf`.
 #'
-#' @details `bfactor_to_prob` computes the posterior probability of the null hypothesis using the following equation from \insertCite{bergerDelampady1987;textual}{pcal}: \deqn{P(\textrm{null} \, \textrm{hypothesis}|\textrm{data}) = \left(1 + \frac{1 - {null\_prob}}{null\_prob} \times \frac{1}{bf}\right)^{-1}}{P(null hypothesis | data) = (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^(-1)} where `bf` is a Bayes factor if favor of the null hypothesis and `prior_prob` is the prior probability of the null hypothesis. The alternative hypothesis has prior probability `1 - prior_prob` and posterior probability `1 - bfactor_to_prob(bf, prior_prob)`.
+#' @details `bfactor_to_prob` computes posterior probabilities of hypotheses using a vectorized version of the following equation from \insertCite{bergerDelampady1987;textual}{pcal}:
+#'
+#' \mjdeqn{\operatorname{P} \left( \operatorname{H_0} | x \right) = \left( 1 + \frac{1 - \pi_0}{\pi_0} \, \frac {1}{\operatorname{B}_{01} \left( x \right) } \right) ^{-1}}{1111}
+#'
+#' where \mjeqn{\operatorname{B}_{01} \left( x \right)}{1111} is a Bayes factor if favor of the null hypothesis given the data \mjeqn{x}{x}, \mjeqn{\pi_0}{pi_0} is the prior probability of the null hypothesis and \mjeqn{1 - \pi_0}{1 - pi_0} is the prior probability of the alternative hypothesis. Using `bfactor_to_prob`, the posterior probabilities of the null hypotheses can be obtained with `bfactor_to_prob(bf, prior_prob)` and the posterior probabilities of the alternative hypotheses can be obtained with `bfactor_to_prob(bf, prior_prob)`.
 #'
 #' The `prior_prob` argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. `prior_prob` can only be of \code{\link[base]{length}} equal to `length(bf)`, in which case each prior probability in `prior_prob` will be updated using the corresponding element of `bf`, or of \code{\link[base]{length}} `1`, in which case it will be recycled (if `length(bf) > 1`) and each element of `bf` will update the same `prior_prob` value.
 #'
-#' @return If `length(bf) > 1` then `bfactor_to_prob` returns a numeric vector with the same \code{\link[base]{length}} as `bf`, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as `prior_prob`.
+#' @return If `length(bf) > 1` then `bfactor_to_prob` returns a numeric vector with the same \code{\link[base]{length}} as `bf`, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as `prior_prob`. Warning messages are thrown if there are `NA` or `NaN` values in `bf` or in `prior_prob`.
 #'
 #' @references
 #' \insertAllCited{}
