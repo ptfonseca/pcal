@@ -1,5 +1,6 @@
 
 #' @docType package
+#' @import mathjaxr
 #' @importFrom Rdpack reprompt
 #'
 #' @title pcal: Calibration of P-values for Point Null Hypotheses
