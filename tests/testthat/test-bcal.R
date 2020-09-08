@@ -1,7 +1,7 @@
 
 context("bcal - function")
 
-test_that("bcal article table", {
+test_that("bcal table sellke (2001)", {
   expect_equal(
     round(bcal(c(0.2, 0.1, 0.05, 0.01)), 3),
     c(0.875, 0.626, 0.407, 0.125)
