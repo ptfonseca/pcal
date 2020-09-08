@@ -23,7 +23,7 @@ This is the second CRAN release of `pcal`.
 
 * Improved code efficiency. 
 
-* More unit tests.
+* Improved unit tests.
 
 * Improved README.
 
