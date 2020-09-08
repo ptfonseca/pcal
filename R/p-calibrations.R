@@ -250,5 +250,4 @@ pcal <- function(p, prior_prob = 0.5) {
                           1))
 
   (1 + (1 - prior_prob) / prior_prob * (1 / lb_bf)) ^ (-1)
-
 }

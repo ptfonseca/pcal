@@ -28,7 +28,7 @@
 #' is the prior probability of the alternative hypothesis.
 #'
 #' If `bf` is a vector of Bayes factors (in favor of the null hypothesis)
-#' and `prior_prob` is a vector with the prior probabilities of those same
+#' and `prior_prob` is a vector with the prior probabilities of those
 #' hypotheses then `bfactor_to_prob(bf, prior_prob)` updates `prior_prob`
 #' to posterior probabilities. The posterior probabilities of the alternative
 #' hypotheses can be obtained with  `1 - bfactor_to_prob(bf, prior_prob)`.
@@ -156,5 +156,4 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
   }
 
   (1 + (1 - prior_prob) / prior_prob * (1 / bf)) ^ (-1)
-
 }
