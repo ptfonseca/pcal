@@ -15,14 +15,14 @@ bfactor_to_prob(bf, prior_prob = 0.5)
 If \code{length(bf) > 1} then \code{bfactor_to_prob} returns a numeric vector with the same \code{\link[base]{length}} as \code{bf}, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as \code{prior_prob}. Warning messages are thrown if there are \code{NA} or \code{NaN} values in \code{bf} or in \code{prior_prob}.
 }
 \description{
-\loadmathjax Update prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
+Update prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
 }
 \details{
-\code{bfactor_to_prob} computes posterior probabilities of hypotheses using a vectorized version of the following equation from \insertCite{bergerDelampady1987;textual}{pcal}:
+\code{bfactor_to_prob} turns Bayes factors into posterior probabilities using a vectorized version of the following equation from \insertCite{bergerDelampady1987;textual}{pcal}:
 
-\mjdeqn{\operatorname{P} \left( \operatorname{H_0} | x \right) = \left( 1 + \frac{1 - \pi_0}{\pi_0} \, \frac {1}{\operatorname{B}_{01} \left( x \right) } \right) ^{-1}}{P(H_0 | x) = (1 + ((1 - pi_0) / pi_0) * (1 / B_01(x)))^(-1)}
+\deqn{P(H_0 | x) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \frac{1}{B_{01}(x)} \right)^{-1}}{P(H_0 | x) = (1 + ( (1 - pi_0) / pi_0) * (1 / B_01(x) ) )^(-1)}
 
-where \mjeqn{ \operatorname{B}_{01} \left( x \right) }{B_01(x)} is a Bayes factor if favor of the null hypothesis given the data \mjeqn{ x }{x}, \mjeqn{ \pi_0 }{pi_0} is the prior probability of the null hypothesis and \mjeqn{ 1 - \pi_0 }{1 - pi_0} is the prior probability of the alternative hypothesis. Using \code{bfactor_to_prob}, the posterior probabilities of the null hypotheses can be obtained with \code{bfactor_to_prob(bf, prior_prob)} and the posterior probabilities of the alternative hypotheses can be obtained with \code{1 - bfactor_to_prob(bf, prior_prob)}.
+where \eqn{B_{01}(x)}{B_01(x)} is a Bayes factor if favor of the null hypothesis (given the data \eqn{x}), \eqn{\pi_0}{pi_0} is the prior probability of the null hypothesis and \eqn{1 - \pi_0}{1 - pi_0} is the prior probability of the alternative hypothesis. Using \code{bfactor_to_prob}, the posterior probabilities of the null hypotheses can be obtained with \code{bfactor_to_prob(bf, prior_prob)} and the posterior probabilities of the alternative hypotheses can be obtained with \code{1 - bfactor_to_prob(bf, prior_prob)}.
 
 The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{\link[base]{length}} equal to \code{length(bf)}, in which case each prior probability in \code{prior_prob} will be updated using the corresponding element of \code{bf}, or of \code{\link[base]{length}} \code{1}, in which case it will be recycled (if \code{length(bf) > 1}) and each element of \code{bf} will update the same \code{prior_prob} value.
 }

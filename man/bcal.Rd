@@ -10,25 +10,28 @@ bcal(p)
 \item{p}{A numeric vector with values in the [0,1] interval.}
 }
 \value{
-\code{bcal} returns a numeric vector with the same \code{\link[base]{length}} as \code{p} and throws a warning message if there are \code{NA} or \code{NaN} values in \code{p}.
+\code{bcal} returns a numeric vector with the same \code{\link[base]{length}} as \code{p}. A warning message is thrown if there are \code{NA} or \code{NaN} values in \code{p}.
 }
 \description{
-\loadmathjax Calibrate p-values under a robust Bayesian perspective so that they can be directly interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
+Calibrate p-values under a robust Bayesian perspective so that they can be directly interpreted as lower bounds on Bayes factors in favor of point null hypotheses.
 }
 \details{
-\code{bcal} is a vectorized implementation of the calibration of p-values into lower bounds of Bayes factors developed in \insertCite{sellke2001;textual}{pcal}: \mjdeqn{\operatorname{B}(p) = -\operatorname{e} \, p \, \operatorname{log} (p)}{B(p) = -e p log(p)} for \mjeqn{p < (1/\operatorname{e})}{p < (1 / e)} and \mjdeqn{\operatorname{B}(p) = 1}{B(p) = 1} otherwise, where \mjeqn{p}{p} is a  p-value on a classical test statistic and \mjeqn{\operatorname{B}(p)}{B(p)} approximates the smallest Bayes factor that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
+\code{bcal} is a vectorized implementation of the calibration of p-values into lower bounds for Bayes factors developed by \insertCite{sellke2001;textual}{pcal}. The calibration is: \deqn{B(p) = -e \, p \, log(p)}{B(p) = -e p log(p)} for \eqn{p < (1 / e)},  where \eqn{p} is a  p-value on a classical test statistic, and \eqn{B(p) = 1} otherwise. \eqn{B(p)} should be interpreted as an approximation to the lower bound of the Bayes factor (in favor of the null hypothesis) that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.
 
 \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model/hypothesis with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size and hence the lower bounds obtained with large samples may be conservative.
 }
 \examples{
 # Calibration of a typical "threshold" p-value:
+#----------------------------------------------
 bcal(.05)
 
 # Calibration of typical "threshold" p-values:
+#---------------------------------------------
 bcal(c(.1, .05, .01, .005, .001))
 
 # Application: chi-squared goodness-of-fit test,
 # lower bound on the Bayes factor in favor of the null hypothesis:
+#-----------------------------------------------------------------
 data <- matrix(c(18, 12, 10, 12, 10, 23), ncol = 2)
 bcal(chisq.test(data)[["p.value"]])
 

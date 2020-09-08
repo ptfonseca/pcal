@@ -18,23 +18,24 @@ If \code{length(p) > 1} then \code{pcal} returns a numeric vector with the same 
 Calibrate p-values under a robust perspective so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors.
 }
 \details{
-\insertCite{sellke2001;textual}{pcal} developed the following calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses (or lower bounds for the probabilities of type I errors): \mjdeqn{\alpha(p) = (1 + \lbrack -e \,  p \operatorname{log}(p) \rbrack^{-1})^{-1}}{alpha(p) = (1 + [-e p log(p)]^(-1))^(-1)} where \mjeqn{p}{p} is a  p-value on a classical test statistic. This calibration assumes that both the null and the alternative hypotheses have 0.5 prior probability. We generalized the aforementioned calibration for prior probabilities other than 0.5: \mjdeqn{\alpha(p) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p \operatorname{log}(p) \rbrack^{-1}\right)^{-1}}{alpha(p) = (1 + (1 - pi_0)/pi_0 [-e p log(p)]^(-1))^(-1)} where \mjeqn{\pi_0}{pi_0} is the prior probability of the null hypothesis and the alternative hypothesis has prior protability \mjeqn{1 - \pi_0}{1 - pi_0}. \code{pcal} is a vectorized implementation of the latter formula. Note that \code{pcal(p, prior_prob)} is equivalent to \code{\link[pcal]{bfactor_to_prob}(\link[pcal]{bcal}(p), prior_prob)}.
+\code{pcal} is a vectorized implementation of the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses (or lower bounds for the probabilities of type I errors) developed by \insertCite{sellke2001;textual}{pcal}: \deqn{\alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}}{\alpha(p) = (1 + [-e p log(p)]^(-1))^(-1)} where \eqn{p} is a  p-value on a classical test statistic. This calibration assumes that both the null and the alternative hypotheses have 0.5 prior probability. We generalized the aforementioned calibration for prior probabilities other than 0.5: \deqn{\alpha(p) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}\right)^{-1}}{\alpha(p) = (1 + (1 - \pi_0)/\pi_0 [-e  p log(p)]^(-1))^(-1)} where \eqn{\pi_0} is the prior probability of the null hypothesis and the alternative hypothesis has prior probability \eqn{1 - \pi_0}.
 
-For each element of \code{p}, \code{pcal} returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.  Alternatively, the output of \code{pcal} can also be interpreted as lower bounds on the probabilities of type I errors, which means that this calibration has both Bayesian and Frequentist interpretations.
+For each element of \code{p}, \code{pcal} returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.  Alternatively, the output of \code{pcal} can also be interpreted as lower bounds on the probabilities of type I errors, which means that this calibration has both Bayesian and Frequentist interpretations. \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
 
-The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{\link[base]{length}} equal to  the \code{length} of \code{p}, in which case each prior probability in \code{prior_prob} is used in the calibration of the corresponding element of \code{p}, or of \code{\link[base]{length}} \code{1}, in which case it will be recycled (if \code{length(p) > 1}) and the same \code{prior_prob} value is used in the calibration of all the elements of \code{p}.
-
-\insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
+The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{\link[base]{length}} equal to  the \code{length} of \code{p}, in which case each prior probability in \code{prior_prob} is used in the calibration of the corresponding element of \code{p}, or of \code{\link[base]{length}} \code{1}, in which case it will be recycled (if \code{length(p) > 1}) and the same \code{prior_prob} value is used in the calibration of all the elements of \code{p}.  Note that \code{pcal(p, prior_prob)} is equivalent to \code{\link[pcal]{bfactor_to_prob}(\link[pcal]{bcal}(p), prior_prob)}.
 }
 \examples{
 # Calibration of a typical "threshold" p-value:
+#----------------------------------------------
 pcal(.05)
 
 # Calibration of typical "threshold" p-values:
+#---------------------------------------------
 pcal(c(.1, .05, .01, .005, .001))
 
 # Application: chi-squared goodness-of-fit test,
 # lower bound on the posterior probability of the null hypothesis:
+#-----------------------------------------------------------------
 data <- matrix(c(18, 12, 10, 12, 10, 23), ncol = 2)
 pcal(chisq.test(data)[["p.value"]])
 
