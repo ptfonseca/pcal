@@ -177,7 +177,7 @@ is the prior probability of the alternative hypothesis.</p>
 and <code>prior_prob</code> is a vector with the prior probabilities of those
 hypotheses then <code>bfactor_to_prob(bf, prior_prob)</code> updates <code>prior_prob</code>
 to posterior probabilities. The posterior probabilities of the alternative
-hypotheses can be obtained with  <code>1 - bfactor_to_prob(bf, prior_prob)</code>.</p>
+hypotheses can be obtained with  1 - <code>bfactor_to_prob(bf, prior_prob)</code>.</p>
 <p>The <code>prior_prob</code> argument is optional and is set to 0.5 by default,
 implying prior equiprobability of hypotheses. <code>prior_prob</code> can only
 be of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> equal to <code><a href='https://rdrr.io/r/base/length.html'>length(bf)</a></code>, in which case

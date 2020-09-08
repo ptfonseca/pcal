@@ -202,20 +202,34 @@ Oxford University Press.<br /><br /> Kass RE, Raftery AE (1995).
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Interpretation of one Bayes factor</span>
 <span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>)
-</div><div class='output co'>#&gt; [1] "Substantial"</div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>, scale = <span class='st'>"jeffreys"</span>)
-</div><div class='output co'>#&gt; [1] "Substantial"</div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>, scale = <span class='st'>"kass-raftery"</span>)
-</div><div class='output co'>#&gt; [1] "Positive"</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Substantial"</div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>, scale = <span class='st'>"jeffreys"</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Substantial"</div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fl'>4</span>, scale = <span class='st'>"kass-raftery"</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Positive"</div><div class='input'>
 <span class='co'># Interpretation of more than one Bayes factors</span>
 <span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>))
-</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>), scale = <span class='st'>"jeffreys"</span>)
-</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>), scale = <span class='st'>"kass-raftery"</span>)
-</div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>), scale = <span class='st'>"jeffreys"</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Substantial" "Strong"      "Decisive"   </div><div class='input'><span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>0.1</span>, <span class='fl'>1.2</span>, <span class='fl'>3.5</span>, <span class='fl'>13.9</span>, <span class='fl'>150</span>), scale = <span class='st'>"kass-raftery"</span>)
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Negative"    "Weak"        "Positive"    "Positive"    "Very Strong"</div><div class='input'>
 <span class='co'># Application: chi-squared goodness-of-fit test.</span>
 <span class='co'># Strength of the evidence provided by the lower</span>
 <span class='co'># bound of the Bayes factor in favor of the null hypothesis:</span>
 <span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>18</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>23</span>), ncol = <span class='fl'>2</span>)
 <span class='fu'>bfactor_interpret</span>(<span class='fu'><a href='bcal.html'>bcal</a></span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>data</span>)[[<span class='st'>"p.value"</span>]]))
-</div><div class='output co'>#&gt; [1] "Negative"</div><div class='input'>
+</div><div class='output co'>#&gt; <span class='warning'>Warning: bfactor_interpret' is deprecated. Please use</span>
+#&gt; <span class='warning'>    'polya::bfactor_interpret(bf)'</span>
+#&gt; <span class='warning'>    instead.</span></div><div class='output co'>#&gt; [1] "Negative"</div><div class='input'>
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
