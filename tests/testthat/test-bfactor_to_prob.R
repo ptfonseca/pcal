@@ -142,7 +142,7 @@ test_that("bfactor_to_prob - bf w/ NA 2", {
   )
 })
 
-test_that("bfactor_to_prob  - bf NaN 1", {
+test_that("bfactor_to_prob - bf NaN 1", {
   expect_error(
     bfactor_to_prob(NaN),
     "all elements of bf are NA or NaN."
