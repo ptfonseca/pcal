@@ -194,16 +194,16 @@ bounds for the posterior probabilities of point null hypotheses.</p></li>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># Calibration of a typical "threshold" p-value:</span>
-<span class='co'>#----------------------------------------------</span>
+<span class='co'># ----------------------------------------------------------------</span>
 <span class='fu'>bcal</span>(<span class='fl'>.05</span>)
 </div><div class='output co'>#&gt; [1] 0.4071622</div><div class='input'>
 <span class='co'># Calibration of typical "threshold" p-values:</span>
-<span class='co'>#---------------------------------------------</span>
+<span class='co'># ----------------------------------------------------------------</span>
 <span class='fu'>bcal</span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>.1</span>, <span class='fl'>.05</span>, <span class='fl'>.01</span>, <span class='fl'>.005</span>, <span class='fl'>.001</span>))
 </div><div class='output co'>#&gt; [1] 0.62590752 0.40716223 0.12518150 0.07201160 0.01877723</div><div class='input'>
 <span class='co'># Application: chi-squared goodness-of-fit test,</span>
 <span class='co'># lower bound on the Bayes factor in favor of the null hypothesis:</span>
-<span class='co'>#-----------------------------------------------------------------</span>
+<span class='co'># ----------------------------------------------------------------</span>
 <span class='kw'>data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/matrix.html'>matrix</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>18</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>12</span>, <span class='fl'>10</span>, <span class='fl'>23</span>), ncol = <span class='fl'>2</span>)
 <span class='fu'>bcal</span>(<span class='fu'><a href='https://rdrr.io/r/stats/chisq.test.html'>chisq.test</a></span>(<span class='kw'>data</span>)[[<span class='st'>"p.value"</span>]])
 </div><div class='output co'>#&gt; [1] 0.3757126</div><div class='input'>
