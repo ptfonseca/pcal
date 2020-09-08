@@ -99,11 +99,11 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
   if (is.null(bf)) {
     stop("Invalid argument: bf is NULL.")
   }
-  if (any(isFALSE(is.atomic(bf)), isFALSE(is.vector(bf)))) {
-    stop("Invalid argument: bf must be an atomic vector.")
-  }
   if (length(bf) == 0) {
     stop("Invalid argument: bf is empty.")
+  }
+  if (any(isFALSE(is.atomic(bf)), isFALSE(is.vector(bf)))) {
+    stop("Invalid argument: bf must be an atomic vector.")
   }
   if (all(is.na(bf))) {
     stop("Invalid argument: all elements of bf are NA or NaN.")
@@ -123,11 +123,11 @@ bfactor_to_prob <- function(bf, prior_prob = .5) {
   if (is.null(prior_prob)) {
     stop("Invalid argument: prior_prob is NULL.")
   }
-  if (any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
-    stop("Invalid argument: prior_prob must be an atomic vector.")
-  }
   if (length(prior_prob) == 0) {
     stop("Invalid argument: prior_prob is empty.")
+  }
+  if (any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
+    stop("Invalid argument: prior_prob must be an atomic vector.")
   }
   if (all(is.na(prior_prob))) {
     stop("Invalid argument: All elements of prior_prob are NA or NaN.")
