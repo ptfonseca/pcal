@@ -133,36 +133,26 @@
 <h2 class="hasAnchor">
 <a href="#major-changes" class="anchor"></a>Major changes</h2>
 <ul>
-<li><p>More inforamative error/warning messages.</p></li>
-<li><p>Improved unit tests, code redability and efficiency of functions.</p></li>
-<li><p><code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> now have a <code>scale</code> argument to choose the Bayes factor interpretation scale to be used. The default <code>scale</code> is <code>"Jeffreys"</code>, which means that <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf)</a></code> gives the same output as <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "Jeffreys")</a></code>. Therefore, by default, <code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> give the same output as they did in <code>pcal</code> 1.0.0.</p></li>
-<li><p><code>bfactor_interpret_kr</code> and <code>bfactor_log_interpret_kr</code> have been deprecated. <code>bfactor_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "kass-raftery")</a></code> and <code>bfactor_log_interpret_kr(bf)</code> is now <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret(bf, scale = "kass-raftery")</a></code>.</p></li>
-<li><p>Licence changed from GPL 3.0 to MIT.</p></li>
+<li><p><code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> has been deprecated in favor of <code>polya::bfactor_interpret()</code>.</p></li>
+<li><p><code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> has been deprecated in favor of <code>polya::bfactor_log_interpret()</code>.</p></li>
+<li><p><code>bfactor_interpret_kr</code> has been deprecated. <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "kass-raftery")</a></code> should be used instead.</p></li>
+<li><p><code>bfactor_log_interpret_kr</code> has been deprecated. <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret(bf, scale = "kass-raftery")</a></code> should be used instead.</p></li>
+<li><p><code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> now have a <code>scale</code> argument to choose the Bayes factor interpretation scale to be used. The default <code>scale</code> is <code>"Jeffreys"</code>, which means that <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf)</a></code> gives the same output as <code><a href="../reference/bfactor_interpret.html">bfactor_interpret(bf, scale = "Jeffreys")</a></code>. With the default <code>scale</code> both <code><a href="../reference/bfactor_interpret.html">bfactor_interpret()</a></code> and <code><a href="../reference/bfactor_log_interpret.html">bfactor_log_interpret()</a></code> give the same output as they did in <code>pcal</code> 1.0.0.</p></li>
 </ul>
 </div>
 <div id="minor-changes" class="section level2">
 <h2 class="hasAnchor">
 <a href="#minor-changes" class="anchor"></a>Minor changes</h2>
 <ul>
+<li><p><code><a href="../reference/pcal-package.html">package?pcal</a></code> is now documented.</p></li>
+<li><p>Error and warning messages are now more informative.</p></li>
+<li><p>Improved code efficiency.</p></li>
+<li><p>More unit tests.</p></li>
 <li><p>Improved README.</p></li>
 <li><p>Improved documentation.</p></li>
 <li><p>Improved code readability.</p></li>
-<li><p>Improved code efficiency.</p></li>
-<li><p>More unit tests.</p></li>
+<li><p>Licence changed from GPL 3.0 to MIT.</p></li>
 </ul>
-</div>
-<div id="new-internal-functions" class="section level2">
-<h2 class="hasAnchor">
-<a href="#new-internal-functions" class="anchor"></a>New internal functions</h2>
-<p>The following internal functions are now documented and exported:</p>
-<ul>
-<li><p><code>check_prob</code> checks if an object is a numeric vector of valid probability values.</p></li>
-<li><p><code>check_bf</code> checks if an object is a numeric vector of valid Bayes factor values.</p></li>
-<li><p><code>check_log_bf</code> checks if an object is a numeric vector of valid logarithmic Bayes factor values. It is similar to <code>check_bf</code> but does not require values to be non-negative.</p></li>
-<li><p><code>check_log_base</code> checks if an object is a numeric vector of <code>length</code> 1 representing a valid logarithmic base.</p></li>
-<li><p><code>check_scale</code> checks if an object is a string of characters representing one of the Bayes factor interpretation scales available in the <code>pcal</code> package.</p></li>
-</ul>
-<p>These are helper functions that are useful to validate inputs, intermediate calculations and outputs in user-defined functions.</p>
 </div>
 </div>
     <div id="pcal-100" class="section level1">
