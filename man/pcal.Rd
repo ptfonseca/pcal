@@ -9,20 +9,29 @@ pcal(p, prior_prob = 0.5)
 \arguments{
 \item{p}{A numeric vector with values in the [0,1] interval.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(p) == 1} then \code{prior_prob} can be of any positive \code{\link[base]{length}}, but if \code{length(p) > 1} then the \code{\link[base]{length}} of \code{prior_prob} can only be \code{1} or equal to the \code{\link[base]{length}} of \code{p}.}
+\item{prior_prob}{A numeric vector with values in the [0,1] interval.
+If \code{length(p) == 1} then \code{prior_prob} can be of any positive
+\code{\link[base]{length}}, but if \code{length(p) > 1} then the
+\code{\link[base]{length}} of \code{prior_prob} can only be \code{1} or equal to the
+\code{\link[base]{length}} of \code{p}.}
 }
 \value{
 If \code{length(p) > 1} then \code{pcal} returns a numeric vector with the same \code{\link[base]{length}} as \code{p}, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as \code{prior_prob}. Warning messages are thrown if there are \code{NA} or \code{NaN} values in \code{p} or in \code{prior_prob}.
 }
 \description{
-Calibrate p-values under a robust perspective so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors.
+Calibrate p-values under a robust perspective so that they can
+be directly interpreted as either lower bounds on the posterior probabilities
+of point null hypotheses or lower bounds on the probabilities of type I
+errors.
 }
 \details{
-\code{pcal} is a vectorized implementation of the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses (or lower bounds for the probabilities of type I errors) developed by \insertCite{sellke2001;textual}{pcal}: \deqn{\alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}}{\alpha(p) = (1 + [-e p log(p)]^(-1))^(-1)} where \eqn{p} is a  p-value on a classical test statistic. This calibration assumes that both the null and the alternative hypotheses have 0.5 prior probability. We generalized the aforementioned calibration for prior probabilities other than 0.5: \deqn{\alpha(p) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}\right)^{-1}}{\alpha(p) = (1 + (1 - \pi_0)/\pi_0 [-e  p log(p)]^(-1))^(-1)} where \eqn{\pi_0} is the prior probability of the null hypothesis and the alternative hypothesis has prior probability \eqn{1 - \pi_0}.
+\code{pcal} is a vectorized implementation of the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses (or lower bounds for the probabilities of type I errors) developed by \insertCite{sellke2001;textual}{pcal}. The calibration is: \deqn{\alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}}{\alpha(p) = 1 / ( 1 + ( - e p log(p) ) ^ ( -1 ) )} where \eqn{p} is a  p-value on a classical test statistic. This calibration assumes that both the null and the alternative hypotheses have 0.5 prior probability. We generalized the aforementioned calibration for prior probabilities other than 0.5: \deqn{\alpha(p) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}\right)^{-1}}{\alpha(p) = 1 / ( 1 + ( ( 1 - \pi ) / \pi ) ( - e  p log(p) ) ^ ( -1 ) )} where \eqn{\pi_0}{\pi} is the prior probability of the null hypothesis and \eqn{1 - \pi_0}{1 - \pi} is the prior probability of the alternative hypothesis.
 
 For each element of \code{p}, \code{pcal} returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.  Alternatively, the output of \code{pcal} can also be interpreted as lower bounds on the probabilities of type I errors, which means that this calibration has both Bayesian and Frequentist interpretations. \insertCite{sellke2001;textual}{pcal} noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. \insertCite{pericchiTorres2011;textual}{pcal} warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.
 
-The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{\link[base]{length}} equal to  the \code{length} of \code{p}, in which case each prior probability in \code{prior_prob} is used in the calibration of the corresponding element of \code{p}, or of \code{\link[base]{length}} \code{1}, in which case it will be recycled (if \code{length(p) > 1}) and the same \code{prior_prob} value is used in the calibration of all the elements of \code{p}.  Note that \code{pcal(p, prior_prob)} is equivalent to \code{\link[pcal]{bfactor_to_prob}(\link[pcal]{bcal}(p), prior_prob)}.
+The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{\link[base]{length}} equal to  the \code{length} of \code{p}, in which case each prior probability in \code{prior_prob} is used in the calibration of the corresponding element of \code{p}, or of \code{\link[base]{length}} \code{1}, in which case it will be recycled (if \code{length(p) > 1}) and the same \code{prior_prob} value is used in the calibration of all the elements of \code{p}.
+
+Note that \code{pcal(p, prior_prob)} is equivalent to \code{\link[pcal]{bfactor_to_prob}(\link[pcal]{bcal}(p), prior_prob)}.
 }
 \examples{
 # Calibration of a typical "threshold" p-value:
@@ -45,6 +54,7 @@ pcal(chisq.test(data)[["p.value"]])
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+\item \code{\link[pcal]{bcal}} for a p-value calibration that returns lower
+bounds on Bayes factors in favor of point null hypotheses.
 }
 }
