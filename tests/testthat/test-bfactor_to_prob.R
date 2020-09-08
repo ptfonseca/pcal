@@ -37,7 +37,7 @@ test_that("bfactor_to_prob test 3", {
 
 test_that("bfactor_to_prob test 4", {
   expect_equal(
-    bfactor_to_prob(c(1, 1, 1, 1, 1), prior_prob = seq(.1, .5, .1)),
+   bfactor_to_prob(c(1, 1, 1, 1, 1), prior_prob = seq(.1, .5, .1)),
    seq(.1, .5, .1)
   )
 })
@@ -289,50 +289,3 @@ test_that("bfactor_to_prob -  length(bf) vs length(prior_prob) 3", {
     bfactor_to_prob(c(1, 2), c(.1, .2, .3))
     )
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

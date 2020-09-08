@@ -24,15 +24,61 @@ test_that("pcal 0.001 threshold", {
 
 test_that("pcal bl1", {
   expect_equal(
-    round(pcal(sapply(lapply(lapply(datalist_bl1, table), chisq.test, p = theta_bl1), FUN = "[[", "p.value")), 3),
-    c(0.000, 0.000, 0.000, 0.000, 0.002, 0.002, 0.000, 0.002, 0.000, 0.105, 0.000, 0.002)
+    round(
+      pcal(
+        sapply(
+          lapply(
+            lapply(datalist_bl1, table),
+            chisq.test,
+            p = theta_bl1
+          ),
+        FUN = "[[", "p.value")
+      ),
+    3
+  ),
+  c(
+    0.000,
+    0.000,
+    0.000,
+    0.000,
+    0.002,
+    0.002,
+    0.000,
+    0.002,
+    0.000,
+    0.105,
+    0.000,
+    0.002
+   )
   )
 })
 
 test_that("pcal bl2", {
   expect_equal(
-    round(pcal(sapply(lapply(lapply(datalist_bl2, table), chisq.test, p = theta_bl2), FUN = "[[", "p.value")), 3),
-    c(0.357, 0.481, 0.331, 0.069, 0.453, 0.152, 0.500, 0.346, 0.089, 0.313, 0.461, 0.500)
+    round(
+      pcal(
+        sapply(
+          lapply(
+            lapply(datalist_bl2, table),
+            chisq.test,
+          p = theta_bl2),
+        FUN = "[[", "p.value")),
+      3
+      ),
+    c(
+      0.357,
+      0.481,
+      0.331,
+      0.069,
+      0.453,
+      0.152,
+      0.500,
+      0.346,
+      0.089,
+      0.313,
+      0.461,
+      0.500
+    )
   )
 })
 
@@ -279,22 +325,3 @@ test_that("length(p) vs length(prior_prob) test 2 ", {
     pcal(c(.1, .1), c(.1, .2, .3))
   )
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

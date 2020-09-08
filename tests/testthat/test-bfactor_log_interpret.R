@@ -3,7 +3,21 @@ context("bfactor_log_interpret Jeffreys")
 
 test_that("bfactor_log_interpret test 1", {
   expect_equal(
-    bfactor_log_interpret(c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62), base = 10),
+    bfactor_log_interpret(
+      c(
+        -3.10,
+        -1.78,
+        1.06,
+        -1.40,
+        1.21,
+        0.89,
+        -2.37,
+        1.23,
+        -8.88,
+        3.81,
+        -8.38,
+        0.62),
+      base = 10),
     c(
       "Negative",
       "Negative",
@@ -23,7 +37,9 @@ test_that("bfactor_log_interpret test 1", {
 
 test_that("bfactor_log_interpret test 2", {
   expect_equal(
-    bfactor_log_interpret(c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48), base = 10),
+    bfactor_log_interpret(
+      c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48),
+       base = 10),
     c(
       "Weak",
       "Strong",
@@ -40,16 +56,27 @@ test_that("bfactor_log_interpret test 2", {
 
 test_that("bfactor_log_interpret test 3", {
     expect_equal(
-    bfactor_log_interpret(c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48), base = 10),
-    bfactor_log_interpret(c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48), base = 10, scale = "jeffreys")
+    bfactor_log_interpret(
+      c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48),
+      base = 10),
+    bfactor_log_interpret(
+      c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48),
+      base = 10,
+      scale = "jeffreys")
   )
 })
 
 test_that("bfactor_log_interpret test 4", {
   expect_error(
     expect_equal(
-      bfactor_log_interpret(c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48), base = 10, scale = "kass-raftery"),
-      bfactor_log_interpret(c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48), base = 10, scale = "jeffreys")
+      bfactor_log_interpret(
+        c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48),
+        base = 10,
+        scale = "kass-raftery"),
+      bfactor_log_interpret(
+        c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48),
+        base = 10,
+        scale = "jeffreys")
       )
     )
 })
@@ -386,5 +413,3 @@ test_that("test scale 25", {
     bfactor_interpret(1.23, scale = c("jeffreys", "kass-raftery"))
   )}
 )
-
-

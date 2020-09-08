@@ -89,7 +89,7 @@ test_that("bcal w/ list", {
 
 test_that("bcal w/ p<0", {
   expect_error(
-    bcal(c(.1,-.1)),
+    bcal(c(.1, -.1)),
     "Invalid argument: all elements of p must be in the \\[0, 1\\] interval."
     )
 })
@@ -114,8 +114,3 @@ test_that("p NaN warning", {
     "There are NA or NaN values in p."
     )
 })
-
-
-
-
-

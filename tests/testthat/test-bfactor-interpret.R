@@ -3,7 +3,21 @@ context("bfactor_interpret function - jeffreys")
 
 test_that("bfactor_interpret test 1", {
   expect_equal(
-    bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62)),
+    bfactor_interpret(
+      10 ^ c(
+        -3.10,
+        -1.78,
+        1.06,
+        -1.40,
+        1.21,
+        0.89,
+        -2.37,
+        1.23,
+        -8.88,
+        3.81,
+        -8.38,
+        0.62)
+        ),
     c(
       "Negative",
       "Negative",
@@ -23,7 +37,8 @@ test_that("bfactor_interpret test 1", {
 
 test_that("bfactor_interpret test 2", {
   expect_equal(
-    bfactor_interpret(10 ^ c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48)),
+    bfactor_interpret(
+      10 ^ c(0.07, 1.29, 1.32, -0.62, -1.78, 1.55, -3.02, 1.25, 1.48)),
     c(
       "Weak",
       "Strong",
@@ -40,15 +55,72 @@ test_that("bfactor_interpret test 2", {
 
 test_that("bfactor_interpret scale", {
   expect_equal(
-    bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62)),
-    bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62), scale = "jeffreys")
+    bfactor_interpret(
+      10 ^ c(-3.10,
+       -1.78,
+        1.06,
+        -1.40,
+        1.21,
+        0.89,
+        -2.37,
+        1.23,
+        -8.88,
+        3.81,
+        -8.38,
+        0.62
+        )
+      ),
+    bfactor_interpret(
+      10 ^ c(
+        -3.10,
+        -1.78,
+        1.06,
+        -1.40,
+        1.21,
+        0.89,
+        -2.37,
+        1.23,
+        -8.88,
+        3.81,
+        -8.38,
+        0.62
+      ),
+    scale = "jeffreys")
   )
 })
 
 test_that("bfactor_interpret scale case sensitiveness", {
   expect_equal(
-    bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62), scale = "Jeffreys"),
-    bfactor_interpret(10 ^ c(-3.10, -1.78, 1.06, -1.40, 1.21, 0.89, -2.37, 1.23, -8.88, 3.81, -8.38, 0.62), scale = "jeffreys")
+    bfactor_interpret(
+      10 ^ c(
+        -3.10,
+        -1.78,
+        1.06,
+        -1.40,
+        1.21,
+        0.89,
+        -2.37,
+        1.23,
+        -8.88,
+        3.81,
+        -8.38,
+        0.62),
+      scale = "Jeffreys"),
+    bfactor_interpret(
+      10 ^ c(
+        -3.10,
+        -1.78,
+        1.06,
+        -1.40,
+        1.21,
+        0.89,
+        -2.37,
+        1.23,
+        -8.88,
+        3.81,
+        -8.38,
+        0.62),
+       scale = "jeffreys")
   )
 })
 

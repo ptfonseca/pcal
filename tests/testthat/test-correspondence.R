@@ -28,5 +28,3 @@ test_that("correspondence test 4", {
     bfactor_to_prob(bcal(.1), seq(1, 0, -.05))
   )
 })
-
-
