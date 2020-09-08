@@ -34,7 +34,7 @@ into lower bounds for the posterior probabilities of point null hypotheses
 (or lower bounds for the probabilities of type I errors) developed by
 \insertCite{sellke2001;textual}{pcal}. The calibration is:
 \deqn{
-      \alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}
+      \alpha(p) = (1 + \lbrack -e \,  p \, log(p) \rbrack^{-1})^{-1}
       }{
       \alpha(p) = 1 / ( 1 + ( - e p log(p) ) ^ ( -1 ) )
 }

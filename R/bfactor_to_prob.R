@@ -31,7 +31,7 @@
 #' and `prior_prob` is a vector with the prior probabilities of those
 #' hypotheses then `bfactor_to_prob(bf, prior_prob)` updates `prior_prob`
 #' to posterior probabilities. The posterior probabilities of the alternative
-#' hypotheses can be obtained with  `1 - bfactor_to_prob(bf, prior_prob)`.
+#' hypotheses can be obtained with  1 - `bfactor_to_prob(bf, prior_prob)`.
 #'
 #' The `prior_prob` argument is optional and is set to 0.5 by default,
 #' implying prior equiprobability of hypotheses. `prior_prob` can only

@@ -47,7 +47,7 @@ If \code{bf} is a vector of Bayes factors (in favor of the null hypothesis)
 and \code{prior_prob} is a vector with the prior probabilities of those
 hypotheses then \code{bfactor_to_prob(bf, prior_prob)} updates \code{prior_prob}
 to posterior probabilities. The posterior probabilities of the alternative
-hypotheses can be obtained with  \code{1 - bfactor_to_prob(bf, prior_prob)}.
+hypotheses can be obtained with  1 - \code{bfactor_to_prob(bf, prior_prob)}.
 
 The \code{prior_prob} argument is optional and is set to 0.5 by default,
 implying prior equiprobability of hypotheses. \code{prior_prob} can only
