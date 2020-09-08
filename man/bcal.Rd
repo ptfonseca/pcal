@@ -41,16 +41,16 @@ conservative.
 }
 \examples{
 # Calibration of a typical "threshold" p-value:
-#----------------------------------------------
+# ----------------------------------------------------------------
 bcal(.05)
 
 # Calibration of typical "threshold" p-values:
-#---------------------------------------------
+# ----------------------------------------------------------------
 bcal(c(.1, .05, .01, .005, .001))
 
 # Application: chi-squared goodness-of-fit test,
 # lower bound on the Bayes factor in favor of the null hypothesis:
-#-----------------------------------------------------------------
+# ----------------------------------------------------------------
 data <- matrix(c(18, 12, 10, 12, 10, 23), ncol = 2)
 bcal(chisq.test(data)[["p.value"]])
 

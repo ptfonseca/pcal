@@ -9,49 +9,89 @@ bfactor_to_prob(bf, prior_prob = 0.5)
 \arguments{
 \item{bf}{A numeric vector of non-negative values.}
 
-\item{prior_prob}{A numeric vector with values in the [0,1] interval. If \code{length(bf) == 1} then \code{prior_prob} can be of any positive \code{\link[base]{length}}, but if \code{length(bf) > 1} then the \code{\link[base]{length}} of \code{prior_prob} can only be \code{1} or equal to the \code{\link[base]{length}} of \code{bf}.}
+\item{prior_prob}{A numeric vector with values in the [0,1] interval.
+If \code{length(bf) == 1} then \code{prior_prob} can be of any positive
+\code{\link[base]{length}}, but if \code{length(bf) > 1} then the
+\code{\link[base]{length}} of \code{prior_prob} can only be \code{1}
+or equal to the \code{\link[base]{length}} of \code{bf}.}
 }
 \value{
-If \code{length(bf) > 1} then \code{bfactor_to_prob} returns a numeric vector with the same \code{\link[base]{length}} as \code{bf}, otherwise it returns a numeric vector with the same \code{\link[base]{length}} as \code{prior_prob}. Warning messages are thrown if there are \code{NA} or \code{NaN} values in \code{bf} or in \code{prior_prob}.
+If \code{length(bf) > 1} then \code{bfactor_to_prob} returns a numeric
+vector with the same \code{\link[base]{length}} as \code{bf}, otherwise it
+returns a numeric vector with the same \code{\link[base]{length}} as
+\code{prior_prob}. Warning messages are thrown if there are \code{NA} or \code{NaN}
+values in \code{bf} or in \code{prior_prob}.
 }
 \description{
-Update prior probabilities of models/hypotheses to posterior probabilities using Bayes factors.
+Update prior probabilities of models/hypotheses to posterior
+probabilities using Bayes factors.
 }
 \details{
-\code{bfactor_to_prob} turns Bayes factors into posterior probabilities using a vectorized version of the following equation from \insertCite{bergerDelampady1987;textual}{pcal}:
+\code{bfactor_to_prob} turns Bayes factors into posterior
+probabilities using a vectorized version of the following
+equation from \insertCite{bergerDelampady1987;textual}{pcal}:
 
-\deqn{P(H_0 | x) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \frac{1}{B_{01}(x)} \right)^{-1}}{P(H0 | x) = (1 + ( (1 - \pi) / \pi) (1 / B(x) ) ) ^ ( -1 )}
+\deqn{
+      P(H_0 | x) = \left(
+        1 + \frac{1 - \pi_0}{\pi_0} \, \frac{1}{B_{01}(x)}
+        \right)^{-1}
+      }{
+      P(H0 | x) = (1 + ( (1 - \pi) / \pi) (1 / B(x) ) ) ^ ( -1 )
+}
+where \eqn{B_{01}(x)}{B(x)} is a Bayes factor in favor of the null
+hypothesis (given the data \eqn{x}), \eqn{\pi_0}{\pi} is the prior
+probability of the null hypothesis and \eqn{1 - \pi_0}{1 - \pi}
+is the prior probability of the alternative hypothesis.
 
-where \eqn{B_{01}(x)}{B(x)} is a Bayes factor in favor of the null hypothesis (given the data \eqn{x}), \eqn{\pi_0}{\pi} is the prior probability of the null hypothesis and \eqn{1 - \pi_0}{1 - \pi} is the prior probability of the alternative hypothesis.
+If \code{bf} is a vector of Bayes factors (in favor of the null hypothesis)
+and \code{prior_prob} is a vector with the prior probabilities of those
+hypotheses then \code{bfactor_to_prob(bf, prior_prob)} updates \code{prior_prob}
+to posterior probabilities. The posterior probabilities of the alternative
+hypotheses can be obtained with  \code{1 - bfactor_to_prob(bf, prior_prob)}.
 
-If \code{bf} is a vector of Bayes factors (in favor of the null hypothesis) and \code{prior_prob} is a vector with the prior probabilities of those same hypotheses then \code{bfactor_to_prob(bf, prior_prob)} updates \code{prior_prob} to posterior probabilities. The posterior probabilities of the alternative hypotheses can be obtained with  \code{1 - bfactor_to_prob(bf, prior_prob)}.
-
-The \code{prior_prob} argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. \code{prior_prob} can only be of \code{\link[base]{length}} equal to \code{length(bf)}, in which case each prior probability in \code{prior_prob} will be updated using the corresponding element of \code{bf}, or of \code{\link[base]{length}} \code{1}, in which case it will be recycled (if \code{length(bf) > 1}) and each element of \code{bf} will update the same \code{prior_prob} value.
+The \code{prior_prob} argument is optional and is set to 0.5 by default,
+implying prior equiprobability of hypotheses. \code{prior_prob} can only
+be of \code{\link[base]{length}} equal to \code{length(bf)}, in which case
+each prior probability in \code{prior_prob} will be updated using the
+corresponding element of \code{bf}, or of \code{\link[base]{length}} \code{1},
+in which case it will be recycled (if \code{length(bf) > 1}) and each
+element of \code{bf} will update the same \code{prior_prob} value.
 }
 \examples{
-# With a Bayes factor that is indifferent between the null and the alternative hypotheses:
+# With a Bayes factor that is indifferent between the null
+# and the alternative hypotheses:
+# --------------------------------------------------------
 bfactor_to_prob(1)
 
 # Same as above but the null hypothesis has high prior probability:
+# -----------------------------------------------------------------
 bfactor_to_prob(1, .99)
 
-# Posterior probability of the null as a function of different prior probabilities:
+# Posterior probability of the null hypothesis as a function
+# of the prior probability:
+# -----------------------------------------------------------------
 bfactor_to_prob(1, seq(.5, 1, .1))
 
 # With Bayes factors that favor the null hypothesis:
+# -----------------------------------------------------------------
 round(bfactor_to_prob(seq(2, 50, 2.5)), 3)
 
 # Same as above but the null hypothesis has low prior probability:
+# -----------------------------------------------------------------
 round(bfactor_to_prob(seq(2, 50, 2.5), prior_prob = .01), 3)
 
-# Posterior probabilities obtained with Bayes factors that favor the alternative hypothesis:
+# Posterior probabilities obtained with Bayes factors that
+# favor the alternative hypothesis:
+# -----------------------------------------------------------------
 round(bfactor_to_prob(seq(0, 1, .05)), 3)
 
 # Same as above but the null hypothesis has high prior probability:
+# -----------------------------------------------------------------
 round(bfactor_to_prob(seq(0, 1, .05), prior_prob = .99), 3)
 
 # Application: chi-squared goodness-of-fit test,
 # lower bound on the posterior probability of the null hypothesis:
+# -----------------------------------------------------------------
 x <- matrix(c(12, 41, 25, 33), ncol = 2)
 bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 
@@ -61,6 +101,7 @@ bfactor_to_prob(bcal(chisq.test(x)[["p.value"]]), prior_prob = .9)
 }
 \seealso{
 \itemize{
-\item \code{\link[pcal]{bfactor_interpret}} for the interpretation of Bayes factors.
+\item \code{\link[pcal]{bfactor_interpret}} for the interpretation of
+Bayes factors.
 }
 }

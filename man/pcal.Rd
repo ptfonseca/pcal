@@ -80,16 +80,16 @@ Note that \code{pcal(p, prior_prob)} is equivalent to
 }
 \examples{
 # Calibration of a typical "threshold" p-value:
-#----------------------------------------------
+# ----------------------------------------------------------------
 pcal(.05)
 
 # Calibration of typical "threshold" p-values:
-#---------------------------------------------
+# ----------------------------------------------------------------
 pcal(c(.1, .05, .01, .005, .001))
 
 # Application: chi-squared goodness-of-fit test,
 # lower bound on the posterior probability of the null hypothesis:
-#-----------------------------------------------------------------
+# ----------------------------------------------------------------
 data <- matrix(c(18, 12, 10, 12, 10, 23), ncol = 2)
 pcal(chisq.test(data)[["p.value"]])
 
