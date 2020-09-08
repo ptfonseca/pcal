@@ -23,7 +23,7 @@ of point null hypotheses.
 \code{bcal} is a vectorized implementation of the calibration of
 p-values into lower bounds for Bayes factors developed by
 \insertCite{sellke2001;textual}{pcal}. The calibration is:
-\deqn{B(p) = -e \, p \, log(p)}{B(p) = -e p log(p)} for \eqn{p < 1/e},
+\deqn{B(p) = -e \, p \, log(p)}{B(p) = - e p log(p)} for \eqn{p < 1/e},
 where \eqn{p} is a  p-value on a classical test statistic, and
 \eqn{B(p) = 1} otherwise. \eqn{B(p)} should be interpreted as an
 approximation to the lower bound of the Bayes factor (in favor of the null
