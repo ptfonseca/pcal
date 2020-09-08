@@ -263,7 +263,7 @@ test_that("bfactor_to_prob  - prior_prob > 1", {
     )
 })
 
-test_that("bfactor_to_prob  - proir_prio w/ only NA", {
+test_that("bfactor_to_prob  - prior_prob w/ only NA", {
   expect_error(
     bfactor_to_prob(c(.1, .2), NA),
     "Invalid argument: All elements of prior_prob are NA or NaN."
