@@ -259,6 +259,8 @@ bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
 
 }
 
+# nocov start
+
 #' @title Interpretation of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
@@ -415,6 +417,7 @@ bfactor_log_interpret_kr <- function(bf, base = exp(1)) {
 
 }
 
+# nocov end
 
 
 
