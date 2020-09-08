@@ -44,7 +44,9 @@ calibration assumes that both the null and the alternative hypotheses have
 prior probabilities other than 0.5:
 \deqn{
       \alpha(p) = \left(
-         1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}
+         1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack
+           -e \,  p \, log(p)
+         \rbrack^{-1}
       \right)^{-1}
       }{
       \alpha(p) = 1 / ( 1 + ( ( 1 - \pi ) / \pi ) ( - e p log(p) ) ^ ( -1 ) )
