@@ -213,11 +213,11 @@ pcal <- function(p, prior_prob = 0.5) {
   if (is.null(prior_prob)) {
     stop("Invalid argument: prior_prob is NULL.")
   }
-  if (any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
-    stop("Invalid argument: prior_prob must be an atomic vector.")
-  }
   if (length(prior_prob) == 0) {
     stop("Invalid argument: prior_prob is empty.")
+  }
+  if (any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
+    stop("Invalid argument: prior_prob must be an atomic vector.")
   }
   if (all(is.na(prior_prob))) {
     stop("Invalid argument: All elements of prior_prob are NA or NaN.")
