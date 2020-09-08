@@ -1,13 +1,9 @@
 
-## Release summary
+## Submission summary
 
 * This is the second release of `pcal`. 
 
-* Deprecated functions are now in the `polya` package. 
-
-* This release includes new arguments to some functions, new internal functions (documented and exported), improved documentation, improved code readability, improved code efficieny and more unit testing. 
-
-* `package?pcal` is now documented.
+* This release includes ... 
 
 ## Test environments
 
