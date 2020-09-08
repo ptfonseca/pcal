@@ -157,16 +157,57 @@ If <code>length(p) == 1</code> then <code>prior_prob</code> can be of any positi
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>If <code>length(p) &gt; 1</code> then <code>pcal</code> returns a numeric vector with the same <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> as <code>p</code>, otherwise it returns a numeric vector with the same <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> as <code>prior_prob</code>. Warning messages are thrown if there are <code>NA</code> or <code>NaN</code> values in <code>p</code> or in <code>prior_prob</code>.</p>
+    <p>If <code>length(p) &gt; 1</code> then <code>pcal</code> returns a numeric vector
+with the same <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> as <code>p</code>, otherwise it returns
+a numeric vector with the same <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> as <code>prior_prob</code>.
+Warning messages are thrown if there are <code>NA</code> or <code>NaN</code> values in <code>p</code>
+or in <code>prior_prob</code>.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p><code>pcal</code> is a vectorized implementation of the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses (or lower bounds for the probabilities of type I errors) developed by Sellke et al. (2001)
-. The calibration is: $$\alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}$$ where \(p\) is a  p-value on a classical test statistic. This calibration assumes that both the null and the alternative hypotheses have 0.5 prior probability. We generalized the aforementioned calibration for prior probabilities other than 0.5: $$\alpha(p) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}\right)^{-1}$$ where \(\pi_0\) is the prior probability of the null hypothesis and \(1 - \pi_0\) is the prior probability of the alternative hypothesis.</p>
-<p>For each element of <code>p</code>, <code>pcal</code> returns an  approximation of the smallest posterior probability of the null hypothesis that is found by changing the prior distribution of the parameter of interest (under the alternative hypothesis) over wide classes of distributions.  Alternatively, the output of <code>pcal</code> can also be interpreted as lower bounds on the probabilities of type I errors, which means that this calibration has both Bayesian and Frequentist interpretations. Sellke et al. (2001)
- noted that a scenario in which they definitely recommend this calibration is when investigating fit to the null model with no explicit alternative in mind. Pericchi and Torres (2011)
- warn that despite the usefulness and appropriateness of this p-value calibration it does not depend on sample size, and hence the lower bounds obtained with large samples may be conservative.</p>
-<p>The <code>prior_prob</code> argument is optional and is set to 0.5 by default, implying prior equiprobability of hypotheses. <code>prior_prob</code> can only be of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> equal to  the <code>length</code> of <code>p</code>, in which case each prior probability in <code>prior_prob</code> is used in the calibration of the corresponding element of <code>p</code>, or of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> <code>1</code>, in which case it will be recycled (if <code>length(p) &gt; 1</code>) and the same <code>prior_prob</code> value is used in the calibration of all the elements of <code>p</code>.</p>
-<p>Note that <code>pcal(p, prior_prob)</code> is equivalent to <code><a href='bfactor_to_prob.html'>bfactor_to_prob</a>(<a href='bcal.html'>bcal</a>(p), prior_prob)</code>.</p>
+    <p><code>pcal</code> is a vectorized implementation of the calibration of p-values
+into lower bounds for the posterior probabilities of point null hypotheses
+(or lower bounds for the probabilities of type I errors) developed by
+Sellke et al. (2001)
+. The calibration is:
+$$
+      \alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}
+      $$
+where \(p\) is a  p-value on a classical test statistic. This
+calibration assumes that both the null and the alternative hypotheses have
+0.5 prior probability. We generalized the aforementioned calibration for
+prior probabilities other than 0.5:
+$$
+      \alpha(p) = \left(
+         1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}
+      \right)^{-1}
+      $$
+where \(\pi_0\) is the prior probability of the null hypothesis
+and \(1 - \pi_0\) is the prior probability of the alternative
+hypothesis.</p>
+<p>For each element of <code>p</code>, <code>pcal</code> returns an  approximation of the smallest
+posterior probability of the null hypothesis that is found by changing the
+prior distribution of the parameter of interest (under the alternative
+hypothesis) over wide classes of distributions.  Alternatively, the output
+of <code>pcal</code> can also be interpreted as lower bounds on the probabilities of
+type I errors, which means that this calibration has both Bayesian and
+Frequentist interpretations. Sellke et al. (2001)
+
+noted that a scenario in which they definitely recommend this calibration
+is when investigating fit to the null model with no explicit alternative
+in mind. Pericchi and Torres (2011)
+ warn that despite
+the usefulness and appropriateness of this p-value calibration it does not
+depend on sample size, and hence the lower bounds obtained with large
+samples may be conservative.</p>
+<p>The <code>prior_prob</code> argument is optional and is set to 0.5 by default,
+implying prior equiprobability of hypotheses. <code>prior_prob</code> can only be
+of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> equal to  the <code>length</code> of <code>p</code>, in which
+case each prior probability in <code>prior_prob</code> is used in the calibration
+of the corresponding element of <code>p</code>, or of <code><a href='https://rdrr.io/r/base/length.html'>length</a></code> <code>1</code>,
+in which case it will be recycled (if <code>length(p) &gt; 1</code>) and the same
+<code>prior_prob</code> value is used in the calibration of all the elements of <code>p</code>.</p>
+<p>Note that <code>pcal(p, prior_prob)</code> is equivalent to
+<code><a href='bfactor_to_prob.html'>bfactor_to_prob</a>(<a href='bcal.html'>bcal</a>(p), prior_prob)</code>.</p>
     <h2 class="hasAnchor" id="references"><a class="anchor" href="#references"></a>References</h2>
 
     <p>Pericchi L, Torres D (2011).
