@@ -1,4 +1,6 @@
 
+# nocov start
+
 #' @title Interpretation of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according to Bayes factor interpretation scales suggested by \insertCite{jeffreys1961;textual}{pcal} and \insertCite{kass1995;textual}{pcal}.
@@ -63,6 +65,13 @@
 #' @export
 
 bfactor_interpret <- function(bf, scale = "jeffreys") {
+
+  .Deprecated(
+    new = "bfactor_interpret",
+    package = "polya",
+    msg = "bfactor_interpret' is deprecated. Please use
+    'polya::bfactor_interpret(bf)'
+    instead.")
 
   if (is.null(bf)){
     stop(paste("Invalid argument: bf is NULL."))
@@ -188,6 +197,13 @@ bfactor_interpret <- function(bf, scale = "jeffreys") {
 
 bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
 
+  .Deprecated(
+    new = "bfactor_log_interpret",
+    package = "polya",
+    msg = "bfactor_log_interpret' is deprecated. Please use
+    'polya::bfactor_log_interpret(bf)'
+    instead.")
+
   if (is.null(bf)){
     stop(paste("Invalid argument: bf is NULL."))
   }
@@ -259,8 +275,6 @@ bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
 
 }
 
-# nocov start
-
 #' @title Interpretation of Bayes factors
 #'
 #' @description Quantify the strength of the evidence provided by the data to a model/hypothesis according a Bayes factor interpretation scale suggested by \insertCite{kass1995;textual}{pcal}.
@@ -308,6 +322,12 @@ bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
 #' @export
 
 bfactor_interpret_kr <- function(bf) {
+
+  .Deprecated(
+    new = "bfactor_interpret",
+    package = "polya",
+    msg = "bfactor_interpret_kr' is deprecated. Please use
+      'polya::bfactor_interpret(bf, scale = kass-raftery)' instead.")
 
   if(is.null(bf)){
     stop("Invalid argument: 'bf' is NULL.")
@@ -384,6 +404,13 @@ bfactor_interpret_kr <- function(bf) {
 #' @export
 
 bfactor_log_interpret_kr <- function(bf, base = exp(1)) {
+
+  .Deprecated(
+    new = "bfactor_log_interpret",
+    package = "polya",
+    msg = "bfactor_log_interpret_kr' is deprecated. Please use
+    'polya::bfactor_log_interpret(bf, scale = kass-raftery)'
+    instead.")
 
   if(is.null(bf)){
     stop("Invalid argument: 'bf' is NULL.")
