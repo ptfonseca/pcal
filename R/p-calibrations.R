@@ -65,11 +65,11 @@ bcal <- function(p) {
   if (is.null(p)) {
     stop("Invalid argument: p is NULL.")
   }
-  if (any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
-    stop("Invalid argument: p must be an atomic vector.")
-  }
   if (length(p) == 0) {
     stop("Invalid argument: p is empty.")
+  }
+  if (any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
+    stop("Invalid argument: p must be an atomic vector.")
   }
   if (all(is.na(p))) {
     stop("Invalid argument: all elements of p are NA or NaN.")
@@ -189,11 +189,11 @@ pcal <- function(p, prior_prob = 0.5) {
   if (is.null(p)) {
     stop("Invalid argument: p is NULL.")
   }
-  if (any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
-    stop("Invalid argument: p must be an atomic vector.")
-  }
   if (length(p) == 0) {
     stop("Invalid argument: p is empty.")
+  }
+  if (any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
+    stop("Invalid argument: p must be an atomic vector.")
   }
   if (all(is.na(p))) {
     stop("Invalid argument: all elements of p are NA or NaN.")
