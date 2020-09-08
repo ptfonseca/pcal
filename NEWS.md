@@ -1,7 +1,7 @@
 
 # pcal 1.1.0
 
-This is the second CRAN release of `pcal`. 
+- This is a minor release, and the second CRAN release of `pcal`. 
 
 ## Major changes 
 
