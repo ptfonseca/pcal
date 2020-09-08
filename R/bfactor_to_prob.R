@@ -53,53 +53,53 @@
 
 bfactor_to_prob <- function(bf, prior_prob = .5) {
 
-  if(is.null(bf)) {
+  if (is.null(bf)) {
     stop("Invalid argument: bf is NULL.")
   }
-  if(any(isFALSE(is.atomic(bf)), isFALSE(is.vector(bf)))) {
+  if (any(isFALSE(is.atomic(bf)), isFALSE(is.vector(bf)))) {
     stop("Invalid argument: bf must be an atomic vector.")
   }
-  if(length(bf) == 0) {
+  if (length(bf) == 0) {
     stop("Invalid argument: bf is empty.")
   }
-  if(all(is.na(bf))) {
+  if (all(is.na(bf))) {
     stop("Invalid argument: all elements of bf are NA or NaN.")
   }
-  if(isFALSE(is.numeric(bf))) {
+  if (isFALSE(is.numeric(bf))) {
     stop("Invalid argument: bf must be numeric.")
   }
-  if(any(bf[!is.na(bf)] < 0)) {
+  if (any(bf[!is.na(bf)] < 0)) {
     stop("Invalid argument: all elements of bf must be non-negative.")
   }
-  if(any(is.na(bf))) {
+  if (any(is.na(bf))) {
     warning("There are NA or NaN values in bf.")
   }
 
   pp_filtered <- prior_prob[!is.na(prior_prob)]
 
-  if(is.null(prior_prob)) {
+  if (is.null(prior_prob)) {
     stop("Invalid argument: prior_prob is NULL.")
   }
-  if(any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
+  if (any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
     stop("Invalid argument: prior_prob must be an atomic vector.")
   }
-  if(length(prior_prob) == 0) {
+  if (length(prior_prob) == 0) {
     stop("Invalid argument: prior_prob is empty.")
   }
-  if(all(is.na(prior_prob))) {
+  if (all(is.na(prior_prob))) {
     stop("Invalid argument: All elements of prior_prob are NA or NaN.")
   }
-  if(isFALSE(is.numeric(prior_prob))) {
+  if (isFALSE(is.numeric(prior_prob))) {
     stop("Invalid argument: prior_prob must be numeric.")
   }
-  if(any(pp_filtered < 0, pp_filtered > 1)) {
+  if (any(pp_filtered < 0, pp_filtered > 1)) {
     stop("Invalid argument: all elements of prior_prob must be in the [0, 1] interval.")
   }
-  if(any(is.na(prior_prob))) {
+  if (any(is.na(prior_prob))) {
     warning("There are NA or NaN values in prior_prob.")
   }
 
-  if(isTRUE(length(bf) > 1) && isFALSE(length(prior_prob) %in% c(1, length(bf)))) {
+  if (isTRUE(length(bf) > 1) && isFALSE(length(prior_prob) %in% c(1, length(bf)))) {
     stop("Invalid argument: if length(bf) > 1 then length(prior_prob) can only be 1 or equal to length(bf).")
   }
 

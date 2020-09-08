@@ -62,25 +62,25 @@ bcal <- function(p) {
 
   p_filtered <- p[!is.na(p)]
 
-  if(is.null(p)) {
+  if (is.null(p)) {
     stop("Invalid argument: p is NULL.")
   }
-  if(any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
+  if (any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
     stop("Invalid argument: p must be an atomic vector.")
   }
-  if(length(p) == 0) {
+  if (length(p) == 0) {
     stop("Invalid argument: p is empty.")
   }
-  if(all(is.na(p))) {
+  if (all(is.na(p))) {
     stop("Invalid argument: all elements of p are NA or NaN.")
   }
-  if(isFALSE(is.numeric(p))) {
+  if (isFALSE(is.numeric(p))) {
     stop("Invalid argument: p must be numeric.")
   }
-  if(any(p_filtered < 0, p_filtered > 1)) {
+  if (any(p_filtered < 0, p_filtered > 1)) {
     stop("Invalid argument: all elements of p must be in the [0, 1] interval.")
   }
-  if(any(is.na(p))) {
+  if (any(is.na(p))) {
     warning("There are NA or NaN values in p.")
   }
 
@@ -91,9 +91,16 @@ bcal <- function(p) {
 
 #' @title Lower Bounds on Posterior Probabilities for Point Null Hypotheses
 #'
-#' @description Calibrate p-values under a robust perspective so that they can be directly interpreted as either lower bounds on the posterior probabilities of point null hypotheses or lower bounds on the probabilities of type I errors.
+#' @description Calibrate p-values under a robust perspective so that they can
+#' be directly interpreted as either lower bounds on the posterior probabilities
+#' of point null hypotheses or lower bounds on the probabilities of type I
+#' errors.
 #'
-#' @param prior_prob A numeric vector with values in the \[0,1\] interval. If `length(p) == 1` then `prior_prob` can be of any positive \code{\link[base]{length}}, but if `length(p) > 1` then the \code{\link[base]{length}} of `prior_prob` can only be `1` or equal to the \code{\link[base]{length}} of `p`.
+#' @param prior_prob A numeric vector with values in the \[0,1\] interval.
+#' If `length(p) == 1` then `prior_prob` can be of any positive
+#' \code{\link[base]{length}}, but if `length(p) > 1` then the
+#' \code{\link[base]{length}} of `prior_prob` can only be `1` or equal to the
+#' \code{\link[base]{length}} of `p`.
 #' @inheritParams bcal
 #'
 #' @details `pcal` is a vectorized implementation of the calibration of p-values into lower bounds for the posterior probabilities of point null hypotheses (or lower bounds for the probabilities of type I errors) developed by \insertCite{sellke2001;textual}{pcal}: \deqn{\alpha(p) = (1 + \lbrack -e \,  p log(p) \rbrack^{-1})^{-1}}{\alpha(p) = (1 + [-e p log(p)]^(-1))^(-1)} where \eqn{p} is a  p-value on a classical test statistic. This calibration assumes that both the null and the alternative hypotheses have 0.5 prior probability. We generalized the aforementioned calibration for prior probabilities other than 0.5: \deqn{\alpha(p) = \left(1 + \frac{1 - \pi_0}{\pi_0} \, \lbrack -e \,  p log(p) \rbrack^{-1}\right)^{-1}}{\alpha(p) = (1 + (1 - \pi_0)/\pi_0 [-e  p log(p)]^(-1))^(-1)} where \eqn{\pi_0} is the prior probability of the null hypothesis and the alternative hypothesis has prior probability \eqn{1 - \pi_0}.
@@ -108,7 +115,8 @@ bcal <- function(p) {
 #' \insertAllCited{}
 #'
 #' @seealso
-#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower bounds on Bayes factors in favor of point null hypotheses.
+#' * \code{\link[pcal]{bcal}} for a p-value calibration that returns lower
+#'   bounds on Bayes factors in favor of point null hypotheses.
 #'
 #' @examples
 #' # Calibration of a typical "threshold" p-value:
@@ -131,53 +139,55 @@ pcal <- function(p, prior_prob = 0.5) {
 
   p_filtered <- p[!is.na(p)]
 
-  if(is.null(p)) {
+  if (is.null(p)) {
     stop("Invalid argument: p is NULL.")
   }
-  if(any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
+  if (any(isFALSE(is.atomic(p)), isFALSE(is.vector(p)))) {
     stop("Invalid argument: p must be an atomic vector.")
   }
-  if(length(p) == 0) {
+  if (length(p) == 0) {
     stop("Invalid argument: p is empty.")
   }
-  if(all(is.na(p))) {
+  if (all(is.na(p))) {
     stop("Invalid argument: all elements of p are NA or NaN.")
   }
-  if(isFALSE(is.numeric(p))) {
+  if (isFALSE(is.numeric(p))) {
     stop("Invalid argument: p must be numeric.")
   }
-  if(any(p_filtered < 0, p_filtered > 1)) {
+  if (any(p_filtered < 0, p_filtered > 1)) {
     stop("Invalid argument: all elements of p must be in the [0, 1] interval.")
   }
-  if(any(is.na(p))) {
+  if (any(is.na(p))) {
     warning("There are NA or NaN values in p.")
   }
 
   pp_filtered <- prior_prob[!is.na(prior_prob)]
 
-  if(is.null(prior_prob)) {
+  if (is.null(prior_prob)) {
     stop("Invalid argument: prior_prob is NULL.")
   }
-  if(any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
+  if (any(isFALSE(is.atomic(prior_prob)), isFALSE(is.vector(prior_prob)))) {
     stop("Invalid argument: prior_prob must be an atomic vector.")
   }
-  if(length(prior_prob) == 0) {
+  if (length(prior_prob) == 0) {
     stop("Invalid argument: prior_prob is empty.")
   }
-  if(all(is.na(prior_prob))) {
+  if (all(is.na(prior_prob))) {
     stop("Invalid argument: All elements of prior_prob are NA or NaN.")
   }
-  if(isFALSE(is.numeric(prior_prob))) {
+  if (isFALSE(is.numeric(prior_prob))) {
     stop("Invalid argument: prior_prob must be numeric.")
   }
-  if(any(pp_filtered < 0, pp_filtered > 1)) {
+  if (any(pp_filtered < 0, pp_filtered > 1)) {
     stop("Invalid argument: all elements of prior_prob must be in the [0, 1] interval.")
   }
-  if(any(is.na(prior_prob))) {
+  if (any(is.na(prior_prob))) {
     warning("There are NA or NaN values in prior_prob.")
   }
 
-  if(isTRUE(length(p) > 1) && isFALSE(length(prior_prob) %in% c(1, length(p)))) {
+  if (isTRUE(
+    length(p) > 1) &&
+    isFALSE(length(prior_prob) %in% c(1, length(p)))) {
     stop("Invalid argument: if length(p) > 1 then length(prior_prob) can only be 1 or equal to length(p).")
   }
 
@@ -188,5 +198,3 @@ pcal <- function(p, prior_prob = 0.5) {
   (1 + (1 - prior_prob) / prior_prob * (1 / lb_bf)) ^ (-1)
 
 }
-
-

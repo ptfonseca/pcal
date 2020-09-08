@@ -64,38 +64,38 @@
 
 bfactor_interpret <- function(bf, scale = "jeffreys") {
 
-  if(is.null(bf)){
+  if (is.null(bf)){
     stop(paste("Invalid argument: bf is NULL."))
   }
-  if(any(!is.numeric(bf), !is.vector(bf))){
+  if (any(!is.numeric(bf), !is.vector(bf))){
     stop(paste("Invalid argument: bf must be a numeric vector."))
   }
-  if(length(bf) == 0){
+  if (length(bf) == 0){
     stop(paste("Invalid argument: bf is empty."))
   }
-  if(all(is.na(bf))){
+  if (all(is.na(bf))){
     stop(paste("Invalid argument: all elements of bf are NA or NaN."))
   }
-  if(any(bf[!is.na(bf)] < 0)){
+  if (any(bf[!is.na(bf)] < 0)){
     stop(paste("Invalid argument: all elements of bf must be non-negative."))
   }
-  if(any(is.na(bf))){
+  if (any(is.na(bf))){
     warning(paste("There are NA or NaN values in bf."))
   }
 
-  if(is.null(scale)){
+  if (is.null(scale)){
     stop(paste("Invalid argument: scale is NULL."))
   }
-  if(any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
+  if (any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
     stop(paste("Invalid argument: scale must be an atomic vector of length 1."))
   }
-  if(is.na(scale)){
+  if (is.na(scale)){
     stop(paste("Invalid argument: scale is NA or NaN."))
   }
-  if(!is.character(scale)){
+  if (!is.character(scale)){
     stop(paste("Invalid argument: the type of scale must be character."))
   }
-  if(isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
+  if (isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
     stop(paste("Invalid argument: scale must be either 'jeffreys' or 'kass-raftery'."))
   }
 
@@ -188,39 +188,39 @@ bfactor_interpret <- function(bf, scale = "jeffreys") {
 
 bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
 
-  if(is.null(bf)){
+  if (is.null(bf)){
     stop(paste("Invalid argument: bf is NULL."))
   }
-  if(any(!is.numeric(bf), !is.vector(bf))){
+  if (any(!is.numeric(bf), !is.vector(bf))){
     stop(paste("Invalid argument: bf must be a numeric vector."))
   }
-  if(length(bf) == 0){
+  if (length(bf) == 0){
     stop(paste("Invalid argument: bf is empty."))
   }
-  if(all(is.na(bf))){
+  if (all(is.na(bf))){
     stop(paste("Invalid argument: all elements of bf are NA or NaN."))
   }
-  if(any(is.na(bf))){
+  if (any(is.na(bf))){
     warning(paste("There are NA or NaN values in bf."))
   }
 
-  if(is.null(scale)){
+  if (is.null(scale)){
     stop(paste("Invalid argument: scale is NULL."))
   }
-  if(any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
+  if (any(!is.vector(scale), !is.atomic(scale), isFALSE(length(scale) == 1))){
     stop(paste("Invalid argument: scale must be an atomic vector of length 1."))
   }
-  if(is.na(scale)){
+  if (is.na(scale)){
     stop(paste("Invalid argument: scale is NA or NaN."))
   }
-  if(!is.character(scale)){
+  if (!is.character(scale)){
     stop(paste("Invalid argument: the type of scale must be character."))
   }
-  if(isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
+  if (isFALSE(tolower(scale) %in% c("jeffreys", "kass-raftery"))){
     stop(paste("Invalid argument: scale must be either 'jeffreys' or 'kass-raftery'."))
   }
 
-  if(any(
+  if (any(
     is.null(base),
     isFALSE(is.vector(base)),
     isFALSE(is.atomic(base)),
@@ -230,7 +230,7 @@ bfactor_log_interpret <- function(bf, scale = "jeffreys", base = exp(1)) {
   ){
     stop(paste("Invalid argument: base must be a numeric vector of length 1."))
   }
-  if(isTRUE(base <= 0)){
+  if (isTRUE(base <= 0)){
     stop(paste("Invalid argument: base must be positive."))
   }
 
