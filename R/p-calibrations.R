@@ -43,16 +43,16 @@
 #'
 #' @examples
 #' # Calibration of a typical "threshold" p-value:
-#' #----------------------------------------------
+#' # ----------------------------------------------------------------
 #' bcal(.05)
 #'
 #' # Calibration of typical "threshold" p-values:
-#' #---------------------------------------------
+#' # ----------------------------------------------------------------
 #' bcal(c(.1, .05, .01, .005, .001))
 #'
 #' # Application: chi-squared goodness-of-fit test,
 #' # lower bound on the Bayes factor in favor of the null hypothesis:
-#' #-----------------------------------------------------------------
+#' # ----------------------------------------------------------------
 #' data <- matrix(c(18, 12, 10, 12, 10, 23), ncol = 2)
 #' bcal(chisq.test(data)[["p.value"]])
 #'
@@ -167,16 +167,16 @@ bcal <- function(p) {
 #'
 #' @examples
 #' # Calibration of a typical "threshold" p-value:
-#' #----------------------------------------------
+#' # ----------------------------------------------------------------
 #' pcal(.05)
 #'
 #' # Calibration of typical "threshold" p-values:
-#' #---------------------------------------------
+#' # ----------------------------------------------------------------
 #' pcal(c(.1, .05, .01, .005, .001))
 #'
 #' # Application: chi-squared goodness-of-fit test,
 #' # lower bound on the posterior probability of the null hypothesis:
-#' #-----------------------------------------------------------------
+#' # ----------------------------------------------------------------
 #' data <- matrix(c(18, 12, 10, 12, 10, 23), ncol = 2)
 #' pcal(chisq.test(data)[["p.value"]])
 #'
