@@ -64,3 +64,7 @@
 | Linux (Xenial)       | R-oldrel   | Passed |
 | Linux (Xenial)       | R-release  | Passed |
 | Linux (Xenial)       | R-devel    | Passed |
+
+## Downstream dependencies
+
+There are currently no downstream dependencies for this package.
