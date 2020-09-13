@@ -82,6 +82,20 @@ test_that("pcal bl2", {
   )
 })
 
+test_that("pcal bl1 pooled", {
+  expect_equal(
+    round(pcal(as.numeric(chisq.test(x = table(unlist(datalist_bl1)), p = theta_bl1)["p.value"])), 3),
+    0
+  )
+})
+
+test_that("pcal bl2 pooled", {
+  expect_equal(
+    round(pcal(as.numeric(chisq.test(x = table(unlist(datalist_bl2)), p = theta_bl2)["p.value"])), 3),
+    0.317
+  )
+})
+
 context("pcal - 'p' error and warning messages")
 
 test_that("p w/ NULL", {
