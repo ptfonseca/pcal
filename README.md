@@ -211,7 +211,7 @@ bfactor_interpret(1/c(0.1, 2, 5, 20, 50, 150))
 If you find a bug, please file an issue with a minimal reproducible
 example on [GitHub](https://github.com/pedro-teles-fonseca/pcal/issues).
 Feature requests are also welcome. You can contact me at
-<pedro.teles.fonseca@outlook.com>.
+<pedro.teles.fonseca@phd.iseg.ulisboa.pt>.
 
 ## References
 
