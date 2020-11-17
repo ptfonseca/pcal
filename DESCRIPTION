@@ -11,9 +11,9 @@ Description: Calibrate p-values under a robust perspective using the methods dev
     measures of the evidence provided by the data in favor of point null hypotheses 
     which are safer and more straightforward to interpret.
 License: MIT + file LICENSE
-URL: https://pedro-teles-fonseca.github.io/pcal/,
-     https://github.com/pedro-teles-fonseca/pcal
-BugReports: https://github.com/pedro-teles-fonseca/pcal/issues
+URL: https://ptfonseca.github.io/pcal/,
+     https://github.com/ptfonseca/pcal
+BugReports: https://github.com/ptfonseca/pcal/issues
 Encoding: UTF-8
 LazyData: true
 Depends: R (>= 2.10)
